@@ -25,10 +25,17 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 armDirection;
     private float angle;
 
+    ///////PRUEBA
+    private EnemySetControl ene;
+
     private void OnEnable()
     {
-        GameManager.Instance.ActualPlayerController = this;
+        ene = GetComponent<EnemySetControl>();
+
+        if (ene == null)
+            GameManager.Instance.ActualPlayerController = this;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +50,15 @@ public class PlayerControl_MovementController : MonoBehaviour
         PlayerControlledMovement(moveHorizontal, moveVertical);
 
         ControlArmRotation();
+
+        if(ene != null)
+        {
+            if(Input.GetButtonDown("Fire3"))
+            {
+                playerRb.velocity = Vector2.zero;
+                ene.UnpossessEnemy();
+            }
+        }
     }
 
     void PlayerControlledMovement(float axisValueX, float axisValueY)

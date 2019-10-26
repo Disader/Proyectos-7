@@ -42,7 +42,7 @@ public class PossessAbility : MonoBehaviour
     {
         if (playerControl_MovementController.armDirection.sqrMagnitude > 0) ////Se lanza Raycast si hay input de rotación registrado en el PlayerControl
         {
-            raycastHit = Physics2D.Raycast(transform.position, transform.right, raycastDistance); ////Actualmente el Raycast tiene siempre la misma distancia, sin intervenir el valor del joystick
+            raycastHit = Physics2D.Raycast(armObject.transform.position, armObject.transform.right, raycastDistance); ////Actualmente el Raycast tiene siempre la misma distancia, sin intervenir el valor del joystick
             Debug.DrawRay(armObject.transform.position, armObject.transform.right * raycastDistance, Color.green);
             playerLineRenderer.SetPosition(1, playerControl_MovementController.armDirection * raycastDistance); ////Actualmente el punto final de LineRenderer se multiplica por el valor del joystick
         }
@@ -81,7 +81,7 @@ public class PossessAbility : MonoBehaviour
         if (enemy_InRaycast != null)
         {
             playerLineRenderer.SetPosition(1, Vector3.zero);
-            enemy_InRaycast.PosssessEnemy(playerControl_MovementController);
+            enemy_InRaycast.PosssessEnemy();
         }
     }
 
