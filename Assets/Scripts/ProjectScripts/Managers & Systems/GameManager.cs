@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : TemporalSingleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    PlayerControl_MovementController m_actualPlayerController;
 
-    // Update is called once per frame
-    void Update()
+    //Se llama a esta variable en el onEnable de playercontrolMovementController
+   public PlayerControl_MovementController ActualPlayerController
     {
-        
+        get {return m_actualPlayerController; }
+        set { m_actualPlayerController = value; }
     }
 }

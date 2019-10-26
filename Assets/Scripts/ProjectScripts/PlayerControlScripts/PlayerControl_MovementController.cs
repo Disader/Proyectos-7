@@ -25,6 +25,10 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 armDirection;
     private float angle;
 
+    private void OnEnable()
+    {
+        GameManager.Instance.ActualPlayerController = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
