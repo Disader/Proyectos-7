@@ -46,9 +46,8 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         if (IsPlayerInSight())
         {
-            var newRot = Quaternion.LookRotation(VectorToPlayer());
-            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.1f);
-
+            var newRot = Quaternion.LookRotation(VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized*2f); //Cálculo de pos de disparo
+            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.1f); //Rotación de enemigo
         }  
     }
     Vector2 VectorToPlayer()
