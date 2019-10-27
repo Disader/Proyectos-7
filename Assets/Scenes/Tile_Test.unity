@@ -1461,8 +1461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6763c4884e68bd64ebba50e45f2ae123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeedX: 0
-  playerSpeedY: 0
+  controlSpeedX: 0
+  controlSpeedY: 0
   maxSpeedX: 0
   maxSpeedY: 0
   accelerationX: 0
