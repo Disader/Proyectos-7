@@ -41,17 +41,17 @@ public class EnemyAI_Standard : MonoBehaviour
         }
     }
     private void LateUpdate()
-    {
-        this.transform.eulerAngles = new Vector3(0, 0, 0);
+    { 
         Aim();
+        this.transform.eulerAngles = new Vector3(0, 0, 0); //mantiene al enemigo sin rotar;
     }
     void Aim()
     {
         if (IsPlayerInSight())
         {
-            var newRot = Quaternion.LookRotation(VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized* m_aimToPlayerMovement); //Cálculo de pos de disparo
-            m_armTransform.rotation = Quaternion.Lerp(m_armTransform.rotation, newRot, 0.1f); //Rotación de enemigo
-        }  
+            m_armTransform.localEulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, VectorToPlayer()));
+
+        }
     }
     Vector2 VectorToPlayer()
     {

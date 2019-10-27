@@ -1327,6 +1327,7 @@ Transform:
   - {fileID: 1294124125}
   - {fileID: 96152127}
   - {fileID: 561150898}
+  - {fileID: 2090331923}
   - {fileID: 630011173}
   - {fileID: 1867860031}
   - {fileID: 45099750}
@@ -1341,15 +1342,15 @@ Transform:
   - {fileID: 931389821}
   - {fileID: 236612750}
   - {fileID: 1669567075}
-  - {fileID: 1523800416}
-  - {fileID: 1286790304}
   - {fileID: 1036306994}
+  - {fileID: 1286790304}
+  - {fileID: 1523800416}
   - {fileID: 1782841864}
+  - {fileID: 1774874233}
   - {fileID: 2065839336}
   - {fileID: 1493479731}
   - {fileID: 61706936}
   - {fileID: 490090918}
-  - {fileID: 1774874233}
   - {fileID: 799907264}
   - {fileID: 595007376}
   - {fileID: 619535491}
@@ -1357,13 +1358,12 @@ Transform:
   - {fileID: 351332887}
   - {fileID: 1359262666}
   - {fileID: 1990029524}
-  - {fileID: 1379469421}
   - {fileID: 24411972}
-  - {fileID: 2090331923}
+  - {fileID: 99387356}
+  - {fileID: 1379469421}
+  - {fileID: 1769114997}
   - {fileID: 546328143}
   - {fileID: 1618139163}
-  - {fileID: 99387356}
-  - {fileID: 1769114997}
   m_Father: {fileID: 561845320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3468,12 +3468,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c99ad795fb0124e9cd7466648a24b0, type: 3}
---- !u!1 &334950181 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8753018605015778761, guid: 50c99ad795fb0124e9cd7466648a24b0,
-    type: 3}
-  m_PrefabInstance: {fileID: 334950180}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &351332886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7479,6 +7473,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1161065066}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1262329230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 373629627010371272, guid: 6754637b084fe47488a9670c458e7094,
+    type: 3}
+  m_PrefabInstance: {fileID: 4387296696464462394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1272510701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10775,6 +10775,6 @@ PrefabInstance:
         type: 3}
       propertyPath: armObject
       value: 
-      objectReference: {fileID: 334950181}
+      objectReference: {fileID: 1262329230}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754637b084fe47488a9670c458e7094, type: 3}
