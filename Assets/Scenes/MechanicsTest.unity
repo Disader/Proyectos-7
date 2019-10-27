@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6763c4884e68bd64ebba50e45f2ae123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeedX: 0
-  playerSpeedY: 0
+  controlSpeedX: 0
+  controlSpeedY: 0
   maxSpeedX: 5
   maxSpeedY: 5
   accelerationX: 50
@@ -515,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1936081586}
   - component: {fileID: 1936081585}
-  - component: {fileID: 1936081584}
+  - component: {fileID: 1936081580}
   - component: {fileID: 1936081583}
   - component: {fileID: 1936081582}
   - component: {fileID: 1936081581}
@@ -526,6 +526,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1936081580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936081579}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8f6f6d5729dbe418e75656d2e4628b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlSpeedX: 0
+  controlSpeedY: 0
+  maxSpeedX: 5
+  maxSpeedY: 5
+  accelerationX: 100
+  accelerationY: 100
+  decelerationX: 100
+  decelerationY: 100
+  armObject: {fileID: 2116369708}
+  armDirection: {x: 0, y: 0}
 --- !u!61 &1936081581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -585,28 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b70540b9586ea3418e4835b7e606e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1936081584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936081579}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6763c4884e68bd64ebba50e45f2ae123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeedX: 0
-  playerSpeedY: 0
-  maxSpeedX: 5
-  maxSpeedY: 5
-  accelerationX: 50
-  accelerationY: 50
-  decelerationX: 50
-  decelerationY: 50
-  armObject: {fileID: 2116369708}
-  armDirection: {x: 0, y: 0}
 --- !u!212 &1936081585
 SpriteRenderer:
   m_ObjectHideFlags: 0

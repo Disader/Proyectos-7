@@ -8,10 +8,8 @@ public class PlayerControl_MovementController : MonoBehaviour
     float moveVertical;
 
     [Header("Variables de Movimiento")]
-    [HideInInspector]
-    public float playerSpeedX;
-    [HideInInspector]
-    public float playerSpeedY;
+    [HideInInspector] public float controlSpeedX;
+    [HideInInspector] public float controlSpeedY;
     public float maxSpeedX;
     public float maxSpeedY;
     public float accelerationX;
@@ -25,107 +23,87 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 armDirection;
     private float angle;
 
-    ///////PRUEBA
-    private EnemySetControl ene;
-
-    private void OnEnable()
-    {
-        ene = GetComponent<EnemySetControl>();
-
-        if (ene == null)
-            GameManager.Instance.ActualPlayerController = this;
-    }
-
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+   protected virtual void Update()
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveVertical = Input.GetAxisRaw("Vertical");
         PlayerControlledMovement(moveHorizontal, moveVertical);
 
         ControlArmRotation();
-
-        if(ene != null)
-        {
-            if(Input.GetButtonDown("Fire3"))
-            {
-                playerRb.velocity = Vector2.zero;
-                ene.UnpossessEnemy();
-            }
-        }
     }
 
-    void PlayerControlledMovement(float axisValueX, float axisValueY)
+    protected virtual void PlayerControlledMovement(float axisValueX, float axisValueY)
     {
-        playerSpeedX += axisValueX * accelerationX * Time.deltaTime; ////Cálculo de la velocidad con aceleraciones
-        playerSpeedY += axisValueY * accelerationY * Time.deltaTime;
-        playerRb.velocity = new Vector2(playerSpeedX, playerSpeedY); ////Aplicación de los cálculos al velocity del rigidbody
+        controlSpeedX += axisValueX * accelerationX * Time.deltaTime; ////Cálculo de la velocidad con aceleraciones
+        controlSpeedY += axisValueY * accelerationY * Time.deltaTime;
+        playerRb.velocity = new Vector2(controlSpeedX, controlSpeedY); ////Aplicación de los cálculos al velocity del rigidbody
 
-        if (axisValueX == 0 || axisValueX == 1 && playerSpeedX < 0 || axisValueX == -1 && playerSpeedX > 0) ////Deceleraciones en X
+        if (axisValueX == 0 || axisValueX == 1 && controlSpeedX < 0 || axisValueX == -1 && controlSpeedX > 0) ////Deceleraciones en X
         {
-            if (playerSpeedX > 0)  
+            if (controlSpeedX > 0)  
             {
-                playerSpeedX -= decelerationX * Time.deltaTime;
-                if (playerSpeedX < 0)
+                controlSpeedX -= decelerationX * Time.deltaTime;
+                if (controlSpeedX < 0)
                 {
-                    playerSpeedX = 0;
+                    controlSpeedX = 0;
                 }
             }
-            else if (playerSpeedX < 0)
+            else if (controlSpeedX < 0)
             {
-                playerSpeedX += decelerationX * Time.deltaTime;
-                if (playerSpeedX > 0)
+                controlSpeedX += decelerationX * Time.deltaTime;
+                if (controlSpeedX > 0)
                 {
-                    playerSpeedX = 0;
-                }
-            }
-        }
-
-        if (axisValueY == 0 || axisValueY == 1 && playerSpeedY < 0 || axisValueY == -1 && playerSpeedY > 0) ////Deceleraciones en Y
-        {
-            if (playerSpeedY > 0)  
-            {
-                playerSpeedY -= decelerationY * Time.deltaTime;
-                if (playerSpeedY < 0)
-                {
-                    playerSpeedY = 0;
-                }
-            }
-            else if (playerSpeedY < 0)
-            {
-                playerSpeedY += decelerationY * Time.deltaTime;
-                if (playerSpeedY > 0)
-                {
-                    playerSpeedY = 0;
+                    controlSpeedX = 0;
                 }
             }
         }
 
-        if (playerSpeedX > maxSpeedX)  ////Límite de velocidad
+        if (axisValueY == 0 || axisValueY == 1 && controlSpeedY < 0 || axisValueY == -1 && controlSpeedY > 0) ////Deceleraciones en Y
         {
-            playerSpeedX = maxSpeedX;
+            if (controlSpeedY > 0)  
+            {
+                controlSpeedY -= decelerationY * Time.deltaTime;
+                if (controlSpeedY < 0)
+                {
+                    controlSpeedY = 0;
+                }
+            }
+            else if (controlSpeedY < 0)
+            {
+                controlSpeedY += decelerationY * Time.deltaTime;
+                if (controlSpeedY > 0)
+                {
+                    controlSpeedY = 0;
+                }
+            }
         }
-        if (playerSpeedX < -maxSpeedX)
+
+        if (controlSpeedX > maxSpeedX)  ////Límite de velocidad
         {
-            playerSpeedX = -maxSpeedX;
+            controlSpeedX = maxSpeedX;
         }
-        if (playerSpeedY > maxSpeedY)
+        if (controlSpeedX < -maxSpeedX)
         {
-            playerSpeedY = maxSpeedY;
+            controlSpeedX = -maxSpeedX;
         }
-        if (playerSpeedY < -maxSpeedY)
+        if (controlSpeedY > maxSpeedY)
         {
-            playerSpeedY = -maxSpeedY;
+            controlSpeedY = maxSpeedY;
+        }
+        if (controlSpeedY < -maxSpeedY)
+        {
+            controlSpeedY = -maxSpeedY;
         }
     }
 
-    void ControlArmRotation()
+    protected virtual void ControlArmRotation()
     {
         armDirection = Vector2.right * Input.GetAxisRaw("RotatingX") + Vector2.up * Input.GetAxisRaw("RotatingY"); ////La dirección del joystick de rotación, el derecho
 
