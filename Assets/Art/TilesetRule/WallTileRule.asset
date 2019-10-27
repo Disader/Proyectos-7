@@ -12,26 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: WallTileRule
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 8938356945095094423, guid: 73ffc93487b851a43874062016053788,
+  m_DefaultSprite: {fileID: 207743924584936106, guid: 4ef87d022c40b174fb99b4c63a0a847c,
     type: 3}
   m_DefaultGameObject: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
     type: 3}
   m_DefaultColliderType: 2
   m_TilingRules:
-  - m_Neighbors: 0200000002000000020000000200000002000000020000000200000002000000
+  - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
     m_Sprites:
-    - {fileID: 8938356945095094423, guid: 73ffc93487b851a43874062016053788, type: 3}
-    m_GameObject: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-      type: 3}
-    m_AnimationSpeed: 1
-    m_PerlinScale: 0.5
-    m_RuleTransform: 0
-    m_Output: 0
-    m_ColliderType: 2
-    m_RandomTransform: 0
-  - m_Neighbors: 0000000001000000000000000100000001000000000000000100000000000000
-    m_Sprites:
-    - {fileID: 8938356945095094423, guid: 73ffc93487b851a43874062016053788, type: 3}
+    - {fileID: 207743924584936106, guid: 4ef87d022c40b174fb99b4c63a0a847c, type: 3}
     m_GameObject: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
       type: 3}
     m_AnimationSpeed: 1
