@@ -18,6 +18,5 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         base.Awake();
         realPlayerGO = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(realPlayerGO);
     }
 }

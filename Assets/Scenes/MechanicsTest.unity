@@ -263,7 +263,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b70540b9586ea3418e4835b7e606e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeStunned: 1
 --- !u!212 &1936081585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -342,8 +343,8 @@ SpriteRenderer:
   m_SortingLayerID: 2051676165
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa0aa9d9fb2039f458002d8d338611a7, type: 3}
-  m_Color: {r: 0.85183954, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 33ba12a5abde3dc4e8f2044e6cd615c3, type: 3}
+  m_Color: {r: 1, g: 0.09377975, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -465,5 +466,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8753018604584853976, guid: 50c99ad795fb0124e9cd7466648a24b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33ba12a5abde3dc4e8f2044e6cd615c3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c99ad795fb0124e9cd7466648a24b0, type: 3}
