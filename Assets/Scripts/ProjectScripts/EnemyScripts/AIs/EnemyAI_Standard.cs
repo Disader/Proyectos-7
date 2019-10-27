@@ -10,6 +10,7 @@ public class EnemyAI_Standard : MonoBehaviour
     [SerializeField] Transform m_childSprite;
     float m_originalStoppingDistance;
     [SerializeField] float m_aimToPlayerMovement;
+    [SerializeField] Transform m_armTransform;
 
     NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
@@ -41,6 +42,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     private void LateUpdate()
     {
+        this.transform.eulerAngles = new Vector3(0, 0, 0);
         Aim();
     }
     void Aim()
@@ -48,7 +50,7 @@ public class EnemyAI_Standard : MonoBehaviour
         if (IsPlayerInSight())
         {
             var newRot = Quaternion.LookRotation(VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized* m_aimToPlayerMovement); //Cálculo de pos de disparo
-            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.1f); //Rotación de enemigo
+            m_armTransform.rotation = Quaternion.Lerp(m_armTransform.rotation, newRot, 0.1f); //Rotación de enemigo
         }  
     }
     Vector2 VectorToPlayer()
