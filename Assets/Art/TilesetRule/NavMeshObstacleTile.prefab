@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8969722706643200008}
   - component: {fileID: 3926151330298821242}
   m_Layer: 0
-  m_Name: CollisionTile
+  m_Name: NavMeshObstacleTile
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: fc8aca8f35627e640b0ada4d0f7f1bf7, type: 3}
   m_NavMeshLayer: 0

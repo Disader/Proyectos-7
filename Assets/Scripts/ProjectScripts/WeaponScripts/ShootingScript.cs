@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class ShootingScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float m_firingRate;
+    float m_firingTimer;
+    [SerializeField] GameObject m_bullet;
+    [SerializeField] Transform m_shootingPos;
 
-    // Update is called once per frame
-    void Update()
+    public void FireToPlayer()
     {
-        
-    }
+        m_firingTimer += Time.deltaTime;
 
-    void InstantiateBullet()
-    {
-
+        if (m_firingTimer > m_firingRate)
+        {
+            m_firingTimer = 0;
+            GameObject obj = Instantiate(m_bullet, m_shootingPos.position,m_shootingPos.rotation);
+        }
     }
 }

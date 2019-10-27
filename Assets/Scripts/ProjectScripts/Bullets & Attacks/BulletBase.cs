@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float m_velocity;
+    private void Start()
     {
-        
+        GetComponent<Rigidbody2D>().velocity = transform.up * m_velocity;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Destroy(this.gameObject);
     }
 }

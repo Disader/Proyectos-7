@@ -7,14 +7,16 @@ public class EnemyAI_Standard : MonoBehaviour
 {
     [SerializeField] float m_playerDetectionDistance;
     [SerializeField] LayerMask m_sightCollisionMask;
-    [SerializeField] float m_firingRate;
-    float m_firingTimer;
     [SerializeField] Transform m_childSprite;
+    float m_originalStoppingDistance;
 
     NavMeshAgent m_AI_Controller;
+    ShootingScript m_shootingScript;
     private void Start()
     {
         m_AI_Controller = GetComponent<NavMeshAgent>();
+        m_shootingScript = GetComponent<ShootingScript>();
+        m_originalStoppingDistance = m_AI_Controller.stoppingDistance;
     }
     enum AIState
     {
@@ -33,25 +35,21 @@ public class EnemyAI_Standard : MonoBehaviour
         }
         else if(currentAIState == AIState.playerDetected)
         {
-            m_firingTimer += Time.deltaTime;
-            if (IsPlayerInSight())
-            {
-                if (m_firingTimer > m_firingRate)
-                {
-                    Shot();
-                    m_firingTimer = 0;
-                }
-                if (isPlayerFurtherThanStoppingDistance())
-                {
-                    m_AI_Controller.destination = FindNewDestination();
-                }
-            }else if (!IsPlayerInSight())
-            {
-                FindNewDestination();
-            }
-        }      
-        //Asegurarse de girar al final, tras haber hecho los cálculos del pathfinding
-        m_childSprite.rotation=Quaternion.Euler(new Vector3(0, 0, 0));
+            AttackingBehabiour();
+        }
+    }
+    private void LateUpdate()
+    {
+        Aim();
+    }
+    void Aim()
+    {
+        if (IsPlayerInSight())
+        {
+            var newRot = Quaternion.LookRotation(VectorToPlayer());
+            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.1f);
+
+        }  
     }
     Vector2 VectorToPlayer()
     {
@@ -84,12 +82,29 @@ public class EnemyAI_Standard : MonoBehaviour
             return true;
         } else return false;
     }
-    private Vector3 FindNewDestination()
+    private void FindNewDestination()
     {
-        return GameManager.Instance.ActualPlayerController.transform.position;
+        m_AI_Controller.destination = GameManager.Instance.ActualPlayerController.transform.position;
     }
-    void Shot()
+    protected virtual void DamagePlayer()
     {
-        Debug.Log("shot");
+        m_shootingScript.FireToPlayer();
+    }
+    protected virtual void AttackingBehabiour()
+    {
+        if (IsPlayerInSight())
+        {
+            m_AI_Controller.stoppingDistance = m_originalStoppingDistance;
+            DamagePlayer();
+            if (isPlayerFurtherThanStoppingDistance())
+            {
+                FindNewDestination();
+            }
+        }
+        else if (!IsPlayerInSight())
+        {
+            m_AI_Controller.stoppingDistance = 0.5f;           
+            FindNewDestination();
+        }
     }
 }
