@@ -298,31 +298,31 @@ CompositeCollider2D:
   - m_Collider: {fileID: 168283379}
     m_ColliderPaths:
     - - X: -120000041
-        Y: -79999984
+        Y: -79999346
       - X: 150000100
-        Y: -79999954
-      - X: 150000042
+        Y: -79999316
+      - X: 149999404
         Y: 70000041
       - X: -120000100
-        Y: 70000012
+        Y: 69999374
     - - X: 139999871
-        Y: -69999870
+        Y: -69999232
       - X: -109999902
-        Y: -69999813
-      - X: -109999958
+        Y: -69999175
+      - X: -109999320
         Y: 59999900
       - X: 139999898
-        Y: 59999871
+        Y: 59999233
   m_CompositePaths:
     m_Paths:
-    - - {x: 15.00001, y: -7.999995}
-      - {x: 15.000005, y: 7.0000043}
-      - {x: -12.00001, y: 7.000002}
-      - {x: -12.000004, y: -7.9999986}
-    - - {x: -10.99999, y: -6.999982}
-      - {x: -10.999996, y: 5.99999}
-      - {x: 13.99999, y: 5.999987}
-      - {x: 13.999988, y: -6.999987}
+    - - {x: 15.00001, y: -7.9999313}
+      - {x: 14.999941, y: 7.0000043}
+      - {x: -12.00001, y: 6.9999375}
+      - {x: -12.000004, y: -7.9999347}
+    - - {x: -10.99999, y: -6.9999175}
+      - {x: -10.999932, y: 5.99999}
+      - {x: 13.99999, y: 5.999923}
+      - {x: 13.999988, y: -6.999923}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &168283378
@@ -1273,6 +1273,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &238103693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238103694}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238103694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238103693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 433301358}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302490822
 GameObject:
   m_ObjectHideFlags: 3
@@ -1378,7 +1408,10 @@ GameObject:
   - component: {fileID: 433301358}
   - component: {fileID: 433301359}
   - component: {fileID: 433301361}
-  m_Layer: 0
+  - component: {fileID: 433301360}
+  - component: {fileID: 433301362}
+  - component: {fileID: 433301363}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,9 +1426,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433301357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.43, y: 0.25, z: -0.86328125}
+  m_LocalPosition: {x: 7.11, y: 2.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 238103694}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1415,6 +1449,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &433301360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433301357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6763c4884e68bd64ebba50e45f2ae123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeedX: 0
+  playerSpeedY: 0
+  maxSpeedX: 0
+  maxSpeedY: 0
+  accelerationX: 0
+  accelerationY: 0
+  decelerationX: 0
+  decelerationY: 0
+  armObject: {fileID: 238103693}
+  armDirection: {x: 0, y: 0}
 --- !u!212 &433301361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1463,6 +1519,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &433301362
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433301357}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &433301363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433301357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 3, y: 3, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: ffffffff
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,7 +1821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607633139}
   - component: {fileID: 1607633138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1901,7 @@ GameObject:
   - component: {fileID: 1946468223}
   - component: {fileID: 1946468222}
   - component: {fileID: 1946468225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1918,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.21
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1845,7 +1938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946468221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.92, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1607633139}
@@ -1864,5 +1957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea3b921e8c831e4793a38c51b16fd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_distanceToPlayer: 0
+  m_distanceToPlayer: 7
+  m_playerDetectionDistance: 10
+  m_sightCollisionMask:
+    serializedVersion: 2
+    m_Bits: 55
   m_childSprite: {fileID: 1607633139}
