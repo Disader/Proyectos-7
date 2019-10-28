@@ -18,4 +18,15 @@ public class MapBehaviour : MonoBehaviour
     {
         
     }
+    public void DiscoverRoom(GameObject roomToDiscover) 
+    {
+        for (int i = 0; i < unchartedRooms.Count; i++)
+        {
+            if(unchartedRooms[i] = roomToDiscover)
+            {
+                discoveredRooms[i].SetActive(true);
+                break;
+            }
+        }
+    }
 }

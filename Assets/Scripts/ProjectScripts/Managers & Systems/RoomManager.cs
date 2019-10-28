@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : PersistentSingleton<RoomManager>
 {
+    public MapBehaviour mapManager;
+    public List<GameObject> rooms;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,9 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         
+    }
+    void DiscoverRoom(GameObject currentRoom)
+    {
+        mapManager.DiscoverRoom(currentRoom);
     }
 }
