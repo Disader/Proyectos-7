@@ -7,18 +7,23 @@ public class EnemyAI_Standard : MonoBehaviour
 {
     [SerializeField] float m_playerDetectionDistance;
     [SerializeField] LayerMask m_sightCollisionMask;
-    [SerializeField] Transform m_childSprite;
     float m_originalStoppingDistance;
     [SerializeField] float m_aimToPlayerMovement;
     [SerializeField] Transform m_armTransform;
+    [SerializeField] float m_distanceAimAheadPlayer;
 
     NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
+    Rigidbody2D m_playerRigidbody;
+
     private void Start()
     {
         m_AI_Controller = GetComponent<NavMeshAgent>();
         m_shootingScript = GetComponent<ShootingScript>();
         m_originalStoppingDistance = m_AI_Controller.stoppingDistance;
+        m_AI_Controller.updateUpAxis = false;
+        m_AI_Controller.updateRotation = false;
+        m_playerRigidbody = GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>();
     }
     enum AIState
     {
@@ -43,14 +48,15 @@ public class EnemyAI_Standard : MonoBehaviour
     private void LateUpdate()
     { 
         Aim();
-        this.transform.eulerAngles = new Vector3(0, 0, 0); //mantiene al enemigo sin rotar;
     }
     void Aim()
     {
         if (IsPlayerInSight())
         {
-            m_armTransform.localEulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, VectorToPlayer()));
+            Vector2 vector = VectorToPlayer() + m_playerRigidbody.velocity.normalized * m_distanceAimAheadPlayer;
+            float angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
+            m_armTransform.localEulerAngles = new Vector3(0,0, angle);
         }
     }
     Vector2 VectorToPlayer()
@@ -90,7 +96,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected virtual void DamagePlayer()
     {
-        m_shootingScript.FireToPlayer();
+        m_shootingScript.FireInShootingPos();
     }
     protected virtual void AttackingBehabiour()
     {

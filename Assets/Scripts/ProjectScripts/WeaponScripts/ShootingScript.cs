@@ -9,7 +9,7 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_shootingPos;
 
-    public void FireToPlayer()
+    public void FireInShootingPos()
     {
         m_firingTimer += Time.deltaTime;
 

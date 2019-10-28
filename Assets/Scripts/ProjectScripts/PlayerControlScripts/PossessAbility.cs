@@ -23,14 +23,16 @@ public class PossessAbility : MonoBehaviour
     [Header("Variables para usar los Triggers de Mando como Botón")]
     private bool leftTrigger_isAxisInUse;
 
+    private void Awake()
+    {
+        playerControl_MovementController = GetComponent<PlayerControl_MovementController>();
+        GameManager.Instance.ActualPlayerController = playerControl_MovementController;  ////Se indica a GameManager al empezar, que el script de control del objeto con este script de posesión es el player
+    }
     // Start is called before the first frame update
     void Start()
     {
-        playerControl_MovementController = GetComponent<PlayerControl_MovementController>();
         armObject = playerControl_MovementController.armObject;
         playerLineRenderer = GetComponent<LineRenderer>();
-
-        GameManager.Instance.ActualPlayerController = playerControl_MovementController;  ////Se indica a GameManager al empezar, que el script de control del objeto con este script de posesión es el player
     }
 
     // Update is called once per frame
