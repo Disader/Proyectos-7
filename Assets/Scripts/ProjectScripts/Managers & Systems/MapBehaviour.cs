@@ -7,7 +7,6 @@ public class MapBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> unchartedRooms;
-    public List<GameObject> discoveredRooms;
     void Start()
     {
         
@@ -24,7 +23,7 @@ public class MapBehaviour : MonoBehaviour
         {
             if(unchartedRooms[i] = roomToDiscover)
             {
-                discoveredRooms[i].SetActive(true);
+                unchartedRooms[i].GetComponent<Image>().enabled = true;
                 break;
             }
         }
