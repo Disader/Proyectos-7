@@ -12,11 +12,11 @@ public class EnemyAI_Standard : MonoBehaviour
     [SerializeField] Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
 
-    NavMeshAgent m_AI_Controller;
+    protected NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
     Rigidbody2D m_playerRigidbody;
 
-    private void Start()
+    protected void Start()
     {
         m_AI_Controller = GetComponent<NavMeshAgent>();
         m_shootingScript = GetComponent<ShootingScript>();
@@ -25,53 +25,43 @@ public class EnemyAI_Standard : MonoBehaviour
         m_AI_Controller.updateRotation = false;
         m_playerRigidbody = GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>();
     }
+    protected void Update()
+    {
+        if (currentAIState == AIState.idle)
+        {
+            Idle();
+            DetectPlayerInIdle();
+        }
+        else if (currentAIState == AIState.playerDetected)
+        {
+            AttackingBehabiour();
+        }
+        Aim();
+    }
+
     enum AIState
     {
         idle,
         playerDetected
     }
-
     AIState currentAIState = AIState.idle;
     // Update is called once per frame
-    void Update()
-    { 
-        if (currentAIState == AIState.idle)
-        {
-            Idle();
-            DetectPlayer();
-        }
-        else if(currentAIState == AIState.playerDetected)
-        {
-            AttackingBehabiour();
-        }
-    }
-    private void LateUpdate()
-    { 
-        Aim();
-    }
-    void Aim()
+
+    protected virtual void Aim()
     {
         if (IsPlayerInSight())
         {
-            Vector2 vector = VectorToPlayer() + m_playerRigidbody.velocity.normalized * m_distanceAimAheadPlayer;
+            Vector2 vector = VectorToPlayer() + m_playerRigidbody.velocity.normalized * m_distanceAimAheadPlayer*DistanceToPlayer();
             float angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
         }
     }
-    Vector2 VectorToPlayer()
-    {
-        return GameManager.Instance.ActualPlayerController.transform.position - this.transform.position;
-    }
-    float DistanceToPlayer()
-    {
-        return VectorToPlayer().magnitude;
-    }
-    void Idle()
+    protected void Idle()
     {
 
     }
-    void DetectPlayer()
+    protected void DetectPlayerInIdle()
     {
         Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red,1f);
         if (DistanceToPlayer() < m_playerDetectionDistance|| IsPlayerInSight())
@@ -79,18 +69,7 @@ public class EnemyAI_Standard : MonoBehaviour
            currentAIState = AIState.playerDetected;
         }
     }
-    bool IsPlayerInSight()
-    {
-        return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
-    }
-    bool isPlayerFurtherThanStoppingDistance()
-    {
-        if (m_AI_Controller.stoppingDistance < DistanceToPlayer())
-        {
-            return true;
-        } else return false;
-    }
-    private void FindNewDestination()
+    protected virtual void FindNewDestination()
     {
         m_AI_Controller.destination = GameManager.Instance.ActualPlayerController.transform.position;
     }
@@ -114,5 +93,27 @@ public class EnemyAI_Standard : MonoBehaviour
             m_AI_Controller.stoppingDistance = 0.5f;           
             FindNewDestination();
         }
+    }
+
+    //Funciones de referencia del jugador
+    Vector2 VectorToPlayer()
+    {
+        return GameManager.Instance.ActualPlayerController.transform.position - this.transform.position;
+    }
+    float DistanceToPlayer()
+    {
+        return VectorToPlayer().magnitude;
+    }
+    bool IsPlayerInSight()
+    {
+        return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
+    }
+    bool isPlayerFurtherThanStoppingDistance()
+    {
+        if (m_AI_Controller.stoppingDistance < DistanceToPlayer())
+        {
+            return true;
+        }
+        else return false;
     }
 }
