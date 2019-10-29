@@ -20,15 +20,15 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Horizontal Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""d69c8ed0-9f72-4290-a571-c7952896513c"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""Vertical Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""4490aab5-6922-4bf1-a7f2-3b35fca6bc6b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -36,7 +36,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Rotating"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""a05b8957-02cf-4fa8-831f-bd40bbb8fd78"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -193,114 +193,26 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Ps4"",
-                    ""id"": ""28a92f1f-be16-4d94-8500-b9e1dbab82b1"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""bde11b5c-0aa0-4853-99c5-3df7c3cd2851"",
+                    ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotating"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""72642bb3-a338-417d-b46d-0f75aa59a497"",
-                    ""path"": ""<DualShockGamepad>/rightStick/up"",
+                    ""name"": """",
+                    ""id"": ""31031dd7-ce89-44d3-b8f0-aef8201a31a8"",
+                    ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotating"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""223ebc6b-6ef0-45dd-9b95-3a49dbd16bf1"",
-                    ""path"": ""<DualShockGamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""63dcac76-13c6-4f8d-8f49-a98094e86095"",
-                    ""path"": ""<DualShockGamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fc3638d0-e995-4449-8a07-01a5acafc75f"",
-                    ""path"": ""<DualShockGamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""X Box"",
-                    ""id"": ""5620b818-755d-49c6-992a-bd4fa0938989"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""cfbe258e-47de-49df-b752-b6594386094d"",
-                    ""path"": ""<XInputController>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c2e9563b-f59c-4b7a-a239-611cf79d302b"",
-                    ""path"": ""<XInputController>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""dc646792-13f6-43a6-9156-140181993888"",
-                    ""path"": ""<XInputController>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""12f40d7b-8e09-4f83-a76e-91abb48f2307"",
-                    ""path"": ""<XInputController>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotating"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
