@@ -23,6 +23,8 @@ public class PossessAbility : MonoBehaviour
     [Header("Variables para usar los Triggers de Mando como Botón")]
     private bool leftTrigger_isAxisInUse;
 
+    PlayerInputAsset actions;
+
     private void Awake()
     {
         playerControl_MovementController = GetComponent<PlayerControl_MovementController>();
@@ -31,6 +33,8 @@ public class PossessAbility : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        actions = new PlayerInputAsset();
+        actions.PlayerInputActions.Enable();
         armObject = playerControl_MovementController.armObject;
         playerLineRenderer = GetComponent<LineRenderer>();
     }
@@ -91,7 +95,8 @@ public class PossessAbility : MonoBehaviour
 
     private void LeftTriggerInput()
     {
-        if (Input.GetAxisRaw("LeftTrigger") != 0)
+        
+        if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
         {
             if (leftTrigger_isAxisInUse == false)
             {
@@ -100,7 +105,7 @@ public class PossessAbility : MonoBehaviour
                 leftTrigger_isAxisInUse = true;
             }
         }
-        else if (Input.GetAxisRaw("LeftTrigger") == 0)
+        else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
         {
             leftTrigger_isAxisInUse = false;
         }

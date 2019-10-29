@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PlayerControl_MovementController : MonoBehaviour
 {
-    PlayerInputAsset actions;
+    protected PlayerInputAsset actions;
+
+    /*
     void OnEnable()
     {
-        actions = new PlayerInputAsset();
-        actions.PlayerInputActions.Movement.Enable();
+        actions.PlayerInputActions.Enable();
+           
     }
     void OnDisable()
     {
-        actions.PlayerInputActions.Movement.Disable();
-    }
+        actions.PlayerInputActions.Disable();
+    }*/
 
     float moveHorizontal;
     float moveVertical;
@@ -37,14 +39,16 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        actions = new PlayerInputAsset();
+        actions.PlayerInputActions.Enable();
         playerRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
    protected virtual void Update()
     {
-        moveHorizontal = actions.PlayerInputActions.Movement.ReadValue<Vector2>().x;
-        moveVertical = actions.PlayerInputActions.Movement.ReadValue<Vector2>().y;
+        moveHorizontal = actions.PlayerInputActions.HorizontalMovement.ReadValue<float>();
+        moveVertical = actions.PlayerInputActions.VerticalMovement.ReadValue<float>();
 
         PlayerControlledMovement(moveHorizontal, moveVertical);
 
@@ -117,7 +121,8 @@ public class PlayerControl_MovementController : MonoBehaviour
 
     protected virtual void ControlArmRotation()
     {
-        armDirection = Vector2.right * Input.GetAxisRaw("RotatingX") + Vector2.up * Input.GetAxisRaw("RotatingY"); ////La dirección del joystick de rotación, el derecho
+       
+        armDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
 
         if (armDirection.sqrMagnitude > 0) ////Si el valor de la dirección es mayor que 0...
         {

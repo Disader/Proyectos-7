@@ -37,7 +37,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void LeftTriggerInput()
     {
-        if (Input.GetAxisRaw("LeftTrigger") != 0)
+        if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
         {
             if (canUseLeftTrigger)
             {
@@ -49,7 +49,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
                 }
             }
         }
-        else if (Input.GetAxisRaw("LeftTrigger") == 0)
+        else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
         {
             canUseLeftTrigger = true;
             leftTrigger_isAxisInUse = false;

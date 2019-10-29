@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerInputAsset.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/ProjectScripts/Input/PlayerInputAsset.inputactions'
 
 using System;
 using System.Collections;
@@ -19,9 +19,41 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
             ""id"": ""473fff24-6755-417d-b234-034d6afe8e34"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Horizontal Movement"",
                     ""type"": ""Button"",
                     ""id"": ""d69c8ed0-9f72-4290-a571-c7952896513c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Vertical Movement"",
+                    ""type"": ""Button"",
+                    ""id"": ""4490aab5-6922-4bf1-a7f2-3b35fca6bc6b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotating"",
+                    ""type"": ""Button"",
+                    ""id"": ""a05b8957-02cf-4fa8-831f-bd40bbb8fd78"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightTrigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""4e23a992-b586-419d-9af6-5cb15872b8d9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftTrigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""7cdfa9bb-df7a-4ea2-904d-10800515b0fd"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -29,114 +61,290 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Ps4 Vector2"",
+                    ""name"": ""Ps4"",
                     ""id"": ""2a95925d-b254-4f8c-911f-22baeb596dc5"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Horizontal Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Negative"",
                     ""id"": ""84a3b883-f605-4115-b651-e3ee643a3aa2"",
-                    ""path"": ""<DualShockGamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3aab8d88-b580-4fea-a800-137ed1c15d9a"",
-                    ""path"": ""<DualShockGamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""b1b13d5a-541c-4ab6-9f9d-ea2393c8e72c"",
                     ""path"": ""<DualShockGamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""3dc06643-99b0-4826-b259-2a8e47cfb45d"",
+                    ""name"": ""Positive"",
+                    ""id"": ""3aab8d88-b580-4fea-a800-137ed1c15d9a"",
                     ""path"": ""<DualShockGamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""XBox Vector2"",
+                    ""name"": ""X Box"",
                     ""id"": ""35e22be9-1d87-44f8-b83a-54d3f2401ddc"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""909deaee-611c-4ee3-9da4-a0d2d695005a"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""7e528f21-3e57-4031-b93e-8b5f150f8f71"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Ps4"",
+                    ""id"": ""fbc6bfbf-aa14-4664-aa76-6395206a027b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""cc70a595-5875-4f70-a74f-e94e5762f043"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c031590d-915e-4ab9-9e7c-1a4cd057d3fd"",
+                    ""path"": ""<DualShockGamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""X Box"",
+                    ""id"": ""733d5b47-e1d5-4caf-bc75-f6e3b3166e57"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9bd62d8f-18f7-4651-b2d4-28fc7c5f9858"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b542296d-7f56-47a7-902f-08a641e1337d"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Ps4"",
+                    ""id"": ""28a92f1f-be16-4d94-8500-b9e1dbab82b1"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotating"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""909deaee-611c-4ee3-9da4-a0d2d695005a"",
-                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""id"": ""72642bb3-a338-417d-b46d-0f75aa59a497"",
+                    ""path"": ""<DualShockGamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""7e528f21-3e57-4031-b93e-8b5f150f8f71"",
-                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""id"": ""223ebc6b-6ef0-45dd-9b95-3a49dbd16bf1"",
+                    ""path"": ""<DualShockGamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""5ff14666-a7a3-4088-95aa-fc8a10afb251"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""id"": ""63dcac76-13c6-4f8d-8f49-a98094e86095"",
+                    ""path"": ""<DualShockGamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""fd40d558-8ac9-4316-ae8c-3daa69284174"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""id"": ""fc3638d0-e995-4449-8a07-01a5acafc75f"",
+                    ""path"": ""<DualShockGamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""X Box"",
+                    ""id"": ""5620b818-755d-49c6-992a-bd4fa0938989"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotating"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cfbe258e-47de-49df-b752-b6594386094d"",
+                    ""path"": ""<XInputController>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotating"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c2e9563b-f59c-4b7a-a239-611cf79d302b"",
+                    ""path"": ""<XInputController>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotating"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""dc646792-13f6-43a6-9156-140181993888"",
+                    ""path"": ""<XInputController>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotating"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""12f40d7b-8e09-4f83-a76e-91abb48f2307"",
+                    ""path"": ""<XInputController>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotating"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80cea14d-df45-4934-81bf-416cb03b667c"",
+                    ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5d0c28a-5ba4-4dc1-9904-6fc3fd178d34"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b39c3d7b-9161-40f0-88f8-e361f6a7577a"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""085842f2-27a8-4e64-893e-582b262f7b41"",
+                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,7 +353,11 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
 }");
         // PlayerInputActions
         m_PlayerInputActions = asset.FindActionMap("PlayerInputActions", throwIfNotFound: true);
-        m_PlayerInputActions_Movement = m_PlayerInputActions.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerInputActions_HorizontalMovement = m_PlayerInputActions.FindAction("Horizontal Movement", throwIfNotFound: true);
+        m_PlayerInputActions_VerticalMovement = m_PlayerInputActions.FindAction("Vertical Movement", throwIfNotFound: true);
+        m_PlayerInputActions_Rotating = m_PlayerInputActions.FindAction("Rotating", throwIfNotFound: true);
+        m_PlayerInputActions_RightTrigger = m_PlayerInputActions.FindAction("RightTrigger", throwIfNotFound: true);
+        m_PlayerInputActions_LeftTrigger = m_PlayerInputActions.FindAction("LeftTrigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -195,12 +407,20 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
     // PlayerInputActions
     private readonly InputActionMap m_PlayerInputActions;
     private IPlayerInputActionsActions m_PlayerInputActionsActionsCallbackInterface;
-    private readonly InputAction m_PlayerInputActions_Movement;
+    private readonly InputAction m_PlayerInputActions_HorizontalMovement;
+    private readonly InputAction m_PlayerInputActions_VerticalMovement;
+    private readonly InputAction m_PlayerInputActions_Rotating;
+    private readonly InputAction m_PlayerInputActions_RightTrigger;
+    private readonly InputAction m_PlayerInputActions_LeftTrigger;
     public struct PlayerInputActionsActions
     {
         private PlayerInputAsset m_Wrapper;
         public PlayerInputActionsActions(PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerInputActions_Movement;
+        public InputAction @HorizontalMovement => m_Wrapper.m_PlayerInputActions_HorizontalMovement;
+        public InputAction @VerticalMovement => m_Wrapper.m_PlayerInputActions_VerticalMovement;
+        public InputAction @Rotating => m_Wrapper.m_PlayerInputActions_Rotating;
+        public InputAction @RightTrigger => m_Wrapper.m_PlayerInputActions_RightTrigger;
+        public InputAction @LeftTrigger => m_Wrapper.m_PlayerInputActions_LeftTrigger;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -210,22 +430,50 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerInputActionsActionsCallbackInterface != null)
             {
-                Movement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMovement;
-                Movement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMovement;
-                Movement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMovement;
+                HorizontalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                HorizontalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                HorizontalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                VerticalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                VerticalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                VerticalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                Rotating.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                Rotating.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                Rotating.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                RightTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                RightTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                RightTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Movement.started += instance.OnMovement;
-                Movement.performed += instance.OnMovement;
-                Movement.canceled += instance.OnMovement;
+                HorizontalMovement.started += instance.OnHorizontalMovement;
+                HorizontalMovement.performed += instance.OnHorizontalMovement;
+                HorizontalMovement.canceled += instance.OnHorizontalMovement;
+                VerticalMovement.started += instance.OnVerticalMovement;
+                VerticalMovement.performed += instance.OnVerticalMovement;
+                VerticalMovement.canceled += instance.OnVerticalMovement;
+                Rotating.started += instance.OnRotating;
+                Rotating.performed += instance.OnRotating;
+                Rotating.canceled += instance.OnRotating;
+                RightTrigger.started += instance.OnRightTrigger;
+                RightTrigger.performed += instance.OnRightTrigger;
+                RightTrigger.canceled += instance.OnRightTrigger;
+                LeftTrigger.started += instance.OnLeftTrigger;
+                LeftTrigger.performed += instance.OnLeftTrigger;
+                LeftTrigger.canceled += instance.OnLeftTrigger;
             }
         }
     }
     public PlayerInputActionsActions @PlayerInputActions => new PlayerInputActionsActions(this);
     public interface IPlayerInputActionsActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnHorizontalMovement(InputAction.CallbackContext context);
+        void OnVerticalMovement(InputAction.CallbackContext context);
+        void OnRotating(InputAction.CallbackContext context);
+        void OnRightTrigger(InputAction.CallbackContext context);
+        void OnLeftTrigger(InputAction.CallbackContext context);
     }
 }
