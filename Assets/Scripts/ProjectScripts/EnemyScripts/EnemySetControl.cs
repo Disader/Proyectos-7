@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySetControl : MonoBehaviour
 {
     [Header("El PlayerControl de este Enemigo")]
     private EnemyControl_MovementController this_EnemyControl_MovementController;
+
+    [Header("La IA y el Agente del Enemigo")]
+    private EnemyAI_Standard this_EnemyAI;
+    private NavMeshAgent this_EnemyNavAgent;
 
     [Header("El PlayerControl del Jugador")]
     private PlayerControl_MovementController player_MovementController;
@@ -20,12 +25,16 @@ public class EnemySetControl : MonoBehaviour
     void Start()
     {
         this_EnemyControl_MovementController = GetComponent<EnemyControl_MovementController>();
+        this_EnemyAI = GetComponent<EnemyAI_Standard>();
+        this_EnemyNavAgent = GetComponent<NavMeshAgent>();
         player_MovementController = GameManager.Instance.realPlayerGO.GetComponent<PlayerControl_MovementController>();
         thisEnemyRB = GetComponent<Rigidbody2D>();
     }
 
-    public void PosssessEnemy()  ////Se activa el control de enemigo, se detiene el movimiento residual del control de jugador y se desactiva el objeto del jugador
+    public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador y se desactiva el objeto del jugador
     {
+        this_EnemyAI.enabled = false;
+        this_EnemyNavAgent.enabled = false;
         this_EnemyControl_MovementController.enabled = true;
         player_MovementController.controlSpeedX = 0;
         player_MovementController.controlSpeedY = 0;
@@ -57,13 +66,15 @@ public class EnemySetControl : MonoBehaviour
 
     }
 
-    public IEnumerator Stun()  //Introducir la funcionalidad de Stun.
+    public IEnumerator Stun()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
     {
         Debug.Log("Stunned");
 
         yield return new WaitForSeconds(timeStunned);
 
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), false);
+        this_EnemyNavAgent.enabled = true;
+        this_EnemyAI.enabled = true;
         Debug.Log("NOT Stunned");
     }
 }
