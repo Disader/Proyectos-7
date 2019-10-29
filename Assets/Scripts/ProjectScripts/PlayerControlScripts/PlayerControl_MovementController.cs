@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerControl_MovementController : MonoBehaviour
 {
+    PlayerInputAsset actions;
+    void OnEnable()
+    {
+        actions = new PlayerInputAsset();
+        actions.PlayerInputActions.Movement.Enable();
+    }
+    void OnDisable()
+    {
+        actions.PlayerInputActions.Movement.Disable();
+    }
+
     float moveHorizontal;
     float moveVertical;
 
@@ -32,8 +43,9 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Update is called once per frame
    protected virtual void Update()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
+        moveHorizontal = actions.PlayerInputActions.Movement.ReadValue<Vector2>().x;
+        moveVertical = actions.PlayerInputActions.Movement.ReadValue<Vector2>().y;
+
         PlayerControlledMovement(moveHorizontal, moveVertical);
 
         ControlArmRotation();
