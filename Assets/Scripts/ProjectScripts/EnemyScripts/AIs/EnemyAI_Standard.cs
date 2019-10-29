@@ -23,7 +23,6 @@ public class EnemyAI_Standard : MonoBehaviour
         m_originalStoppingDistance = m_AI_Controller.stoppingDistance;
         m_AI_Controller.updateUpAxis = false;
         m_AI_Controller.updateRotation = false;
-        m_playerRigidbody = GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>();
     }
     protected void Update()
     {
@@ -51,7 +50,7 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         if (IsPlayerInSight())
         {
-            Vector2 vector = VectorToPlayer() + m_playerRigidbody.velocity.normalized * m_distanceAimAheadPlayer*DistanceToPlayer();
+            Vector2 vector = VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer*DistanceToPlayer();
             float angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);

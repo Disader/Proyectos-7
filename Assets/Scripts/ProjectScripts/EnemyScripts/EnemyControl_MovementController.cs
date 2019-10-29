@@ -11,8 +11,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private bool leftTrigger_isAxisInUse;
     private bool canUseLeftTrigger;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         canUseLeftTrigger = false;  ////Este bool impide que al poseer al enemigo con el left trigger, se inicie inmediatamente el Input de LeftTrigger que desposee al enemigo en este script
     }
 

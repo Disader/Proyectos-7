@@ -6,17 +6,6 @@ public class PlayerControl_MovementController : MonoBehaviour
 {
     protected PlayerInputAsset actions;
 
-    /*
-    void OnEnable()
-    {
-        actions.PlayerInputActions.Enable();
-           
-    }
-    void OnDisable()
-    {
-        actions.PlayerInputActions.Disable();
-    }*/
-
     float moveHorizontal;
     float moveVertical;
 
@@ -36,9 +25,14 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 armDirection;
     private float angle;
 
+    protected virtual void OnEnable()
+    {
+        GameManager.Instance.ActualPlayerController = this;  ////Se indica a GameManager al empezar, que el script de control del objeto con este script de posesión es el player
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
+       
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
         playerRb = GetComponent<Rigidbody2D>();
