@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoneManager : MonoBehaviour
+public class ZoneManager : TemporalSingleton<ZoneManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    public MapBehaviour mapManager;
+    public List<GameObject> rooms;
+    void DiscoverRoom(GameObject currentRoom)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mapManager.DiscoverRoom(currentRoom);
     }
 }
