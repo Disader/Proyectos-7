@@ -250,7 +250,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""085842f2-27a8-4e64-893e-582b262f7b41"",
-                    ""path"": ""<DualShockGamepad>/leftTrigger"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

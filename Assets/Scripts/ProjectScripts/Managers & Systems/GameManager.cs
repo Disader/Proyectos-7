@@ -18,5 +18,6 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         base.Awake();
         realPlayerGO = GameObject.FindGameObjectWithTag("Player");
+        ActualPlayerController = realPlayerGO.GetComponent<PlayerControl_MovementController>();
     }
 }

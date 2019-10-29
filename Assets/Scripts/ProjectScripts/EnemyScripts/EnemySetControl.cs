@@ -31,14 +31,16 @@ public class EnemySetControl : MonoBehaviour
         thisEnemyRB = GetComponent<Rigidbody2D>();
     }
 
-    public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador y se desactiva el objeto del jugador
+    public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador  y se indica a GameManager que este enmigo es ActualPlayer
     {
+        StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
         this_EnemyAI.enabled = false;
         this_EnemyNavAgent.enabled = false;
         this_EnemyControl_MovementController.enabled = true;
         player_MovementController.controlSpeedX = 0;
         player_MovementController.controlSpeedY = 0;
         GameManager.Instance.realPlayerGO.SetActive(false);
+        GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
     }
 
     private float lastSpeedX;
@@ -46,9 +48,10 @@ public class EnemySetControl : MonoBehaviour
 
     public void UnpossessEnemy() 
     {
-        this_EnemyControl_MovementController.enabled = false;  ////Se desactiva el control del enemigo, se activa el jugador, se le coloca en la posicion del enemigo y se eliminan las colisiones entre ambos
+        this_EnemyControl_MovementController.enabled = false;  ////Se desactiva el control del enemigo, se activa el jugador y se indica que es el ActualPlayer; se le coloca en la posicion del enemigo y se eliminan las colisiones entre ambos
         GameManager.Instance.realPlayerGO.transform.position = transform.position;
         GameManager.Instance.realPlayerGO.SetActive(true);
+        GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
 
         lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guradan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar moviemiento residual al volver a poseer.
