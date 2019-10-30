@@ -28,11 +28,21 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         base.Update();
 
         LeftTriggerInput();
+
+        if(actions.PlayerInputActions.ActionButton.triggered) ////Input de Consumir en la A CAMBIAR SI NECESARIO
+        {
+            ConsumeAction();
+        }
     }
 
     private void UnpossessAction()
     {
         thisEnemySetControl.UnpossessEnemy();
+    }
+
+    private void ConsumeAction()
+    {
+        thisEnemySetControl.ConsumeEnemy();
     }
 
     private void LeftTriggerInput()

@@ -8,6 +8,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("El PlayerControl de este Enemigo")]
     private EnemyControl_MovementController this_EnemyControl_MovementController;
 
+    [Header("La Pasiva del Enemigo")]
+    private ActiveAbility this_EnemyActiveAbility;
+
     [Header("La IA y el Agente del Enemigo")]
     private EnemyAI_Standard this_EnemyAI;
     private NavMeshAgent this_EnemyNavAgent;
@@ -25,6 +28,7 @@ public class EnemySetControl : MonoBehaviour
     void Start()
     {
         this_EnemyControl_MovementController = GetComponent<EnemyControl_MovementController>();
+        this_EnemyActiveAbility = GetComponent<ActiveAbility>();
         this_EnemyAI = GetComponent<EnemyAI_Standard>();
         this_EnemyNavAgent = GetComponent<NavMeshAgent>();
         player_MovementController = GameManager.Instance.realPlayerGO.GetComponent<PlayerControl_MovementController>();
@@ -64,9 +68,13 @@ public class EnemySetControl : MonoBehaviour
         StartCoroutine(Stun()); ////Se inicia el Stun.
     }
 
-    public void ConsumeEnemy()
+    public void ConsumeEnemy()  ////NO POLISHEADO
     {
-
+        this_EnemyActiveAbility.SaveAbility();
+        GameManager.Instance.realPlayerGO.transform.position = transform.position;
+        GameManager.Instance.realPlayerGO.SetActive(true);
+        GameManager.Instance.ActualPlayerController = player_MovementController;
+        Destroy(gameObject);
     }
 
     public IEnumerator Stun()  //Se reactiva la IA y el agente al acabar el tiempo de Stun

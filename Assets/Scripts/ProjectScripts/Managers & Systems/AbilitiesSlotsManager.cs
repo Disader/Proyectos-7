@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilitiesSlotsManager : MonoBehaviour
+public class AbilitiesSlotsManager : TemporalSingleton<AbilitiesSlotsManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PasiveAbility_SO currentSavedAbility; 
 
-    // Update is called once per frame
-    void Update()
+    public override void Awake()
     {
-        
+        base.Awake();
     }
 }

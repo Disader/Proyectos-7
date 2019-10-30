@@ -57,6 +57,14 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ActionButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""5125c569-5545-4da9-9b00-b55063819c95"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -257,6 +265,28 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fc7fc47-e57c-4ca9-96c2-8a07b743e8bb"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3092b850-9870-4e03-a8ef-04396ff3c8e5"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -270,6 +300,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         m_PlayerInputActions_Rotating = m_PlayerInputActions.FindAction("Rotating", throwIfNotFound: true);
         m_PlayerInputActions_RightTrigger = m_PlayerInputActions.FindAction("RightTrigger", throwIfNotFound: true);
         m_PlayerInputActions_LeftTrigger = m_PlayerInputActions.FindAction("LeftTrigger", throwIfNotFound: true);
+        m_PlayerInputActions_ActionButton = m_PlayerInputActions.FindAction("ActionButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -324,6 +355,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInputActions_Rotating;
     private readonly InputAction m_PlayerInputActions_RightTrigger;
     private readonly InputAction m_PlayerInputActions_LeftTrigger;
+    private readonly InputAction m_PlayerInputActions_ActionButton;
     public struct PlayerInputActionsActions
     {
         private PlayerInputAsset m_Wrapper;
@@ -333,6 +365,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         public InputAction @Rotating => m_Wrapper.m_PlayerInputActions_Rotating;
         public InputAction @RightTrigger => m_Wrapper.m_PlayerInputActions_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_PlayerInputActions_LeftTrigger;
+        public InputAction @ActionButton => m_Wrapper.m_PlayerInputActions_ActionButton;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -357,6 +390,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
                 LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
                 LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -376,6 +412,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 LeftTrigger.started += instance.OnLeftTrigger;
                 LeftTrigger.performed += instance.OnLeftTrigger;
                 LeftTrigger.canceled += instance.OnLeftTrigger;
+                ActionButton.started += instance.OnActionButton;
+                ActionButton.performed += instance.OnActionButton;
+                ActionButton.canceled += instance.OnActionButton;
             }
         }
     }
@@ -387,5 +426,6 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         void OnRotating(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnActionButton(InputAction.CallbackContext context);
     }
 }
