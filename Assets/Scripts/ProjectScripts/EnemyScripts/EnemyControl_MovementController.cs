@@ -42,7 +42,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void ConsumeAction()
     {
-        thisEnemySetControl.ConsumeEnemy();
+        thisEnemySetControl.StartCoroutine(thisEnemySetControl.ConsumeEnemy());
     }
 
     private void LeftTriggerInput()

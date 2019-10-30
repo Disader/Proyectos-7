@@ -21,6 +21,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("RigidBodies")]
     private Rigidbody2D thisEnemyRB;
 
+    [Header("Variables de Consumir")]
+    public float timeToConsume;
+
     [Header("Variables Stun")]
     public float timeStunned;
 
@@ -38,11 +41,16 @@ public class EnemySetControl : MonoBehaviour
     public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador  y se indica a GameManager que este enmigo es ActualPlayer
     {
         StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
+
         this_EnemyAI.enabled = false;
         this_EnemyNavAgent.enabled = false;
         this_EnemyControl_MovementController.enabled = true;
         player_MovementController.controlSpeedX = 0;
         player_MovementController.controlSpeedY = 0;
+
+        this_EnemyActiveAbility.currentActiveAbility = AbilitiesSlotsManager.Instance.currentSavedAbility; ////Al poseer al enemigo se le coloca la Pasiva Guardada en su variable de currentAbility y se elimina la que está guardada en el Manager
+        AbilitiesSlotsManager.Instance.currentSavedAbility = null;
+
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
     }
@@ -68,9 +76,13 @@ public class EnemySetControl : MonoBehaviour
         StartCoroutine(Stun()); ////Se inicia el Stun.
     }
 
-    public void ConsumeEnemy()  ////NO POLISHEADO
+    public IEnumerator ConsumeEnemy()  ////NO POLISHEADO; Faltan animaciones y su relación
     {
         this_EnemyActiveAbility.SaveAbility();
+        this_EnemyControl_MovementController.enabled = false;
+
+        yield return new WaitForSeconds(timeToConsume);
+
         GameManager.Instance.realPlayerGO.transform.position = transform.position;
         GameManager.Instance.realPlayerGO.SetActive(true);
         GameManager.Instance.ActualPlayerController = player_MovementController;

@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b70540b9586ea3418e4835b7e606e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToConsume: 2
   timeStunned: 1.5
 --- !u!114 &2678838310368782444
 MonoBehaviour:
@@ -212,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bea3a8d545d874ca005bc4e2f77299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPasiveAbility: {fileID: 0}
+  enemyPasiveAbility: {fileID: 0}
+  currentActiveAbility: {fileID: 0}
 --- !u!1 &4387296696882242119
 GameObject:
   m_ObjectHideFlags: 0
