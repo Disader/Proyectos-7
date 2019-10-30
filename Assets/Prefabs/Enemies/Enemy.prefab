@@ -110,7 +110,7 @@ MonoBehaviour:
     m_Bits: 55
   m_aimToPlayerMovement: 2
   m_armTransform: {fileID: 6218837739217761860}
-  m_distanceAimAheadPlayer: 0.6
+  m_distanceAimAheadPlayer: 0.2
 --- !u!114 &4387296696666090938
 MonoBehaviour:
   m_ObjectHideFlags: 0
