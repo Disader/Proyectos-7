@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class OriginalEnemiesAtRoom
-{
-    public Transform position;
-    public GameObject sceneObject;
-}
-
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
     List<EnemyControl_MovementController> enemiesInRoom = new List<EnemyControl_MovementController>();
+    Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,10 +17,15 @@ public class RoomManager : MonoBehaviour
             ZoneManager.Instance.SetNewActiveRoom(this);
            
         }
+        EnemyControl_MovementController enemyController = collision.GetComponent<EnemyControl_MovementController>();
         //Set de los enemigos en la habitación al principio de la partida en el trigger, quizás un poco inestable pero fácil implementación de diseño
-        if (collision.GetComponent<EnemyControl_MovementController>()!=null)
+        if (enemyController != null)
         {
-            AddEnemyAtRoom(collision.GetComponent<EnemyControl_MovementController>());     
+            AddEnemyAtRoom(enemyController);
+            if (!originalEnemiesAtRoomPosition.ContainsKey(enemyController.transform))
+            {
+                originalEnemiesAtRoomPosition.Add(enemyController.transform, enemyController.transform.position);
+            }
         }
     }
     public void AddEnemyAtRoom(EnemyControl_MovementController newEnemy)
@@ -75,10 +75,14 @@ public class RoomManager : MonoBehaviour
         }
         enemiesToDelete.Clear();
     }
-    void ResetRoom()
+    public void ResetRoom()
     {
-        
+        foreach(PlayerControl_MovementController enemy in enemiesInRoom)
+        {
+            if (originalEnemiesAtRoomPosition.ContainsKey(enemy.transform))
+            {
+                enemy.transform.position = originalEnemiesAtRoomPosition[enemy.transform];
+            }
+        }
     }
-
-
 }
