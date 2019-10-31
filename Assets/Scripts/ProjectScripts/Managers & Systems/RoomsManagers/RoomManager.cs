@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+public class OriginalEnemiesAtRoom
+{
+    public Transform position;
+    public GameObject sceneObject;
+}
+
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
@@ -65,7 +71,7 @@ public class RoomManager : MonoBehaviour
         }
         foreach (EnemyControl_MovementController enemy in enemiesToDelete)
         {
-            enemiesInRoom.Remove(enemy);
+            RemoveEnemyAtRoom(enemy);
         }
         enemiesToDelete.Clear();
     }

@@ -9,6 +9,7 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     public List<GameObject> rooms;
     CinemachineVirtualCamera m_activeCamera;
     RoomManager m_activeRoom;
+
     void DiscoverRoom(GameObject currentRoom)
     {
         mapManager.DiscoverRoom(currentRoom);
