@@ -78,6 +78,7 @@ public class EnemySetControl : MonoBehaviour
 
     public IEnumerator ConsumeEnemy()  ////NO POLISHEADO; Faltan animaciones y su relación
     {
+        thisEnemyRB.velocity = Vector2.zero;
         this_EnemyActiveAbility.SaveAbility();
         this_EnemyControl_MovementController.enabled = false;
 
@@ -99,5 +100,11 @@ public class EnemySetControl : MonoBehaviour
         this_EnemyNavAgent.enabled = true;
         this_EnemyAI.enabled = true;
         Debug.Log("NOT Stunned");
+    }
+
+    private void OnDisable() ////Para cuando se reactiva un enemigo que estaba en Stun;
+    {
+        this_EnemyAI.enabled = true;
+        this_EnemyNavAgent.enabled = true;
     }
 }

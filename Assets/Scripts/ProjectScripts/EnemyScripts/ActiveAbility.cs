@@ -11,6 +11,6 @@ public class ActiveAbility : MonoBehaviour ////AUN SIN RELACION CON SHOOTING SCR
     
     public void SaveAbility()  
     {
-        AbilitiesSlotsManager.Instance.currentSavedAbility = enemyPasiveAbility;
+        AbilitiesSlotsManager.Instance.StoreAbility(enemyPasiveAbility);
     }
 }

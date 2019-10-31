@@ -17,4 +17,15 @@ public class PasiveAbility_SO : ScriptableObject
             return m_bulletType;
         }
     }
+
+    [SerializeField]
+    private int m_slotCost;
+
+    public int slotCost
+    {
+        get
+        {
+            return m_slotCost;
+        }
+    }
 }
