@@ -9,9 +9,10 @@ public class CameraScript : MonoBehaviour
     private void Awake()
     {
         m_camera = GetComponent<CinemachineVirtualCamera>();
-    }
-    private void Update()
-    {
-        m_camera.Follow=GameManager.Instance.ActualPlayerController.transform;
+        FollowPlayer followPlayer = FindObjectOfType<FollowPlayer>();
+        if (followPlayer != null)
+        {
+            m_camera.Follow = followPlayer.transform;
+        }
     }
 }
