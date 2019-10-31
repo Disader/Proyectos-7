@@ -62,10 +62,10 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected void DetectPlayerInIdle()
     {
-        Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red,1f);
-        if (DistanceToPlayer() < m_playerDetectionDistance|| IsPlayerInSight())
+        if (DistanceToPlayer() < m_playerDetectionDistance || IsPlayerInSight())
         {
-           currentAIState = AIState.playerDetected;
+            Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
+            currentAIState = AIState.playerDetected;
         }
     }
     protected virtual void FindNewDestination()

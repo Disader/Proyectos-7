@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Sergio_Test.unity
+    guid: 7ec0eb7bb433ca74eb4d7669cc11c6b3
+  - enabled: 1
+    path: Assets/Scenes/SaveRoom.unity
+    guid: e95277da5da5d1b47b8a795b782f1b07
+  - enabled: 1
+    path: Assets/Scenes/PermanentScene.unity
+    guid: 5f0eae743b664f6468e97c03f470e628
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 16dc056e1e260ce45a209e16b9c2898b,
       type: 2}
