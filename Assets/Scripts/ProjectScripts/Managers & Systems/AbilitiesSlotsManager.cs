@@ -5,7 +5,7 @@ using UnityEngine;
 public class AbilitiesSlotsManager : TemporalSingleton<AbilitiesSlotsManager>
 {
     [Header("La Habilidad Pasiva que está Guardada")]
-    public PasiveAbility_SO currentSavedAbility;
+    public PasiveAbility_SO currentStoredAbility;
     [Header("El Número de Slots Disponibles")]
     public int slotCount = 1;
 
@@ -16,14 +16,17 @@ public class AbilitiesSlotsManager : TemporalSingleton<AbilitiesSlotsManager>
 
     public void StoreAbility(PasiveAbility_SO abilityToStore)
     {
-        if(abilityToStore.slotCost <= slotCount)
+        if (abilityToStore != null)
         {
-            currentSavedAbility = abilityToStore;
-        }
+            if (abilityToStore.slotCost <= slotCount)
+            {
+                currentStoredAbility = abilityToStore;
+            }
 
-        else
-        {
-            Debug.Log("No hay suficientes slots para guardar Pasiva!");
+            else
+            {
+                Debug.Log("No hay suficientes slots para guardar Pasiva!");
+            }
         }
     }
 }

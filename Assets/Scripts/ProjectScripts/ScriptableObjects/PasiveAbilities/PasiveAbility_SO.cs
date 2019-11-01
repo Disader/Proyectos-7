@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PasiveAbility", menuName = "PasiveAbility")]
 public class PasiveAbility_SO : ScriptableObject
 {
-    ////Actualmente solo tiene información de Balas.
+    ////Actualmente solo tiene información de Slots y Balas.
     ///
     [SerializeField]
     private GameObject m_bulletType;

@@ -8,6 +8,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("El PlayerControl de este Enemigo")]
     private EnemyControl_MovementController this_EnemyControl_MovementController;
 
+    [Header("El Script de Disparo/Aatque")]
+    private ShootingScript this_EnemyShootingScript;
+
     [Header("La Pasiva del Enemigo")]
     private ActiveAbility this_EnemyActiveAbility;
 
@@ -31,6 +34,7 @@ public class EnemySetControl : MonoBehaviour
     void Start()
     {
         this_EnemyControl_MovementController = GetComponent<EnemyControl_MovementController>();
+        this_EnemyShootingScript = GetComponent<ShootingScript>();
         this_EnemyActiveAbility = GetComponent<ActiveAbility>();
         this_EnemyAI = GetComponent<EnemyAI_Standard>();
         this_EnemyNavAgent = GetComponent<NavMeshAgent>();
@@ -38,7 +42,7 @@ public class EnemySetControl : MonoBehaviour
         thisEnemyRB = GetComponent<Rigidbody2D>();
     }
 
-    public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador  y se indica a GameManager que este enmigo es ActualPlayer
+    public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador y se indica a GameManager que este enmigo es ActualPlayer
     {
         StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
 
@@ -48,8 +52,7 @@ public class EnemySetControl : MonoBehaviour
         player_MovementController.controlSpeedX = 0;
         player_MovementController.controlSpeedY = 0;
 
-        this_EnemyActiveAbility.currentActiveAbility = AbilitiesSlotsManager.Instance.currentSavedAbility; ////Al poseer al enemigo se le coloca la Pasiva Guardada en su variable de currentAbility y se elimina la que está guardada en el Manager
-        AbilitiesSlotsManager.Instance.currentSavedAbility = null;
+        this_EnemyActiveAbility.SetCurrentAbility(this_EnemyShootingScript); ////VER el método en ActiveAbility     !!!!!  
 
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
@@ -65,6 +68,8 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.realPlayerGO.SetActive(true);
         GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
+
+        this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
 
         lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guradan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar moviemiento residual al volver a poseer.
         lastSpeedY = this_EnemyControl_MovementController.controlSpeedY;

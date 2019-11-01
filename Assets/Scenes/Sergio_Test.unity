@@ -1709,41 +1709,41 @@ Transform:
   - {fileID: 1448771021}
   - {fileID: 1826419960}
   - {fileID: 557237528}
+  - {fileID: 842036937}
   - {fileID: 330264863}
   - {fileID: 437906990}
   - {fileID: 901687805}
-  - {fileID: 2095949338}
   - {fileID: 1170114541}
+  - {fileID: 1139555127}
   - {fileID: 1125099748}
+  - {fileID: 1160409549}
   - {fileID: 736798667}
   - {fileID: 32909777}
   - {fileID: 1759944250}
   - {fileID: 1810928609}
-  - {fileID: 1160409549}
-  - {fileID: 526858243}
   - {fileID: 630683899}
-  - {fileID: 842355745}
-  - {fileID: 1139555127}
-  - {fileID: 941269798}
-  - {fileID: 842036937}
+  - {fileID: 526858243}
   - {fileID: 1483039764}
+  - {fileID: 842355745}
+  - {fileID: 941269798}
+  - {fileID: 683487695}
+  - {fileID: 2095949338}
+  - {fileID: 1173914315}
   - {fileID: 1025813190}
   - {fileID: 12275060}
-  - {fileID: 1508518357}
   - {fileID: 1802873578}
-  - {fileID: 1173914315}
-  - {fileID: 363129760}
-  - {fileID: 119200740}
-  - {fileID: 453150589}
-  - {fileID: 1122757394}
-  - {fileID: 528657552}
+  - {fileID: 1508518357}
   - {fileID: 1077770121}
+  - {fileID: 363129760}
+  - {fileID: 1122757394}
+  - {fileID: 453150589}
+  - {fileID: 119200740}
+  - {fileID: 528657552}
   - {fileID: 1255568957}
-  - {fileID: 1008470043}
   - {fileID: 413090648}
   - {fileID: 1021229016}
   - {fileID: 557735127}
-  - {fileID: 683487695}
+  - {fileID: 1008470043}
   - {fileID: 1914516008}
   - {fileID: 719866935}
   m_Father: {fileID: 561845320}
@@ -11228,6 +11228,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2678838310368782444, guid: 6754637b084fe47488a9670c458e7094,
+        type: 3}
+      propertyPath: enemyPasiveAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 87e1d3c09b54f3f40924438faa8d7fac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754637b084fe47488a9670c458e7094, type: 3}
 --- !u!1001 &1077770120

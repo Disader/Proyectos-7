@@ -88,7 +88,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected virtual void DamagePlayer()
     {
-        m_shootingScript.FireInShootingPos();
+        m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
     }
     protected virtual void AttackingMovement()
     {
