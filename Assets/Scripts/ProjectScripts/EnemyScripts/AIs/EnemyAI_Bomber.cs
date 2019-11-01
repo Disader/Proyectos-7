@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI_Bomber : EnemyAI_Standard
 {
-    protected override void AttackingBehabiour()
+    protected override void AttackingMovement()
     {
         FindNewDestination();
         if (m_AI_Controller.remainingDistance < 1f)

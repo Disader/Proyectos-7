@@ -11,6 +11,8 @@ public class EnemyAI_Standard : MonoBehaviour
     [SerializeField] float m_aimToPlayerMovement;
     [SerializeField] Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
+    [SerializeField] float m_clockDelay;
+    float m_clockTimer;
 
     protected NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
@@ -33,7 +35,16 @@ public class EnemyAI_Standard : MonoBehaviour
         }
         else if (currentAIState == AIState.playerDetected)
         {
-            AttackingBehabiour();
+            m_clockTimer += Time.deltaTime;
+            if (m_clockTimer > m_clockDelay)
+            {
+                AttackingMovement();
+                m_clockTimer = 0;
+            }
+            if (IsPlayerInSight())
+            {
+                DamagePlayer();
+            }
         }
         Aim();
     }
@@ -68,20 +79,22 @@ public class EnemyAI_Standard : MonoBehaviour
             currentAIState = AIState.playerDetected;
         }
     }
+    NavMeshPath path;
     protected virtual void FindNewDestination()
     {
-        m_AI_Controller.destination = GameManager.Instance.ActualPlayerController.transform.position;
+        NavMeshPath path = new NavMeshPath();
+        m_AI_Controller.CalculatePath(GameManager.Instance.ActualPlayerController.transform.position, path);
+        m_AI_Controller.path = path;
     }
     protected virtual void DamagePlayer()
     {
         m_shootingScript.FireInShootingPos();
     }
-    protected virtual void AttackingBehabiour()
+    protected virtual void AttackingMovement()
     {
         if (IsPlayerInSight())
         {
             m_AI_Controller.stoppingDistance = m_originalStoppingDistance;
-            DamagePlayer();
             if (isPlayerFurtherThanStoppingDistance())
             {
                 FindNewDestination();

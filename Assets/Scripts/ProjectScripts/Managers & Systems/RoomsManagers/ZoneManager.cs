@@ -6,10 +6,18 @@ using Cinemachine;
 public class ZoneManager : TemporalSingleton<ZoneManager>
 {
     public MapBehaviour mapManager;
-    public List<GameObject> rooms;
+    public List<RoomManager> rooms = new List<RoomManager>();
     CinemachineVirtualCamera m_activeCamera;
     RoomManager m_activeRoom;
-
+    private void Start()
+    {
+        rooms.AddRange(FindObjectsOfType<RoomManager>());
+        foreach(RoomManager room in rooms)
+        {
+            room.DeactivateEnemies();
+            Debug.Log("deactivate");
+        }
+    }
     void DiscoverRoom(GameObject currentRoom)
     {
         mapManager.DiscoverRoom(currentRoom);
@@ -33,6 +41,7 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
             }
             m_activeRoom = newRoom;
             m_activeRoom.ActivateEnemies();
+            Debug.Log("activate");
             
         }
 

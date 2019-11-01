@@ -43,11 +43,11 @@ GameObject:
   - component: {fileID: 4387296696666090820}
   - component: {fileID: 4387296696666090939}
   - component: {fileID: 4387296696666090938}
-  - component: {fileID: 4387296696666090937}
   - component: {fileID: 4387296696666090936}
   - component: {fileID: 4387296696666090943}
   - component: {fileID: 4387296696666090942}
   - component: {fileID: 2678838310368782444}
+  - component: {fileID: 7113016245465618229}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -80,9 +80,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 4387296696666090823}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.79
+  m_Radius: 0.1
   m_Speed: 3
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 7
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_aimToPlayerMovement: 2
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0.2
+  m_clockDelay: 0.5
 --- !u!114 &4387296696666090938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,22 +129,6 @@ MonoBehaviour:
   m_bullet: {fileID: 5581599170633199143, guid: 2d31a31256354ce4faaea5d2a15abaa0,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
---- !u!58 &4387296696666090937
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4387296696666090823}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.31337833}
-  serializedVersion: 2
-  m_Radius: 0.5440569
 --- !u!50 &4387296696666090936
 Rigidbody2D:
   serializedVersion: 4
@@ -215,6 +200,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPasiveAbility: {fileID: 0}
   currentActiveAbility: {fileID: 0}
+--- !u!70 &7113016245465618229
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387296696666090823}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.035771847, y: -0.6518414}
+  m_Size: {x: 0.5715437, y: 0.586637}
+  m_Direction: 0
 --- !u!1 &4387296696882242119
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387296696882242119}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.41, y: -0, z: 0}
+  m_LocalPosition: {x: 1.7, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6218837739217761860}
