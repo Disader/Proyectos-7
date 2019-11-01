@@ -21,7 +21,6 @@ public class Checkpoint : MonoBehaviour
         for (int i = 0; i < c; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
-            print(scene.name);
             if (scene.name != "SaveRoom" && scene.name!="PermanentScene")
             {
                 SceneManager.UnloadSceneAsync(scene);

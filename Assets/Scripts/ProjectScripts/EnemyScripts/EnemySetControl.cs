@@ -104,7 +104,10 @@ public class EnemySetControl : MonoBehaviour
 
     private void OnDisable() ////Para cuando se reactiva un enemigo que estaba en Stun;
     {
-        this_EnemyAI.enabled = true;
-        this_EnemyNavAgent.enabled = true;
+        if(this_EnemyAI!=null && this_EnemyNavAgent != null)
+        {
+            this_EnemyAI.enabled = true;
+            this_EnemyNavAgent.enabled = true;
+        }
     }
 }

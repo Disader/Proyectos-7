@@ -6,40 +6,58 @@ using Cinemachine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
-    List<EnemyControl_MovementController> enemiesInRoom = new List<EnemyControl_MovementController>();
+
+    List<EnemyControl_MovementController> currentEnemiesInRoom = new List<EnemyControl_MovementController>();
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
 
+    List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
+
+    void Awake()
+    {
+        currentEnemiesInRoom.AddRange(GetComponentsInChildren<EnemyControl_MovementController>());
+        foreach(EnemyControl_MovementController enemy in currentEnemiesInRoom)
+        {
+            originalEnemiesAtRoomPosition.Add(enemy.transform, enemy.transform.position);
+            enemy.gameObject.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
             ChangeCamera();
             ZoneManager.Instance.SetNewActiveRoom(this);
-           
-        }
-        EnemyControl_MovementController enemyController = collision.GetComponent<EnemyControl_MovementController>();
-        //Set de los enemigos en la habitación al principio de la partida en el trigger, quizás un poco inestable pero fácil implementación de diseño
-        if (enemyController != null)
-        {
-            AddEnemyAtRoom(enemyController);
-            if (!originalEnemiesAtRoomPosition.ContainsKey(enemyController.transform))
+            if (collision.GetComponent<EnemyControl_MovementController>() != null)
             {
-                originalEnemiesAtRoomPosition.Add(enemyController.transform, enemyController.transform.position);
+                AddEnemyAtRoom(collision.GetComponent<EnemyControl_MovementController>());
             }
+        }
+        //Añado las balas al crearlas
+        if (collision.GetComponent<BulletBase>() != null)
+        {
+            activeBulletsInRoom.Add(collision.GetComponent<BulletBase>());
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //Elimino las balas al destruirse
+        if (collision.GetComponent<BulletBase>() != null)
+        {
+            activeBulletsInRoom.Remove(collision.GetComponent<BulletBase>());
         }
     }
     public void AddEnemyAtRoom(EnemyControl_MovementController newEnemy)
     {
-        if (!enemiesInRoom.Contains(newEnemy))
+        if (!currentEnemiesInRoom.Contains(newEnemy))
         {
-            enemiesInRoom.Add(newEnemy);
+            currentEnemiesInRoom.Add(newEnemy);
         }   
     }
     public void RemoveEnemyAtRoom(EnemyControl_MovementController deleteEnemy)
     {
-        if (enemiesInRoom.Contains(deleteEnemy))
+        if (currentEnemiesInRoom.Contains(deleteEnemy))
         {
-            enemiesInRoom.Remove(deleteEnemy);
+            currentEnemiesInRoom.Remove(deleteEnemy);
         }
     }
     void ChangeCamera()
@@ -49,40 +67,55 @@ public class RoomManager : MonoBehaviour
     }
     public void ActivateEnemies()
     {
-        foreach (EnemyControl_MovementController enemy in enemiesInRoom)
+        foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
         {
             enemy.gameObject.SetActive(true);
         }
     }
 
-    List<EnemyControl_MovementController> enemiesToDelete = new List<EnemyControl_MovementController>();
     public void DeactivateEnemies()
     {
-        foreach (EnemyControl_MovementController enemy in enemiesInRoom)
+        foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
         {
             if(enemy != GameManager.Instance.ActualPlayerController)
             {
                 enemy.gameObject.SetActive(false);
             }
-            else
+        }
+    }
+    public void DeleteControlledEnemyFromRoomList()
+    {
+        EnemyControl_MovementController currentControlledEnemy = null;
+
+        foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
+        {
+            if (enemy == GameManager.Instance.ActualPlayerController)
             {
-                enemiesToDelete.Add(enemy);
+                currentControlledEnemy = enemy;  //Es el jugador, así que se saca de la lista de enemigos en la sala
+                break;
             }
         }
-        foreach (EnemyControl_MovementController enemy in enemiesToDelete)
+        if (currentControlledEnemy != null)
         {
-            RemoveEnemyAtRoom(enemy);
+            currentEnemiesInRoom.Remove(currentControlledEnemy);
         }
-        enemiesToDelete.Clear();
     }
     public void ResetRoom()
     {
-        foreach(PlayerControl_MovementController enemy in enemiesInRoom)
+        foreach(PlayerControl_MovementController enemy in currentEnemiesInRoom)
         {
             if (originalEnemiesAtRoomPosition.ContainsKey(enemy.transform))
             {
                 enemy.transform.position = originalEnemiesAtRoomPosition[enemy.transform];
             }
         }
+
+        //Reseteo de balas en la sala
+        int bulletsInRoom = activeBulletsInRoom.Count;
+        for( int i = 0; i < bulletsInRoom; i++)
+        {
+            Destroy(activeBulletsInRoom[i]);
+        }
+        activeBulletsInRoom.Clear();
     }
 }
