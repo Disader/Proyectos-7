@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1886193482304676655}
   - component: {fileID: 1886193482304676652}
   - component: {fileID: 1886193482304676653}
-  - component: {fileID: 7410383452667343883}
   m_Layer: 11
   m_Name: Room
   m_TagString: Untagged
@@ -133,19 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_roomCamera: {fileID: 1886193483982898231}
   currentEnemiesInRoom: []
---- !u!114 &7410383452667343883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886193482304676651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be72b90cb8717244a2e4f170b2361f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LayerMask:
+  m_enemyLayer:
     serializedVersion: 2
     m_Bits: 512
 --- !u!1 &1886193483737761719

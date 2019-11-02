@@ -11,9 +11,26 @@ public class RoomManager : MonoBehaviour
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
 
+    BoxCollider2D myCollider;
+    [SerializeField] LayerMask m_enemyLayer;
     void Awake()
-    {
-        foreach(EnemyControl_MovementController enemy in currentEnemiesInRoom)
+    {     
+        myCollider = GetComponent<BoxCollider2D>();
+        Vector2 hitColliderPosition = new Vector2(gameObject.transform.position.x + myCollider.offset.x, gameObject.transform.position.y + myCollider.offset.y);
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitColliderPosition, myCollider.size, 0f, m_enemyLayer);
+
+        int i = 0;
+        while (i < hitColliders.Length)
+        {
+            EnemyControl_MovementController enemyController = hitColliders[i].GetComponent<EnemyControl_MovementController>();
+            if (enemyController != null)
+            {
+                AddEnemyAtRoom(enemyController);
+            }
+            i++;
+        }
+
+        foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
         {
             originalEnemiesAtRoomPosition.Add(enemy.transform, enemy.transform.position);
             enemy.gameObject.SetActive(false);
