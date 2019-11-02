@@ -15,6 +15,18 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private bool canUseLeftTrigger;
     private bool rightTrigger_isAxisInUse;
 
+    [Header("Variables del Dash")]
+    public float dashTime;
+    public float dashForce;
+    private Vector2 dashDirection = new Vector2(1, 0);
+    private bool isDashing = false;
+    /*private float defaultMaxSpeedX;
+    private float defaultMaxSpeedY;
+    private float defaultAccelerationX;
+    private float defaultAccelerationY; ////PRUEBA
+    private float deafaultDecelerationX;
+    private float deafaultDecelerationY;*/
+
     void OnEnable()
     {
         canUseLeftTrigger = false;  ////Este bool impide que al poseer al enemigo con el left trigger, se inicie inmediatamente el Input de LeftTrigger que desposee al enemigo en este script
@@ -26,20 +38,66 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
         thisEnemySetControl = GetComponent<EnemySetControl>();
         thisEnemyShootingScript = GetComponent<ShootingScript>();
+
+       /*defaultMaxSpeedX = maxSpeedX;
+        defaultMaxSpeedY = maxSpeedY;
+        defaultAccelerationX = accelerationX;
+        defaultAccelerationY = accelerationY;   ////PRUEBA
+        deafaultDecelerationX = decelerationX;
+        deafaultDecelerationY = decelerationY;*/
     }
 
     protected override void Update()
     {
-        base.Update();
-
-        LeftTriggerInput();
-        RightTriggerInput();
-
-        if(actions.PlayerInputActions.ActionButton.triggered) ////Input de Consumir en la "A" CAMBIAR SI NECESARIO
+        if (!isDashing) ////Al hacer Dash se quita el control al jugador
         {
-            ConsumeAction();
+            base.Update();
+
+            LeftTriggerInput();
+            RightTriggerInput();
+
+            if (actions.PlayerInputActions.ActionButton.triggered) ////Input de Consumir en la "A" CAMBIAR SI NECESARIO
+            {
+                ConsumeAction();
+            }
+
+            CheckDashDirection();
+
+            if (actions.PlayerInputActions.DashButton.triggered) ////Input de Dash en la "B" CAMBIAR SI NECESARIO
+            {
+                StartCoroutine(DashLogicCoroutine());
+            }           
         }
     }
+
+    /// <summary>
+    /// /////////////////// DASHING /////////////////////////  HAY QUE REPLANTEARLO CON ANIMACIONES SI ES NECESARIO
+    /// </summary>
+
+    private void CheckDashDirection() ////Se guarda la última dirección de movimiento como la dirección de Dash si hay Input
+    {
+        if (actions.PlayerInputActions.HorizontalMovement.ReadValue<float>() != 0 || actions.PlayerInputActions.VerticalMovement.ReadValue<float>() != 0)
+        {
+            dashDirection = new Vector2(controlSpeedX, controlSpeedY);
+        }
+    }
+
+    private IEnumerator DashLogicCoroutine() ////Se aplica el Dash
+    {
+        isDashing = true;
+
+        controlRb.velocity = dashDirection.normalized * dashForce;
+
+        yield return new WaitForSeconds(dashTime);
+
+        controlRb.velocity = Vector2.zero;
+
+        isDashing = false;
+    }
+
+    /// <summary>
+    /// ////////////////////////////////////////////////////////
+    /// </summary>
 
     private void UnpossessAction()
     {
@@ -56,7 +114,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
     }
 
-    private void CallShootingScriptReset() ////Llama al Reset de ShootingScript. VER el método en Shhoting Script       !!!!
+    private void CallShootingScriptReset() ////Llama al Reset de ShootingScript. VER el método en Shooting Script       !!!!
     {
         thisEnemyShootingScript.ResetOnStopAttack();
     }

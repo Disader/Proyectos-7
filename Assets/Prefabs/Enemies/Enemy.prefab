@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b118f4d0c8132c24f963ec8c9b80352d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shSCR_PasiveAbility: {fileID: 0}
   m_firingRate: 1
   m_bullet: {fileID: 5581599170633199143, guid: 2d31a31256354ce4faaea5d2a15abaa0,
     type: 3}
@@ -173,6 +174,8 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   armDirection: {x: 0, y: 0}
+  dashTime: 0.5
+  dashForce: 15
 --- !u!114 &4387296696666090942
 MonoBehaviour:
   m_ObjectHideFlags: 0

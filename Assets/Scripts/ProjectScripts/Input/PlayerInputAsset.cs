@@ -65,6 +65,14 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""DashButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""54740f2a-d73c-41c0-82b3-95d6ddc7c304"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -287,6 +295,28 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""action"": ""ActionButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97c47e92-f163-4fdd-8a33-1a3b253c340a"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DashButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8b8d10e-839d-4a09-adf5-e85a06fef767"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DashButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -301,6 +331,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         m_PlayerInputActions_RightTrigger = m_PlayerInputActions.FindAction("RightTrigger", throwIfNotFound: true);
         m_PlayerInputActions_LeftTrigger = m_PlayerInputActions.FindAction("LeftTrigger", throwIfNotFound: true);
         m_PlayerInputActions_ActionButton = m_PlayerInputActions.FindAction("ActionButton", throwIfNotFound: true);
+        m_PlayerInputActions_DashButton = m_PlayerInputActions.FindAction("DashButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +387,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInputActions_RightTrigger;
     private readonly InputAction m_PlayerInputActions_LeftTrigger;
     private readonly InputAction m_PlayerInputActions_ActionButton;
+    private readonly InputAction m_PlayerInputActions_DashButton;
     public struct PlayerInputActionsActions
     {
         private PlayerInputAsset m_Wrapper;
@@ -366,6 +398,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         public InputAction @RightTrigger => m_Wrapper.m_PlayerInputActions_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_PlayerInputActions_LeftTrigger;
         public InputAction @ActionButton => m_Wrapper.m_PlayerInputActions_ActionButton;
+        public InputAction @DashButton => m_Wrapper.m_PlayerInputActions_DashButton;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -393,6 +426,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
                 ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
                 ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                DashButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                DashButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                DashButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -415,6 +451,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 ActionButton.started += instance.OnActionButton;
                 ActionButton.performed += instance.OnActionButton;
                 ActionButton.canceled += instance.OnActionButton;
+                DashButton.started += instance.OnDashButton;
+                DashButton.performed += instance.OnDashButton;
+                DashButton.canceled += instance.OnDashButton;
             }
         }
     }
@@ -427,5 +466,6 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnActionButton(InputAction.CallbackContext context);
+        void OnDashButton(InputAction.CallbackContext context);
     }
 }

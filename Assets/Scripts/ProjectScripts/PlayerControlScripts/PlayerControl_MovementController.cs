@@ -18,7 +18,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     public float accelerationY;
     public float decelerationX;
     public float decelerationY;
-    private Rigidbody2D playerRb;
+    protected Rigidbody2D controlRb;
 
     [Header("El Objeto que Funciona como Brazo o el que Rota")]
     public GameObject armObject;
@@ -31,7 +31,7 @@ public class PlayerControl_MovementController : MonoBehaviour
        
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
-        playerRb = GetComponent<Rigidbody2D>();
+        controlRb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     {
         controlSpeedX += axisValueX * accelerationX * Time.deltaTime; ////Cálculo de la velocidad con aceleraciones
         controlSpeedY += axisValueY * accelerationY * Time.deltaTime;
-        playerRb.velocity = new Vector2(controlSpeedX, controlSpeedY); ////Aplicación de los cálculos al velocity del rigidbody
+        controlRb.velocity = new Vector2(controlSpeedX, controlSpeedY); ////Aplicación de los cálculos al velocity del rigidbody
 
         if (axisValueX == 0 || axisValueX == 1 && controlSpeedX < 0 || axisValueX == -1 && controlSpeedX > 0) ////Deceleraciones en X
         {

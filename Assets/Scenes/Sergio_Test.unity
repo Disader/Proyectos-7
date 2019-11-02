@@ -11270,11 +11270,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4387296696666090823, guid: 6754637b084fe47488a9670c458e7094,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4387296696666090821, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11330,12 +11325,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2678838310368782444, guid: 6754637b084fe47488a9670c458e7094,
-        type: 3}
-      propertyPath: enemyPasiveAbility
-      value: 
-      objectReference: {fileID: 11400000, guid: 87e1d3c09b54f3f40924438faa8d7fac,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754637b084fe47488a9670c458e7094, type: 3}
 --- !u!1001 &1077770120
@@ -15949,36 +15938,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1288826946}
     m_Modifications:
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: pruebas
-      value: 6.247955
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: roomManager
-      value: 
-      objectReference: {fileID: 2088106744}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: myCollider
-      value: 
-      objectReference: {fileID: 2088106742}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: m_dimensions.x
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: m_dimensions.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: pruebadeListas
-      value: 
-      objectReference: {fileID: 684870876}
     - target: {fileID: 1886193482304676651, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_Name
@@ -16129,6 +16088,36 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: pruebas
+      value: 6.247955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: roomManager
+      value: 
+      objectReference: {fileID: 2088106744}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 2088106742}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_dimensions.x
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_dimensions.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: pruebadeListas
+      value: 
+      objectReference: {fileID: 684870876}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ab7c2c2018cf4e83e9ea52742bdac, type: 3}
 --- !u!1001 &1711690900
@@ -19435,26 +19424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1288826946}
     m_Modifications:
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: roomManager
-      value: 
-      objectReference: {fileID: 1647191899}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: myCollider
-      value: 
-      objectReference: {fileID: 1647191897}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: m_dimensions.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: m_dimensions.y
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676651, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_Name
@@ -19603,6 +19572,26 @@ PrefabInstance:
     - target: {fileID: 1886193482304676652, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: roomManager
+      value: 
+      objectReference: {fileID: 1647191899}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 1647191897}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_dimensions.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410383452667343883, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_dimensions.y
       value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
