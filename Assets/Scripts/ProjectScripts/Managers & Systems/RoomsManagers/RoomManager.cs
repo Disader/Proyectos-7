@@ -7,14 +7,12 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
 
-    List<EnemyControl_MovementController> currentEnemiesInRoom = new List<EnemyControl_MovementController>();
+    [SerializeField] List<EnemyControl_MovementController> currentEnemiesInRoom;
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
-
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
 
     void Awake()
     {
-        currentEnemiesInRoom.AddRange(GetComponentsInChildren<EnemyControl_MovementController>());
         foreach(EnemyControl_MovementController enemy in currentEnemiesInRoom)
         {
             originalEnemiesAtRoomPosition.Add(enemy.transform, enemy.transform.position);
@@ -97,7 +95,7 @@ public class RoomManager : MonoBehaviour
         }
         if (currentControlledEnemy != null)
         {
-            currentEnemiesInRoom.Remove(currentControlledEnemy);
+            RemoveEnemyAtRoom(currentControlledEnemy);
         }
     }
     public void ResetRoom()

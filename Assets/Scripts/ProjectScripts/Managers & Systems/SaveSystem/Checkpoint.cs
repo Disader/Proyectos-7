@@ -8,9 +8,11 @@ public class Checkpoint : MonoBehaviour
     //Esta función es WIP solo para probar que la carga asíncrona funciona
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(LoadYourAsyncScene());
+        if (collision.GetComponent <PlayerControl_MovementController>() != null)
+        {
+            StartCoroutine(LoadYourAsyncScene());
+        }
     }
-
     IEnumerator LoadYourAsyncScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.
