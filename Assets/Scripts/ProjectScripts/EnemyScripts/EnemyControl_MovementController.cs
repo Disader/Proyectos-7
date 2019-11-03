@@ -109,7 +109,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         thisEnemySetControl.StartCoroutine(thisEnemySetControl.ConsumeEnemy());
     }
 
-    private void Attack() 
+    private void AttackAction() 
     {
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
     }
@@ -144,7 +144,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     {
         if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() != 0)
         {
-            Attack();
+            AttackAction();
 
             rightTrigger_isAxisInUse = true;
         }

@@ -40,7 +40,7 @@ public class HealthHeartsVisual : MonoBehaviour
 
     /// //Prueba///////////////////
 
-    private void Update()
+    /*private void Update()
     {
         if(Input.GetKeyDown(KeyCode.K))
         {
@@ -58,7 +58,7 @@ public class HealthHeartsVisual : MonoBehaviour
         {
             healthHeartsSystem.Heal(3);
         }
-    }
+    }*/
 
     /// //Prueba///////////////////
 

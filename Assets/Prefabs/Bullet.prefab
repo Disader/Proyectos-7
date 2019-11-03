@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_velocity: 10
+  bulletDamageToPlayer: 1
+  bulletDamageToEnemy: 1
 --- !u!50 &8060007561982921686
 Rigidbody2D:
   serializedVersion: 4

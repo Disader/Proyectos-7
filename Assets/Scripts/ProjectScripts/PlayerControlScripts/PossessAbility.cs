@@ -29,6 +29,7 @@ public class PossessAbility : MonoBehaviour
     {
         playerControl_MovementController = GetComponent<PlayerControl_MovementController>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class PossessAbility : MonoBehaviour
         LeftTriggerInput();
     }
 
-    void LaunchRaycast()
+    private void LaunchRaycast()
     {
         if (playerControl_MovementController.armDirection.sqrMagnitude > 0) ////Se lanza Raycast si hay input de rotación registrado en el PlayerControl
         {
@@ -83,7 +84,7 @@ public class PossessAbility : MonoBehaviour
         }
     }
 
-    void PossessAction()
+    private void PossessAction()
     {
         if (enemy_InRaycast != null)
         {
@@ -108,5 +109,15 @@ public class PossessAbility : MonoBehaviour
         {
             leftTrigger_isAxisInUse = false;
         }
+    }
+
+    public IEnumerator PlayerStun(float timeStunned) // La funcinalidad del Stun al jugador, se la llama desde SetControl en caso de morir el enemigo poseído.
+    {
+        playerControl_MovementController.armDirection = Vector2.zero;
+        playerControl_MovementController.enabled = false;
+
+        yield return new WaitForSeconds(timeStunned);
+
+        playerControl_MovementController.enabled = true;
     }
 }

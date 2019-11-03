@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4387296696666090820}
   - component: {fileID: 4387296696666090939}
   - component: {fileID: 4387296696666090938}
+  - component: {fileID: 1013505102987024136}
   - component: {fileID: 4387296696666090936}
   - component: {fileID: 4387296696666090943}
   - component: {fileID: 4387296696666090942}
@@ -131,6 +132,19 @@ MonoBehaviour:
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
   player_firingRate: 0.5
+--- !u!114 &1013505102987024136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387296696666090823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1707bc6fd642405498206a8e3177c323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 3
 --- !u!50 &4387296696666090936
 Rigidbody2D:
   serializedVersion: 4
@@ -189,7 +203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToConsume: 2
+  healthHealedOnCosuming: 1
   timeStunned: 1.5
+  playerTimeStunned: 2
 --- !u!114 &2678838310368782444
 MonoBehaviour:
   m_ObjectHideFlags: 0

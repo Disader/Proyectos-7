@@ -21,14 +21,23 @@ public class EnemySetControl : MonoBehaviour
     [Header("El PlayerControl del Jugador")]
     private PlayerControl_MovementController player_MovementController;
 
+    [Header("La Possess Ability del Jugador")]
+    private PossessAbility player_PossessAbility;
+
     [Header("RigidBodies")]
     private Rigidbody2D thisEnemyRB;
 
     [Header("Variables de Consumir")]
     public float timeToConsume;
+    private bool hasBeenConsumed;
+    [Header("Fragmentos de Vida Recuperados al ser Consumido")]
+    public int healthHealedOnCosuming;
 
-    [Header("Variables Stun")]
+    [Header("Variables Stun del Enemigo")]
     public float timeStunned;
+
+    [Header("Tiempo de Stun de Player si este Enemigo Muere Estando Poseído")]
+    public float playerTimeStunned;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +48,7 @@ public class EnemySetControl : MonoBehaviour
         this_EnemyAI = GetComponent<EnemyAI_Standard>();
         this_EnemyNavAgent = GetComponent<NavMeshAgent>();
         player_MovementController = GameManager.Instance.realPlayerGO.GetComponent<PlayerControl_MovementController>();
+        player_PossessAbility = GameManager.Instance.realPlayerGO.GetComponent<PossessAbility>();
         thisEnemyRB = GetComponent<Rigidbody2D>();
     }
 
@@ -51,6 +61,8 @@ public class EnemySetControl : MonoBehaviour
         this_EnemyControl_MovementController.enabled = true;
         player_MovementController.controlSpeedX = 0;
         player_MovementController.controlSpeedY = 0;
+
+        gameObject.layer = 8; ////Al ser poseído pasa a tener layer de Player
 
         this_EnemyActiveAbility.SetCurrentAbility(this_EnemyShootingScript); ////VER el método en ActiveAbility     !!!!!  
 
@@ -69,16 +81,56 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
 
+        gameObject.layer = 9; ////Al ser desposeído vuelve a tener layer de Enemy
+
         this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
 
         lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guradan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar moviemiento residual al volver a poseer.
         lastSpeedY = this_EnemyControl_MovementController.controlSpeedY;
         this_EnemyControl_MovementController.controlSpeedX = 0;
         this_EnemyControl_MovementController.controlSpeedY = 0;
+
         thisEnemyRB.velocity = Vector2.zero;  ////Se elimina toda velocidad del RB y se aplica una fuerza contraria a la velocidad en la que se estaba moviendo en el último momento
         thisEnemyRB.AddForce(new Vector2(-lastSpeedX, -lastSpeedY) * 2, ForceMode2D.Impulse);
 
-        StartCoroutine(Stun()); ////Se inicia el Stun.
+        StartCoroutine(StunEnemy()); ////Se inicia el Stun.
+    }
+
+    public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
+    {
+        if (this_EnemyAI.enabled == false) ////El enemigo está poseído
+        {
+            EnemyDeadWhilePossessed();
+        }
+
+        else if (this_EnemyAI.enabled == true)//// El enemigo no está poseído
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void EnemyDeadWhilePossessed() ////Funcionalidad al morir el enemigo mientras estaba poseído
+    {
+        StopAllCoroutines();
+
+        GameManager.Instance.realPlayerGO.transform.position = transform.position;
+        GameManager.Instance.realPlayerGO.SetActive(true);
+        GameManager.Instance.ActualPlayerController = player_MovementController;
+
+        this_EnemyControl_MovementController.controlSpeedX = 0; ////Eliminar movimiento residual y desactivar control de enemigo
+        this_EnemyControl_MovementController.controlSpeedY = 0;
+        this_EnemyControl_MovementController.enabled = false;
+
+        this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); ////Eliminar la Pasiva Activa si hay
+
+        if (!hasBeenConsumed) ///Si el enemigo ha muerto poseído pero no por ser consumido, es decir, muerto por ataque, se aplica stun al jugador. Esta funcionalidad está en PossessAbility
+        {
+            player_PossessAbility.StartCoroutine(player_PossessAbility.PlayerStun(playerTimeStunned));
+        }
+
+        gameObject.layer = 9; //Layer de enemy
+        hasBeenConsumed = false; //Se resetea el bool que indica si el enemigo ha sido consumido.
+        gameObject.SetActive(false);
     }
 
     public IEnumerator ConsumeEnemy()  ////NO POLISHEADO; Faltan animaciones y su relación
@@ -89,13 +141,12 @@ public class EnemySetControl : MonoBehaviour
 
         yield return new WaitForSeconds(timeToConsume);
 
-        GameManager.Instance.realPlayerGO.transform.position = transform.position;
-        GameManager.Instance.realPlayerGO.SetActive(true);
-        GameManager.Instance.ActualPlayerController = player_MovementController;
-        Destroy(gameObject);
+        HealthHeartsVisual.healthHeartsSystemStatic.Heal(healthHealedOnCosuming);
+        hasBeenConsumed = true;
+        CheckEnemyDeath();
     }
 
-    public IEnumerator Stun()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
+    public IEnumerator StunEnemy()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
     {
         Debug.Log("Stunned");
 
@@ -109,7 +160,7 @@ public class EnemySetControl : MonoBehaviour
 
     private void OnDisable() ////Para cuando se reactiva un enemigo que estaba en Stun;
     {
-        if(this_EnemyAI!=null && this_EnemyNavAgent != null)
+        if(this_EnemyAI != null && this_EnemyNavAgent != null)
         {
             this_EnemyAI.enabled = true;
             this_EnemyNavAgent.enabled = true;
