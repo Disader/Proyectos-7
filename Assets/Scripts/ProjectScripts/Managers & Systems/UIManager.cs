@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : TemporalSingleton<UIManager>
 {
     // Start is called before the first frame update
     public MapBehaviour map;
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] Animation m_fadeAnimation;
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -23,6 +19,10 @@ public class UIManager : MonoBehaviour
     public void ShowMap()
     {     
         map.GetComponent<Canvas>().enabled = !map.GetComponent<Canvas>().enabled;
+    }
+    public void Fade()
+    {
+        m_fadeAnimation.Play();
     }
     
 }
