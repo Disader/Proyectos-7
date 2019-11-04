@@ -15,7 +15,7 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     }
     public IEnumerator SetActiveCamera(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
-        if (m_activeRoom != newRoom)
+        if (m_activeRoom != null && m_activeRoom != newRoom)
         {
             UIManager.Instance.Fade();
             yield return new WaitUntil(() => UIManager.Instance.IsScreenOnBlack());
