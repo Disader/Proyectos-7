@@ -40,8 +40,12 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
-            StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera,this)); //Cambio de la cámara
+            //El orden es importante, se necesita setear primero la habitación
+            StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera, this)); //Cambio de la cámara
             ZoneManager.Instance.SetNewActiveRoom(this); //Cambio de habitación
+           
+
+
             if (collision.GetComponent<EnemyControl_MovementController>() != null) 
             {
                 AddEnemyAtRoom(collision.GetComponent<EnemyControl_MovementController>()); //Añadir enemigo si está siendo controlado por el jugador y entra a una nueva sala
@@ -122,9 +126,9 @@ public class RoomManager : MonoBehaviour
 
         //Reseteo de balas en la sala
         int bulletsInRoom = activeBulletsInRoom.Count;
-        for( int i = 0; i < bulletsInRoom; i++)
+        for( int i = 0; i < bulletsInRoom-1; i++)
         {
-            Destroy(activeBulletsInRoom[i]);
+            Destroy(activeBulletsInRoom[i].gameObject);
         }
         activeBulletsInRoom.Clear();
     }
