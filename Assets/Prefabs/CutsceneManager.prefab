@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 3
+    OrthographicSize: 8
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -974,7 +974,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -991,19 +991,19 @@ PlayableDirector:
     value: {fileID: 896524140}
   - key: {fileID: -8081202233426779394, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
     value: {fileID: 896524143}
-  - key: {fileID: 1437618444646823385, guid: da83a56d2fccfcd4d86fff41fef16d1d, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 8947202091280401993}
-  - key: {fileID: -5472987747685991380, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -5705769009429630025, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 8023970904688633294, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -8081202233426779394, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -3962740970387574786, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -5727865885183369639, guid: 00047bd4742691645955c38700a4d8f3, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
