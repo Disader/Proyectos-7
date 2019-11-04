@@ -45,4 +45,8 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
         }
 
     }
+    public void DeleteEnemyFromCurrentRoom(EnemyControl_MovementController enemy)
+    {
+        m_activeRoom.RemoveEnemyAtRoom(enemy);
+    }
 }

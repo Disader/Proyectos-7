@@ -98,6 +98,7 @@ public class EnemySetControl : MonoBehaviour
 
     public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
     {
+       
         if (this_EnemyAI.enabled == false) ////El enemigo está poseído
         {
             EnemyDeadWhilePossessed();
@@ -107,6 +108,7 @@ public class EnemySetControl : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        ZoneManager.Instance.DeleteEnemyFromCurrentRoom(this_EnemyControl_MovementController);
     }
 
     public void EnemyDeadWhilePossessed() ////Funcionalidad al morir el enemigo mientras estaba poseído
