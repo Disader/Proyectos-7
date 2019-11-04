@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4387296696666090942}
   - component: {fileID: 2678838310368782444}
   - component: {fileID: 7113016245465618229}
+  - component: {fileID: 1962741437665347485}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -81,7 +82,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4387296696666090823}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.25
   m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 50
@@ -233,8 +234,24 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035771847, y: -0.6518414}
-  m_Size: {x: 0.5715437, y: 0.586637}
+  m_Offset: {x: 0, y: 0.21402526}
+  m_Size: {x: 0.64835453, y: 0.7708621}
+  m_Direction: 0
+--- !u!70 &1962741437665347485
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387296696666090823}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000009536743, y: 0.86101305}
+  m_Size: {x: 0.93966484, y: 2.0258877}
   m_Direction: 0
 --- !u!1 &4387296696882242119
 GameObject:
