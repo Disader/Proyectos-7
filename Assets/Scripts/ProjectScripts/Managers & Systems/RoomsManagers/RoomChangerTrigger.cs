@@ -20,8 +20,14 @@ public class RoomChangerTrigger : MonoBehaviour
                 roomChanger.MovePlayerFromLeft(collision.gameObject);
             }
         }
-        if (collision.GetComponent<EnemyControl_MovementController>() ==null && roomChanger.m_isSaveRoomChanger)
+        EnemySetControl enemy = collision.GetComponent<EnemySetControl>();
+        if (roomChanger.m_isSaveRoomChanger)
         {
+            if (enemy != null)
+            {
+                enemy.StartCoroutine(enemy.ConsumeEnemy());
+            }
+            
             if (imRight)
             {
                 roomChanger.MovePlayerFromRight(collision.gameObject);
