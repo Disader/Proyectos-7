@@ -12,7 +12,7 @@ public class RoomChangerObject : MonoBehaviour
 
     public void MovePlayerFromRight(GameObject player)
     {
-        player.transform.position = m_leftTransform.position;  
+        player.transform.position = m_leftTransform.position;
     }
     public void MovePlayerFromLeft(GameObject player)
     {

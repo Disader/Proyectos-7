@@ -13,16 +13,19 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     {
         mapManager.DiscoverRoom(currentRoom);
     }
-    public IEnumerator SetActiveCamera(CinemachineVirtualCamera newCamera)
+    public IEnumerator SetActiveCamera(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
-        UIManager.Instance.Fade();
-        yield return new WaitForSeconds(0.36f);
-        if (m_activeCamera != null && m_activeCamera!=newCamera)
+        if (m_activeRoom != newRoom)
         {
-            m_activeCamera.gameObject.SetActive(false);
+            UIManager.Instance.Fade();
+            yield return new WaitUntil(() => UIManager.Instance.IsScreenOnBlack());
+            if (m_activeCamera != null && m_activeCamera != newCamera)
+            {
+                m_activeCamera.gameObject.SetActive(false);
+            }
+            m_activeCamera = newCamera;
+            newCamera.gameObject.SetActive(true);
         }
-        m_activeCamera = newCamera;
-        newCamera.gameObject.SetActive(true);
     }
 
     public void SetNewActiveRoom(RoomManager newRoom)

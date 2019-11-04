@@ -24,5 +24,16 @@ public class UIManager : TemporalSingleton<UIManager>
     {
         m_fadeAnimation.Play();
     }
-    
+    public bool IsScreenOnBlack()
+    {
+        if(m_fadeAnimation.GetComponent<Image>().color.a == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+      
+    }
 }

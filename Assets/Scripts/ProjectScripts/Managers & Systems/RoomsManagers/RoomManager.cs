@@ -40,7 +40,7 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
-            StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera));
+            StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera,this));
             ZoneManager.Instance.SetNewActiveRoom(this);
             if (collision.GetComponent<EnemyControl_MovementController>() != null)
             {
