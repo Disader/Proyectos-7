@@ -11,7 +11,9 @@ public class ShootingScript : MonoBehaviour
 
     [Header("Variables del Disparo Enemigo")] //Las que tu creaste para el enemigo Sergio
     [SerializeField] float m_firingRate;
+    [SerializeField] float m_randomFiringRateDeviation;
     float m_firingRateTimer;
+    float m_onStartFiringRate;
     [Header("Variables Generales de Disparo")]
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_shootingPos;
@@ -21,6 +23,11 @@ public class ShootingScript : MonoBehaviour
     float player_firingRateTimer = 10000;
     bool playerCanShoot;
 
+
+    private void Start()
+    {
+        m_onStartFiringRate = m_firingRate;
+    }
     public void FireInShootingPos(whoIsShooting shooter)
     {
         if (shooter == whoIsShooting.enemy) ////Como dispara el enemigo
@@ -29,6 +36,7 @@ public class ShootingScript : MonoBehaviour
 
             if (m_firingRateTimer > m_firingRate)
             {
+                m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
                 m_firingRateTimer = 0;
                 GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
                 obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy

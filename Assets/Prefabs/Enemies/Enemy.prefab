@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shSCR_PasiveAbility: {fileID: 0}
   m_firingRate: 1
+  m_randomFiringRateDeviation: 0.3
   m_bullet: {fileID: 5581599170633199143, guid: 2d31a31256354ce4faaea5d2a15abaa0,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
