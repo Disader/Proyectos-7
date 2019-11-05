@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyAI_Standard : MonoBehaviour
 {
-    [SerializeField] float m_playerDetectionDistance;
-    [SerializeField] float m_runAwayDistance;
+    [Header("Variables de sentidos")]
+    [SerializeField] float m_playerDetectionDistance; //Para salir de idle
+    [SerializeField] float m_runAwayDistance; //Cuánto se tiene que acercar el jugador para que comience a huir
     [SerializeField] LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
-    [SerializeField] float m_aimToPlayerMovement;
+    [Header("Variables de disparo al jugador")]
     [SerializeField] Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
+    [Header("Reloj de búsqueda al jugador")]
     [SerializeField] float m_clockDelay;
     float m_clockTimer;
 

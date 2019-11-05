@@ -19,6 +19,7 @@ public class RoomManager : MonoBehaviour
         Vector2 hitColliderPosition = new Vector2(gameObject.transform.position.x + myCollider.offset.x, gameObject.transform.position.y + myCollider.offset.y);
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitColliderPosition, myCollider.size, 0f, m_enemyLayer);
 
+        //Detectar enemigos al comenzar la partida
         int i = 0;
         while (i < hitColliders.Length)
         {
@@ -30,6 +31,7 @@ public class RoomManager : MonoBehaviour
             i++;
         }
 
+        //Añadir las posiciones iniciales de los enemigos a un diccionario
         foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
         {
             originalEnemiesAtRoomPosition.Add(enemy.transform, enemy.transform.position);
@@ -40,11 +42,9 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
-            //El orden es importante, se necesita setear primero la habitación
+            //El orden es importante, se necesita setear primero la cámara
             StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera, this)); //Cambio de la cámara
             ZoneManager.Instance.SetNewActiveRoom(this); //Cambio de habitación
-           
-
 
             if (collision.GetComponent<EnemyControl_MovementController>() != null) 
             {

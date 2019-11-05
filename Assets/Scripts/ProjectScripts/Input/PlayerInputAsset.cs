@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerInputAsset : IInputActionCollection, IDisposable
+public class PlayerInputAsset : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
-    public @PlayerInputAsset()
+    public PlayerInputAsset()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInputAsset"",
@@ -454,8 +454,8 @@ public class @PlayerInputAsset : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInputActions_MapButton;
     public struct PlayerInputActionsActions
     {
-        private @PlayerInputAsset m_Wrapper;
-        public PlayerInputActionsActions(@PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
+        private PlayerInputAsset m_Wrapper;
+        public PlayerInputActionsActions(PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @HorizontalMovement => m_Wrapper.m_PlayerInputActions_HorizontalMovement;
         public InputAction @VerticalMovement => m_Wrapper.m_PlayerInputActions_VerticalMovement;
         public InputAction @Rotating => m_Wrapper.m_PlayerInputActions_Rotating;
@@ -474,64 +474,64 @@ public class @PlayerInputAsset : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerInputActionsActionsCallbackInterface != null)
             {
-                @HorizontalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                @HorizontalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                @HorizontalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                @VerticalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                @VerticalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                @VerticalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                @Rotating.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                @Rotating.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                @Rotating.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                @RightTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                @RightTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                @RightTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                @LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                @LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                @LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                @ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                @ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                @ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                @DashButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
-                @DashButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
-                @DashButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
-                @PauseButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
-                @PauseButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
-                @PauseButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
-                @MapButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
-                @MapButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
-                @MapButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
+                HorizontalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                HorizontalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                HorizontalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                VerticalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                VerticalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                VerticalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                Rotating.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                Rotating.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                Rotating.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                RightTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                RightTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                RightTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                DashButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                DashButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                DashButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                PauseButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                PauseButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                PauseButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                MapButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
+                MapButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
+                MapButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @HorizontalMovement.started += instance.OnHorizontalMovement;
-                @HorizontalMovement.performed += instance.OnHorizontalMovement;
-                @HorizontalMovement.canceled += instance.OnHorizontalMovement;
-                @VerticalMovement.started += instance.OnVerticalMovement;
-                @VerticalMovement.performed += instance.OnVerticalMovement;
-                @VerticalMovement.canceled += instance.OnVerticalMovement;
-                @Rotating.started += instance.OnRotating;
-                @Rotating.performed += instance.OnRotating;
-                @Rotating.canceled += instance.OnRotating;
-                @RightTrigger.started += instance.OnRightTrigger;
-                @RightTrigger.performed += instance.OnRightTrigger;
-                @RightTrigger.canceled += instance.OnRightTrigger;
-                @LeftTrigger.started += instance.OnLeftTrigger;
-                @LeftTrigger.performed += instance.OnLeftTrigger;
-                @LeftTrigger.canceled += instance.OnLeftTrigger;
-                @ActionButton.started += instance.OnActionButton;
-                @ActionButton.performed += instance.OnActionButton;
-                @ActionButton.canceled += instance.OnActionButton;
-                @DashButton.started += instance.OnDashButton;
-                @DashButton.performed += instance.OnDashButton;
-                @DashButton.canceled += instance.OnDashButton;
-                @PauseButton.started += instance.OnPauseButton;
-                @PauseButton.performed += instance.OnPauseButton;
-                @PauseButton.canceled += instance.OnPauseButton;
-                @MapButton.started += instance.OnMapButton;
-                @MapButton.performed += instance.OnMapButton;
-                @MapButton.canceled += instance.OnMapButton;
+                HorizontalMovement.started += instance.OnHorizontalMovement;
+                HorizontalMovement.performed += instance.OnHorizontalMovement;
+                HorizontalMovement.canceled += instance.OnHorizontalMovement;
+                VerticalMovement.started += instance.OnVerticalMovement;
+                VerticalMovement.performed += instance.OnVerticalMovement;
+                VerticalMovement.canceled += instance.OnVerticalMovement;
+                Rotating.started += instance.OnRotating;
+                Rotating.performed += instance.OnRotating;
+                Rotating.canceled += instance.OnRotating;
+                RightTrigger.started += instance.OnRightTrigger;
+                RightTrigger.performed += instance.OnRightTrigger;
+                RightTrigger.canceled += instance.OnRightTrigger;
+                LeftTrigger.started += instance.OnLeftTrigger;
+                LeftTrigger.performed += instance.OnLeftTrigger;
+                LeftTrigger.canceled += instance.OnLeftTrigger;
+                ActionButton.started += instance.OnActionButton;
+                ActionButton.performed += instance.OnActionButton;
+                ActionButton.canceled += instance.OnActionButton;
+                DashButton.started += instance.OnDashButton;
+                DashButton.performed += instance.OnDashButton;
+                DashButton.canceled += instance.OnDashButton;
+                PauseButton.started += instance.OnPauseButton;
+                PauseButton.performed += instance.OnPauseButton;
+                PauseButton.canceled += instance.OnPauseButton;
+                MapButton.started += instance.OnMapButton;
+                MapButton.performed += instance.OnMapButton;
+                MapButton.canceled += instance.OnMapButton;
             }
         }
     }
