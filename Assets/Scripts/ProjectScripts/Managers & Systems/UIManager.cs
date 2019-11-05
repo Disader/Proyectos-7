@@ -9,14 +9,20 @@ public class UIManager : TemporalSingleton<UIManager>
     public MapBehaviour map;
     public Canvas pauseCanvas;
     [SerializeField] Animation m_fadeAnimation;
+    protected PlayerInputAsset actions;
     // Update is called once per frame
+    private void Start()
+    {
+        actions = new PlayerInputAsset();
+        actions.PlayerInputActions.Enable();
+    }
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (actions.PlayerInputActions.MapButton.ReadValue<float>() != 0)
         {
             ShowMap();
         }
-        if(Input.GetKeyDown(KeyCode.P))
+        if (actions.PlayerInputActions.PauseButton.ReadValue<float>() != 0)
         {
             ShowPause();
             GameManager.Instance.PauseGame(0);

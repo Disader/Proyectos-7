@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class PlayerInputAsset : IInputActionCollection, IDisposable
+public class @PlayerInputAsset : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
-    public PlayerInputAsset()
+    public @PlayerInputAsset()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInputAsset"",
@@ -70,6 +70,22 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""name"": ""DashButton"",
                     ""type"": ""Button"",
                     ""id"": ""54740f2a-d73c-41c0-82b3-95d6ddc7c304"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PauseButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c98ca9e-1907-4c20-850d-5f277b467e32"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MapButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""16173212-37ff-4e49-bfaa-ffc67277fbdf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -317,6 +333,50 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""action"": ""DashButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""500d442b-3354-4763-84a8-d0ac76e1cb77"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d1fa79e-4c81-4346-b683-ff5fce88a060"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""951a10cb-8824-4e57-b1f6-87b106082b74"",
+                    ""path"": ""<DualShockGamepad>/touchpadButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37c492b4-65e3-4679-9741-731df93553fc"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -332,6 +392,8 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         m_PlayerInputActions_LeftTrigger = m_PlayerInputActions.FindAction("LeftTrigger", throwIfNotFound: true);
         m_PlayerInputActions_ActionButton = m_PlayerInputActions.FindAction("ActionButton", throwIfNotFound: true);
         m_PlayerInputActions_DashButton = m_PlayerInputActions.FindAction("DashButton", throwIfNotFound: true);
+        m_PlayerInputActions_PauseButton = m_PlayerInputActions.FindAction("PauseButton", throwIfNotFound: true);
+        m_PlayerInputActions_MapButton = m_PlayerInputActions.FindAction("MapButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -388,10 +450,12 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInputActions_LeftTrigger;
     private readonly InputAction m_PlayerInputActions_ActionButton;
     private readonly InputAction m_PlayerInputActions_DashButton;
+    private readonly InputAction m_PlayerInputActions_PauseButton;
+    private readonly InputAction m_PlayerInputActions_MapButton;
     public struct PlayerInputActionsActions
     {
-        private PlayerInputAsset m_Wrapper;
-        public PlayerInputActionsActions(PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
+        private @PlayerInputAsset m_Wrapper;
+        public PlayerInputActionsActions(@PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @HorizontalMovement => m_Wrapper.m_PlayerInputActions_HorizontalMovement;
         public InputAction @VerticalMovement => m_Wrapper.m_PlayerInputActions_VerticalMovement;
         public InputAction @Rotating => m_Wrapper.m_PlayerInputActions_Rotating;
@@ -399,6 +463,8 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         public InputAction @LeftTrigger => m_Wrapper.m_PlayerInputActions_LeftTrigger;
         public InputAction @ActionButton => m_Wrapper.m_PlayerInputActions_ActionButton;
         public InputAction @DashButton => m_Wrapper.m_PlayerInputActions_DashButton;
+        public InputAction @PauseButton => m_Wrapper.m_PlayerInputActions_PauseButton;
+        public InputAction @MapButton => m_Wrapper.m_PlayerInputActions_MapButton;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -408,52 +474,64 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerInputActionsActionsCallbackInterface != null)
             {
-                HorizontalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                HorizontalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                HorizontalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
-                VerticalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                VerticalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                VerticalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
-                Rotating.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                Rotating.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                Rotating.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
-                RightTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                RightTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                RightTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
-                LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
-                ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
-                DashButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
-                DashButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
-                DashButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                @HorizontalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                @HorizontalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                @HorizontalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnHorizontalMovement;
+                @VerticalMovement.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                @VerticalMovement.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                @VerticalMovement.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnVerticalMovement;
+                @Rotating.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                @Rotating.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                @Rotating.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRotating;
+                @RightTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnRightTrigger;
+                @LeftTrigger.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnLeftTrigger;
+                @ActionButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                @ActionButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                @ActionButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnActionButton;
+                @DashButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                @DashButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                @DashButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnDashButton;
+                @PauseButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                @PauseButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                @PauseButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnPauseButton;
+                @MapButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
+                @MapButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
+                @MapButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                HorizontalMovement.started += instance.OnHorizontalMovement;
-                HorizontalMovement.performed += instance.OnHorizontalMovement;
-                HorizontalMovement.canceled += instance.OnHorizontalMovement;
-                VerticalMovement.started += instance.OnVerticalMovement;
-                VerticalMovement.performed += instance.OnVerticalMovement;
-                VerticalMovement.canceled += instance.OnVerticalMovement;
-                Rotating.started += instance.OnRotating;
-                Rotating.performed += instance.OnRotating;
-                Rotating.canceled += instance.OnRotating;
-                RightTrigger.started += instance.OnRightTrigger;
-                RightTrigger.performed += instance.OnRightTrigger;
-                RightTrigger.canceled += instance.OnRightTrigger;
-                LeftTrigger.started += instance.OnLeftTrigger;
-                LeftTrigger.performed += instance.OnLeftTrigger;
-                LeftTrigger.canceled += instance.OnLeftTrigger;
-                ActionButton.started += instance.OnActionButton;
-                ActionButton.performed += instance.OnActionButton;
-                ActionButton.canceled += instance.OnActionButton;
-                DashButton.started += instance.OnDashButton;
-                DashButton.performed += instance.OnDashButton;
-                DashButton.canceled += instance.OnDashButton;
+                @HorizontalMovement.started += instance.OnHorizontalMovement;
+                @HorizontalMovement.performed += instance.OnHorizontalMovement;
+                @HorizontalMovement.canceled += instance.OnHorizontalMovement;
+                @VerticalMovement.started += instance.OnVerticalMovement;
+                @VerticalMovement.performed += instance.OnVerticalMovement;
+                @VerticalMovement.canceled += instance.OnVerticalMovement;
+                @Rotating.started += instance.OnRotating;
+                @Rotating.performed += instance.OnRotating;
+                @Rotating.canceled += instance.OnRotating;
+                @RightTrigger.started += instance.OnRightTrigger;
+                @RightTrigger.performed += instance.OnRightTrigger;
+                @RightTrigger.canceled += instance.OnRightTrigger;
+                @LeftTrigger.started += instance.OnLeftTrigger;
+                @LeftTrigger.performed += instance.OnLeftTrigger;
+                @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @ActionButton.started += instance.OnActionButton;
+                @ActionButton.performed += instance.OnActionButton;
+                @ActionButton.canceled += instance.OnActionButton;
+                @DashButton.started += instance.OnDashButton;
+                @DashButton.performed += instance.OnDashButton;
+                @DashButton.canceled += instance.OnDashButton;
+                @PauseButton.started += instance.OnPauseButton;
+                @PauseButton.performed += instance.OnPauseButton;
+                @PauseButton.canceled += instance.OnPauseButton;
+                @MapButton.started += instance.OnMapButton;
+                @MapButton.performed += instance.OnMapButton;
+                @MapButton.canceled += instance.OnMapButton;
             }
         }
     }
@@ -467,5 +545,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnActionButton(InputAction.CallbackContext context);
         void OnDashButton(InputAction.CallbackContext context);
+        void OnPauseButton(InputAction.CallbackContext context);
+        void OnMapButton(InputAction.CallbackContext context);
     }
 }
