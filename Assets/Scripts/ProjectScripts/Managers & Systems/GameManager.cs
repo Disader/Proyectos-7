@@ -20,4 +20,8 @@ public class GameManager : TemporalSingleton<GameManager>
         realPlayerGO = GameObject.FindGameObjectWithTag("Player");
         ActualPlayerController = realPlayerGO.GetComponent<PlayerControl_MovementController>();
     }
+    public void PauseGame(int scale)
+    {
+        Time.timeScale = scale;
+    }
 }

@@ -7,6 +7,7 @@ public class UIManager : TemporalSingleton<UIManager>
 {
     // Start is called before the first frame update
     public MapBehaviour map;
+    public Canvas pauseCanvas;
     [SerializeField] Animation m_fadeAnimation;
     // Update is called once per frame
     void FixedUpdate()
@@ -15,10 +16,20 @@ public class UIManager : TemporalSingleton<UIManager>
         {
             ShowMap();
         }
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            ShowPause();
+            GameManager.Instance.PauseGame(0);
+        }
     }
     public void ShowMap()
     {     
         map.GetComponent<Canvas>().enabled = !map.GetComponent<Canvas>().enabled;
+    }
+    public void ShowPause()
+    {
+        pauseCanvas.enabled = !pauseCanvas.enabled;
+
     }
     public void Fade()
     {
