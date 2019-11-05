@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI_Standard : MonoBehaviour
 {
     [SerializeField] float m_playerDetectionDistance;
+    [SerializeField] float m_runAwayDistance;
     [SerializeField] LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
     [SerializeField] float m_aimToPlayerMovement;
@@ -28,12 +29,17 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected void Update()
     {
+        Debug.Log(currentAIState);
         if (currentAIState == AIState.idle)
         {
             Idle();
-            DetectPlayerInIdle();
+            if (DetectPlayerInIdle())
+            {
+                currentAIState = AIState.attacking;
+            }
+            
         }
-        else if (currentAIState == AIState.playerDetected)
+        else if (currentAIState == AIState.attacking)
         {
             m_clockTimer += Time.deltaTime;
             if (m_clockTimer > m_clockDelay)
@@ -45,6 +51,17 @@ public class EnemyAI_Standard : MonoBehaviour
             {
                 DamagePlayer();
             }
+            if (IsPlayerTooNear())
+            {
+                currentAIState = AIState.runningAway;
+            }
+        }else if(currentAIState == AIState.runningAway)
+        {
+            RunAway();
+            if (!IsPlayerTooNear())
+            {
+                currentAIState = AIState.attacking;
+            }
         }
         Aim();
     }
@@ -52,7 +69,8 @@ public class EnemyAI_Standard : MonoBehaviour
     enum AIState
     {
         idle,
-        playerDetected
+        attacking,
+        runningAway
     }
     AIState currentAIState = AIState.idle;
     // Update is called once per frame
@@ -67,23 +85,42 @@ public class EnemyAI_Standard : MonoBehaviour
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
         }
     }
+    protected bool IsPlayerTooNear()
+    {
+        if (DistanceToPlayer()< m_runAwayDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    protected void RunAway()
+    {
+        m_AI_Controller.stoppingDistance =0.1f;
+       Vector2 oppositeDirectionVector = -VectorToPlayer().normalized*2;
+        Vector3 newDestination = new Vector3(oppositeDirectionVector.x + transform.position.x, oppositeDirectionVector.y + transform.position.y, 0);
+        FindNewDestination(newDestination);
+    }
     protected void Idle()
     {
 
     }
-    protected void DetectPlayerInIdle()
+    protected bool DetectPlayerInIdle()
     {
         if (DistanceToPlayer() < m_playerDetectionDistance || IsPlayerInSight())
         {
             Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
-            currentAIState = AIState.playerDetected;
+            return true;
         }
+        else { return false; }
     }
     NavMeshPath path;
-    protected virtual void FindNewDestination()
+    protected virtual void FindNewDestination(Vector3 newDestinationPosition)
     {
         NavMeshPath path = new NavMeshPath();
-        m_AI_Controller.CalculatePath(GameManager.Instance.ActualPlayerController.transform.position, path);
+        m_AI_Controller.CalculatePath(newDestinationPosition, path);
         m_AI_Controller.path = path;
     }
     protected virtual void DamagePlayer()
@@ -97,13 +134,13 @@ public class EnemyAI_Standard : MonoBehaviour
             m_AI_Controller.stoppingDistance = m_originalStoppingDistance;
             if (isPlayerFurtherThanStoppingDistance())
             {
-                FindNewDestination();
+                FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
             }
         }
         else if (!IsPlayerInSight())
         {
             m_AI_Controller.stoppingDistance = 0.5f;           
-            FindNewDestination();
+            FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
         }
     }
 

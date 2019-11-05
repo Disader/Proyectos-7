@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetectionDistance: 20
+  m_runAwayDistance: 3
   m_sightCollisionMask:
     serializedVersion: 2
     m_Bits: 55
