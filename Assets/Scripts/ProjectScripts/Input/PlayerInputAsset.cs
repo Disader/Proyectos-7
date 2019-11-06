@@ -23,7 +23,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""d69c8ed0-9f72-4290-a571-c7952896513c"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.25,max=1)"",
                     ""interactions"": """"
                 },
                 {
@@ -31,7 +31,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""4490aab5-6922-4bf1-a7f2-3b35fca6bc6b"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.25,max=1)"",
                     ""interactions"": """"
                 },
                 {
@@ -39,7 +39,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""a05b8957-02cf-4fa8-831f-bd40bbb8fd78"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.5,max=1)"",
                     ""interactions"": """"
                 },
                 {
@@ -47,7 +47,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""4e23a992-b586-419d-9af6-5cb15872b8d9"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.3,max=1)"",
                     ""interactions"": """"
                 },
                 {
@@ -55,7 +55,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7cdfa9bb-df7a-4ea2-904d-10800515b0fd"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.3,max=1)"",
                     ""interactions"": """"
                 },
                 {

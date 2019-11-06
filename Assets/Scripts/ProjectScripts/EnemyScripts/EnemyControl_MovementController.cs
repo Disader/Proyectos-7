@@ -13,7 +13,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     [Header("Variables para usar los Triggers de Mando como Botón")]
     private bool leftTrigger_isAxisInUse;
     private bool canUseLeftTrigger;
-    private bool rightTrigger_isAxisInUse;
+    [Header("Tiempo que tiene que estar mantenido el LeftTrigger para que cuente como Hold")]
+    public float leftTriggerHoldTime;
+    private float leftTriggerTimer;
 
     [Header("Variables del Dash")]
     public float dashTime;
@@ -125,16 +127,26 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         {
             if (canUseLeftTrigger)
             {
-                if (leftTrigger_isAxisInUse == false)
-                {
-                    UnpossessAction();
+                leftTriggerTimer += 1 * Time.deltaTime;
+                leftTrigger_isAxisInUse = true;
 
-                    leftTrigger_isAxisInUse = true;
+                if (leftTriggerTimer >= leftTriggerHoldTime)
+                {
+                    ConsumeAction();
                 }
             }
         }
         else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
         {
+            if(leftTrigger_isAxisInUse)
+            {
+                if(leftTriggerTimer < leftTriggerHoldTime)
+                {
+                    UnpossessAction();
+                }
+            }
+
+            leftTriggerTimer = 0;
             canUseLeftTrigger = true;
             leftTrigger_isAxisInUse = false;
         }
@@ -145,13 +157,10 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() != 0)
         {
             AttackAction();
-
-            rightTrigger_isAxisInUse = true;
         }
         else if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() == 0)
         {
             CallShootingScriptReset(); //Se llama al reset al dejar de pulsar Trigger
-            rightTrigger_isAxisInUse = false;
         }
     }
 }

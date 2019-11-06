@@ -43,7 +43,7 @@ public class PossessAbility : MonoBehaviour
     void Update()
     {
         LaunchRaycast();
-        LeftTriggerInput();
+        //LeftTriggerInput();
     }
 
     private void LaunchRaycast()
@@ -57,6 +57,10 @@ public class PossessAbility : MonoBehaviour
 
         else ////Si no hay input de rotación, se elimina la visibilidad de LineRenderer y se resetea el RaycastHit;
         {
+            if(enemy_InRaycast != null) ///Antes de resetear el hit, se mira si había un enemigo en el Raycast y se le posee
+            {
+                PossessAction();
+            }
             playerLineRenderer.SetPosition(1, Vector3.zero);
             raycastHit = new RaycastHit2D();
         }
@@ -93,7 +97,7 @@ public class PossessAbility : MonoBehaviour
         }
     }
 
-    private void LeftTriggerInput()
+    /*private void LeftTriggerInput()
     {
         
         if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
@@ -109,7 +113,7 @@ public class PossessAbility : MonoBehaviour
         {
             leftTrigger_isAxisInUse = false;
         }
-    }
+    }*/
 
     public IEnumerator PlayerStun(float timeStunned) // La funcinalidad del Stun al jugador, se la llama desde SetControl en caso de morir el enemigo poseído.
     {

@@ -112,7 +112,6 @@ MonoBehaviour:
   m_sightCollisionMask:
     serializedVersion: 2
     m_Bits: 55
-  m_aimToPlayerMovement: 2
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0.2
   m_clockDelay: 0.5
@@ -191,6 +190,7 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   armDirection: {x: 0, y: 0}
+  leftTriggerHoldTime: 0.5
   dashTime: 0.5
   dashForce: 15
 --- !u!114 &4387296696666090942
