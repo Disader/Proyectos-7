@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2671436003153865414}
   - component: {fileID: 3924008894142731910}
   m_Layer: 8
-  m_Name: Player_Test
+  m_Name: Player_Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1424905059
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2093701515603873459, guid: b70eb4f39e912f54e97eed5e48461f28,
+  m_Sprite: {fileID: -6055785657967754171, guid: b70eb4f39e912f54e97eed5e48461f28,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   decelerationY: 50
   armObject: {fileID: 8753018605015778761}
   armDirection: {x: 0, y: 0}
+  m_playerAnimator: {fileID: 3924008894142731910}
 --- !u!114 &8753018604584853981
 MonoBehaviour:
   m_ObjectHideFlags: 0

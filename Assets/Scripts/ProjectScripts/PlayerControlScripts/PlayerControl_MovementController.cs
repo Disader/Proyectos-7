@@ -43,6 +43,9 @@ public class PlayerControl_MovementController : MonoBehaviour
         PlayerControlledMovement(moveHorizontal, moveVertical);
 
         ControlArmRotation();
+
+        //Seteo de animaciones:
+        StartWalkingAnimation(); //Animación de andar
     }
 
     protected virtual void PlayerControlledMovement(float axisValueX, float axisValueY)
@@ -120,4 +123,17 @@ public class PlayerControl_MovementController : MonoBehaviour
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
     }
+
+
+    ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
+    [SerializeField] Animator m_playerAnimator;
+
+    void StartWalkingAnimation()
+    {
+        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude != 0);
+        m_playerAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
+        m_playerAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+    }
+
+
 }
