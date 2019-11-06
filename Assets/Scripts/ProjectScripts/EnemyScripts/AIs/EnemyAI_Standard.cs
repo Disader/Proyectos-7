@@ -31,7 +31,6 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected void Update()
     {
-        Debug.Log(currentAIState);
         if (currentAIState == AIState.idle)
         {
             Idle();

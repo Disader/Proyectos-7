@@ -42,9 +42,8 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
-            //El orden es importante, se necesita setear primero la cámara
-            StartCoroutine(ZoneManager.Instance.SetActiveCamera(m_roomCamera, this)); //Cambio de la cámara
-            ZoneManager.Instance.SetNewActiveRoom(this); //Cambio de habitación
+
+            StartCoroutine(ZoneManager.Instance.ChangeRoom(m_roomCamera, this)); //Cambio de habitación
 
             if (collision.GetComponent<EnemyControl_MovementController>() != null) 
             {

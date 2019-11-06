@@ -6,7 +6,7 @@ public class GameManager : TemporalSingleton<GameManager>
 {
     PlayerControl_MovementController m_actualPlayerController;
     [HideInInspector]public GameObject realPlayerGO;
-    public static bool isGamePaused;
+    bool isGamePaused;
 
     //Se llama a esta variable en el onEnable de playercontrolMovementController
    public PlayerControl_MovementController ActualPlayerController
@@ -23,12 +23,14 @@ public class GameManager : TemporalSingleton<GameManager>
     }
     public void PauseGame()
     {
-        if (isGamePaused) 
+        if (!isGamePaused) 
         {
+            isGamePaused = true;
             Time.timeScale = 0;
         }
         else
         {
+            isGamePaused = false;
             Time.timeScale = 1;
         }
   

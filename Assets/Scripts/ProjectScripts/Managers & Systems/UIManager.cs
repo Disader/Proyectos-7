@@ -8,7 +8,7 @@ public class UIManager : TemporalSingleton<UIManager>
     // Start is called before the first frame update
     public MapBehaviour map;
     public Canvas pauseCanvas;
-    [SerializeField] Animation m_fadeAnimation;
+    [SerializeField] Animator m_fadeAnimation;
     protected PlayerInputAsset actions;
     // Update is called once per frame
     private void Start()
@@ -16,42 +16,36 @@ public class UIManager : TemporalSingleton<UIManager>
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
     }
-    void FixedUpdate()
+    void Update()
     {
-        if (actions.PlayerInputActions.MapButton.ReadValue<float>() != 0)
+        if (actions.PlayerInputActions.MapButton.triggered)
         {
             ShowMap();
-            GameManager.isGamePaused = !GameManager.isGamePaused;
-            GameManager.Instance.PauseGame();     
+  
         }
-        if (actions.PlayerInputActions.PauseButton.ReadValue<float>() != 0)
+        if (actions.PlayerInputActions.PauseButton.triggered)
         {
             ShowPause();
-            GameManager.isGamePaused = !GameManager.isGamePaused;
-            GameManager.Instance.PauseGame();
         }   
     }
     public void ShowMap()
     {     
         map.GetComponent<Canvas>().enabled = !map.GetComponent<Canvas>().enabled;
+        GameManager.Instance.PauseGame();
     }
     public void ShowPause()
     {
         pauseCanvas.enabled = !pauseCanvas.enabled;
-    }
-    public void Unpause()
-    {
-        GameManager.isGamePaused = false;
         GameManager.Instance.PauseGame();
-        
     }
+
     public void Fade()
     {
-        m_fadeAnimation.Play();
+        m_fadeAnimation.SetTrigger("FadeTrigger");
     }
     public bool IsScreenOnBlack()
     {
-        if(m_fadeAnimation.GetComponent<Image>().color.a == 1)
+        if (m_fadeAnimation.GetComponent<Image>().color.a >= 0.9f)
         {
             return true;
         }

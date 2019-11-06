@@ -80,7 +80,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""id"": ""4c98ca9e-1907-4c20-850d-5f277b467e32"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""MapButton"",
@@ -88,7 +88,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""id"": ""16173212-37ff-4e49-bfaa-ffc67277fbdf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [

@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 681996464}
   - component: {fileID: 681996463}
   - component: {fileID: 681996462}
-  - component: {fileID: 681996461}
+  - component: {fileID: 2540186344802013156}
   m_Layer: 5
   m_Name: FadeIn/Out
   m_TagString: Untagged
@@ -208,22 +208,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!111 &681996461
-Animation:
+--- !u!95 &2540186344802013156
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681996460}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9a1948a0ef54ed742ae9aaef433fe010, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 9a1948a0ef54ed742ae9aaef433fe010, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a973205ca123baa4581728e768d11063, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &972722309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2094,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7797542520933325608}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5483519536451185150}
+        m_MethodName: ShowMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &3977189088198867287
@@ -2661,7 +2675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 5230312208797254075}
   pauseCanvas: {fileID: 1996148631}
-  m_fadeAnimation: {fileID: 681996461}
+  m_fadeAnimation: {fileID: 2540186344802013156}
 --- !u!1 &7046178056203689968
 GameObject:
   m_ObjectHideFlags: 0
