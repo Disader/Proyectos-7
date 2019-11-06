@@ -6,6 +6,7 @@ public class GameManager : TemporalSingleton<GameManager>
 {
     PlayerControl_MovementController m_actualPlayerController;
     [HideInInspector]public GameObject realPlayerGO;
+    public static bool isGamePaused;
 
     //Se llama a esta variable en el onEnable de playercontrolMovementController
    public PlayerControl_MovementController ActualPlayerController
@@ -20,8 +21,16 @@ public class GameManager : TemporalSingleton<GameManager>
         realPlayerGO = GameObject.FindGameObjectWithTag("Player");
         ActualPlayerController = realPlayerGO.GetComponent<PlayerControl_MovementController>();
     }
-    public void PauseGame(int scale)
+    public void PauseGame()
     {
-        Time.timeScale = scale;
+        if (isGamePaused) 
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+  
     }
 }

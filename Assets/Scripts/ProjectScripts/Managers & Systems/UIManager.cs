@@ -21,12 +21,15 @@ public class UIManager : TemporalSingleton<UIManager>
         if (actions.PlayerInputActions.MapButton.ReadValue<float>() != 0)
         {
             ShowMap();
+            GameManager.isGamePaused = !GameManager.isGamePaused;
+            GameManager.Instance.PauseGame();     
         }
         if (actions.PlayerInputActions.PauseButton.ReadValue<float>() != 0)
         {
             ShowPause();
-            GameManager.Instance.PauseGame(0);
-        }
+            GameManager.isGamePaused = !GameManager.isGamePaused;
+            GameManager.Instance.PauseGame();
+        }   
     }
     public void ShowMap()
     {     
@@ -35,7 +38,12 @@ public class UIManager : TemporalSingleton<UIManager>
     public void ShowPause()
     {
         pauseCanvas.enabled = !pauseCanvas.enabled;
-
+    }
+    public void Unpause()
+    {
+        GameManager.isGamePaused = false;
+        GameManager.Instance.PauseGame();
+        
     }
     public void Fade()
     {
@@ -51,6 +59,5 @@ public class UIManager : TemporalSingleton<UIManager>
         {
             return false;
         }
-      
     }
 }
