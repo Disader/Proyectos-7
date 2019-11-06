@@ -163,4 +163,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
             CallShootingScriptReset(); //Se llama al reset al dejar de pulsar Trigger
         }
     }
+
+    protected override void StartWalkingAnimation()//Utilizado mientras testeo para evitar que se rompa mientras no están implementadas las animaciones del enemigos
+    {
+
+    }
 }

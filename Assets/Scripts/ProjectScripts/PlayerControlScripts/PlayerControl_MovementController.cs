@@ -128,7 +128,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
     [SerializeField] Animator m_playerAnimator;
 
-    void StartWalkingAnimation()
+    protected virtual void StartWalkingAnimation()
     {
         m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude != 0);
         m_playerAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);

@@ -4824,6 +4824,7 @@ GameObject:
   - component: {fileID: 9166668520323200834}
   - component: {fileID: 9166668520323200835}
   - component: {fileID: 9166668520323200863}
+  - component: {fileID: 1075206483976572761}
   m_Layer: 0
   m_Name: DestructibleObject
   m_TagString: Untagged
@@ -4961,3 +4962,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59703255, y: 0.81928015}
   m_EdgeRadius: 0
+--- !u!208 &1075206483976572761
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166668520323200836}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
