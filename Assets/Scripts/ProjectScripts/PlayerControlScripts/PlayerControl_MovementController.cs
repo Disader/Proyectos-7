@@ -23,7 +23,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [Header("El Objeto que Funciona como Brazo o el que Rota")]
     public GameObject armObject;
     [HideInInspector] public Vector2 armDirection;
-    private float angle;
+    protected float angle;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -46,6 +46,7 @@ public class PlayerControl_MovementController : MonoBehaviour
 
         //Seteo de animaciones:
         StartWalkingAnimation(); //Animación de andar
+        SetAimingAngleAnimation(); //Animación de andar enemigo
     }
 
     protected virtual void PlayerControlledMovement(float axisValueX, float axisValueY)
@@ -122,17 +123,29 @@ public class PlayerControl_MovementController : MonoBehaviour
             angle = Mathf.Atan2(armDirection.normalized.y, armDirection.normalized.x) * Mathf.Rad2Deg; ////Se calcula el ángulo entre en eje X y el vector de direccion del joystick
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
+        else if (controlRb.velocity.normalized.magnitude != 0) //Si no se controla la dirección y se está moviendo
+        {
+            angle = Vector2.SignedAngle(Vector2.right, controlRb.velocity.normalized);
+            armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
+        }
+        else //Si NO controla la dirección y no se mueve mantiene el ángulo anterior
+        {
+            armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 
-
     ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
-    [SerializeField] Animator m_playerAnimator;
+    [SerializeField] protected Animator m_playerAnimator;
 
-    protected virtual void StartWalkingAnimation()
+    protected virtual void StartWalkingAnimation() //Solo funciona en player
     {
-        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude != 0);
+        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f|| controlRb.velocity.magnitude < -0.1f);
         m_playerAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
         m_playerAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+    }
+    protected virtual void SetAimingAngleAnimation() //Solo funciona en enemigo
+    {
+
     }
 
 

@@ -164,8 +164,15 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         }
     }
 
+    /////////////////////////////// ANIMACIONES///////////////////////////////////////////////
+
     protected override void StartWalkingAnimation()//Utilizado mientras testeo para evitar que se rompa mientras no están implementadas las animaciones del enemigos
     {
 
+    }
+    protected override void SetAimingAngleAnimation() //Solo funciona en enemigo
+    {
+        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f || controlRb.velocity.magnitude < -0.1f);
+        m_playerAnimator.SetFloat("Angle", angle);
     }
 }

@@ -28,7 +28,7 @@ public class Checkpoint : MonoBehaviour
                 SceneManager.UnloadSceneAsync(scene);
             }
         }
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Sergio_Test", LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

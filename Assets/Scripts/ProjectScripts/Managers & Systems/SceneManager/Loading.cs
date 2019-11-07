@@ -14,7 +14,7 @@ public class Loading : MonoBehaviour
     IEnumerator delay()
     {
         yield return new WaitForEndOfFrame();
-        SceneManager.LoadSceneAsync("Sergio_Test", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("SaveRoom", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("PermanentScene", LoadSceneMode.Additive);
         SceneManager.sceneLoaded += FinishLoading;
