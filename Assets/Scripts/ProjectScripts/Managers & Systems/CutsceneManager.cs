@@ -20,6 +20,5 @@ public class CutsceneManager : TemporalSingleton<CutsceneManager>
             director.playableAsset = cutscenes[cutsceneNum];
         }
         director.Play();
-
     }
 }
