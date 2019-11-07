@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art/Sprites/Temporal/Tileset V.2.meta
 guid: 4d218dd2875467043a1d8efb45d08313
+=======
+guid: cd3912f0562539e4da1d05730f8812dc
+>>>>>>> 32156faee55604262017dab86eec3de194602363:Assets/Scenes/PermanentScene.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
