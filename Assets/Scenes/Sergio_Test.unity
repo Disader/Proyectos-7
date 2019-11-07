@@ -24968,6 +24968,11 @@ PrefabInstance:
       propertyPath: pruebadeListas
       value: 
       objectReference: {fileID: 684870876}
+    - target: {fileID: 1886193483982898228, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ab7c2c2018cf4e83e9ea52742bdac, type: 3}
 --- !u!1001 &1711690900
@@ -28647,6 +28652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_dimensions.y
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886193483982898228, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ab7c2c2018cf4e83e9ea52742bdac, type: 3}

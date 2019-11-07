@@ -37,6 +37,11 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Update is called once per frame
    protected virtual void Update()
     {
+        //Seteo de animaciones:
+        StartWalkingAnimation(); //Animación de andar
+
+
+
         moveHorizontal = actions.PlayerInputActions.HorizontalMovement.ReadValue<float>();
         moveVertical = actions.PlayerInputActions.VerticalMovement.ReadValue<float>();
 
@@ -44,8 +49,7 @@ public class PlayerControl_MovementController : MonoBehaviour
 
         ControlArmRotation();
 
-        //Seteo de animaciones:
-        StartWalkingAnimation(); //Animación de andar
+
     }
 
     protected virtual void PlayerControlledMovement(float axisValueX, float axisValueY)
@@ -130,7 +134,7 @@ public class PlayerControl_MovementController : MonoBehaviour
 
     protected virtual void StartWalkingAnimation()
     {
-        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude != 0);
+        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.2f|| controlRb.velocity.magnitude < -0.2f);
         m_playerAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
         m_playerAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
     }
