@@ -39,6 +39,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("Tiempo de Stun de Player si este Enemigo Muere Estando Poseído")]
     public float playerTimeStunned;
 
+    [Header("Animator del enemigo")]
+    [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,10 @@ public class EnemySetControl : MonoBehaviour
 
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
+
+
+        //Seteo de animaciones
+        characterAnimator.SetBool("IsPossessed", true);
     }
 
     private float lastSpeedX;
@@ -94,6 +101,9 @@ public class EnemySetControl : MonoBehaviour
         thisEnemyRB.AddForce(new Vector2(-lastSpeedX, -lastSpeedY) * 2, ForceMode2D.Impulse);
 
         StartCoroutine(StunEnemy()); ////Se inicia el Stun.
+
+        //Seteo de animaciones
+        characterAnimator.SetBool("IsPossessed", false);
     }
 
     public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia

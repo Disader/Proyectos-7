@@ -41,12 +41,12 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         thisEnemySetControl = GetComponent<EnemySetControl>();
         thisEnemyShootingScript = GetComponent<ShootingScript>();
 
-       /*defaultMaxSpeedX = maxSpeedX;
-        defaultMaxSpeedY = maxSpeedY;
-        defaultAccelerationX = accelerationX;
-        defaultAccelerationY = accelerationY;   ////PRUEBA
-        deafaultDecelerationX = decelerationX;
-        deafaultDecelerationY = decelerationY;*/
+        /*defaultMaxSpeedX = maxSpeedX;
+         defaultMaxSpeedY = maxSpeedY;
+         defaultAccelerationX = accelerationX;
+         defaultAccelerationY = accelerationY;   ////PRUEBA
+         deafaultDecelerationX = decelerationX;
+         deafaultDecelerationY = decelerationY;*/
     }
 
     protected override void Update()
@@ -166,13 +166,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     /////////////////////////////// ANIMACIONES///////////////////////////////////////////////
 
-    protected override void StartWalkingAnimation()//Utilizado mientras testeo para evitar que se rompa mientras no están implementadas las animaciones del enemigos
+    protected override void SetAnimationsVariables()//Utilizado mientras testeo para evitar que se rompa mientras no están implementadas las animaciones del enemigos
     {
-
-    }
-    protected override void SetAimingAngleAnimation() //Solo funciona en enemigo
-    {
-        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f || controlRb.velocity.magnitude < -0.1f);
-        m_playerAnimator.SetFloat("Angle", angle);
+        m_characterAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f || controlRb.velocity.magnitude < -0.1f);
+        m_characterAnimator.SetFloat("Angle", angle);
     }
 }

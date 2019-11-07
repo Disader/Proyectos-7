@@ -44,9 +44,9 @@ public class PlayerControl_MovementController : MonoBehaviour
 
         ControlArmRotation();
 
-        //Seteo de animaciones:
-        StartWalkingAnimation(); //Animación de andar
-        SetAimingAngleAnimation(); //Animación de andar enemigo
+        //Seteo de variables de animaciones:
+        SetAnimationsVariables(); 
+
     }
 
     protected virtual void PlayerControlledMovement(float axisValueX, float axisValueY)
@@ -135,18 +135,15 @@ public class PlayerControl_MovementController : MonoBehaviour
     }
 
     ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
-    [SerializeField] protected Animator m_playerAnimator;
 
-    protected virtual void StartWalkingAnimation() //Solo funciona en player
+    [Header("Animators")]
+
+    [SerializeField] protected Animator m_characterAnimator;
+
+    protected virtual void SetAnimationsVariables() //Solo funciona en player
     {
-        m_playerAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f|| controlRb.velocity.magnitude < -0.1f);
-        m_playerAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
-        m_playerAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+        m_characterAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f|| controlRb.velocity.magnitude < -0.1f);
+        m_characterAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
+        m_characterAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
     }
-    protected virtual void SetAimingAngleAnimation() //Solo funciona en enemigo
-    {
-
-    }
-
-
 }

@@ -16,15 +16,19 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Reloj de búsqueda al jugador")]
     [SerializeField] float m_clockDelay;
     float m_clockTimer;
+    [Header("Animators")]
+    [SerializeField] Animator characterAnimator;
 
     protected NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
     Rigidbody2D m_playerRigidbody;
+    Rigidbody2D m_myRigidbody;
 
     protected void Start()
     {
         m_AI_Controller = GetComponent<NavMeshAgent>();
         m_shootingScript = GetComponent<ShootingScript>();
+        m_myRigidbody = GetComponent<Rigidbody2D>();
         m_originalStoppingDistance = m_AI_Controller.stoppingDistance;
         m_AI_Controller.updateUpAxis = false;
         m_AI_Controller.updateRotation = false;
@@ -65,6 +69,9 @@ public class EnemyAI_Standard : MonoBehaviour
             }
         }
         Aim();
+
+        //Seteo de animaciones
+        SetAnimationsVariables();
     }
 
     enum AIState
@@ -76,14 +83,24 @@ public class EnemyAI_Standard : MonoBehaviour
     AIState currentAIState = AIState.idle;
     // Update is called once per frame
 
+    float angle;
     protected virtual void Aim()
     {
         if (IsPlayerInSight())
         {
             Vector2 vector = VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer*DistanceToPlayer();
-            float angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
+            angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
+        }
+        else if (m_myRigidbody.velocity.normalized.magnitude != 0) //Si no se controla la dirección y se está moviendo
+        {
+            angle = Vector2.SignedAngle(Vector2.right, m_myRigidbody.velocity.normalized);
+            m_armTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
+        }
+        else //Si NO controla la dirección y no se mueve mantiene el ángulo anterior
+        {
+            m_armTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
     protected bool IsPlayerTooNear()
@@ -167,4 +184,12 @@ public class EnemyAI_Standard : MonoBehaviour
         else return false;
     }
 
+
+
+    ///////////////////////////////////Animaciones//////////////////////////////
+    void SetAnimationsVariables()
+    {
+        characterAnimator.SetFloat("Angle", angle);
+        characterAnimator.SetBool("IsMoving", m_myRigidbody.velocity.magnitude > 0.1f || m_myRigidbody.velocity.magnitude < -0.1f);
+    }
 }

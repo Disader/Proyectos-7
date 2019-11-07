@@ -164,6 +164,7 @@ MonoBehaviour:
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0.2
   m_clockDelay: 0.5
+  characterAnimator: {fileID: 1957557055709031805}
 --- !u!114 &4387296696666090938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   armDirection: {x: 0, y: 0}
-  m_playerAnimator: {fileID: 1957557055709031805}
+  m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
   dashTime: 0.5
   dashForce: 15
@@ -259,6 +260,7 @@ MonoBehaviour:
   healthHealedOnCosuming: 1
   timeStunned: 1.5
   playerTimeStunned: 2
+  characterAnimator: {fileID: 1957557055709031805}
 --- !u!114 &2678838310368782444
 MonoBehaviour:
   m_ObjectHideFlags: 0
