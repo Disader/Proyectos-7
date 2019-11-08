@@ -14,11 +14,10 @@ public class ActiveAbility : MonoBehaviour
         AbilitiesSlotsManager.Instance.StoreAbility(enemyPasiveAbility);
     }
 
-    public void SetCurrentAbility(ShootingScript enemyShootingScript) //Aplicar pasiva a la variable de currentActiveAbility, al script de disparo/ataque y eliminar la guardada en el manager
+    public void SetCurrentAbility(ShootingScript enemyShootingScript) //Aplicar pasiva a la variable de currentActiveAbility y al script de disparo/ataque
     {
         currentActiveAbility = AbilitiesSlotsManager.Instance.currentStoredAbility;
         enemyShootingScript.shSCR_PasiveAbility = currentActiveAbility;
-        AbilitiesSlotsManager.Instance.currentStoredAbility = null;
     }
 
     public void EraseCurrentAbility(ShootingScript enemyShootingScript) //Al desposeer se elimina la pasiva de la variable currentActiveAbility y del script de disparo/ataque

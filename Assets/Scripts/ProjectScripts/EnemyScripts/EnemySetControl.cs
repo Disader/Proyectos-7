@@ -27,6 +27,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("RigidBodies")]
     private Rigidbody2D thisEnemyRB;
 
+    [Header("El Transform donde hace TP el Jugador al Desposeer/Consumir")]
+    public Transform playerSpawnPos;
+
     [Header("Variables de Consumir")]
     public float timeToConsume;
     private bool hasBeenConsumed;
@@ -83,7 +86,7 @@ public class EnemySetControl : MonoBehaviour
     public void UnpossessEnemy() 
     {
         this_EnemyControl_MovementController.enabled = false;  ////Se desactiva el control del enemigo, se activa el jugador y se indica que es el ActualPlayer; se le coloca en la posicion del enemigo y se eliminan las colisiones entre ambos
-        GameManager.Instance.realPlayerGO.transform.position = transform.position;
+        GameManager.Instance.realPlayerGO.transform.position = playerSpawnPos.position;
         GameManager.Instance.realPlayerGO.SetActive(true);
         GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
@@ -118,6 +121,7 @@ public class EnemySetControl : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
         ZoneManager.Instance.DeleteEnemyFromCurrentRoom(this_EnemyControl_MovementController);
     }
 
@@ -125,7 +129,7 @@ public class EnemySetControl : MonoBehaviour
     {
         StopAllCoroutines();
 
-        GameManager.Instance.realPlayerGO.transform.position = transform.position;
+        GameManager.Instance.realPlayerGO.transform.position = playerSpawnPos.position;
         GameManager.Instance.realPlayerGO.SetActive(true);
         GameManager.Instance.ActualPlayerController = player_MovementController;
 
