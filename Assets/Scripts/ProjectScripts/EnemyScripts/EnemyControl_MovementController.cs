@@ -22,12 +22,6 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     public float dashForce;
     private Vector2 dashDirection = new Vector2(1, 0);
     private bool isDashing = false;
-    /*private float defaultMaxSpeedX;
-    private float defaultMaxSpeedY;
-    private float defaultAccelerationX;
-    private float defaultAccelerationY; ////PRUEBA
-    private float deafaultDecelerationX;
-    private float deafaultDecelerationY;*/
 
     void OnEnable()
     {
@@ -40,13 +34,6 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
         thisEnemySetControl = GetComponent<EnemySetControl>();
         thisEnemyShootingScript = GetComponent<ShootingScript>();
-
-        /*defaultMaxSpeedX = maxSpeedX;
-         defaultMaxSpeedY = maxSpeedY;
-         defaultAccelerationX = accelerationX;
-         defaultAccelerationY = accelerationY;   ////PRUEBA
-         deafaultDecelerationX = decelerationX;
-         deafaultDecelerationY = decelerationY;*/
     }
 
     protected override void Update()
@@ -156,11 +143,17 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     {
         if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() != 0)
         {
-            AttackAction();
+            if (thisEnemyShootingScript != null)
+            {
+                AttackAction();
+            }
         }
         else if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() == 0)
         {
-            CallShootingScriptReset(); //Se llama al reset al dejar de pulsar Trigger
+            if (thisEnemyShootingScript != null)
+            {
+                CallShootingScriptReset(); //Se llama al reset al dejar de pulsar Trigger
+            }
         }
     }
 

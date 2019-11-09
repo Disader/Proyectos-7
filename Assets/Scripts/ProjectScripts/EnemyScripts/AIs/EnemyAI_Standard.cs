@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class EnemyAI_Standard : MonoBehaviour
 {
     [Header("Variables de sentidos")]
-    [SerializeField] float m_playerDetectionDistance; //Para salir de idle
-    [SerializeField] float m_runAwayDistance; //Cuánto se tiene que acercar el jugador para que comience a huir
+    [SerializeField] protected float m_playerDetectionDistance; //Para salir de idle
+    [SerializeField] protected float m_runAwayDistance; //Cuánto se tiene que acercar el jugador para que comience a huir
     [SerializeField] LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
     [Header("Variables de disparo al jugador")]
@@ -33,7 +33,7 @@ public class EnemyAI_Standard : MonoBehaviour
         m_AI_Controller.updateUpAxis = false;
         m_AI_Controller.updateRotation = false;
     }
-    protected void Update()
+    protected virtual void Update()
     {
         if (currentAIState == AIState.idle)
         {
@@ -74,13 +74,14 @@ public class EnemyAI_Standard : MonoBehaviour
         SetAnimationsVariables();
     }
 
-    enum AIState
+    protected enum AIState
     {
         idle,
         attacking,
-        runningAway
+        runningAway,
+        surrender
     }
-    AIState currentAIState = AIState.idle;
+    protected AIState currentAIState = AIState.idle;
     // Update is called once per frame
 
     float angle;
@@ -163,11 +164,11 @@ public class EnemyAI_Standard : MonoBehaviour
     }
 
     //Funciones de referencia del jugador
-    Vector2 VectorToPlayer()
+    protected Vector2 VectorToPlayer()
     {
         return GameManager.Instance.ActualPlayerController.transform.position - this.transform.position;
     }
-    float DistanceToPlayer()
+    protected float DistanceToPlayer()
     {
         return VectorToPlayer().magnitude;
     }

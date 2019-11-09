@@ -70,7 +70,10 @@ public class EnemySetControl : MonoBehaviour
 
         gameObject.layer = 8; ////Al ser poseído pasa a tener layer de Player
 
-        this_EnemyActiveAbility.SetCurrentAbility(this_EnemyShootingScript); ////VER el método en ActiveAbility     !!!!!  
+        if (this_EnemyActiveAbility != null)
+        {
+            this_EnemyActiveAbility.SetCurrentAbility(this_EnemyShootingScript); ////VER el método en ActiveAbility     !!!!!  
+        }
 
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
@@ -93,7 +96,10 @@ public class EnemySetControl : MonoBehaviour
 
         gameObject.layer = 9; ////Al ser desposeído vuelve a tener layer de Enemy
 
-        this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
+        if (this_EnemyActiveAbility != null)
+        {
+            this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
+        }
 
         lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guradan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar moviemiento residual al volver a poseer.
         lastSpeedY = this_EnemyControl_MovementController.controlSpeedY;
@@ -137,7 +143,10 @@ public class EnemySetControl : MonoBehaviour
         this_EnemyControl_MovementController.controlSpeedY = 0;
         this_EnemyControl_MovementController.enabled = false;
 
-        this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); ////Eliminar la Pasiva Activa si hay
+        if (this_EnemyActiveAbility != null)
+        {
+            this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); ////Eliminar la Pasiva Activa si hay
+        }
 
         if (!hasBeenConsumed) ///Si el enemigo ha muerto poseído pero no por ser consumido, es decir, muerto por ataque, se aplica stun al jugador. Esta funcionalidad está en PossessAbility
         {
@@ -152,10 +161,14 @@ public class EnemySetControl : MonoBehaviour
     public IEnumerator ConsumeEnemy()  ////NO POLISHEADO; Faltan animaciones y su relación
     {
         thisEnemyRB.velocity = Vector2.zero;
-        this_EnemyActiveAbility.SaveAbility();
         this_EnemyControl_MovementController.enabled = false;
 
         yield return new WaitForSeconds(timeToConsume);
+
+        if (this_EnemyActiveAbility != null)
+        {
+            this_EnemyActiveAbility.SaveAbility();
+        }
 
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(healthHealedOnCosuming);
         hasBeenConsumed = true;

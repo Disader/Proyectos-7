@@ -123,11 +123,13 @@ public class PlayerControl_MovementController : MonoBehaviour
             angle = Mathf.Atan2(armDirection.normalized.y, armDirection.normalized.x) * Mathf.Rad2Deg; ////Se calcula el ángulo entre en eje X y el vector de direccion del joystick
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
+
         else if (controlRb.velocity.normalized.magnitude != 0) //Si no se controla la dirección y se está moviendo
         {
             angle = Vector2.SignedAngle(Vector2.right, controlRb.velocity.normalized);
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
+
         else //Si NO controla la dirección y no se mueve mantiene el ángulo anterior
         {
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
