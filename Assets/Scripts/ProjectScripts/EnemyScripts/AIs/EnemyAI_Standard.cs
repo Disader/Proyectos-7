@@ -190,6 +190,6 @@ public class EnemyAI_Standard : MonoBehaviour
     void SetAnimationsVariables()
     {
         characterAnimator.SetFloat("Angle", angle);
-        characterAnimator.SetBool("IsMoving", m_myRigidbody.velocity.magnitude > 0.1f || m_myRigidbody.velocity.magnitude < -0.1f);
+        characterAnimator.SetBool("IsMoving", m_AI_Controller.velocity.magnitude!=0);
     }
 }
