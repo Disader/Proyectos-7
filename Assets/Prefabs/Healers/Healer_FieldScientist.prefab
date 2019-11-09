@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6281337139147078737}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: PlayerSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113986426745460244}
   - component: {fileID: 8666670078880547433}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: ArmObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8644962486378298009}
   - component: {fileID: 8644962486378298008}
   - component: {fileID: 5778539747176582445}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8644962486729966100}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: ShootingPos
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8644962487079390703}
   - component: {fileID: 3003159997446666085}
   - component: {fileID: 5775535009449158605}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Healer_FieldScientist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
