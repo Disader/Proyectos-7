@@ -331,6 +331,18 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &524655232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5230312208797254075, guid: f05417ee97a823b42848246cdeee960a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1799924960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7135ce33113eec4fba8f6534d72563e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &886843135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6954680b130330c4e94861fd1a1bd142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapManager: {fileID: 0}
+  mapManager: {fileID: 524655232}
 --- !u!4 &1210639484
 Transform:
   m_ObjectHideFlags: 0
