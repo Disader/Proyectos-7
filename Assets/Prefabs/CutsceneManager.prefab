@@ -3974,8 +3974,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2051676165
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3338827235693983849, guid: 60b5d10c690682a43a43ccb57060b84e,
     type: 3}
@@ -4315,7 +4315,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
