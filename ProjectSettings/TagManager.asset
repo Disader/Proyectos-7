@@ -50,3 +50,6 @@ TagManager:
   - name: MovementObjects
     uniqueID: 2051676165
     locked: 0
+  - name: ArmTest
+    uniqueID: 1519116799
+    locked: 0
