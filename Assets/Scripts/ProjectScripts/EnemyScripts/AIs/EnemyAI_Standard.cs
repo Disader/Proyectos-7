@@ -79,7 +79,7 @@ public class EnemyAI_Standard : MonoBehaviour
         idle,
         attacking,
         runningAway,
-        surrender
+        surrender   //Para el Healer
     }
     protected AIState currentAIState = AIState.idle;
     // Update is called once per frame

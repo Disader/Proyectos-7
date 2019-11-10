@@ -11,6 +11,8 @@ public class Checkpoint : MonoBehaviour
         if (collision.GetComponent <PlayerControl_MovementController>() != null)
         {
             StartCoroutine(LoadYourAsyncScene());
+
+            GameManager.Instance.SaveGame(transform.position); ////Guardar el juego al llegar a Checkpoint
         }
     }
     IEnumerator LoadYourAsyncScene()
