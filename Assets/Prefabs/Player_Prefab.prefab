@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8753018604584853982}
   - component: {fileID: 2671436003153865414}
   - component: {fileID: 3924008894142731910}
+  - component: {fileID: 4807851925994655777}
   m_Layer: 8
   m_Name: Player_Prefab
   m_TagString: Player
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1424905059
-  m_SortingLayer: 4
+  m_SortingLayerID: 2051676165
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -6055785657967754171, guid: b70eb4f39e912f54e97eed5e48461f28,
     type: 3}
@@ -179,7 +180,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1424905059
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -283,6 +284,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4807851925994655777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753018604584853975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e404ea207926314896421f7f11c5291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRef: {fileID: 8753018604584853977}
 --- !u!1 &8753018605015778761
 GameObject:
   m_ObjectHideFlags: 0

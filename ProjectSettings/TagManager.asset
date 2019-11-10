@@ -47,9 +47,6 @@ TagManager:
   - name: Tiles
     uniqueID: 848338511
     locked: 0
-  - name: Enemies
+  - name: MovementObjects
     uniqueID: 2051676165
-    locked: 0
-  - name: Player
-    uniqueID: 2870062237
     locked: 0
