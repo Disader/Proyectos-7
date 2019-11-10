@@ -123,13 +123,13 @@ public class RoomManager : MonoBehaviour
             }
         }
 
-        //Reseteo de balas en la sala
-        int bulletsInRoom = activeBulletsInRoom.Count;
-        for(int i = 0; i < bulletsInRoom-1; i++)
+        for (int i = activeBulletsInRoom.Count - 1; i >= 0; i--)
         {
-            if(activeBulletsInRoom.Count != 0)
             Destroy(activeBulletsInRoom[i].gameObject);
         }
+        //Reseteo de balas en la sala
+       
         activeBulletsInRoom.Clear();
+
     }
 }

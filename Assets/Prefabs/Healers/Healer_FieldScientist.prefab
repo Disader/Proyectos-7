@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600787100888166828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8644962487079390485}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635334262190567064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8644962486729966100}
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8644962486378298011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8644962487079390485}
@@ -290,7 +290,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8644962487079390487}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 1.5
   m_Speed: 5
   m_Acceleration: 20
   avoidancePriority: 50
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetectionDistance: 0
-  m_runAwayDistance: 7
+  m_runAwayDistance: 6
   m_sightCollisionMask:
     serializedVersion: 2
     m_Bits: 55
@@ -415,8 +415,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.62}
-  m_Size: {x: 0.64835453, y: 0.7708621}
+  m_Offset: {x: 0.015979528, y: -0.0074357986}
+  m_Size: {x: 0.6803136, y: 0.73890305}
   m_Direction: 0
 --- !u!70 &5775535009449158605
 CapsuleCollider2D:
@@ -431,6 +431,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 0}
-  m_Size: {x: 0.93966484, y: 2.0258877}
+  m_Offset: {x: 0.0000009536743, y: 0.6764846}
+  m_Size: {x: 0.93966484, y: 2.29222}
   m_Direction: 0
