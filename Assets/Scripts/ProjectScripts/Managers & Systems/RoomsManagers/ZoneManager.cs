@@ -52,4 +52,12 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     {
         m_activeRoom.RemoveEnemyAtRoom(enemy);
     }
+    public void AddBulletInActiveRoom(BulletBase bullet)
+    {
+        m_activeRoom.AddBulletInRoom(bullet);
+    }
+    public void RemoveBulletInActiveRoom(BulletBase bullet)
+    {
+        m_activeRoom.RemoveBulletInRoom(bullet);
+    }
 }

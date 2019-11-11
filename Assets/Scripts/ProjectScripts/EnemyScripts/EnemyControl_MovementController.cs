@@ -45,11 +45,6 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
             LeftTriggerInput();
             RightTriggerInput();
 
-            if (actions.PlayerInputActions.ActionButton.triggered) ////Input de Consumir en la "A" CAMBIAR SI NECESARIO
-            {
-                ConsumeAction();
-            }
-
             CheckDashDirection();
 
             if (actions.PlayerInputActions.DashButton.triggered) ////Input de Dash en la "B" CAMBIAR SI NECESARIO

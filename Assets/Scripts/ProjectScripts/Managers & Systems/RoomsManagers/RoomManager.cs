@@ -50,19 +50,14 @@ public class RoomManager : MonoBehaviour
                 AddEnemyAtRoom(collision.GetComponent<EnemyControl_MovementController>()); //Añadir enemigo si está siendo controlado por el jugador y entra a una nueva sala
             }
         }
-        //Añado las balas al crearlas
-        if (collision.GetComponent<BulletBase>() != null)
-        {
-            activeBulletsInRoom.Add(collision.GetComponent<BulletBase>());
-        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public void AddBulletInRoom(BulletBase bullet)
     {
-        //Elimino las balas al destruirse
-        if (collision.GetComponent<BulletBase>() != null)
-        {
-            activeBulletsInRoom.Remove(collision.GetComponent<BulletBase>());
-        }
+        activeBulletsInRoom.Add(bullet);
+    }
+    public void RemoveBulletInRoom(BulletBase bullet)
+    {
+        activeBulletsInRoom.Remove(bullet);
     }
     public void AddEnemyAtRoom(EnemyControl_MovementController newEnemy)
     {

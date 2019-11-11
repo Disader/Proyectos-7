@@ -22,6 +22,7 @@ public class BulletBase : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.up * m_velocity;
+        ZoneManager.Instance.AddBulletInActiveRoom(this);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,6 +33,7 @@ public class BulletBase : MonoBehaviour
         {
             collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
             Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+            ZoneManager.Instance.RemoveBulletInActiveRoom(this);
             Destroy(gameObject);
         }
 
@@ -39,12 +41,14 @@ public class BulletBase : MonoBehaviour
         {
             HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
             Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+            ZoneManager.Instance.RemoveBulletInActiveRoom(this);
             Destroy(gameObject);
         }
 
         else if(collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
         {
             Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
+            ZoneManager.Instance.RemoveBulletInActiveRoom(this);
             Destroy(gameObject);
         }
     }
