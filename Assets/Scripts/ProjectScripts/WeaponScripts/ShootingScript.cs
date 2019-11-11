@@ -23,6 +23,8 @@ public class ShootingScript : MonoBehaviour
     float player_firingRateTimer = 10000;
     bool playerCanShoot;
 
+    [Header("Partículas (PlaceHolder)")]
+    public GameObject shootPart;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class ShootingScript : MonoBehaviour
                 m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
                 m_firingRateTimer = 0;
                 GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
+                Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
                 obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy
             }
         }
@@ -51,12 +54,14 @@ public class ShootingScript : MonoBehaviour
                 if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
                 {
                     GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
+                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
                     obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
                 }
 
                 else ////Si SÍ hay PASIVA ACTIVA, se instancia la bala que está guardada en la pasiva
                 {
                     GameObject obj = Instantiate(shSCR_PasiveAbility.bulletType, m_shootingPos.position, m_shootingPos.rotation);
+                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
                     obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
                 }
                 player_firingRateTimer = 0;

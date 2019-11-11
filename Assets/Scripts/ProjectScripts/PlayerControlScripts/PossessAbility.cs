@@ -23,6 +23,10 @@ public class PossessAbility : MonoBehaviour
     [Header("Variables para usar los Triggers de Mando como Botón")]
     private bool leftTrigger_isAxisInUse;
 
+    [Header("Partículas (PlaceHolders)")]
+    public GameObject possessionPart;
+    public ParticleSystem stunPart;
+
     PlayerInputAsset actions;
 
     private void Awake()
@@ -92,6 +96,7 @@ public class PossessAbility : MonoBehaviour
     {
         if (enemy_InRaycast != null)
         {
+            Instantiate(possessionPart, transform.position, transform.rotation); //PLACEHOLDER
             playerLineRenderer.SetPosition(1, Vector3.zero);
             enemy_InRaycast.PosssessEnemy();
         }
@@ -117,11 +122,21 @@ public class PossessAbility : MonoBehaviour
 
     public IEnumerator PlayerStun(float timeStunned) // La funcinalidad del Stun al jugador, se la llama desde SetControl en caso de morir el enemigo poseído.
     {
+        if(!stunPart.isPlaying)
+        {
+            stunPart.Play();
+        }
+
         playerControl_MovementController.armDirection = Vector2.zero;
         playerControl_MovementController.enabled = false;
 
         yield return new WaitForSeconds(timeStunned);
 
         playerControl_MovementController.enabled = true;
+
+        if (stunPart.isPlaying)
+        {
+            stunPart.Stop();
+        }
     }
 }

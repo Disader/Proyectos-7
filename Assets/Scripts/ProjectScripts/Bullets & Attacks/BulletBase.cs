@@ -15,6 +15,10 @@ public class BulletBase : MonoBehaviour
     private EnemyHealth collisionIsEnemy;
     private PlayerControl_MovementController collisionIsPlayer;
 
+    [Header("Partículas (PlaceHolders)")]
+    public GameObject hitWallPart;
+    public GameObject hitCharacterPart;
+
     private void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.up * m_velocity;
@@ -24,19 +28,24 @@ public class BulletBase : MonoBehaviour
         collisionIsEnemy = collision.GetComponent<EnemyHealth>();
         collisionIsPlayer = collision.GetComponent<PlayerControl_MovementController>();
 
-        if (collision.GetComponent<RoomManager>() == null)
-        {
-            Destroy(this.gameObject);
-        } 
-
-        if(collisionIsEnemy != null)
+        if(collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
         {
             collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
+            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+            Destroy(gameObject);
         }
 
-        else if(collisionIsPlayer != null)
+        else if(collisionIsPlayer != null && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
         {
             HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
+            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+            Destroy(gameObject);
+        }
+
+        else if(collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
+        {
+            Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
+            Destroy(gameObject);
         }
     }
 }

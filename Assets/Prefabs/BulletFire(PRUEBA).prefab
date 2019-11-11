@@ -113,6 +113,10 @@ MonoBehaviour:
   m_velocity: 10
   bulletDamageToPlayer: 0
   bulletDamageToEnemy: 0
+  hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
+    type: 3}
+  hitCharacterPart: {fileID: 8644971678284038027, guid: cacf3f624c100eb468f9ed2e27939bd9,
+    type: 3}
 --- !u!50 &6423631756787813245
 Rigidbody2D:
   serializedVersion: 4

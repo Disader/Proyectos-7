@@ -42,6 +42,11 @@ public class EnemySetControl : MonoBehaviour
     [Header("Tiempo de Stun de Player si este Enemigo Muere Estando Poseído")]
     public float playerTimeStunned;
 
+    [Header("Partículas (PlaceHolders)")]
+    public GameObject deathPart;
+    public ParticleSystem smokeThrowPart;
+    public ParticleSystem stunPart;
+
     [Header("Animator del enemigo")]
     [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
 
@@ -61,6 +66,16 @@ public class EnemySetControl : MonoBehaviour
     public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador y se indica a GameManager que este enmigo es ActualPlayer
     {
         StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
+
+        if (stunPart.isPlaying) //PLACEHOLDER
+        {
+            stunPart.Stop();
+        }
+
+        if (smokeThrowPart.isPlaying) //PLACEHOLDER
+        {
+            smokeThrowPart.Stop();
+        }
 
         this_EnemyAI.enabled = false;
         this_EnemyNavAgent.enabled = false;
@@ -94,6 +109,11 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
 
+        if(!smokeThrowPart.isPlaying) //PLACEHOLDER
+        {
+            smokeThrowPart.Play();
+        }
+
         gameObject.layer = 9; ////Al ser desposeído vuelve a tener layer de Enemy
 
         if (this_EnemyActiveAbility != null)
@@ -125,6 +145,7 @@ public class EnemySetControl : MonoBehaviour
 
         else if (this_EnemyAI.enabled == true)//// El enemigo no está poseído
         {
+            Instantiate(deathPart, transform.position, transform.rotation); //PLACEHOLDER
             gameObject.SetActive(false);
         }
 
@@ -155,6 +176,7 @@ public class EnemySetControl : MonoBehaviour
 
         gameObject.layer = 9; //Layer de enemy
         hasBeenConsumed = false; //Se resetea el bool que indica si el enemigo ha sido consumido.
+        Instantiate(deathPart, transform.position, transform.rotation); //PLACEHOLDER
         gameObject.SetActive(false);
     }
 
@@ -177,14 +199,27 @@ public class EnemySetControl : MonoBehaviour
 
     public IEnumerator StunEnemy()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
     {
-        Debug.Log("Stunned");
+        if(!stunPart.isPlaying) //PLACEHOLDER
+        {
+            stunPart.Play();
+        }
 
         yield return new WaitForSeconds(timeStunned);
 
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), false);
         this_EnemyNavAgent.enabled = true;
         this_EnemyAI.enabled = true;
-        Debug.Log("NOT Stunned");
+
+        if(stunPart.isPlaying) //PLACEHOLDER
+        {
+            stunPart.Stop();
+        }
+
+        if(smokeThrowPart.isPlaying) //PLACEHOLDER
+        {
+            smokeThrowPart.Stop(); 
+        }
+
     }
 
     private void OnDisable() ////Para cuando se reactiva un enemigo que estaba en Stun;
