@@ -37,7 +37,6 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Update is called once per frame
    protected virtual void Update()
     {
-        print(CutsceneManager.Instance.director.state);
         moveHorizontal = actions.PlayerInputActions.HorizontalMovement.ReadValue<float>();
         moveVertical = actions.PlayerInputActions.VerticalMovement.ReadValue<float>();
 

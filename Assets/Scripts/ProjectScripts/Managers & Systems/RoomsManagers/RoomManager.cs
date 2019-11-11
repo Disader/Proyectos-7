@@ -122,13 +122,16 @@ public class RoomManager : MonoBehaviour
                 enemy.transform.position = originalEnemiesAtRoomPosition[enemy.transform];
             }
         }
-
-        for (int i = activeBulletsInRoom.Count - 1; i >= 0; i--)
+        
+        if(activeBulletsInRoom.Count != 0)
         {
-            Destroy(activeBulletsInRoom[i].gameObject);
+            for (int i = activeBulletsInRoom.Count - 1; i >= 0; i--)
+            {
+                Destroy(activeBulletsInRoom[i].gameObject);
+            }
         }
         //Reseteo de balas en la sala
-       
+
         activeBulletsInRoom.Clear();
 
     }
