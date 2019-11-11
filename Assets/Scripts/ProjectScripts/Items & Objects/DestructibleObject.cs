@@ -31,7 +31,8 @@ public class DestructibleObject : MonoBehaviour
             breakParticles.gameObject.SetActive(true);
             m_rend.sprite = destroyed;
             StartCoroutine (PausedParticles());
-            m_collider.enabled = false;
+            gameObject.layer = 14;
+           // m_collider.enabled = false;
         }
     }
     private IEnumerator PausedParticles()
