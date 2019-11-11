@@ -129,10 +129,8 @@ public class RoomManager : MonoBehaviour
             {
                 Destroy(activeBulletsInRoom[i].gameObject);
             }
+            activeBulletsInRoom.Clear();
         }
         //Reseteo de balas en la sala
-
-        activeBulletsInRoom.Clear();
-
     }
 }

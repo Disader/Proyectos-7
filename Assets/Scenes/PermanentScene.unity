@@ -279,9 +279,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 6.541667
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 6.541667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -305,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -99.23, y: -0.99, z: -3.6618655}
+  m_LocalPosition: {x: 30.374996, y: 5.0935583, z: 11.416992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 24
-  m_RefResolutionX: 400
-  m_RefResolutionY: 300
+  m_RefResolutionX: 555
+  m_RefResolutionY: 312
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -354,6 +354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CutsceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488974180200194871, guid: dc0272cc215f4cc47af84cfe7ed18a25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1540636108556164539, guid: dc0272cc215f4cc47af84cfe7ed18a25,
         type: 3}
@@ -415,6 +420,11 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[10].value
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 5189858468319553145, guid: dc0272cc215f4cc47af84cfe7ed18a25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc0272cc215f4cc47af84cfe7ed18a25, type: 3}
 --- !u!1 &1210639482

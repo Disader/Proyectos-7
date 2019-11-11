@@ -2368,11 +2368,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616717188253823}
     m_Modifications:
-    - target: {fileID: 2759613489113231741, guid: 738840d81897708489059e61b546e51d,
-        type: 3}
-      propertyPath: m_Name
-      value: SaveRoomChangerObject
-      objectReference: {fileID: 0}
     - target: {fileID: 2759613489113231730, guid: 738840d81897708489059e61b546e51d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2428,6 +2423,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2759613489113231741, guid: 738840d81897708489059e61b546e51d,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveRoomChangerObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738840d81897708489059e61b546e51d, type: 3}
 --- !u!4 &8078616717366955438 stripped
@@ -2443,11 +2443,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2503,6 +2498,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945677934595 stripped
@@ -2518,11 +2518,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2578,6 +2573,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946048268298 stripped
@@ -2593,11 +2593,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2653,6 +2648,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946039847925 stripped
@@ -2668,11 +2668,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2728,6 +2723,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945965870280 stripped
@@ -2743,11 +2743,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616717188253823}
     m_Modifications:
-    - target: {fileID: 1886193482304676651, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-        type: 3}
-      propertyPath: m_Name
-      value: Room
-      objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676650, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2802,6 +2797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886193482304676651, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: m_Name
+      value: Room
       objectReference: {fileID: 0}
     - target: {fileID: 1886193483982898228, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -2913,11 +2913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2973,6 +2968,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945251229627 stripped
@@ -2988,11 +2988,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3048,6 +3043,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945229635366 stripped
@@ -3063,11 +3063,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3123,6 +3118,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945157337106 stripped
@@ -3138,11 +3138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3198,6 +3193,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945144524690 stripped
@@ -3213,11 +3213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3273,6 +3268,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945129214768 stripped
@@ -3288,11 +3288,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3348,6 +3343,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945090050035 stripped
@@ -3363,11 +3363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3423,6 +3418,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945097431088 stripped
@@ -3438,11 +3438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3498,6 +3493,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945058029979 stripped
@@ -3513,11 +3513,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3573,6 +3568,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945064054225 stripped
@@ -3588,11 +3588,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3648,6 +3643,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945022636552 stripped
@@ -3663,11 +3663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3723,6 +3718,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945468179488 stripped
@@ -3738,11 +3738,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3798,6 +3793,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945380334095 stripped
@@ -3813,11 +3813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3873,6 +3868,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945362098248 stripped
@@ -3888,11 +3888,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3948,6 +3943,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945311002264 stripped
@@ -3963,11 +3963,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4023,6 +4018,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945299526350 stripped
@@ -4038,11 +4038,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4098,6 +4093,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920945273473850 stripped
@@ -4113,11 +4113,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4173,6 +4168,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946772176962 stripped
@@ -4188,11 +4188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4248,6 +4243,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946729565209 stripped
@@ -4263,11 +4263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4323,6 +4318,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946668516336 stripped
@@ -4338,11 +4338,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4398,6 +4393,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946632193568 stripped
@@ -4413,11 +4413,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4473,6 +4468,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920947099577147 stripped
@@ -4488,11 +4488,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4548,6 +4543,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920947069548795 stripped
@@ -4563,11 +4563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616717188253823}
     m_Modifications:
-    - target: {fileID: 2759613489113231741, guid: 738840d81897708489059e61b546e51d,
-        type: 3}
-      propertyPath: m_Name
-      value: SaveRoomChangerObject (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2759613489113231730, guid: 738840d81897708489059e61b546e51d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4623,6 +4618,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2759613489113231741, guid: 738840d81897708489059e61b546e51d,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveRoomChangerObject (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738840d81897708489059e61b546e51d, type: 3}
 --- !u!4 &6219786381948243465 stripped
@@ -4638,11 +4638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4698,6 +4693,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920947036525710 stripped
@@ -4713,11 +4713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4773,6 +4768,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920947042669542 stripped
@@ -4788,11 +4788,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4848,6 +4843,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946987678346 stripped
@@ -4863,11 +4863,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4923,6 +4918,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946976048731 stripped
@@ -4938,11 +4938,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4998,6 +4993,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946922468440 stripped
@@ -5013,11 +5013,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5073,6 +5068,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946928978183 stripped
@@ -5088,11 +5088,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5148,6 +5143,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946926091008 stripped
@@ -5163,11 +5163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5223,6 +5218,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946896259869 stripped
@@ -5238,11 +5238,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5298,6 +5293,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946334838152 stripped
@@ -5313,11 +5313,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5373,6 +5368,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946294950436 stripped
@@ -5388,11 +5388,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5448,6 +5443,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946282857444 stripped
@@ -5463,11 +5463,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5523,6 +5518,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946176698155 stripped
@@ -5538,11 +5538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5598,6 +5593,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946167658206 stripped
@@ -5613,11 +5613,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5673,6 +5668,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946119066105 stripped
@@ -5688,11 +5688,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5748,6 +5743,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946561851298 stripped
@@ -5763,11 +5763,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5823,6 +5818,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946433941713 stripped
@@ -5838,11 +5838,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5898,6 +5893,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
 --- !u!4 &893920946411655209 stripped
@@ -5913,11 +5913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078616718257555453}
     m_Modifications:
-    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMeshObstacleTile
-      objectReference: {fileID: 0}
     - target: {fileID: 8969722706643200008, guid: 07a642d00bb306140b04300436708e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5972,6 +5967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631782047888213600, guid: 07a642d00bb306140b04300436708e35,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMeshObstacleTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a642d00bb306140b04300436708e35, type: 3}
