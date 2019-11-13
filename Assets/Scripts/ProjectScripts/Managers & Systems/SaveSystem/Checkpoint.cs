@@ -21,21 +21,22 @@ public class Checkpoint : MonoBehaviour
         // This is particularly good for creating loading screens.
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
-        int c = SceneManager.sceneCount;
-        for (int i = 0; i < c; i++)
-        {
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.name != "SaveRoom" && scene.name!="PermanentScene")
-            {
-                SceneManager.UnloadSceneAsync(scene);
-            }
-        }
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+
+        SceneManager.UnloadSceneAsync(ZoneManager.Instance.zoneScene);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(ZoneManager.Instance.zoneScene, LoadSceneMode.Additive);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+
+       /* if (asyncLoad.isDone)
+        {
+            Scene sceneToSetActive = SceneManager.GetSceneByName(ZoneManager.Instance.zoneScene);
+            Debug.Log(sceneToSetActive.name);
+            SceneManager.SetActiveScene(sceneToSetActive);
+        }*/
     }
 }

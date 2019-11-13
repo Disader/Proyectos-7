@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using Cinemachine;
 
@@ -8,6 +9,9 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     public MapBehaviour mapManager;
     CinemachineVirtualCamera m_activeCamera;
     RoomManager m_activeRoom;
+
+    [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
+    public SceneReference zoneScene;
 
     void DiscoverRoom(GameObject currentRoom)
     {

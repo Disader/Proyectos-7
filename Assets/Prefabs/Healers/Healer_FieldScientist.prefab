@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 2051676165
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8754673331126407937, guid: 658160132ed8a2044ae45fa8d446443a,
+  m_Sprite: {fileID: 4686277897049885331, guid: db7b75031217f5b4aa53c60e86334405,
     type: 3}
   m_Color: {r: 0, g: 1, b: 0.051671505, a: 1}
   m_FlipX: 0
@@ -447,11 +447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8644962487079390485}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,6 +501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
