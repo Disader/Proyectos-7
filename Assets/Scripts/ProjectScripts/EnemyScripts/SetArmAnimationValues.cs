@@ -15,6 +15,7 @@ public class SetArmAnimationValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(m_transformRef.localEulerAngles.z);
         myAnimator.SetFloat("Angle", m_transformRef.localEulerAngles.z);
     }
 }

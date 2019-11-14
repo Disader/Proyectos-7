@@ -508,7 +508,7 @@ MonoBehaviour:
   mapManager: {fileID: 524655232}
   zoneScene:
     sceneAsset: {fileID: 102900000, guid: 855b290eccf3a954abd3a42d38ca03fe, type: 3}
-    scenePath: Assets/Scenes/Game.unity
+    scenePath: Assets/Scenes/Game/Game.unity
 --- !u!4 &1210639484
 Transform:
   m_ObjectHideFlags: 0

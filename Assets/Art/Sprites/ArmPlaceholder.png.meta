@@ -1,31 +1,22 @@
 fileFormatVersion: 2
-guid: 423420af0bb9c1c4c9782996de3c6d58
+guid: 16155613c68051a4e8b024a21f8fd415
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8614488718176516491
-    second: EnemyArmTest_0
+      213: -8158723149455145693
+    second: ArmPlaceholder_0
   - first:
-      213: -237864412889731431
-    second: EnemyArmTest_1
+      213: 2350090625786561782
+    second: ArmPlaceholder_1
   - first:
-      213: 3334319701102105813
-    second: EnemyArmTest_2
+      213: -827208165207376050
+    second: ArmPlaceholder_2
   - first:
-      213: 398423687218722749
-    second: EnemyArmTest_3
+      213: -8958491775067957464
+    second: ArmPlaceholder_3
   - first:
-      213: -5240492082206458987
-    second: EnemyArmTest_4
-  - first:
-      213: 7476093659987932334
-    second: EnemyArmTest_5
-  - first:
-      213: -7475348803168931853
-    second: EnemyArmTest_6
-  - first:
-      213: 5884907755478160075
-    second: EnemyArmTest_7
+      213: 306320506597260053
+    second: ArmPlaceholder_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -69,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,12 +99,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyArmTest_0
+      name: ArmPlaceholder_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,40 +113,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b969d24b9c5c30846b2182c6dc0d60d5
-      internalID: -8614488718176516491
+      spriteID: 081bd6bcec4c2c048a80ce1105ec7013
+      internalID: -8158723149455145693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyArmTest_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a7adf295d656a548a53f2cfda93032f
-      internalID: -237864412889731431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyArmTest_2
+      name: ArmPlaceholder_1
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 24
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,40 +134,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b18e1024a308977428340f1e3677a8f0
-      internalID: 3334319701102105813
+      spriteID: ebd71aea91a159145ba48591e685d25e
+      internalID: 2350090625786561782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyArmTest_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba2e438bc03bb3d41b1e0bfd5bebeddb
-      internalID: 398423687218722749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyArmTest_4
+      name: ArmPlaceholder_2
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 24
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -206,40 +155,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47d113448f3b9d448672c68914877d2
-      internalID: -5240492082206458987
+      spriteID: a8c29b8f471f6a64cb93b7285911ec9a
+      internalID: -827208165207376050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyArmTest_5
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d03136a0bcce7764f9b81c556fd1c318
-      internalID: 7476093659987932334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyArmTest_6
+      name: ArmPlaceholder_3
       rect:
         serializedVersion: 2
         x: 144
         y: 0
-        width: 24
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -248,19 +176,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e760f878896157c42bdd489e73500ec2
-      internalID: -7475348803168931853
+      spriteID: 169c9da026f7cc346b907fd3439f1812
+      internalID: -8958491775067957464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyArmTest_7
+      name: ArmPlaceholder_4
       rect:
         serializedVersion: 2
-        x: 168
+        x: 192
         y: 0
-        width: 24
+        width: 48
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -269,8 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff6c5990273fd064a84c1f091aa30039
-      internalID: 5884907755478160075
+      spriteID: e63f7eb362f37ce46904f656318cc643
+      internalID: 306320506597260053
       vertices: []
       indices: 
       edges: []
@@ -278,7 +206,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 18ea8bd9d9c7ae64688269eaeb05d223
+    spriteID: 87b23b5cf1ea92b4f9ec56f6d308cd9b
     internalID: 0
     vertices: []
     indices: 
