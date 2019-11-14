@@ -406,7 +406,7 @@ MonoBehaviour:
   armDirection: {x: 0, y: 0}
   m_characterAnimator: {fileID: 5778539747176582445}
   leftTriggerHoldTime: 0.5
-  dashTime: 0.5
+  dashTime: 0.4
   dashForce: 15
 --- !u!70 &3003159997446666085
 CapsuleCollider2D:
@@ -528,11 +528,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8644962487079390485}
     m_Modifications:
-    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Smoke_Trail
-      objectReference: {fileID: 0}
     - target: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -587,6 +582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Smoke_Trail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26e097a557c4e74bba302d775fdb5cd, type: 3}

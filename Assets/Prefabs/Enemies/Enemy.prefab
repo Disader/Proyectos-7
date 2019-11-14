@@ -313,7 +313,7 @@ MonoBehaviour:
   armDirection: {x: 0, y: 0}
   m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
-  dashTime: 0.5
+  dashTime: 0.4
   dashForce: 15
 --- !u!114 &4387296696666090942
 MonoBehaviour:
