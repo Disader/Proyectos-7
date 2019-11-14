@@ -32,11 +32,17 @@ public class Checkpoint : MonoBehaviour
             yield return null;
         }
 
-       /* if (asyncLoad.isDone)
+       if (asyncLoad.isDone)
         {
-            Scene sceneToSetActive = SceneManager.GetSceneByName(ZoneManager.Instance.zoneScene);
-            Debug.Log(sceneToSetActive.name);
-            SceneManager.SetActiveScene(sceneToSetActive);
-        }*/
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene scene = SceneManager.GetSceneAt(i);
+
+                if(!scene.name.Contains("Permanent") && !scene.name.Contains("Save"))
+                {
+                    SceneManager.SetActiveScene(scene);
+                }
+            }
+        }
     }
 }

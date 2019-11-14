@@ -103,9 +103,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
     }
 
-    private void CallShootingScriptReset() ////Llama al Reset de ShootingScript. VER el método en Shooting Script       !!!!
+    private void CallShootingScriptReset() ////Llama al Reset de disparo de ShootingScript. VER el método en Shooting Script       !!!!
     {
-        thisEnemyShootingScript.ResetOnStopAttack();
+        thisEnemyShootingScript.ResetPlayerFiringRateTimer();
     }
 
     private void LeftTriggerInput()

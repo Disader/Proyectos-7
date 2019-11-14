@@ -20,7 +20,7 @@ public class ShootingScript : MonoBehaviour
 
     [Header("Variables del Disparo del Jugador")]//Para el control del jugador, afectado por más parámetros y/o mejoras.
     public float player_firingRate;
-    float player_firingRateTimer = 10000;
+    float player_firingRateTimer;
     bool playerCanShoot;
 
     [Header("Partículas (PlaceHolder)")]
@@ -30,6 +30,12 @@ public class ShootingScript : MonoBehaviour
     {
         m_onStartFiringRate = m_firingRate;
     }
+
+    private void OnEnable()
+    {
+        player_firingRateTimer = 0;
+    }
+
     public void FireInShootingPos(whoIsShooting shooter)
     {
         if (shooter == whoIsShooting.enemy) ////Como dispara el enemigo
@@ -49,7 +55,7 @@ public class ShootingScript : MonoBehaviour
         else if(shooter == whoIsShooting.player) //Como dispara el player al controlar este enemigo. Si hay pasiva, se afecta el tipo de bala.
         {
 
-            if (player_firingRateTimer >= player_firingRate)
+            if (player_firingRateTimer <= 0)
             {
                 if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
                 {
@@ -64,14 +70,26 @@ public class ShootingScript : MonoBehaviour
                     Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
                     obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
                 }
-                player_firingRateTimer = 0;
+                player_firingRateTimer = player_firingRate;
             }
-            player_firingRateTimer += 1 * Time.deltaTime;
+
+            else
+            {
+                player_firingRateTimer -= 1 * Time.deltaTime;
+            }
         }
     }
 
-    public void ResetOnStopAttack() //Colocar aquí cosas que se quieran restear al dejar de pulsar el RigthTrigger en el control de enemigo
+    public void ResetPlayerFiringRateTimer() //Método que se llama desde EnemyController si no hay input de RightTrigger
     {
-        player_firingRateTimer = player_firingRate;
+        if (player_firingRateTimer <= 0)
+        {
+            player_firingRateTimer = 0;
+        }
+
+        else
+        {
+            player_firingRateTimer -= 1 * Time.deltaTime;
+        }
     }
 }
