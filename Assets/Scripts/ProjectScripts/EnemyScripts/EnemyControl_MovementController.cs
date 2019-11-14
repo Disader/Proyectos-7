@@ -71,6 +71,11 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         isDashing = true;
 
         controlRb.velocity = dashDirection.normalized * dashForce;
+        ////ANIMACIONES////
+
+        m_characterAnimator.SetTrigger("Dodge");
+        ///FINAL ANIMACIONES/////
+
 
         yield return new WaitForSeconds(dashTime);
 
