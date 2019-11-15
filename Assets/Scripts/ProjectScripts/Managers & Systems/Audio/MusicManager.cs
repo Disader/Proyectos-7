@@ -158,7 +158,7 @@ public class MusicManager : PersistentSingleton<MusicManager>
             {
                 m_sfxAudioSources.Remove(localAudioSource);
                 Destroy(localAudioSource.gameObject);
-                break; //Esto arregla un error al intentar seguir recorrer el foreach con la lista combiada al quitar el audiosource de esta
+                break; //Esto arregla un error al intentar seguir recorrer el foreach con la lista cambiada al quitar el audiosource de esta
             }
         }
     }
