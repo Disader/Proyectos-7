@@ -5,24 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-    // Use this for initialization
-    void OnEnable()
-    {
-        StartCoroutine(delay());
-    }
-
-    IEnumerator delay()
+    public IEnumerator loadDelay(SceneReference gameScene, SceneReference permanentScene, SceneReference saveScene)
     {
         yield return new WaitForEndOfFrame();
-        SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("SaveRoom", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("PermanentScene", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(gameScene, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(permanentScene, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(saveScene, LoadSceneMode.Additive);
         SceneManager.sceneLoaded += FinishLoading;
     }
 
     void FinishLoading(Scene scene, LoadSceneMode mode)
     {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene sceneCheck = SceneManager.GetSceneAt(i);
+
+            if (!sceneCheck.name.Contains("Permanent") && !sceneCheck.name.Contains("Save"))
+            {
+                SceneManager.SetActiveScene(sceneCheck);
+            }
+        }
         SceneManager.sceneLoaded -= FinishLoading;
+        SceneManager.UnloadSceneAsync("LoadingScene");
         Destroy(this.gameObject);
     }
 }
