@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ed308d2ab223343a1754f4b8791f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_velocity: 10
+  m_velocity: 15
   bulletDamageToPlayer: 1
   bulletDamageToEnemy: 1
   hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
