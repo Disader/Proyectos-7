@@ -166,7 +166,7 @@ public class EnemyAI_Standard : MonoBehaviour
     //Funciones de referencia del jugador
     protected Vector2 VectorToPlayer()
     {
-        return GameManager.Instance.ActualPlayerController.transform.position - this.transform.position;
+        return GameManager.Instance.ActualPlayerController.transform.position - m_armTransform.position;
     }
     protected float DistanceToPlayer()
     {

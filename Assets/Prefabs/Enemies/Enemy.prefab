@@ -100,7 +100,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2051676165
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -1000
   m_Sprite: {fileID: -8614488718176516491, guid: 423420af0bb9c1c4c9782996de3c6d58,
     type: 3}
@@ -231,7 +231,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_armTransform: {fileID: 6218837739217761860}
-  m_distanceAimAheadPlayer: 0.2
+  m_distanceAimAheadPlayer: 0.4
   m_clockDelay: 0.5
   characterAnimator: {fileID: 1957557055709031805}
 --- !u!114 &4387296696666090938
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 3
+  myAnimator: {fileID: 1957557055709031805}
 --- !u!50 &4387296696666090936
 Rigidbody2D:
   serializedVersion: 4
@@ -481,7 +482,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2051676165
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2927072465793169034, guid: db7b75031217f5b4aa53c60e86334405,
     type: 3}

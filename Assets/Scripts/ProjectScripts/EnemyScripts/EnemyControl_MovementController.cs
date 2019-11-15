@@ -162,6 +162,10 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     protected override void SetAnimationsVariables()//Utilizado mientras testeo para evitar que se rompa mientras no están implementadas las animaciones del enemigos
     {
         m_characterAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f || controlRb.velocity.magnitude < -0.1f);
+        if (angle < 0)
+        {
+            angle = 360 + angle;
+        }
         m_characterAnimator.SetFloat("Angle", angle);
     }
 }

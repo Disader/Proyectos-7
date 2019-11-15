@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     [Header("El SetControl del Enemigo")]
     private EnemySetControl thisEnemySetControl;
 
+    [Header("Textura para hacer el flash")]
+    [SerializeField] Animator myAnimator;
     void Awake()
     {
         defaultEnemyHealth = enemyHealth;   ////Se guarda la vida inicial del enemigo.
@@ -30,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     public void ReceiveDamage(int damageReceived) ////Recibir daño
     {
         enemyHealth -= damageReceived;
-
+        myAnimator.SetTrigger("Damaged");
         if (enemyHealth <= 0)
         {
             thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte
