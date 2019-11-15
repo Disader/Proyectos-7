@@ -102,6 +102,8 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private void AttackAction() 
     {
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
+
+        ///////CAMERA SHAKE AL DISPARAR///////
         CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();
         impulse.GenerateImpulse();
     }

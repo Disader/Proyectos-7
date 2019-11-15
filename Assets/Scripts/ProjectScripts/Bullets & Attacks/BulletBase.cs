@@ -32,7 +32,7 @@ public class BulletBase : MonoBehaviour
 
         if (collisionIsPlayer != null && GameManager.Instance.ActualPlayerController == collisionIsPlayer) //Si es el jugador, generar camera shake
         {
-            Debug.Log("playerimpact");
+            /////CAMERA SHAKE///////
             CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();
             impulse.GenerateImpulse();
            
