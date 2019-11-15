@@ -13,9 +13,11 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Variables de disparo al jugador")]
     [SerializeField] protected Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
+    [Header("La distancia mínima para disparar al jugador")]
+    [SerializeField] protected float distanceToShootPlayer; ///Una distancia mínima para disparar
     [Header("Reloj de búsqueda al jugador")]
-    [SerializeField] float m_clockDelay;
-    float m_clockTimer;
+    [SerializeField] protected float m_clockDelay;
+    protected float m_clockTimer;
     [Header("Animators")]
     [SerializeField] protected Animator characterAnimator;
 
@@ -35,6 +37,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected virtual void Update()
     {
+
         if (currentAIState == AIState.idle)
         {
             Idle();
@@ -44,6 +47,7 @@ public class EnemyAI_Standard : MonoBehaviour
             }
             
         }
+
         else if (currentAIState == AIState.attacking)
         {
             m_clockTimer += Time.deltaTime;
@@ -52,7 +56,7 @@ public class EnemyAI_Standard : MonoBehaviour
                 AttackingMovement();
                 m_clockTimer = 0;
             }
-            if (IsPlayerInSight())
+            if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
                 DamagePlayer();
             }
@@ -60,7 +64,9 @@ public class EnemyAI_Standard : MonoBehaviour
             {
                 currentAIState = AIState.runningAway;
             }
-        }else if(currentAIState == AIState.runningAway)
+        }
+
+        else if(currentAIState == AIState.runningAway)
         {
             RunAway();
             if (!IsPlayerTooNear())
@@ -79,12 +85,13 @@ public class EnemyAI_Standard : MonoBehaviour
         idle,
         attacking,
         runningAway,
+        patrol,     //Para comportamientos de patrulla
+        goLastSeenPlace, //Para comportamientos de patrulla
         surrender   //Para el Healer
     }
     protected AIState currentAIState = AIState.idle;
-    // Update is called once per frame
-
     protected float angle;
+
     protected virtual void Aim()
     {
         if (IsPlayerInSight())
