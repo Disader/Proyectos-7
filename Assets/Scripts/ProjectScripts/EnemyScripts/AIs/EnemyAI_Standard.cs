@@ -8,7 +8,7 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Variables de sentidos")]
     [SerializeField] protected float m_playerDetectionDistance; //Para salir de idle
     [SerializeField] protected float m_runAwayDistance; //Cuánto se tiene que acercar el jugador para que comience a huir
-    [SerializeField] LayerMask m_sightCollisionMask;
+    [SerializeField] protected LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
     [Header("Variables de disparo al jugador")]
     [SerializeField] protected Transform m_armTransform;
@@ -37,7 +37,6 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected virtual void Update()
     {
-
         if (currentAIState == AIState.idle)
         {
             Idle();
@@ -96,7 +95,7 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         if (IsPlayerInSight())
         {
-            Vector2 vector = VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer*DistanceToPlayer();
+            Vector2 vector = VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
             angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
@@ -173,7 +172,7 @@ public class EnemyAI_Standard : MonoBehaviour
     //Funciones de referencia del jugador
     protected Vector2 VectorToPlayer()
     {
-        return GameManager.Instance.ActualPlayerController.transform.position - m_armTransform.position;
+        return GameManager.Instance.ActualPlayerController.transform.position - transform.position;
     }
     protected float DistanceToPlayer()
     {
@@ -181,6 +180,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected bool IsPlayerInSight()
     {
+        Debug.DrawRay(transform.position, VectorToPlayer());
         return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
     }
     protected bool isPlayerFurtherThanStoppingDistance()

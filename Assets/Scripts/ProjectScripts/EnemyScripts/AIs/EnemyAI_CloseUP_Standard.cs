@@ -9,11 +9,21 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
     [Space(10)]
     public bool hasPatrolBehaviour;
     public List<Transform> patrolPointsList = new List<Transform>();
-    private int currentListPoint;
+    private Transform currentListPoint;
+    private bool patrolPointDecided = false;
+
+    public float timeToWaitOnPatrolPoint;
+    private float timerWaitBetweenPatrolPoint = 0;
+
+    private Vector3 lastSeenPosition;
 
     // Update is called once per frame
     protected override void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
+        Debug.Log(hit.collider);
+        Debug.Log(IsPlayerInSight());
+
         if (currentAIState == AIState.idle)
         {
             Idle();
@@ -31,21 +41,45 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             }
         }
 
+        if(currentAIState == AIState.patrol)
+        {
+            m_AI_Controller.stoppingDistance = 0.1f;
+
+            if (!patrolPointDecided)
+            {
+                CheckPatrolPoint();
+            }
+
+            else if(patrolPointDecided)
+            {
+                CheckDistanceToPatrolPoint();
+            }
+
+            if(IsPlayerInSight())
+            {
+                currentAIState = AIState.attacking;
+                patrolPointDecided = false;
+            }
+        }
+
         else if (currentAIState == AIState.attacking)
         {
-            m_clockTimer += Time.deltaTime;
-            if (m_clockTimer > m_clockDelay)
-            {
-                AttackingMovement();
-                m_clockTimer = 0;
-            }
+
+            AttackingMovement();
+
             if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
                 DamagePlayer();
+                Debug.Log(DistanceToPlayer());
             }
             if (IsPlayerTooNear())
             {
                 currentAIState = AIState.runningAway;
+            }
+
+            if(!IsPlayerInSight())
+            {
+                currentAIState = AIState.patrol;
             }
         }
 
@@ -63,11 +97,32 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
         SetAnimationsVariables();
     }
 
-    void PatrolBehaviour()
-    {
-        for(int i = 0; i < patrolPointsList.Count; i++)
-        {
+    int i = 0;
 
+    void CheckPatrolPoint()
+    {
+        if (i >= patrolPointsList.Count)
+        {
+            i = 0;
+        }
+
+        currentListPoint = patrolPointsList[i];
+        FindNewDestination(currentListPoint.position);
+        i++;
+        patrolPointDecided = true;
+    }
+
+    void CheckDistanceToPatrolPoint()
+    {
+        if(Vector3.Distance(transform.position, currentListPoint.position) <= 0.2f)
+        {
+            timerWaitBetweenPatrolPoint += 1 * Time.deltaTime;
+
+            if (timerWaitBetweenPatrolPoint >= timeToWaitOnPatrolPoint)
+            {
+                patrolPointDecided = false;
+                timerWaitBetweenPatrolPoint = 0;
+            }
         }
     }
 }

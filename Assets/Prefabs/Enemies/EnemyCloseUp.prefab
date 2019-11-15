@@ -203,7 +203,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 7
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -233,7 +233,9 @@ MonoBehaviour:
   distanceToShootPlayer: 7
   m_clockDelay: 0.5
   characterAnimator: {fileID: 3871442556093319289}
-  hasPatrolBerhaviour: 0
+  hasPatrolBehaviour: 0
+  patrolPointsList: []
+  timeToWaitOnPatrolPoint: 0.5
 --- !u!114 &1329209101789137086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,8 +316,9 @@ MonoBehaviour:
   armDirection: {x: 0, y: 0}
   m_characterAnimator: {fileID: 3871442556093319289}
   leftTriggerHoldTime: 0.5
-  dashTime: 0.4
-  dashForce: 15
+  ableToDash: 0
+  dashTime: 0
+  dashForce: 0
 --- !u!114 &1329209101789137082
 MonoBehaviour:
   m_ObjectHideFlags: 0

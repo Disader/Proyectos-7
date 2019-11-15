@@ -18,6 +18,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     public float leftTriggerHoldTime;
     private float leftTriggerTimer;
 
+    [Header("Indicar SI PUEDE O NO hacer Dash (Tick -> SI)")]
+    public bool ableToDash;
+
     [Header("Variables del Dash")]
     public float dashTime;
     public float dashForce;
@@ -48,9 +51,13 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
             CheckDashDirection();
 
+            
             if (actions.PlayerInputActions.DashButton.triggered) ////Input de Dash en la "B" CAMBIAR SI NECESARIO
             {
-                StartCoroutine(DashLogicCoroutine());
+                if (ableToDash)
+                {
+                    StartCoroutine(DashLogicCoroutine());
+                }
             }           
         }
     }
