@@ -46,9 +46,13 @@ public class ShootingScript : MonoBehaviour
             {
                 m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
                 m_firingRateTimer = 0;
-                GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
-                Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);         
                 obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy
+
+                ////////EFECTOS///////
+                Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                 ///Sonido
+                PlayRandomFiringSound();
             }
         }
 
@@ -59,16 +63,24 @@ public class ShootingScript : MonoBehaviour
             {
                 if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
                 {
-                    GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
-                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                    GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);       
                     obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
+
+                    ////////EFECTOS////////////
+                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                     ///Sonido
+                    PlayRandomFiringSound();
                 }
 
                 else ////Si SÍ hay PASIVA ACTIVA, se instancia la bala que está guardada en la pasiva
                 {
                     GameObject obj = Instantiate(shSCR_PasiveAbility.bulletType, m_shootingPos.position, m_shootingPos.rotation);
-                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
                     obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
+
+                    ////////EFECTOS////////////
+                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                     ///Sonido
+                    PlayRandomFiringSound();
                 }
                 player_firingRateTimer = player_firingRate;
             }
@@ -79,7 +91,22 @@ public class ShootingScript : MonoBehaviour
             }
         }
     }
-
+    void PlayRandomFiringSound()
+    {
+        ///Sonido
+        int random = Random.Range(0, 2);
+        switch (random)
+        {
+            case 0:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_FIRE1); ///// PLACEHOLDER
+                break;
+            case 1:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_FIRE2); ///// PLACEHOLDER
+                break;
+            default:
+                break;
+        }
+    }
     public void ResetPlayerFiringRateTimer() //Método que se llama desde EnemyController si no hay input de RightTrigger
     {
         if (player_firingRateTimer <= 0)

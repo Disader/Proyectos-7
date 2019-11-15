@@ -30,30 +30,52 @@ public class BulletBase : MonoBehaviour
         collisionIsEnemy = collision.GetComponent<EnemyHealth>();
         collisionIsPlayer = collision.GetComponent<PlayerControl_MovementController>();
 
-        if (collisionIsPlayer != null && GameManager.Instance.ActualPlayerController == collisionIsPlayer) //Si es el jugador, generar camera shake
+
+        if (collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
         {
+            collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
+            ZoneManager.Instance.RemoveBulletInActiveRoom(this);
+            Destroy(gameObject);
+
+            //Partículas
+            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+
+            ///Sonido
+            ///Sonido
+            int random = Random.Range(0, 2);
+            switch (random)
+            {
+                case 0:
+                    MusicManager.Instance.PlaySound(AppSounds.ENEMY_HIT1); ///// PLACEHOLDER
+                    break;
+                case 1:
+                    MusicManager.Instance.PlaySound(AppSounds.ENEMY_HIT2); ///// PLACEHOLDER
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        else if (collisionIsPlayer != null && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
+        {
+            HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
+
+            //Partículas
+            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+
             /////CAMERA SHAKE///////
             CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();//PLACEHOLDER
             impulse.GenerateImpulse();//PLACEHOLDER
 
-        }
-        if(collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
-        {
-            collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
-            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
+            ///Sonido
+            MusicManager.Instance.PlaySound(AppSounds.PLAYER_HIT); ///// PLACEHOLDER
+
+
             ZoneManager.Instance.RemoveBulletInActiveRoom(this);
             Destroy(gameObject);
         }
 
-        else if(collisionIsPlayer != null && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
-        {
-            HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
-            Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
-            ZoneManager.Instance.RemoveBulletInActiveRoom(this);
-            Destroy(gameObject);
-        }
-
-        else if(collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
+        else if (collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
         {
             Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
             ZoneManager.Instance.RemoveBulletInActiveRoom(this);

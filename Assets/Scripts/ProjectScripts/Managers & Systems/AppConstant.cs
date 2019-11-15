@@ -7,12 +7,6 @@ public class AppPaths
 	public static readonly string  	PERSISTENT_DATA      = Application.persistentDataPath;
 	public static readonly string	PATH_RESOURCE_SFX    = "Audio/FX/";
     public static readonly string	PATH_RESOURCE_MUSIC  = "Audio/Music/";
-    public static readonly string   PATH_RESOURCE_CHARACTERS = "ScriptableObjects/Characters/";
-}
-
-public class AppScenes
-{
-    public static readonly string MAIN_SCENE = "Introducir escenas";
 }
 
 public class AppPlayerPrefKeys
@@ -50,9 +44,7 @@ public class AppSounds
 }
 public class AppSortingLayers
 {
-    public static readonly string CHARACTER_NORMAL = "Characters";
-    public static readonly string CHARACTER_OVER = "CharactersOverPlayer";
-    public static readonly string CHARACTER_BEHIND_OBJECTS = "CharactersBehindObjects";
+
 }
 
 

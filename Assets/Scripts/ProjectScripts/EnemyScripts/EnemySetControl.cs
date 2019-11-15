@@ -95,6 +95,8 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
 
+        ///Sonido
+        MusicManager.Instance.PlaySound(AppSounds.PLAYER_CONSUME); ///// PLACEHOLDER
 
         //Seteo de animaciones
         characterAnimator.SetBool("IsPossessed", true);
@@ -152,6 +154,25 @@ public class EnemySetControl : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        ///Sonido
+        int random = Random.Range(0, 3);
+        switch (random)
+        {
+            case 0:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH1); ///// PLACEHOLDER
+                break;
+            case 1:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH2); ///// PLACEHOLDER
+                break;
+            case 2:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH3); ///// PLACEHOLDER
+                break;
+            default:
+                break;
+        }
+       
+
+
         ZoneManager.Instance.DeleteEnemyFromCurrentRoom(this_EnemyControl_MovementController);
     }
 
@@ -189,6 +210,10 @@ public class EnemySetControl : MonoBehaviour
         thisEnemyRB.velocity = Vector2.zero;
         this_EnemyControl_MovementController.enabled = false;
         consumePart.Play(); //Partículas de consumir PLACEHOLDER
+
+        ///Sonido
+        MusicManager.Instance.PlaySound(AppSounds.PLAYER_CONSUME); ///// PLACEHOLDER
+
 
         yield return new WaitForSeconds(timeToConsume);
 
