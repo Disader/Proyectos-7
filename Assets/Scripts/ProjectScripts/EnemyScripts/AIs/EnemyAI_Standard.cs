@@ -11,18 +11,18 @@ public class EnemyAI_Standard : MonoBehaviour
     [SerializeField] LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
     [Header("Variables de disparo al jugador")]
-    [SerializeField] Transform m_armTransform;
+    [SerializeField] protected Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
     [Header("Reloj de búsqueda al jugador")]
     [SerializeField] float m_clockDelay;
     float m_clockTimer;
     [Header("Animators")]
-    [SerializeField] Animator characterAnimator;
+    [SerializeField] protected Animator characterAnimator;
 
     protected NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
     Rigidbody2D m_playerRigidbody;
-    Rigidbody2D m_myRigidbody;
+    protected Rigidbody2D m_myRigidbody;
 
     protected void Start()
     {
@@ -84,7 +84,7 @@ public class EnemyAI_Standard : MonoBehaviour
     protected AIState currentAIState = AIState.idle;
     // Update is called once per frame
 
-    float angle;
+    protected float angle;
     protected virtual void Aim()
     {
         if (IsPlayerInSight())
@@ -94,12 +94,12 @@ public class EnemyAI_Standard : MonoBehaviour
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
         }
-        else if (m_myRigidbody.velocity.normalized.magnitude != 0) //Si no se controla la dirección y se está moviendo
+        else if (m_AI_Controller.velocity.normalized.magnitude != 0) //Si no ve al jugador y se está moviendo
         {
-            angle = Vector2.SignedAngle(Vector2.right, m_myRigidbody.velocity.normalized);
-            m_armTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
+            angle = Vector2.SignedAngle(Vector2.right, m_AI_Controller.velocity.normalized);
+            m_armTransform.localEulerAngles = new Vector3(0, 0, angle); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
-        else //Si NO controla la dirección y no se mueve mantiene el ángulo anterior
+        else //Si NO vee al jugador y no se mueve mantiene el ángulo anterior
         {
             m_armTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
@@ -118,7 +118,7 @@ public class EnemyAI_Standard : MonoBehaviour
     protected void RunAway()
     {
         m_AI_Controller.stoppingDistance =0.1f;
-       Vector2 oppositeDirectionVector = -VectorToPlayer().normalized*2;
+        Vector2 oppositeDirectionVector = -VectorToPlayer().normalized*2;
         Vector3 newDestination = new Vector3(oppositeDirectionVector.x + transform.position.x, oppositeDirectionVector.y + transform.position.y, 0);
         FindNewDestination(newDestination);
     }
@@ -172,11 +172,11 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         return VectorToPlayer().magnitude;
     }
-    bool IsPlayerInSight()
+    protected bool IsPlayerInSight()
     {
         return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
     }
-    bool isPlayerFurtherThanStoppingDistance()
+    protected bool isPlayerFurtherThanStoppingDistance()
     {
         if (m_AI_Controller.stoppingDistance < DistanceToPlayer())
         {
@@ -188,8 +188,12 @@ public class EnemyAI_Standard : MonoBehaviour
 
 
     ///////////////////////////////////Animaciones//////////////////////////////
-    void SetAnimationsVariables()
+    protected void SetAnimationsVariables()
     {
+        if (angle < 0)
+        {
+            angle = 360 + angle;
+        }
         characterAnimator.SetFloat("Angle", angle);
         characterAnimator.SetBool("IsMoving", m_AI_Controller.velocity.magnitude!=0);
     }

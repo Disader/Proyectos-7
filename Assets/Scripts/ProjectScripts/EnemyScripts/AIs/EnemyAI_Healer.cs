@@ -38,6 +38,9 @@ public class EnemyAI_Healer : EnemyAI_Standard
         {
             Debug.Log("Surrender");
         }
+        //Animaciones
+        Aim();
+        SetAnimationsVariables();
     }
 
     protected override void FindNewDestination(Vector3 newDestinationPosition)
@@ -56,6 +59,14 @@ public class EnemyAI_Healer : EnemyAI_Standard
             currentAIState = AIState.surrender;
         }
     }
+    protected override void Aim()
+    {
+        if (m_AI_Controller.velocity.normalized.magnitude != 0) //Si no se controla la dirección y se está moviendo
+        {
+            angle = Vector2.SignedAngle(Vector2.right, m_AI_Controller.velocity.normalized);
+            m_armTransform.localEulerAngles = new Vector3(0, 0, angle); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
+        }
+    }
 
     void MoveAwayFromPlayer()
     {
@@ -63,4 +74,5 @@ public class EnemyAI_Healer : EnemyAI_Standard
         Vector3 newDestination = new Vector3(oppositeDirectionVector.x + transform.position.x, oppositeDirectionVector.y + transform.position.y, 0);
         FindNewDestination(newDestination);
     }
+
 }
