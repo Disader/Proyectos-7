@@ -385,6 +385,8 @@ MonoBehaviour:
   stunPart: {fileID: 4719402114524388846}
   consumePart: {fileID: 6280130537680105677}
   characterAnimator: {fileID: 5778539747176582445}
+  deathDummie: {fileID: 4387296696666090823, guid: 849ff538e7a7c3743adf79fcdf03579e,
+    type: 3}
 --- !u!114 &8644962487079390703
 MonoBehaviour:
   m_ObjectHideFlags: 0

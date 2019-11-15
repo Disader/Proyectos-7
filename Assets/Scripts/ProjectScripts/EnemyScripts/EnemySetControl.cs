@@ -51,6 +51,7 @@ public class EnemySetControl : MonoBehaviour
     [Header("Animator del enemigo")]
     [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
 
+    [SerializeField] GameObject deathDummie;
     // Start is called before the first frame update
     void Start()
     {
@@ -147,6 +148,7 @@ public class EnemySetControl : MonoBehaviour
         else if (this_EnemyAI.enabled == true)//// El enemigo no está poseído
         {
             Instantiate(deathPart, transform.position, transform.rotation); //PLACEHOLDER
+            Instantiate(deathDummie, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummie
             gameObject.SetActive(false);
         }
 
@@ -173,6 +175,7 @@ public class EnemySetControl : MonoBehaviour
         if (!hasBeenConsumed) ///Si el enemigo ha muerto poseído pero no por ser consumido, es decir, muerto por ataque, se aplica stun al jugador. Esta funcionalidad está en PossessAbility
         {
             player_PossessAbility.StartCoroutine(player_PossessAbility.PlayerStun(playerTimeStunned));
+            Instantiate(deathDummie, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummie
         }
 
         gameObject.layer = 9; //Layer de enemy
@@ -185,7 +188,7 @@ public class EnemySetControl : MonoBehaviour
     {
         thisEnemyRB.velocity = Vector2.zero;
         this_EnemyControl_MovementController.enabled = false;
-        consumePart.Play();
+        consumePart.Play(); //Partículas de consumir PLACEHOLDER
 
         yield return new WaitForSeconds(timeToConsume);
 
@@ -193,7 +196,7 @@ public class EnemySetControl : MonoBehaviour
         {
             this_EnemyActiveAbility.SaveAbility();
         }
-        consumePart.Stop();
+        consumePart.Stop(); //Partículas de consumir PLACEHOLDER
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(healthHealedOnCosuming);
         hasBeenConsumed = true;
         CheckEnemyDeath();

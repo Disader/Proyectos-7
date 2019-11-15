@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     public void ReceiveDamage(int damageReceived) ////Recibir daño
     {
         enemyHealth -= damageReceived;
-        myAnimator.SetTrigger("Damaged"); //Animación de daño
+        myAnimator.SetTrigger("Damaged"); //Animación de daño //PLACEHOLDER
         if (enemyHealth <= 0)
         {
             thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte

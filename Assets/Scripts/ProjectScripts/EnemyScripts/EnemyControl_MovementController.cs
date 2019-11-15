@@ -104,8 +104,8 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
 
         ///////CAMERA SHAKE AL DISPARAR///////
-        CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();
-        impulse.GenerateImpulse();
+        CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>(); //PLACEHOLDER
+        impulse.GenerateImpulse(); //PLACEHOLDER
     }
 
     private void CallShootingScriptReset() ////Llama al Reset de disparo de ShootingScript. VER el método en Shooting Script       !!!!
