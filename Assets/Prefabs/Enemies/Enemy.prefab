@@ -333,7 +333,7 @@ MonoBehaviour:
   timeToConsume: 2
   healthHealedOnCosuming: 1
   timeStunned: 1.5
-  playerTimeStunned: 2
+  playerTimeStunned: 1
   deathPart: {fileID: 7360201795092676012, guid: fae0fda0cf493734aa1ab295348c070b,
     type: 3}
   smokeThrowPart: {fileID: 4796694736664923945}
@@ -805,11 +805,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -864,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}

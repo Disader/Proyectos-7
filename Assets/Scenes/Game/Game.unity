@@ -6660,7 +6660,7 @@ PrefabInstance:
     - target: {fileID: 4387296696666090823, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387296696666090821, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
@@ -12525,6 +12525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387296696666090942, guid: 6754637b084fe47488a9670c458e7094,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754637b084fe47488a9670c458e7094, type: 3}
@@ -24234,6 +24239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272030568921604515, guid: 5e9ecd4e69daab34d9133201f94fe6ec,
+        type: 3}
+      propertyPath: timeToConsume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9ecd4e69daab34d9133201f94fe6ec, type: 3}
@@ -37679,7 +37689,7 @@ PrefabInstance:
     - target: {fileID: 4387296696666090823, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387296696666090821, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
@@ -49205,6 +49215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272030568921604441, guid: 5e9ecd4e69daab34d9133201f94fe6ec,
+        type: 3}
+      propertyPath: m_Speed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9ecd4e69daab34d9133201f94fe6ec, type: 3}

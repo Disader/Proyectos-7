@@ -19,6 +19,7 @@ MonoBehaviour:
     m_Bits: 55
   m_armTransform: {fileID: 2559578677269133913}
   m_distanceAimAheadPlayer: 0
+  distanceToShootPlayer: 0
   m_clockDelay: 0.5
   characterAnimator: {fileID: 7990070744187724128}
 --- !u!1001 &8487258654739024925
@@ -96,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 4387296696666090820, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4387296696666090820, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
@@ -117,6 +118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.050980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387296696666090942, guid: 6754637b084fe47488a9670c458e7094,
+        type: 3}
+      propertyPath: timeToConsume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7792162824090794187, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
