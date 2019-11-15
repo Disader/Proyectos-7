@@ -51,7 +51,7 @@ public class EnemySetControl : MonoBehaviour
     [Header("Animator del enemigo")]
     [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
 
-    [SerializeField] GameObject deathDummie;
+    [SerializeField] GameObject deathDummy;
     // Start is called before the first frame update
     void Start()
     {
@@ -148,7 +148,7 @@ public class EnemySetControl : MonoBehaviour
         else if (this_EnemyAI.enabled == true)//// El enemigo no está poseído
         {
             Instantiate(deathPart, transform.position, transform.rotation); //PLACEHOLDER
-            Instantiate(deathDummie, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummie
+            Instantiate(deathDummy, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummy
             gameObject.SetActive(false);
         }
 
@@ -175,7 +175,7 @@ public class EnemySetControl : MonoBehaviour
         if (!hasBeenConsumed) ///Si el enemigo ha muerto poseído pero no por ser consumido, es decir, muerto por ataque, se aplica stun al jugador. Esta funcionalidad está en PossessAbility
         {
             player_PossessAbility.StartCoroutine(player_PossessAbility.PlayerStun(playerTimeStunned));
-            Instantiate(deathDummie, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummie
+            Instantiate(deathDummy, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummy
         }
 
         gameObject.layer = 9; //Layer de enemy

@@ -341,7 +341,7 @@ MonoBehaviour:
   stunPart: {fileID: 3069978779219880575}
   consumePart: {fileID: 4769636859793821768}
   characterAnimator: {fileID: 1957557055709031805}
-  deathDummie: {fileID: 4387296696666090823, guid: 849ff538e7a7c3743adf79fcdf03579e,
+  deathDummy: {fileID: 4387296696666090823, guid: 849ff538e7a7c3743adf79fcdf03579e,
     type: 3}
 --- !u!114 &2678838310368782444
 MonoBehaviour:
