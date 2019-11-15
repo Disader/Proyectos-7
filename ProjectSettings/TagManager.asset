@@ -48,9 +48,15 @@ TagManager:
   - name: Tiles
     uniqueID: 848338511
     locked: 0
+  - name: ParticlesBack
+    uniqueID: 2312615375
+    locked: 0
   - name: MovementObjects
     uniqueID: 2051676165
     locked: 0
   - name: ArmTest
     uniqueID: 1519116799
+    locked: 0
+  - name: ParticlesFront
+    uniqueID: 3826979089
     locked: 0
