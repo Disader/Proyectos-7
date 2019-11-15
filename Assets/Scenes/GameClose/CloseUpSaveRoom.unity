@@ -187,6 +187,96 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776501, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[0].Y
+      value: -60000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].Y
+      value: 60000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].Y
+      value: 59999971
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
+      value: -60000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].y
+      value: 5.999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776496, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267145400776499, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146945826859, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_LookaheadTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_LookaheadSmoothing
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_XDamping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_YDamping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_DeadZoneWidth
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_DeadZoneHeight
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 160267146150187942, guid: 9136d45ee42b74d48ae767b6c6f32161,
+        type: 3}
+      propertyPath: m_SoftZoneWidth
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9136d45ee42b74d48ae767b6c6f32161, type: 3}
 --- !u!1 &1506253528
