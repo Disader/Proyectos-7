@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: timeToConsume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4387296696666090942, guid: 6754637b084fe47488a9670c458e7094,
+        type: 3}
+      propertyPath: healthHealedOnCosuming
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7792162824090794187, guid: 6754637b084fe47488a9670c458e7094,
         type: 3}
       propertyPath: m_Enabled
