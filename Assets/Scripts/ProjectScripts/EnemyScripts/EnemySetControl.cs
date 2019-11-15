@@ -46,6 +46,7 @@ public class EnemySetControl : MonoBehaviour
     public GameObject deathPart;
     public ParticleSystem smokeThrowPart;
     public ParticleSystem stunPart;
+    public ParticleSystem consumePart;
 
     [Header("Animator del enemigo")]
     [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
@@ -184,6 +185,7 @@ public class EnemySetControl : MonoBehaviour
     {
         thisEnemyRB.velocity = Vector2.zero;
         this_EnemyControl_MovementController.enabled = false;
+        consumePart.Play();
 
         yield return new WaitForSeconds(timeToConsume);
 
@@ -191,7 +193,7 @@ public class EnemySetControl : MonoBehaviour
         {
             this_EnemyActiveAbility.SaveAbility();
         }
-
+        consumePart.Stop();
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(healthHealedOnCosuming);
         hasBeenConsumed = true;
         CheckEnemyDeath();
