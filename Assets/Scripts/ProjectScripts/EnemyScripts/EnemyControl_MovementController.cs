@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class EnemyControl_MovementController : PlayerControl_MovementController  ///////////HEREDA DE PLAYERCONTROL_MOVEMENTCONTROLLER////////////
 {
@@ -101,6 +102,8 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private void AttackAction() 
     {
         thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
+        CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();
+        impulse.GenerateImpulse();
     }
 
     private void CallShootingScriptReset() ////Llama al Reset de disparo de ShootingScript. VER el método en Shooting Script       !!!!

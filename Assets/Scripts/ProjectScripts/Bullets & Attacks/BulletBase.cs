@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BulletBase : MonoBehaviour
 {
@@ -29,6 +30,13 @@ public class BulletBase : MonoBehaviour
         collisionIsEnemy = collision.GetComponent<EnemyHealth>();
         collisionIsPlayer = collision.GetComponent<PlayerControl_MovementController>();
 
+        if (collisionIsPlayer != null && GameManager.Instance.ActualPlayerController == collisionIsPlayer) //Si es el jugador, generar camera shake
+        {
+            Debug.Log("playerimpact");
+            CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();
+            impulse.GenerateImpulse();
+           
+        }
         if(collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
         {
             collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
