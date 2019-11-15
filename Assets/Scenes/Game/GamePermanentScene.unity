@@ -325,7 +325,7 @@ Camera:
   far clip plane: 5000
   field of view: 6.541667
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 8.12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManager: {fileID: 524655232}
+  m_activeCamera: {fileID: 0}
   zoneScene:
     sceneAsset: {fileID: 102900000, guid: 855b290eccf3a954abd3a42d38ca03fe, type: 3}
     scenePath: Assets/Scenes/Game/Game.unity
