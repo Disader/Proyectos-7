@@ -4,33 +4,21 @@ using UnityEngine;
 
 public class TunnelBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    BoxCollider2D m_TunnelBlock;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<EnemySetControl>() != null)
+        if (collision.gameObject.GetComponent<PossessAbility>() != null) ///Check de player mediante si tiene PossessAbility, que solo pertenece a Player.
         {
-            m_TunnelBlock.enabled = true;
+            GameManager.Instance.playerIsHidden = true;
         }
-        else 
-        {
-            m_TunnelBlock.enabled = false;
-        }
-            
     }
-    private void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        m_TunnelBlock.enabled = false;   
+        if (collision.gameObject.GetComponent<PossessAbility>() != null)
+        {
+            GameManager.Instance.playerIsHidden = false;
+        }
     }
 }
+

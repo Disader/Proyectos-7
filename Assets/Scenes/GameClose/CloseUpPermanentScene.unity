@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realPlayerGO: {fileID: 0}
+  playerIsHidden: 0
 --- !u!4 &182078952
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.75
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -349,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.334624, y: 1.1705225, z: -10}
+  m_LocalPosition: {x: 26.166668, y: 22.500011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -506,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManager: {fileID: 524655232}
+  m_activeCamera: {fileID: 0}
   zoneScene:
     sceneAsset: {fileID: 102900000, guid: ea9f44afa914a3f419938121d3a34d2c, type: 3}
     scenePath: Assets/Scenes/GameClose/CloseUpScene.unity
@@ -636,7 +638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590686206, guid: f05417ee97a823b42848246cdeee960a, type: 3}
       propertyPath: initialHeartNumber
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941960892, guid: f05417ee97a823b42848246cdeee960a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05417ee97a823b42848246cdeee960a, type: 3}

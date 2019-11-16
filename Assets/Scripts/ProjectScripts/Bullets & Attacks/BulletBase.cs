@@ -56,7 +56,7 @@ public class BulletBase : MonoBehaviour
             }
         }
 
-        if (collisionIsPlayer != null && collisionIsPlayer==GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
+        else if (collisionIsPlayer != null && collisionIsPlayer==GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
         {
             HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
 

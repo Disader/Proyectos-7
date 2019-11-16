@@ -13,6 +13,7 @@ public class Checkpoint : MonoBehaviour
             StartCoroutine(LoadYourAsyncScene());
 
             GameManager.Instance.SaveGame(transform.position); ////Guardar el juego al llegar a Checkpoint
+            HealthHeartsVisual.healthHeartsSystemStatic.Heal(100);
         }
     }
     IEnumerator LoadYourAsyncScene()

@@ -8,8 +8,11 @@ public class GameManager : TemporalSingleton<GameManager>
     [HideInInspector]public GameObject realPlayerGO;
     bool isGamePaused;
 
+    [Header("Variable de stealth (CloseUPGame)")]   ///ELIMINAR Si no se hace juego CloseUP
+     public bool playerIsHidden;
+
     //Se llama a esta variable en el onEnable de playercontrolMovementController
-   public PlayerControl_MovementController ActualPlayerController
+    public PlayerControl_MovementController ActualPlayerController
     {
         get {return m_actualPlayerController; }
         set { m_actualPlayerController = value; }

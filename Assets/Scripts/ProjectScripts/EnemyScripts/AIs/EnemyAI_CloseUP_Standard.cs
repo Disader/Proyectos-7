@@ -88,6 +88,7 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             if (IsPlayerInSight())
             {
                 currentAIState = AIState.attacking;
+                m_AI_Controller.autoBraking = false;
                 lastPositionChecked = false;
             }
         }
@@ -109,6 +110,12 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             if(!IsPlayerInSight())
             {
                 currentAIState = AIState.goLastSeenPlace;
+            }
+
+            if(GameManager.Instance.playerIsHidden) ///Si el player entra en tunel
+            {
+                currentAIState = AIState.goLastSeenPlace;
+                m_AI_Controller.autoBraking = true;
             }
         }
 
@@ -175,13 +182,14 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
                 if (hasPatrolBehaviour)
                 {
                     currentAIState = AIState.patrol;
+                    m_AI_Controller.autoBraking = false;
                 }
 
                 else
                 {
                     FindNewDestination(initialPosition);
                     currentAIState = AIState.idle;
-                    Debug.Log("Volver");
+                    m_AI_Controller.autoBraking = false;
                 }
             }
         }
