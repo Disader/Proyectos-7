@@ -13272,6 +13272,16 @@ PrefabInstance:
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
       objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
 --- !u!1001 &693165410
@@ -22669,6 +22679,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
@@ -33495,6 +33515,16 @@ PrefabInstance:
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
       objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
 --- !u!1001 &1479452568
@@ -37605,6 +37635,16 @@ PrefabInstance:
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
       objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
 --- !u!1001 &1676262866
@@ -39423,6 +39463,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
@@ -43487,6 +43537,16 @@ PrefabInstance:
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
       objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
 --- !u!1001 &1988373297
@@ -43810,6 +43870,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sightCollisionMask.m_Bits
       value: 2103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341927048249553420, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: enemyHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329209101789137082, guid: b07365dc9eba1cf4a9049ce7b2c74983,
+        type: 3}
+      propertyPath: playerTimeStunned
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07365dc9eba1cf4a9049ce7b2c74983, type: 3}
