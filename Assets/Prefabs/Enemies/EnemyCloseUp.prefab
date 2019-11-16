@@ -186,6 +186,7 @@ Transform:
   - {fileID: 1329209101171670989}
   - {fileID: 3648080554584062213}
   - {fileID: 3362848048007100004}
+  - {fileID: 5314946276777237173}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -641,6 +642,36 @@ Transform:
   m_Father: {fileID: 1329209101789136961}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8612470758574621250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5314946276777237173}
+  m_Layer: 9
+  m_Name: Patrol Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5314946276777237173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612470758574621250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1329209101789136961}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3004756323739815077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,11 +760,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3362848048007100004}
     m_Modifications:
-    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Smoke_Trail
-      objectReference: {fileID: 0}
     - target: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -789,17 +815,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Smoke_Trail
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26e097a557c4e74bba302d775fdb5cd, type: 3}
---- !u!4 &7782725697412493165 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 3355326561928827357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &7782725697431890477 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4796694735115271152, guid: b26e097a557c4e74bba302d775fdb5cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3355326561928827357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7782725697412493165 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
     type: 3}
   m_PrefabInstance: {fileID: 3355326561928827357}
   m_PrefabAsset: {fileID: 0}
@@ -810,11 +841,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3362848048007100004}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -869,6 +895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
