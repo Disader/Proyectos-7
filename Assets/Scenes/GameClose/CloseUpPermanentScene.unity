@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590686206, guid: f05417ee97a823b42848246cdeee960a, type: 3}
       propertyPath: initialHeartNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1941960892, guid: f05417ee97a823b42848246cdeee960a, type: 3}
       propertyPath: m_AnchoredPosition.x
