@@ -35,7 +35,6 @@ public class BulletBase : MonoBehaviour
         {
             collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
             ZoneManager.Instance.RemoveBulletInActiveRoom(this);
-            Destroy(gameObject);
 
             //Partículas
             Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
@@ -54,6 +53,8 @@ public class BulletBase : MonoBehaviour
                 default:
                     break;
             }
+
+            Destroy(gameObject);
         }
 
         else if (collisionIsPlayer != null && collisionIsPlayer==GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
