@@ -26,7 +26,7 @@ public class EnemyAI_Standard : MonoBehaviour
     Rigidbody2D m_playerRigidbody;
     protected Rigidbody2D m_myRigidbody;
 
-    protected void Start()
+    protected virtual void Start()
     {
         m_AI_Controller = GetComponent<NavMeshAgent>();
         m_shootingScript = GetComponent<ShootingScript>();
@@ -95,7 +95,8 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         if (IsPlayerInSight())
         {
-            Vector2 vector = VectorToPlayer() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
+            Vector2 vector = VectorToPlayerFixedAim() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
+            Debug.DrawRay(transform.position, vector);
             angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0,0, angle);
@@ -170,17 +171,23 @@ public class EnemyAI_Standard : MonoBehaviour
     }
 
     //Funciones de referencia del jugador
-    protected Vector2 VectorToPlayer()
+    protected Vector2 VectorToPlayer()  ///El Vector a jugador desde la base del enemigo, para cuestiones de NAVEGACIÓN
     {
         return GameManager.Instance.ActualPlayerController.transform.position - transform.position;
     }
+
+    protected Vector2 VectorToPlayerFixedAim()  ///El Vector a jugador desde la posición del brazo, para cuestiones de APUNTADO
+    {
+        return GameManager.Instance.ActualPlayerController.transform.position - m_armTransform.position;
+    }
+
     protected float DistanceToPlayer()
     {
         return VectorToPlayer().magnitude;
     }
     protected bool IsPlayerInSight()
     {
-        Debug.DrawRay(transform.position, VectorToPlayer());
+        
         return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
     }
     protected bool isPlayerFurtherThanStoppingDistance()

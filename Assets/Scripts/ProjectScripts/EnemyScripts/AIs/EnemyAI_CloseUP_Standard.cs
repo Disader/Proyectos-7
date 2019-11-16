@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
 {
+    [Header("Posición inicial para Enemigos SIN patrulla")]
+    private Vector3 initialPosition;
 
     [Header("Tick SOLO si el enemigo patrulla")]
     [Space(10)]
@@ -15,21 +17,28 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
     public float timeToWaitOnPatrolPoint;
     private float timerWaitBetweenPatrolPoint = 0;
 
+    [Header("Variables para ir a última posición de jugador")]
+    private bool lastPositionChecked;
     private Vector3 lastSeenPosition;
+    public float timeToWaitOnLastPosition;
+    private float timerWaitLastPos;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        initialPosition = transform.position;
+    }
 
     // Update is called once per frame
     protected override void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
-        Debug.Log(hit.collider);
-        Debug.Log(IsPlayerInSight());
-
         if (currentAIState == AIState.idle)
         {
             Idle();
             if (!hasPatrolBehaviour)
             {
-                if (DetectPlayerInIdle())
+                if (IsPlayerInSight())
                 {
                     currentAIState = AIState.attacking;
                 }
@@ -41,7 +50,7 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             }
         }
 
-        if(currentAIState == AIState.patrol)
+        if(currentAIState == AIState.patrol) ///Estado de patrulla
         {
             m_AI_Controller.stoppingDistance = 0.1f;
 
@@ -62,6 +71,27 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             }
         }
 
+        if(currentAIState == AIState.goLastSeenPlace) ///Estado de buscar al jugador en la última posición visto
+        {
+            m_AI_Controller.stoppingDistance = 0.2f;
+
+            if (!lastPositionChecked)
+            {
+                CheckPlayerLastPosition();
+            }
+
+            else if(lastPositionChecked)
+            {
+                CheckDistanceToLastPosition();
+            }
+
+            if (IsPlayerInSight())
+            {
+                currentAIState = AIState.attacking;
+                lastPositionChecked = false;
+            }
+        }
+
         else if (currentAIState == AIState.attacking)
         {
 
@@ -70,7 +100,6 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
             if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
                 DamagePlayer();
-                Debug.Log(DistanceToPlayer());
             }
             if (IsPlayerTooNear())
             {
@@ -79,7 +108,7 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
 
             if(!IsPlayerInSight())
             {
-                currentAIState = AIState.patrol;
+                currentAIState = AIState.goLastSeenPlace;
             }
         }
 
@@ -99,7 +128,7 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
 
     int i = 0;
 
-    void CheckPatrolPoint()
+    void CheckPatrolPoint() ///Chequeo de a que punto de patrulla ir, se llama en estado Patrol
     {
         if (i >= patrolPointsList.Count)
         {
@@ -112,16 +141,48 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
         patrolPointDecided = true;
     }
 
-    void CheckDistanceToPatrolPoint()
+    void CheckDistanceToPatrolPoint()   ///Chequeo de la distancia hasta el punto de patrulla
     {
-        if(Vector3.Distance(transform.position, currentListPoint.position) <= 0.2f)
+        if(Vector3.Distance(transform.position, currentListPoint.position) <= m_AI_Controller.stoppingDistance + 0.1f) ///El stopping distance +0.1f es para checkear la posicion en la que se para
         {
             timerWaitBetweenPatrolPoint += 1 * Time.deltaTime;
 
-            if (timerWaitBetweenPatrolPoint >= timeToWaitOnPatrolPoint)
+            if (timerWaitBetweenPatrolPoint >= timeToWaitOnPatrolPoint) ///Una vez pasado cierto tiempo en el punto, se chequea el siguiente punto
             {
                 patrolPointDecided = false;
                 timerWaitBetweenPatrolPoint = 0;
+            }
+        }
+    }
+
+    void CheckPlayerLastPosition()
+    {
+        lastSeenPosition = GameManager.Instance.ActualPlayerController.transform.position;
+        FindNewDestination(lastSeenPosition);
+        lastPositionChecked = true;
+    }
+
+    void CheckDistanceToLastPosition()
+    {
+        if (Vector3.Distance(transform.position,lastSeenPosition) <= m_AI_Controller.stoppingDistance + 0.1f) ///El stopping distance +0.1f es para checkear la posicion en la que se para
+        {
+            timerWaitLastPos += 1 * Time.deltaTime;
+
+            if(timerWaitLastPos >= timeToWaitOnLastPosition)
+            {
+                timerWaitLastPos = 0;
+
+                if (hasPatrolBehaviour)
+                {
+                    currentAIState = AIState.patrol;
+                }
+
+                else
+                {
+                    FindNewDestination(initialPosition);
+                    currentAIState = AIState.idle;
+                    Debug.Log("Volver");
+                }
             }
         }
     }
