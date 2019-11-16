@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2081923767300901956}
   - component: {fileID: 2081923767300901959}
   - component: {fileID: 2081923767300901954}
+  - component: {fileID: 1338777506}
   m_Layer: 0
   m_Name: TunnelBlock
   m_TagString: Untagged
@@ -70,3 +71,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e309df1bcc1e3441adb4e6d51e87022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Collider2D: {fileID: 1338777506}
+--- !u!61 &1338777506
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081923767300901958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005058944, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9372684, y: 1}
+  m_EdgeRadius: 0
