@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realPlayerGO: {fileID: 0}
+  playerIsHidden: 0
 --- !u!4 &182078952
 Transform:
   m_ObjectHideFlags: 0
@@ -638,6 +639,16 @@ PrefabInstance:
     - target: {fileID: 590686206, guid: f05417ee97a823b42848246cdeee960a, type: 3}
       propertyPath: initialHeartNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433211599279894621, guid: f05417ee97a823b42848246cdeee960a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 382973302884921743, guid: f05417ee97a823b42848246cdeee960a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05417ee97a823b42848246cdeee960a, type: 3}
