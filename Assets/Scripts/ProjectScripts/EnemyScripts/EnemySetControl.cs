@@ -65,6 +65,7 @@ public class EnemySetControl : MonoBehaviour
         thisEnemyRB = GetComponent<Rigidbody2D>();
     }
 
+    Color originalColor; //PLACEHOLDER
     public void PosssessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador y se indica a GameManager que este enmigo es ActualPlayer
     {
         StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
@@ -102,6 +103,7 @@ public class EnemySetControl : MonoBehaviour
         characterAnimator.SetBool("IsPossessed", true);
 
         //Seteo del color del sprite 
+        originalColor = characterAnimator.gameObject.GetComponent<SpriteRenderer>().color; //PLACEHOLDER
         characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.36f, 0.36f, 0.36f, 1); //PLACEHOLDER
     }
 
@@ -141,7 +143,7 @@ public class EnemySetControl : MonoBehaviour
         //Seteo de animaciones
         characterAnimator.SetBool("IsPossessed", false);
         //Seteo del color del sprite 
-        characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1); //PLACEHOLDER
+        characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = originalColor; //PLACEHOLDER
     }
 
     public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
