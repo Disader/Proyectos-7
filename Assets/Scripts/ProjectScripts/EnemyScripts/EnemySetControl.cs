@@ -100,6 +100,9 @@ public class EnemySetControl : MonoBehaviour
 
         //Seteo de animaciones
         characterAnimator.SetBool("IsPossessed", true);
+
+        //Seteo del color del sprite 
+        characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.36f, 0.36f, 0.36f, 1); //PLACEHOLDER
     }
 
     private float lastSpeedX;
@@ -137,6 +140,8 @@ public class EnemySetControl : MonoBehaviour
 
         //Seteo de animaciones
         characterAnimator.SetBool("IsPossessed", false);
+        //Seteo del color del sprite 
+        characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1); //PLACEHOLDER
     }
 
     public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
