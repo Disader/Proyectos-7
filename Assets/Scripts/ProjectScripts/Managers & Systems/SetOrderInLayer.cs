@@ -13,6 +13,6 @@ public class SetOrderInLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mySprite.sortingOrder = -Mathf.RoundToInt(transformRef.position.y);
+        mySprite.sortingOrder = -Mathf.RoundToInt(transformRef.position.y*1000f);
     }
 }

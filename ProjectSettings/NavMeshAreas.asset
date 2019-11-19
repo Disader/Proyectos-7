@@ -11,8 +11,8 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
-    cost: 1
+  - name: Very High Cost
+    cost: 1000
   - name: 
     cost: 1
   - name: 
@@ -73,7 +73,7 @@ NavMeshProjectSettings:
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.25
+    agentRadius: 0.5
     agentHeight: 0.5
     agentSlope: 1
     agentClimb: 0.001
