@@ -20,18 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/GamePermanentScene.unity
     guid: 5f0eae743b664f6468e97c03f470e628
-  - enabled: 0
-    path: Assets/Scenes/Sergio_Test.unity
-    guid: 7ec0eb7bb433ca74eb4d7669cc11c6b3
-  - enabled: 1
-    path: Assets/Scenes/GameClose/CloseUpPermanentScene.unity
-    guid: ffa827e6eb1973b4789db008c03d2674
-  - enabled: 1
-    path: Assets/Scenes/GameClose/CloseUpScene.unity
-    guid: ea9f44afa914a3f419938121d3a34d2c
-  - enabled: 1
-    path: Assets/Scenes/GameClose/CloseUpSaveRoom.unity
-    guid: 93116bc0c7094bf4d8343d38fd096657
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 16dc056e1e260ce45a209e16b9c2898b,
       type: 2}
