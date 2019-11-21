@@ -98,7 +98,7 @@ public class PossessAbility : MonoBehaviour
         {
             Instantiate(possessionPart, transform.position, transform.rotation); //PLACEHOLDER
             playerLineRenderer.SetPosition(1, Vector3.zero);
-            enemy_InRaycast.PosssessEnemy();
+            enemy_InRaycast.PossessEnemy();
         }
     }
 

@@ -6,7 +6,7 @@ public class ActiveAbility : MonoBehaviour
 {
     [Header("La Pasiva que va a tener el enemigo")]
     public PasiveAbility_SO enemyPasiveAbility;  ////La pasiva de este enemigo
-    [Header("No tocar en Editor")]
+    [HideInInspector]
     public PasiveAbility_SO currentActiveAbility;  ////La pasiva activa en el enemigo, que estaba guardada en el Manager
     
     public void SaveAbility()  //Guardar pasiva en Manager

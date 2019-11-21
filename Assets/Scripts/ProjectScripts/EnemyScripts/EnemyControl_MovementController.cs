@@ -103,9 +103,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void ConsumeAction()
     {
-        thisEnemySetControl.StartCoroutine(thisEnemySetControl.ConsumeEnemy());
+        thisEnemySetControl.StartConsuming();
     }
-
+   
     private void AttackAction() 
     {
         if (thisEnemyShootingScript!=null)
