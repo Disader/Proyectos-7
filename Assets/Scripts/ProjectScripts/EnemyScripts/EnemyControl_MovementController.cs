@@ -111,10 +111,6 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         if (thisEnemyShootingScript!=null)
         {
             thisEnemyShootingScript.FireInShootingPos(ShootingScript.whoIsShooting.player);
-
-            ///////CAMERA SHAKE AL DISPARAR///////
-            CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>(); //PLACEHOLDER
-            impulse.GenerateImpulse(); //PLACEHOLDER
         }
         
     }
