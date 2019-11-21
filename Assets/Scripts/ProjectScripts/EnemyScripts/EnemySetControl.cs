@@ -52,6 +52,7 @@ public class EnemySetControl : MonoBehaviour
     [SerializeField] Animator characterAnimator; //Animator para cambiar si se está poseyendo o no
 
     [SerializeField] GameObject deathDummy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,12 +93,14 @@ public class EnemySetControl : MonoBehaviour
 
         PossessEnemyEffects();
     }
+
     void PossessEnemySetComponents()
     {
         this_EnemyAI.enabled = false;
         this_EnemyNavAgent.enabled = false;
         this_EnemyControl_MovementController.enabled = true;
     }
+
     void PossessEnemyEffects()
     {
         ///Sonido
@@ -110,6 +113,7 @@ public class EnemySetControl : MonoBehaviour
         originalColor = characterAnimator.gameObject.GetComponent<SpriteRenderer>().color; //PLACEHOLDER
         characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.36f, 0.36f, 0.36f, 1); //PLACEHOLDER
     }
+
     void PossessSetPlayersInGameManager()
     {
         GameManager.Instance.realPlayerGO.SetActive(false);
@@ -118,7 +122,6 @@ public class EnemySetControl : MonoBehaviour
 
     private float lastSpeedX;
     private float lastSpeedY;
-
     public void UnpossessEnemy() 
     {
         ////Se desactiva el control del enemigo, se activa el jugador y se indica que es el ActualPlayer; se le coloca en la posicion del enemigo y se eliminan las colisiones entre ambos
@@ -138,7 +141,7 @@ public class EnemySetControl : MonoBehaviour
             this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
         }
 
-        lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guradan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar moviemiento residual al volver a poseer.
+        lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guardan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar movimiento residual al volver a poseer.
         lastSpeedY = this_EnemyControl_MovementController.controlSpeedY;
         this_EnemyControl_MovementController.controlSpeedX = 0;
         this_EnemyControl_MovementController.controlSpeedY = 0;
@@ -150,10 +153,12 @@ public class EnemySetControl : MonoBehaviour
 
         UnpossessEnemyEffects();
     }
+
     void UnpossessEnemySetComponents()
     {
         this_EnemyControl_MovementController.enabled = false;
     }
+
     void UnpossessEnemyEffects()
     {
 
@@ -162,6 +167,7 @@ public class EnemySetControl : MonoBehaviour
         //Seteo del color del sprite 
         characterAnimator.gameObject.GetComponent<SpriteRenderer>().color = originalColor; //PLACEHOLDER
     }
+
     void UnpossessSetPlayersInGameManager()
     {
         GameManager.Instance.realPlayerGO.transform.position = playerSpawnPos.position;
@@ -169,6 +175,7 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.ActualPlayerController = player_MovementController;
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
     }
+
     public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
     {  
         if (this_EnemyAI.enabled == false) ////El enemigo está poseído
@@ -253,11 +260,13 @@ public class EnemySetControl : MonoBehaviour
         hasBeenConsumed = true;
         CheckEnemyDeath();
     }
+
     Coroutine consumingCoroutine;
     public void StartConsuming()
     {
-        consumingCoroutine=StartCoroutine(ConsumeEnemy());
+        consumingCoroutine = StartCoroutine(ConsumeEnemy());
     }
+
     public void StopConsumingAction()
     {
         if (consumingCoroutine != null)
@@ -267,6 +276,7 @@ public class EnemySetControl : MonoBehaviour
             consumePart.Stop();
         }        
     }
+
     public IEnumerator StunEnemy()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
     {
         if(!stunPart.isPlaying) //PLACEHOLDER
@@ -296,6 +306,7 @@ public class EnemySetControl : MonoBehaviour
             smokeThrowPart.Stop();
         }
     }
+
     private void OnDisable() ////Para cuando se reactiva un enemigo que estaba en Stun;
     {
         if(this_EnemyAI != null && this_EnemyNavAgent != null)
