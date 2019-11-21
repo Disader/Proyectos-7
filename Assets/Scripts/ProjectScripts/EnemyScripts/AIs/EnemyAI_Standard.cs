@@ -21,10 +21,30 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Animators")]
     [SerializeField] protected Animator characterAnimator;
 
+    [Header("Componentes")]
     protected NavMeshAgent m_AI_Controller;
     ShootingScript m_shootingScript;
     Rigidbody2D m_playerRigidbody;
     protected Rigidbody2D m_myRigidbody;
+
+    [Header("Posición inicial para Enemigos SIN patrulla")]
+    private Vector3 initialPosition;
+
+    [Header("Tick SOLO si el enemigo patrulla")]
+    [Space(10)]
+    public bool hasPatrolBehaviour;
+    public List<Transform> patrolPointsList = new List<Transform>();
+    private Transform currentListPoint;
+    private bool patrolPointDecided = false;
+
+    public float timeToWaitOnPatrolPoint;
+    private float timerWaitBetweenPatrolPoint = 0;
+
+    /*[Header("Variables para ir a última posición de jugador")]
+    private bool lastPositionChecked;
+    private Vector3 lastSeenPosition;
+    public float timeToWaitOnLastPosition;
+    private float timerWaitLastPos;*/
 
     protected virtual void Start()
     {
@@ -34,27 +54,76 @@ public class EnemyAI_Standard : MonoBehaviour
         m_originalStoppingDistance = m_AI_Controller.stoppingDistance;
         m_AI_Controller.updateUpAxis = false;
         m_AI_Controller.updateRotation = false;
+
+        initialPosition = transform.position; //Posición inicial.
     }
+
+    // Update is called once per frame
     protected virtual void Update()
     {
+
         if (currentAIState == AIState.idle)
         {
             Idle();
-            if (DetectPlayerInIdle())
+
+            if(hasPatrolBehaviour)
+            {
+                currentAIState = AIState.patrol;
+            }
+
+            if(DetectPlayerInInitialState())
             {
                 currentAIState = AIState.attacking;
             }
-            
         }
+
+        if (currentAIState == AIState.patrol) ///Estado de patrulla
+        {
+            m_AI_Controller.stoppingDistance = 0.1f;
+
+            if (!patrolPointDecided)
+            {
+                CheckPatrolPoint();
+            }
+
+            else if (patrolPointDecided)
+            {
+                CheckDistanceToPatrolPoint();
+            }
+
+            if (DetectPlayerInInitialState())
+            {
+                currentAIState = AIState.attacking;
+                patrolPointDecided = false;
+            }
+        }
+
+        /*if (currentAIState == AIState.goLastSeenPlace) ///Estado de buscar al jugador en la última posición visto
+        {
+            m_AI_Controller.stoppingDistance = 0.2f;
+
+            if (!lastPositionChecked)
+            {
+                CheckPlayerLastPosition();
+            }
+
+            else if (lastPositionChecked)
+            {
+                CheckDistanceToLastPosition();
+            }
+
+            if (IsPlayerInSight())
+            {
+                currentAIState = AIState.attacking;
+                lastPositionChecked = false;
+            }
+        }*/
 
         else if (currentAIState == AIState.attacking)
         {
-            m_clockTimer += Time.deltaTime;
-            if (m_clockTimer > m_clockDelay)
-            {
-                AttackingMovement();
-                m_clockTimer = 0;
-            }
+
+            AttackingMovement();
+
             if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
                 DamagePlayer();
@@ -65,7 +134,7 @@ public class EnemyAI_Standard : MonoBehaviour
             }
         }
 
-        else if(currentAIState == AIState.runningAway)
+        else if (currentAIState == AIState.runningAway)
         {
             RunAway();
             if (!IsPlayerTooNear())
@@ -85,7 +154,7 @@ public class EnemyAI_Standard : MonoBehaviour
         attacking,
         runningAway,
         patrol,     //Para comportamientos de patrulla
-        goLastSeenPlace, //Para comportamientos de patrulla
+        goLastSeenPlace, //Para comportamientos de patrulla, si pierden al jugador
         surrender   //Para el Healer
     }
     protected AIState currentAIState = AIState.idle;
@@ -133,7 +202,7 @@ public class EnemyAI_Standard : MonoBehaviour
     {
 
     }
-    protected bool DetectPlayerInIdle()
+    protected bool DetectPlayerInInitialState()
     {
         if (DistanceToPlayer() < m_playerDetectionDistance || IsPlayerInSight())
         {
@@ -170,7 +239,70 @@ public class EnemyAI_Standard : MonoBehaviour
         }
     }
 
-    //Funciones de referencia del jugador
+    ////////////////Añadido de EnemyCloseUp///////////////////
+
+    int i = 0;
+    void CheckPatrolPoint() ///Chequeo de a que punto de patrulla ir, se llama en estado Patrol
+    {
+        if (i >= patrolPointsList.Count)
+        {
+            i = 0;
+        }
+
+        currentListPoint = patrolPointsList[i];
+        FindNewDestination(currentListPoint.position);
+        i++;
+        patrolPointDecided = true;
+    }
+
+    void CheckDistanceToPatrolPoint()   ///Chequeo de la distancia hasta el punto de patrulla
+    {
+        if (Vector3.Distance(transform.position, currentListPoint.position) <= m_AI_Controller.stoppingDistance + 0.1f) ///El stopping distance +0.1f es para checkear la posicion en la que se para
+        {
+            timerWaitBetweenPatrolPoint += 1 * Time.deltaTime;
+
+            if (timerWaitBetweenPatrolPoint >= timeToWaitOnPatrolPoint) ///Una vez pasado cierto tiempo en el punto, se chequea el siguiente punto
+            {
+                patrolPointDecided = false;
+                timerWaitBetweenPatrolPoint = 0;
+            }
+        }
+    }
+
+    /*void CheckPlayerLastPosition()
+    {
+        lastSeenPosition = GameManager.Instance.ActualPlayerController.transform.position;
+        FindNewDestination(lastSeenPosition);
+        lastPositionChecked = true;
+    }
+
+    void CheckDistanceToLastPosition()
+    {
+        if (Vector3.Distance(transform.position, lastSeenPosition) <= m_AI_Controller.stoppingDistance + 0.1f) ///El stopping distance +0.1f es para checkear la posicion en la que se para
+        {
+            timerWaitLastPos += 1 * Time.deltaTime;
+
+            if (timerWaitLastPos >= timeToWaitOnLastPosition)
+            {
+                timerWaitLastPos = 0;
+
+                if (hasPatrolBehaviour)
+                {
+                    currentAIState = AIState.patrol;
+                }
+
+                else
+                {
+                    FindNewDestination(initialPosition);
+                    currentAIState = AIState.idle;
+                }
+            }
+        }
+    }*/
+
+
+    ////////////////////Funciones de referencia del jugador////////////////////////
+
     protected Vector2 VectorToPlayer()  ///El Vector a jugador desde la base del enemigo, para cuestiones de NAVEGACIÓN
     {
         return GameManager.Instance.ActualPlayerController.transform.position - transform.position;
@@ -187,8 +319,18 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected bool IsPlayerInSight()
     {
-        
-        return !Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask);
+        float angle;
+        angle = Vector3.SignedAngle(VectorToPlayer(), m_armTransform.right, transform.up);
+
+        if (!Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask) && angle < 90) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos de 90º tomando como 0 la dirección del brazo, ve al jugador
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
     }
     protected bool isPlayerFurtherThanStoppingDistance()
     {

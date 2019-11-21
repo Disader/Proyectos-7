@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
+public class EnemyAI_CloseUP_Standard : MonoBehaviour
 {
-    [Header("Posición inicial para Enemigos SIN patrulla")]
+   /* [Header("Posición inicial para Enemigos SIN patrulla")]
     private Vector3 initialPosition;
 
     [Header("Tick SOLO si el enemigo patrulla")]
@@ -193,5 +193,5 @@ public class EnemyAI_CloseUP_Standard : EnemyAI_Standard
                 }
             }
         }
-    }
+    }*/
 }

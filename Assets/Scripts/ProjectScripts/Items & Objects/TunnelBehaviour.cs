@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TunnelBehaviour : MonoBehaviour
 {
-    [SerializeField]
+   /* [SerializeField]
     BoxCollider2D m_Collider2D;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +25,6 @@ public class TunnelBehaviour : MonoBehaviour
         {
             GameManager.Instance.playerIsHidden = false;
         }
-    }
+    }*/
 }
 
