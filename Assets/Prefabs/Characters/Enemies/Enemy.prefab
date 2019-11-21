@@ -225,7 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea3b921e8c831e4793a38c51b16fd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerDetectionDistance: 5
+  m_visionAngle: 90
+  m_playerHearingDetectionDistance: 5
   m_runAwayDistance: 3
   m_sightCollisionMask:
     serializedVersion: 2

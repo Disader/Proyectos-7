@@ -6,7 +6,9 @@ using UnityEngine.AI;
 public class EnemyAI_Standard : MonoBehaviour
 {
     [Header("Variables de sentidos")]
-    [SerializeField] protected float m_playerDetectionDistance; //Para salir de idle
+    [Tooltip("El angulo total está calculado tomando de origen la dirección en la que mira el enemigo y hacia hacia derecha e izquierda, por lo que un valor de 90º equivale a 90º hacia derecha e izquierda, osea 180º de visión en la dirección en que mira")]
+    [SerializeField] protected float m_visionAngle; //El ángulo de visión
+    [SerializeField] protected float m_playerHearingDetectionDistance; //Para salir de idle
     [SerializeField] protected float m_runAwayDistance; //Cuánto se tiene que acercar el jugador para que comience a huir
     [SerializeField] protected LayerMask m_sightCollisionMask;
     float m_originalStoppingDistance;
@@ -204,7 +206,7 @@ public class EnemyAI_Standard : MonoBehaviour
     }
     protected bool DetectPlayerInInitialState()
     {
-        if (DistanceToPlayer() < m_playerDetectionDistance || IsPlayerInSight())
+        if (DistanceToPlayer() < m_playerHearingDetectionDistance|| IsPlayerInSight())
         {
             Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
             return true;
@@ -322,7 +324,9 @@ public class EnemyAI_Standard : MonoBehaviour
         float angle;
         angle = Vector3.SignedAngle(VectorToPlayer(), m_armTransform.right, transform.up);
 
-        if (!Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask) && angle < 90) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos de 90º tomando como 0 la dirección del brazo, ve al jugador
+        Debug.Log(angle);
+
+        if (!Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask) && angle < m_visionAngle) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos de 90º tomando como 0 la dirección del brazo, ve al jugador
         {
             return true;
         }
