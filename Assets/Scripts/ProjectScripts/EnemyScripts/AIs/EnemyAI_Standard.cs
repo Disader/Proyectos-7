@@ -25,7 +25,7 @@ public class EnemyAI_Standard : MonoBehaviour
 
     [Header("Componentes")]
     protected NavMeshAgent m_AI_Controller;
-    ShootingScript m_shootingScript;
+    protected ShootingScript m_shootingScript;
     Rigidbody2D m_playerRigidbody;
     protected Rigidbody2D m_myRigidbody;
 
@@ -66,37 +66,14 @@ public class EnemyAI_Standard : MonoBehaviour
 
         if (currentAIState == AIState.idle)
         {
-            Idle();
-
             if(hasPatrolBehaviour)
             {
-                currentAIState = AIState.patrol;
+                Patrol();
             }
 
             if(DetectPlayerInInitialState())
             {
                 currentAIState = AIState.attacking;
-            }
-        }
-
-        if (currentAIState == AIState.patrol) ///Estado de patrulla
-        {
-            m_AI_Controller.stoppingDistance = 0.1f;
-
-            if (!patrolPointDecided)
-            {
-                CheckPatrolPoint();
-            }
-
-            else if (patrolPointDecided)
-            {
-                CheckDistanceToPatrolPoint();
-            }
-
-            if (DetectPlayerInInitialState())
-            {
-                currentAIState = AIState.attacking;
-                patrolPointDecided = false;
             }
         }
 
@@ -155,7 +132,6 @@ public class EnemyAI_Standard : MonoBehaviour
         idle,
         attacking,
         runningAway,
-        patrol,     //Para comportamientos de patrulla
         goLastSeenPlace, //Para comportamientos de patrulla, si pierden al jugador
         surrender   //Para el Healer
     }
@@ -200,9 +176,25 @@ public class EnemyAI_Standard : MonoBehaviour
         Vector3 newDestination = new Vector3(oppositeDirectionVector.x + transform.position.x, oppositeDirectionVector.y + transform.position.y, 0);
         FindNewDestination(newDestination);
     }
-    protected void Idle()
+    protected void Patrol()
     {
+        m_AI_Controller.stoppingDistance = 0.1f;
 
+        if (!patrolPointDecided)
+        {
+            CheckPatrolPoint();
+        }
+
+        else if (patrolPointDecided)
+        {
+            CheckDistanceToPatrolPoint();
+        }
+
+        if (DetectPlayerInInitialState())
+        {
+            currentAIState = AIState.attacking;
+            patrolPointDecided = false;
+        }
     }
     protected bool DetectPlayerInInitialState()
     {
@@ -324,8 +316,6 @@ public class EnemyAI_Standard : MonoBehaviour
         float angle;
         angle = Vector3.SignedAngle(VectorToPlayer(), m_armTransform.right, transform.up);
 
-        Debug.Log(angle);
-
         if (!Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask) && angle < m_visionAngle) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos de 90º tomando como 0 la dirección del brazo, ve al jugador
         {
             return true;
@@ -350,11 +340,14 @@ public class EnemyAI_Standard : MonoBehaviour
     ///////////////////////////////////Animaciones//////////////////////////////
     protected void SetAnimationsVariables()
     {
-        if (angle < 0)
+        if (characterAnimator != null)
         {
-            angle = 360 + angle;
-        }
-        characterAnimator.SetFloat("Angle", angle);
-        characterAnimator.SetBool("IsMoving", m_AI_Controller.velocity.magnitude!=0);
+            if (angle < 0)
+            {
+                angle = 360 + angle;
+            }
+            characterAnimator.SetFloat("Angle", angle);
+            characterAnimator.SetBool("IsMoving", m_AI_Controller.velocity.magnitude != 0);
+        }      
     }
 }

@@ -7,13 +7,14 @@ public class EnemyAI_Bomber : EnemyAI_Standard
     protected override void AttackingMovement()
     {
         FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
-        if (m_AI_Controller.remainingDistance < 1f)
+        if (!isPlayerFurtherThanStoppingDistance())
         {
             DamagePlayer();
         }
     }
     protected override void DamagePlayer()
     {
-        Debug.Log("Kabooom");
+       
+        Debug.Log("olakes");
     }
 }
