@@ -17,7 +17,7 @@ public class EnemyAI_Healer : EnemyAI_Standard
     {
         if (currentAIState == AIState.idle)
         {
-            Idle();
+            Patrol();
             if (DistanceToPlayer() <= m_runAwayDistance)
             {
                 currentAIState = AIState.runningAway;

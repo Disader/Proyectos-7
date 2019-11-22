@@ -233,7 +233,7 @@ MonoBehaviour:
     m_Bits: 1
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0
-  distanceToShootPlayer: 0
+  distanceToShootPlayer: 1
   m_clockDelay: 0.2
   characterAnimator: {fileID: 1957557055709031805}
   hasPatrolBehaviour: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   shSCR_PasiveAbility: {fileID: 0}
   m_firingRate: 0
   m_randomFiringRateDeviation: 0
-  m_bullet: {fileID: 5581599170633199143, guid: 2d31a31256354ce4faaea5d2a15abaa0,
+  m_bullet: {fileID: 7155127585499386642, guid: 83d62861f4ef9a841864e2420742a30d,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
   player_firingRate: 0.5
@@ -458,7 +458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387296696882242119}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.54, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6218837739217761860}

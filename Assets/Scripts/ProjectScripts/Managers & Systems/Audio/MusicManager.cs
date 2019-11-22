@@ -106,7 +106,7 @@ public class MusicManager : PersistentSingleton<MusicManager>
 	}
 
        
-    public  void         PlayBackgroundMusic   (string audioName)
+    public  void PlayBackgroundMusic (string audioName)
 	{
 		if (m_soundMusicDictionary.ContainsKey(audioName))
         {
@@ -116,7 +116,7 @@ public class MusicManager : PersistentSingleton<MusicManager>
         }
 	}
 
-    public  void         PlaySound             (string audioName)
+    public  void PlaySound (string audioName)
 	{
         if (m_soundFXDictionary.ContainsKey(audioName))
         {
@@ -127,6 +127,17 @@ public class MusicManager : PersistentSingleton<MusicManager>
             m_sfxSound.Play();
         }
 	}
+    public void PlaySound (string audioName,float volume)
+    {
+        if (m_soundFXDictionary.ContainsKey(audioName))
+        {
+            AudioSource m_sfxSound = CreateAudioSource(audioName, false);
+            m_sfxAudioSources.Add(m_sfxSound);
+            m_sfxSound.clip = m_soundFXDictionary[audioName];
+            m_sfxSound.volume = volume;
+            m_sfxSound.Play();
+        }
+    }
 
     public  void         StopBackgroundMusic   ()
 	{

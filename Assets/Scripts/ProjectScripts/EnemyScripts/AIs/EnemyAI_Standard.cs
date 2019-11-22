@@ -42,6 +42,17 @@ public class EnemyAI_Standard : MonoBehaviour
     public float timeToWaitOnPatrolPoint;
     private float timerWaitBetweenPatrolPoint = 0;
 
+    protected enum AIState
+    {
+        idle,
+        attacking,
+        runningAway,
+        goLastSeenPlace, //Para comportamientos de patrulla, si pierden al jugador
+        surrender   //Para el Healer
+    }
+    protected AIState currentAIState = AIState.idle;
+    protected float angle;
+
     /*[Header("Variables para ir a última posición de jugador")]
     private bool lastPositionChecked;
     private Vector3 lastSeenPosition;
@@ -127,26 +138,17 @@ public class EnemyAI_Standard : MonoBehaviour
         SetAnimationsVariables();
     }
 
-    protected enum AIState
-    {
-        idle,
-        attacking,
-        runningAway,
-        goLastSeenPlace, //Para comportamientos de patrulla, si pierden al jugador
-        surrender   //Para el Healer
-    }
-    protected AIState currentAIState = AIState.idle;
-    protected float angle;
-
+    ////////////////////ESTADOS////////////////////////
+    ///
     protected virtual void Aim()
     {
         if (IsPlayerInSight())
         {
             Vector2 vector = VectorToPlayerFixedAim() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
             Debug.DrawRay(transform.position, vector);
-            angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector),0.1f);
+            angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector), 0.1f);
 
-            m_armTransform.localEulerAngles = new Vector3(0,0, angle);
+            m_armTransform.localEulerAngles = new Vector3(0, 0, angle);
         }
         else if (m_AI_Controller.velocity.normalized.magnitude != 0) //Si no ve al jugador y se está moviendo
         {
@@ -158,21 +160,10 @@ public class EnemyAI_Standard : MonoBehaviour
             m_armTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
-    protected bool IsPlayerTooNear()
-    {
-        if (DistanceToPlayer()< m_runAwayDistance)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
     protected void RunAway()
     {
-        m_AI_Controller.stoppingDistance =0.1f;
-        Vector2 oppositeDirectionVector = -VectorToPlayer().normalized*2;
+        m_AI_Controller.stoppingDistance = 0.1f;
+        Vector2 oppositeDirectionVector = -VectorToPlayer().normalized * 2;
         Vector3 newDestination = new Vector3(oppositeDirectionVector.x + transform.position.x, oppositeDirectionVector.y + transform.position.y, 0);
         FindNewDestination(newDestination);
     }
@@ -196,26 +187,6 @@ public class EnemyAI_Standard : MonoBehaviour
             patrolPointDecided = false;
         }
     }
-    protected bool DetectPlayerInInitialState()
-    {
-        if (DistanceToPlayer() < m_playerHearingDetectionDistance|| IsPlayerInSight())
-        {
-            Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
-            return true;
-        }
-        else { return false; }
-    }
-    NavMeshPath path;
-    protected virtual void FindNewDestination(Vector3 newDestinationPosition)
-    {
-        NavMeshPath path = new NavMeshPath();
-        m_AI_Controller.CalculatePath(newDestinationPosition, path);
-        m_AI_Controller.path = path;
-    }
-    protected virtual void DamagePlayer()
-    {
-        m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
-    }
     protected virtual void AttackingMovement()
     {
         if (IsPlayerInSight())
@@ -228,27 +199,61 @@ public class EnemyAI_Standard : MonoBehaviour
         }
         else if (!IsPlayerInSight())
         {
-            m_AI_Controller.stoppingDistance = 0.5f;           
+            m_AI_Controller.stoppingDistance = 0.5f;
             FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
         }
     }
-
-    ////////////////Añadido de EnemyCloseUp///////////////////
-
-    int i = 0;
-    void CheckPatrolPoint() ///Chequeo de a que punto de patrulla ir, se llama en estado Patrol
+    protected virtual void DamagePlayer()
     {
-        if (i >= patrolPointsList.Count)
-        {
-            i = 0;
-        }
-
-        currentListPoint = patrolPointsList[i];
-        FindNewDestination(currentListPoint.position);
-        i++;
-        patrolPointDecided = true;
+        m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
     }
 
+
+    ////////////////////CONDICIONES////////////////////////
+    ///
+    protected bool IsPlayerTooNear()
+    {
+        if (DistanceToPlayer()< m_runAwayDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    protected bool DetectPlayerInInitialState()
+    {
+        if (DistanceToPlayer() < m_playerHearingDetectionDistance|| IsPlayerInSight())
+        {
+            Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
+            return true;
+        }
+        else { return false; }
+    }
+
+
+    ////////////////////FUNCIONALIDAD////////////////////////
+    ///
+    protected virtual void FindNewDestination(Vector3 newDestinationPosition)
+    {
+        NavMeshPath path = new NavMeshPath();
+        m_AI_Controller.CalculatePath(newDestinationPosition, path);
+        m_AI_Controller.path = path;
+    }
+    int currentPatrolPoint = 0;
+    void CheckPatrolPoint() ///Chequeo de a que punto de patrulla ir, se llama en estado Patrol
+    {
+
+        if (currentPatrolPoint >= patrolPointsList.Count)
+        {
+            currentPatrolPoint = 0;
+        }
+        currentListPoint = patrolPointsList[currentPatrolPoint];
+        FindNewDestination(currentListPoint.position);
+        currentPatrolPoint++;
+        patrolPointDecided = true;
+    }
     void CheckDistanceToPatrolPoint()   ///Chequeo de la distancia hasta el punto de patrulla
     {
         if (Vector3.Distance(transform.position, currentListPoint.position) <= m_AI_Controller.stoppingDistance + 0.1f) ///El stopping distance +0.1f es para checkear la posicion en la que se para
@@ -301,12 +306,10 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         return GameManager.Instance.ActualPlayerController.transform.position - transform.position;
     }
-
     protected Vector2 VectorToPlayerFixedAim()  ///El Vector a jugador desde la posición del brazo, para cuestiones de APUNTADO
     {
         return GameManager.Instance.ActualPlayerController.transform.position - m_armTransform.position;
     }
-
     protected float DistanceToPlayer()
     {
         return VectorToPlayer().magnitude;
