@@ -13,12 +13,12 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
     public SceneReference zoneScene;
 
-    void DiscoverRoom(GameObject currentRoom)
-    {
-        mapManager.DiscoverRoom(currentRoom);
-    }
+    [Header("Lista de habitaciones")]
+    public List<RoomManager> roomList = new List<RoomManager>();
+
     public IEnumerator ChangeRoom(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
+              
         if (m_activeRoom != null && m_activeRoom!=newRoom)
         {
             UIManager.Instance.Fade();

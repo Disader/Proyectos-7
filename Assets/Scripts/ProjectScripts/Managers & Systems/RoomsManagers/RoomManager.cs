@@ -10,11 +10,17 @@ public class RoomManager : MonoBehaviour
     [SerializeField] List<EnemyControl_MovementController> currentEnemiesInRoom;
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
+    private bool isDiscovered;
 
     BoxCollider2D myCollider;
     [SerializeField] LayerMask m_enemyLayer;
     void Awake()
-    {     
+    {
+        if(!isDiscovered && ZoneManager.Instance.roomList.Count < 2)
+        {
+            ZoneManager.Instance.roomList.Add(GetComponent<RoomManager>());
+        }
+
         myCollider = GetComponent<BoxCollider2D>();
         Vector2 hitColliderPosition = new Vector2(gameObject.transform.position.x + myCollider.offset.x, gameObject.transform.position.y + myCollider.offset.y);
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitColliderPosition, myCollider.size, 0f, m_enemyLayer);
@@ -42,6 +48,17 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
+            if (!isDiscovered)
+            {               
+                for (int i = 0; i < ZoneManager.Instance.roomList.Count; i++)
+                {
+                    if(ZoneManager.Instance.roomList[i] == GetComponent<RoomManager>())
+                    {
+                        UIManager.Instance.map.DiscoverRoom(i);
+                    }                  
+                }              
+            }
+            isDiscovered = true;
             StartCoroutine(ZoneManager.Instance.ChangeRoom(m_roomCamera, this)); //Cambio de habitación
 
             if (collision.GetComponent<EnemyControl_MovementController>() != null) 

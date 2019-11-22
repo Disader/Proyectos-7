@@ -5,27 +5,9 @@ using UnityEngine;
 
 public class MapBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public List<GameObject> unchartedRooms;
-    void Start()
+    public List<Image> mapRooms;
+    public void DiscoverRoom(int currentRoom) 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void DiscoverRoom(GameObject roomToDiscover) 
-    {
-        for (int i = 0; i < unchartedRooms.Count; i++)
-        {
-            if(unchartedRooms[i] = roomToDiscover)
-            {
-                unchartedRooms[i].GetComponent<Image>().enabled = true;
-                break;
-            }
-        }
+        mapRooms[currentRoom].enabled = true;
     }
 }
