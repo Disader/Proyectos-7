@@ -118,7 +118,7 @@ public class EnemyAI_Standard : MonoBehaviour
             {
                 DamagePlayer();
             }
-            if (IsPlayerTooNear())
+            if (IsPlayerInSight() && IsPlayerTooNear()) //Comportamiento de huir si ve al jugador Y esta muy cerca, no solo si siente que esta cerca aunque no lo vea.
             {
                 currentAIState = AIState.runningAway;
             }
@@ -145,7 +145,7 @@ public class EnemyAI_Standard : MonoBehaviour
         if (IsPlayerInSight())
         {
             Vector2 vector = VectorToPlayerFixedAim() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
-            Debug.DrawRay(transform.position, vector);
+            Debug.DrawRay(m_armTransform.position, vector);
             angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector), 0.1f);
 
             m_armTransform.localEulerAngles = new Vector3(0, 0, angle);
@@ -238,8 +238,7 @@ public class EnemyAI_Standard : MonoBehaviour
     protected virtual void FindNewDestination(Vector3 newDestinationPosition)
     {
         NavMeshPath path = new NavMeshPath();
-        m_AI_Controller.CalculatePath(newDestinationPosition, path);
-        m_AI_Controller.path = path;
+        m_AI_Controller.SetDestination(newDestinationPosition); 
     }
     int currentPatrolPoint = 0;
     void CheckPatrolPoint() ///Chequeo de a que punto de patrulla ir, se llama en estado Patrol
@@ -317,9 +316,11 @@ public class EnemyAI_Standard : MonoBehaviour
     protected bool IsPlayerInSight()
     {
         float angle;
-        angle = Vector3.SignedAngle(VectorToPlayer(), m_armTransform.right, transform.up);
+        angle = Vector3.SignedAngle(VectorToPlayerFixedAim(), m_armTransform.right, transform.up);
 
-        if (!Physics2D.Raycast(transform.position, VectorToPlayer(), DistanceToPlayer(), m_sightCollisionMask) && angle < m_visionAngle) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos de 90º tomando como 0 la dirección del brazo, ve al jugador
+        Debug.DrawRay(m_armTransform.position, VectorToPlayerFixedAim() ,Color.yellow);
+
+        if (!Physics2D.CircleCast(m_armTransform.position, 0.2f, VectorToPlayerFixedAim(), DistanceToPlayer(), m_sightCollisionMask) && angle < m_visionAngle) //Si el raycast no tiene nada de por medio y el player está en un angulo de menos del doble de m_visionAngle, ve al jugador
         {
             return true;
         }
