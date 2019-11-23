@@ -1,0 +1,65 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DamageObject : MonoBehaviour
+{
+    [Header("El Daño en Número de Fragmentos Perdidos al Jugador")]
+    public int bulletDamageToPlayer;
+    [Header("El Daño al Enemigo")]
+    public int bulletDamageToEnemy;
+
+    [Header("Variables para Comprobar Colisión")]
+    private EnemyHealth collisionIsEnemy;
+    private PlayerControl_MovementController collisionIsPlayer;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collisionIsEnemy = collision.GetComponent<EnemyHealth>();
+        collisionIsPlayer = collision.GetComponent<PlayerControl_MovementController>();
+
+        if (collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
+        {
+            CollisionWithEnemy(collision);
+        }
+
+        else if (collisionIsPlayer != null && collisionIsPlayer == GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
+        {
+            CollisionWithPlayer();
+        }
+
+        else if (collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
+        {
+            CollisionWithOther();
+        }
+    }
+    void CollisionWithEnemy(Collider2D enemy)
+    {
+        collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
+        EnemySetControl myEnemySetControl = enemy.GetComponent<EnemySetControl>();
+        if (myEnemySetControl != null)
+        {
+            myEnemySetControl.StopConsumingAction();
+        }
+        CollisionWithEnemyEffects();
+    }
+    protected virtual void CollisionWithEnemyEffects()
+    {
+
+    }
+    void CollisionWithPlayer()
+    {
+        HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
+        CollisionWithPlayerEffects();
+    }
+    protected virtual void CollisionWithPlayerEffects()
+    {
+    }
+    void CollisionWithOther()
+    {
+        CollisionWithOtherEffects();
+    }
+    protected virtual void CollisionWithOtherEffects()
+    { 
+    }
+}

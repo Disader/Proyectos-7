@@ -3,19 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class BulletBase : MonoBehaviour
+public class BulletBase : DamageObject
 {
     [Header("Variables de las Balas")]
     [SerializeField] float m_velocity;
-    [Header("El Daño en Número de Fragmentos Perdidos al Jugador")]
-    public int bulletDamageToPlayer;
-    [Header("El Daño al Enemigo")]
-    public int bulletDamageToEnemy;
-
-    [Header("Variables para Comprobar Colisión")]
-    private EnemyHealth collisionIsEnemy;
-    private PlayerControl_MovementController collisionIsPlayer;
-
+   
     [Header("Partículas (PlaceHolders)")]
     public GameObject hitWallPart;
     public GameObject hitCharacterPart;
@@ -25,34 +17,9 @@ public class BulletBase : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = transform.up * m_velocity;
         ZoneManager.Instance.AddBulletInActiveRoom(this);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void CollisionWithEnemyEffects()
     {
-        collisionIsEnemy = collision.GetComponent<EnemyHealth>();
-        collisionIsPlayer = collision.GetComponent<PlayerControl_MovementController>();
-
-        if (collisionIsEnemy != null && collision.GetComponent<RoomManager>() == null)   ////Colisión con Enemigo
-        {
-            CollisionWithEnemy(collision);
-        }
-
-        else if (collisionIsPlayer != null && collisionIsPlayer==GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
-        {
-            CollisionWithPlayer();
-        }
-
-        else if (collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
-        {
-            CollisionWithOther();
-        }
-    }
-    void CollisionWithEnemy(Collider2D enemy)
-    {
-        collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
-        EnemySetControl myEnemySetControl = enemy.GetComponent<EnemySetControl>();
-        if (myEnemySetControl != null)
-        {
-            myEnemySetControl.StopConsumingAction();
-        }
+        Destroy(gameObject);
         ZoneManager.Instance.RemoveBulletInActiveRoom(this);
 
         //Partículas
@@ -71,11 +38,10 @@ public class BulletBase : MonoBehaviour
             default:
                 break;
         }
-        Destroy(gameObject);
     }
-    void CollisionWithPlayer()
+    protected override void CollisionWithPlayerEffects()
     {
-        HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
+        Destroy(gameObject);
 
         //Partículas
         Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
@@ -89,12 +55,11 @@ public class BulletBase : MonoBehaviour
 
 
         ZoneManager.Instance.RemoveBulletInActiveRoom(this);
-        Destroy(gameObject);
     }
-    void CollisionWithOther()
+    protected override void CollisionWithOtherEffects()
     {
+        Destroy(gameObject);
         Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
         ZoneManager.Instance.RemoveBulletInActiveRoom(this);
-        Destroy(gameObject);
     }
 }

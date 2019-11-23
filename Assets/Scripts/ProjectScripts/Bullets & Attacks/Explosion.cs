@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Explosion : DamageObject
 {
     [SerializeField] ParticleSystem particles;
     float timer=0;

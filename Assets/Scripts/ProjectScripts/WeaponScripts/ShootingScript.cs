@@ -12,7 +12,7 @@ public class ShootingScript : MonoBehaviour
     [Header("Variables del Disparo Enemigo")] //Las que tu creaste para el enemigo Sergio
     [SerializeField] float m_firingRate;
     [SerializeField] float m_randomFiringRateDeviation;
-    float m_firingRateTimer;
+    float m_firingRateTimer=1000f; //Para que comience disparando
     float m_onStartFiringRate;
     [Header("Variables Generales de Disparo")]
     [SerializeField] GameObject m_bullet;
