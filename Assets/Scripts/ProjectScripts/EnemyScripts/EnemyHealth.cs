@@ -38,4 +38,30 @@ public class EnemyHealth : MonoBehaviour
             thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte
         }
     }
+    [HideInInspector] public Coroutine actualReciveDamageCoroutine;
+    float timer = 0;
+    bool isOnFire;
+    [SerializeField] ParticleSystem fireParticle;
+    public IEnumerator recieveDamageOverTime(int damagePerSecond, float time)
+    {
+        isOnFire = true;
+        timer = 0;
+        fireParticle.Play();
+        while (time > timer)
+        {
+            ReceiveDamage(damagePerSecond);
+            yield return new WaitForSeconds(1);
+        }
+        fireParticle.Stop();
+        isOnFire = false;
+        timer = 0;
+    }
+
+    private void Update()
+    {
+        if (isOnFire)
+        {
+            timer += Time.deltaTime;
+        }
+    }
 }

@@ -12,15 +12,38 @@ public class BulletBase : DamageObject
     public GameObject hitWallPart;
     public GameObject hitCharacterPart;
 
+    [Header("Destroy de las balas")]
+    [SerializeField] float timeToDestroy;
+    [SerializeField] float distanceToDestroy;
+    float timerToDestroy;
+    float distanceTravelled;
     private void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.up * m_velocity;
+        GetComponent<Rigidbody2D>().velocity = transform.right * m_velocity;
         ZoneManager.Instance.AddBulletInActiveRoom(this);
+    }
+    private void Update()
+    {
+        if (timerToDestroy != 0)
+        {
+            timerToDestroy += Time.deltaTime;
+            if (timeToDestroy < timerToDestroy)
+            {
+                DestroyBullet();
+            }
+        }
+        if (distanceToDestroy != 0)
+        {
+            distanceTravelled += m_velocity * Time.deltaTime;
+            if (distanceToDestroy < distanceTravelled)
+            {
+                DestroyBullet();
+            }
+        } 
     }
     protected override void CollisionWithEnemyEffects()
     {
-        Destroy(gameObject);
-        ZoneManager.Instance.RemoveBulletInActiveRoom(this);
+        DestroyBullet();
 
         //Partículas
         Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
@@ -41,8 +64,6 @@ public class BulletBase : DamageObject
     }
     protected override void CollisionWithPlayerEffects()
     {
-        Destroy(gameObject);
-
         //Partículas
         Instantiate(hitCharacterPart, transform.position, transform.rotation);  //PLACEHOLDER
 
@@ -53,13 +74,16 @@ public class BulletBase : DamageObject
         ///Sonido
         MusicManager.Instance.PlaySound(AppSounds.PLAYER_HIT); ///// PLACEHOLDER
 
-
-        ZoneManager.Instance.RemoveBulletInActiveRoom(this);
+        DestroyBullet();
     }
     protected override void CollisionWithOtherEffects()
     {
-        Destroy(gameObject);
+        DestroyBullet();
         Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
+    }
+    void DestroyBullet()
+    {
+        Destroy(gameObject);
         ZoneManager.Instance.RemoveBulletInActiveRoom(this);
     }
 }

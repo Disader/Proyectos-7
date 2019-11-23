@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 7502619731837586826}
   - component: {fileID: 1283166774436715518}
   - component: {fileID: 80888835099103974}
-  - component: {fileID: 2164586971481310872}
   - component: {fileID: 6423631756787813245}
+  - component: {fileID: 5242726013095326896}
+  - component: {fileID: 4453455625644490737}
   m_Layer: 0
-  m_Name: BulletFire(PRUEBA)
+  m_Name: FlamethrowerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,25 +99,6 @@ CircleCollider2D:
   m_Offset: {x: 0.020821393, y: -0.018507823}
   serializedVersion: 2
   m_Radius: 0.17992479
---- !u!114 &2164586971481310872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8902041960538254988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ed308d2ab223343a1754f4b8791f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_velocity: 10
-  bulletDamageToPlayer: 0
-  bulletDamageToEnemy: 0
-  hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
-    type: 3}
-  hitCharacterPart: {fileID: 8644971678284038027, guid: cacf3f624c100eb468f9ed2e27939bd9,
-    type: 3}
 --- !u!50 &6423631756787813245
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +120,67 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5242726013095326896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902041960538254988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc6ab2d985a9004094d74d3a0a15b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamageToPlayer: 0
+  bulletDamageToEnemy: 0
+  m_velocity: 10
+  hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
+    type: 3}
+  hitCharacterPart: {fileID: 8644971678284038027, guid: cacf3f624c100eb468f9ed2e27939bd9,
+    type: 3}
+  timeToDestroy: 0
+  distanceToDestroy: 4
+  damagePerSecond: 1
+  timeInFire: 4
+--- !u!114 &4453455625644490737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902041960538254988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 2
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.3
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 10000
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100000

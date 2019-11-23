@@ -56,7 +56,6 @@ public class HealthHeartsSystem
             if (OnDead != null) OnDead(this, EventArgs.Empty);
         }
     }
-
     public void Heal(int healAmount)
     {
         for(int i = 0; i < heartList.Count; i++)

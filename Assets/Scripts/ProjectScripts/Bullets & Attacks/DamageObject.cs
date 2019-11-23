@@ -10,8 +10,8 @@ public class DamageObject : MonoBehaviour
     public int bulletDamageToEnemy;
 
     [Header("Variables para Comprobar Colisión")]
-    private EnemyHealth collisionIsEnemy;
-    private PlayerControl_MovementController collisionIsPlayer;
+    protected EnemyHealth collisionIsEnemy;
+    protected PlayerControl_MovementController collisionIsPlayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,7 +33,7 @@ public class DamageObject : MonoBehaviour
             CollisionWithOther();
         }
     }
-    void CollisionWithEnemy(Collider2D enemy)
+    protected virtual void CollisionWithEnemy(Collider2D enemy)
     {
         collisionIsEnemy.ReceiveDamage(bulletDamageToEnemy);
         EnemySetControl myEnemySetControl = enemy.GetComponent<EnemySetControl>();
@@ -47,7 +47,7 @@ public class DamageObject : MonoBehaviour
     {
 
     }
-    void CollisionWithPlayer()
+    protected virtual void CollisionWithPlayer()
     {
         HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
         CollisionWithPlayerEffects();
@@ -55,7 +55,7 @@ public class DamageObject : MonoBehaviour
     protected virtual void CollisionWithPlayerEffects()
     {
     }
-    void CollisionWithOther()
+    protected virtual void CollisionWithOther()
     {
         CollisionWithOtherEffects();
     }

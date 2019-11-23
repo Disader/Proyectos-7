@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 3
   myAnimator: {fileID: 1957557055709031805}
+  fireParticle: {fileID: 0}
 --- !u!50 &4387296696666090936
 Rigidbody2D:
   serializedVersion: 4
@@ -457,13 +458,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387296696882242119}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6218837739217761860}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4387296697098754763
 GameObject:
   m_ObjectHideFlags: 0
