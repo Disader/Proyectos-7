@@ -16,10 +16,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] LayerMask m_enemyLayer;
     void Awake()
     {
-        if(!isDiscovered && ZoneManager.Instance.roomList.Count < 2)
-        {
-            ZoneManager.Instance.roomList.Add(GetComponent<RoomManager>());
-        }
+        
 
         myCollider = GetComponent<BoxCollider2D>();
         Vector2 hitColliderPosition = new Vector2(gameObject.transform.position.x + myCollider.offset.x, gameObject.transform.position.y + myCollider.offset.y);
@@ -50,9 +47,9 @@ public class RoomManager : MonoBehaviour
         {
             if (!isDiscovered)
             {               
-                for (int i = 0; i < ZoneManager.Instance.roomList.Count; i++)
+                for (int i = 0; i < DiscoverManager.Instance.roomList.Count; i++)
                 {
-                    if(ZoneManager.Instance.roomList[i] == GetComponent<RoomManager>())
+                    if(DiscoverManager.Instance.roomList[i] == GetComponent<RoomManager>())
                     {
                         UIManager.Instance.map.DiscoverRoom(i);
                     }                  

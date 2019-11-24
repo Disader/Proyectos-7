@@ -13,8 +13,6 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
     public SceneReference zoneScene;
 
-    [Header("Lista de habitaciones")]
-    public List<RoomManager> roomList = new List<RoomManager>();
 
     public IEnumerator ChangeRoom(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
