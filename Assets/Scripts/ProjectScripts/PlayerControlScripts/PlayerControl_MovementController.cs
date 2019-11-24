@@ -144,7 +144,8 @@ public class PlayerControl_MovementController : MonoBehaviour
                     Vector2 proyectionVector = intersectionPoint - proyectionPoint;
                     float angleToActualEnemy = Mathf.Atan2(proyectionVector.y, proyectionVector.x) * Mathf.Rad2Deg;
                     */
-
+                    Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(autoAimAngle / (distanceToActualEnemy) + angle, Vector3.forward) * Vector3.right * 10, Color.red);
+                    Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(-autoAimAngle / (distanceToActualEnemy) + angle, Vector3.forward) * Vector3.right * 10, Color.red);
                     float angleToActualEnemy = Mathf.Atan2(vectorToActualEnemy.y, vectorToActualEnemy.x) * Mathf.Rad2Deg;
 
                     if (playerInputAngle < 0)
@@ -157,7 +158,7 @@ public class PlayerControl_MovementController : MonoBehaviour
                     }
                     float angleDiference = Mathf.Abs(angleToActualEnemy - playerInputAngle);   
                     
-                    if (angleDiference < autoAimAngle && previousDistance > distanceToActualEnemy)
+                    if (angleDiference < autoAimAngle/(distanceToActualEnemy) && previousDistance > distanceToActualEnemy)
                     {
                         enemyToAim = enemy;
                         previousDistance = distanceToActualEnemy;
@@ -165,10 +166,11 @@ public class PlayerControl_MovementController : MonoBehaviour
                 }
             }
             
-            if (enemyToAim != null) //Si un enemigo cumple las condiciones pàra ser apuntado automáticamente
+            if (enemyToAim != null) //Si un enemigo cumple las condiciones para ser apuntado automáticamente
             {
                 Vector2 vectorToAimEnemy = enemyToAim.transform.position - armObject.transform.position;
-                
+                float distanceToAimEnemy = vectorToAimEnemy.magnitude;
+
                 angle = Mathf.LerpAngle(angle, Vector2.SignedAngle(Vector2.right, vectorToAimEnemy), 0.2f);
                 
                 Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right * vectorToAimEnemy.magnitude, Color.red);
