@@ -7,8 +7,8 @@ using Cinemachine;
 public class ZoneManager : TemporalSingleton<ZoneManager>
 {
     public MapBehaviour mapManager;
-    public CinemachineVirtualCamera m_activeCamera;
-    RoomManager m_activeRoom;
+    [HideInInspector] public CinemachineVirtualCamera m_activeCamera;
+    [HideInInspector] public RoomManager m_activeRoom;
 
     [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
     public SceneReference zoneScene;

@@ -17,13 +17,13 @@ public class SetArmAnimationValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_transformRef.localEulerAngles.z< 337.5f && m_transformRef.localEulerAngles.z > 202.5f)
+        if (m_transformRef.localEulerAngles.z < 337.5f && m_transformRef.localEulerAngles.z > 202.5f)
         {
-            mySpriteRenderer.sortingOrder = 1000;
+            mySpriteRenderer.sortingOrder = 1000000;
         }
         else
         {
-            mySpriteRenderer.sortingOrder = -1000;
+            mySpriteRenderer.sortingOrder = -1000000;
         }
         myAnimator.SetFloat("Angle", m_transformRef.localEulerAngles.z);
 

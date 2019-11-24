@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
 
-    [SerializeField] List<EnemyControl_MovementController> currentEnemiesInRoom;
+    [HideInInspector] public List<EnemyControl_MovementController> currentEnemiesInRoom;
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
     private bool isDiscovered;

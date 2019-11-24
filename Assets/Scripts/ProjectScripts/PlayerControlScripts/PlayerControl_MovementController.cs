@@ -22,8 +22,9 @@ public class PlayerControl_MovementController : MonoBehaviour
 
     [Header("El Objeto que Funciona como Brazo o el que Rota")]
     public GameObject armObject;
-    [HideInInspector] public Vector2 armDirection;
+    [HideInInspector] public Vector2 playerInputDirection;
     protected float angle;
+    [SerializeField] float autoAimAngle;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -118,13 +119,67 @@ public class PlayerControl_MovementController : MonoBehaviour
     }
 
     protected virtual void ControlArmRotation()
-    {
-       
-        armDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
+    {      
+        playerInputDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
+        float playerInputAngle = Mathf.Atan2(playerInputDirection.normalized.y, playerInputDirection.normalized.x) * Mathf.Rad2Deg;
 
-        if (armDirection.sqrMagnitude > 0) ////Si el valor de la dirección es mayor que 0...
+        EnemyControl_MovementController enemyToAim = null; //Variable del enemigo al que se apuntará automáticamente si lo hay
+        
+        if (playerInputDirection.sqrMagnitude > 0.2f) ////Si el valor de la dirección es mayor que 0.2...
         {
-            angle = Mathf.Atan2(armDirection.normalized.y, armDirection.normalized.x) * Mathf.Rad2Deg; ////Se calcula el ángulo entre en eje X y el vector de direccion del joystick
+            float previousDistance=1000; //Variable para comparar qué enemigo está más cerca
+
+            foreach (EnemyControl_MovementController enemy in ZoneManager.Instance.m_activeRoom.currentEnemiesInRoom)
+            {
+                if (enemy != GameManager.Instance.ActualPlayerController)
+                {
+                    Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
+                    float distanceToActualEnemy = vectorToActualEnemy.magnitude;
+
+                    /*
+                    Vector2 reducedVector= vectorToActualEnemy - vectorToActualEnemy.normalized;
+                    Vector2 proyectionPoint = reducedVector + (Vector2)armObject.transform.position;
+                    Vector2 intersectionPoint = new Vector2((armObject.transform.position.x + (enemy.transform.position.y - armObject.transform.position.y) * (playerInputDirection.x / playerInputDirection.y)), enemy.transform.position.y);
+
+                    Vector2 proyectionVector = intersectionPoint - proyectionPoint;
+                    float angleToActualEnemy = Mathf.Atan2(proyectionVector.y, proyectionVector.x) * Mathf.Rad2Deg;
+                    */
+
+                    float angleToActualEnemy = Mathf.Atan2(vectorToActualEnemy.y, vectorToActualEnemy.x) * Mathf.Rad2Deg;
+
+                    if (playerInputAngle < 0)
+                    {
+                        playerInputAngle = 360 + playerInputAngle;
+                    }
+                    if (angleToActualEnemy < 0)
+                    {
+                        angleToActualEnemy = 360 + angleToActualEnemy;
+                    }
+                    float angleDiference = Mathf.Abs(angleToActualEnemy - playerInputAngle);   
+                    
+                    if (angleDiference < autoAimAngle && previousDistance > distanceToActualEnemy)
+                    {
+                        enemyToAim = enemy;
+                        previousDistance = distanceToActualEnemy;
+                    } 
+                }
+            }
+            
+            if (enemyToAim != null) //Si un enemigo cumple las condiciones pàra ser apuntado automáticamente
+            {
+                Vector2 vectorToAimEnemy = enemyToAim.transform.position - armObject.transform.position;
+                
+                angle = Mathf.LerpAngle(angle, Vector2.SignedAngle(Vector2.right, vectorToAimEnemy), 0.2f);
+                
+                Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right * vectorToAimEnemy.magnitude, Color.red);
+                Debug.DrawRay(armObject.transform.position, playerInputDirection*10f, Color.green);
+                
+            }
+            else //Si no hay enemigo para hacer auto aim
+            {
+                angle = playerInputAngle;
+            }
+
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); ////Se rota el objeto de brazo para igualar la dirección del joystick en el eje Z.
         }
 

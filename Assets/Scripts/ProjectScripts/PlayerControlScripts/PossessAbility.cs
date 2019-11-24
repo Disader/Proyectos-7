@@ -52,11 +52,11 @@ public class PossessAbility : MonoBehaviour
 
     private void LaunchRaycast()
     {
-        if (playerControl_MovementController.armDirection.sqrMagnitude > 0) ////Se lanza Raycast si hay input de rotación registrado en el PlayerControl
+        if (playerControl_MovementController.playerInputDirection.sqrMagnitude > 0) ////Se lanza Raycast si hay input de rotación registrado en el PlayerControl
         {
             raycastHit = Physics2D.Raycast(armObject.transform.position, armObject.transform.right, raycastDistance); ////Actualmente el Raycast tiene siempre la misma distancia, sin intervenir el valor del joystick
             Debug.DrawRay(armObject.transform.position, armObject.transform.right * raycastDistance, Color.green);
-            playerLineRenderer.SetPosition(1, playerControl_MovementController.armDirection * raycastDistance); ////Actualmente el punto final de LineRenderer se multiplica por el valor del joystick
+            playerLineRenderer.SetPosition(1, playerControl_MovementController.playerInputDirection * raycastDistance); ////Actualmente el punto final de LineRenderer se multiplica por el valor del joystick
         }
 
         else ////Si no hay input de rotación, se elimina la visibilidad de LineRenderer y se resetea el RaycastHit;
@@ -127,7 +127,7 @@ public class PossessAbility : MonoBehaviour
             stunPart.Play();
         }
 
-        playerControl_MovementController.armDirection = Vector2.zero;
+        playerControl_MovementController.playerInputDirection = Vector2.zero;
         playerControl_MovementController.enabled = false;
 
         yield return new WaitForSeconds(timeStunned);

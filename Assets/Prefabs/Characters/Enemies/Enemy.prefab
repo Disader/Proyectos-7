@@ -317,7 +317,8 @@ MonoBehaviour:
   decelerationX: 100
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
-  armDirection: {x: 0, y: 0}
+  playerInputDirection: {x: 0, y: 0}
+  autoAimAngle: 20
   m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
@@ -812,11 +813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -872,6 +868,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
 --- !u!4 &3069978779201531711 stripped
@@ -893,11 +894,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Fire_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 6486902587364937935, guid: 0860ab36e08edc34fa1ca3479af735ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -952,6 +948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Fire_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0860ab36e08edc34fa1ca3479af735ab, type: 3}
