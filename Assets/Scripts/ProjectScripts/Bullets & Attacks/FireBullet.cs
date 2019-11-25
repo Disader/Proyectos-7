@@ -22,10 +22,7 @@ public class FireBullet : BulletBase
         base.CollisionWithPlayer();
         PlayerFireBehaviour playerFire = collisionIsPlayer.GetComponent<PlayerFireBehaviour>();
 
-        if (playerFire.actualReciveDamageCoroutine != null) //Eliminar la anterior coroutina para que no pueda estar quemado varias veces
-        {
-            playerFire.StopCoroutine(playerFire.actualReciveDamageCoroutine);
-        }
+        playerFire.StopBurningPlayer();
         playerFire.actualReciveDamageCoroutine = playerFire.StartCoroutine(playerFire.recieveDamageOverTime(damagePerSecond, timeInFire)); 
     }
 }

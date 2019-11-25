@@ -95,7 +95,6 @@ public class HealthHeartsVisual : MonoBehaviour
     private void HealthHeartsSystem_OnDead(object sender, System.EventArgs e)
     {
         GameManager.Instance.RespawnPlayer(); ////Cargar juego al morir el jugador/// AÑADIR CORUTINA FANCY DE MUERTE ANTES DE ESTO
-        Debug.Log("Dead!");
     }
 
     private void HealthHeartsSystem_OnHealed(object sender, System.EventArgs e)

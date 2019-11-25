@@ -46,8 +46,16 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         LoadGame();
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(100);
+        StopBurningPlayer();
     }
-
+    void StopBurningPlayer()
+    {
+        PlayerFireBehaviour actualPlayer= GameManager.Instance.realPlayerGO.GetComponent<PlayerFireBehaviour>();
+        if (actualPlayer != null)
+        {
+            actualPlayer.StopBurningPlayer();
+        }
+    }
     /*private void Update() //// TEST DE GUARDADO
     {
         if (Input.GetKeyDown(KeyCode.Q))

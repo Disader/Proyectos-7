@@ -22,6 +22,16 @@ public class PlayerFireBehaviour : MonoBehaviour
         isOnFire = false;
         timer = 0;
     }
+    public void StopBurningPlayer()
+    {
+        if (actualReciveDamageCoroutine != null)
+        {
+            StopCoroutine(actualReciveDamageCoroutine);
+            fireParticles.Stop();
+            isOnFire = false;
+            timer = 0;
+        }
+    }
     private void Update()
     {
         if (isOnFire)
