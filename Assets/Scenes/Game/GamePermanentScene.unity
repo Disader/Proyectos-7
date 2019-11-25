@@ -591,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapManager: {fileID: 524655232}
   m_activeCamera: {fileID: 0}
+  m_activeRoom: {fileID: 0}
   zoneScene:
     sceneAsset: {fileID: 102900000, guid: 855b290eccf3a954abd3a42d38ca03fe, type: 3}
     scenePath: Assets/Scenes/Game/Game.unity
