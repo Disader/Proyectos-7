@@ -24,7 +24,6 @@ public class PlayerControl_MovementController : MonoBehaviour
     public GameObject armObject;
     [HideInInspector] public Vector2 playerInputDirection;
     protected float angle;
-    [SerializeField] float autoAimAngle;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -118,6 +117,15 @@ public class PlayerControl_MovementController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    float angleAimPriority;
+    [SerializeField]
+    float maxAimAngle;
+    [SerializeField]
+    float distanceAimPriority;
+    [SerializeField]
+    float maxDistanceAim;
+
     protected virtual void ControlArmRotation()
     {      
         playerInputDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
@@ -127,7 +135,7 @@ public class PlayerControl_MovementController : MonoBehaviour
         
         if (playerInputDirection.sqrMagnitude > 0.2f) ////Si el valor de la dirección es mayor que 0.2...
         {
-            float previousDistance=10000; //Variable para comparar qué enemigo está más cerca
+            float previousPriority = 0; //Variable para comparar qué enemigo está más cerca
 
             foreach (EnemyControl_MovementController enemy in ZoneManager.Instance.m_activeRoom.currentEnemiesInRoom)
             {
@@ -136,22 +144,15 @@ public class PlayerControl_MovementController : MonoBehaviour
                     Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
                     float distanceToActualEnemy = vectorToActualEnemy.magnitude;
                     float angleToActualEnemy = Mathf.Atan2(vectorToActualEnemy.y, vectorToActualEnemy.x) * Mathf.Rad2Deg;
-                    
-                    if (playerInputAngle < 0)
+                    if(angleToActualEnemy < maxAimAngle && distanceToActualEnemy < maxDistanceAim)
                     {
-                        playerInputAngle = 360 + playerInputAngle;
+                        float thisPriority = angleAimPriority * (1 - (angleToActualEnemy / maxAimAngle)) + distanceAimPriority * (1 - (distanceToActualEnemy / maxDistanceAim));
+                        if (thisPriority > previousPriority)
+                        {
+                            enemyToAim = enemy;
+                            previousPriority = thisPriority;
+                        }
                     }
-                    if (angleToActualEnemy < 0)
-                    {
-                        angleToActualEnemy = 360 + angleToActualEnemy;
-                    }
-                    float angleDiference = Mathf.Abs(angleToActualEnemy - playerInputAngle);   
-                    
-                    if (angleDiference < autoAimAngle/(distanceToActualEnemy) && previousDistance > distanceToActualEnemy)
-                    {
-                        enemyToAim = enemy;
-                        previousDistance = distanceToActualEnemy;
-                    } 
                 }
             }
             
