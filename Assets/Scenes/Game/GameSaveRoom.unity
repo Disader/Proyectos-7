@@ -1812,12 +1812,12 @@ PrefabInstance:
     - target: {fileID: 1886193482304676652, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_Offset.y
-      value: 2.51159
+      value: 2.4974337
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676652, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_Size.y
-      value: 17.03356
+      value: 17.005247
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -1847,7 +1847,7 @@ PrefabInstance:
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].Y
-      value: 110283696
+      value: 110000576
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -1857,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].Y
-      value: 110283667
+      value: 110000547
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -1877,7 +1877,7 @@ PrefabInstance:
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].y
-      value: 11.02837
+      value: 11.000058
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -1887,7 +1887,7 @@ PrefabInstance:
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].y
-      value: 11.028366
+      value: 11.000054
       objectReference: {fileID: 0}
     - target: {fileID: 1886193482304676655, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
         type: 3}
@@ -3707,8 +3707,8 @@ EdgeCollider2D:
   - {x: 2.910534, y: 5.066538}
   - {x: 2.1745758, y: 6.1100426}
   - {x: -2.9763966, y: 5.9307575}
-  - {x: -3.0310383, y: 11.653248}
-  - {x: -6.040615, y: 11.634502}
+  - {x: -3.0310383, y: 11}
+  - {x: -6.040615, y: 11}
   - {x: -6.073551, y: 5.925997}
   - {x: -10.887281, y: 6.019432}
   - {x: -12.048452, y: 5.140938}
