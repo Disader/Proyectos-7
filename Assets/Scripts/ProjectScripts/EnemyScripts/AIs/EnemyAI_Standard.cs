@@ -111,9 +111,12 @@ public class EnemyAI_Standard : MonoBehaviour
 
         else if (currentAIState == AIState.attacking)
         {
-
-            AttackingMovement();
-
+            m_clockTimer += Time.deltaTime;
+            if (m_clockTimer > m_clockDelay)
+            {
+                AttackingMovement();
+                m_clockTimer = 0;
+            }
             if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
                 DamagePlayer();
@@ -126,7 +129,13 @@ public class EnemyAI_Standard : MonoBehaviour
 
         else if (currentAIState == AIState.runningAway)
         {
-            RunAway();
+            m_clockTimer += Time.deltaTime;
+            if (m_clockTimer > m_clockDelay)
+            {
+                RunAway();
+                m_clockTimer = 0;
+            }
+                
             if (!IsPlayerTooNear())
             {
                 currentAIState = AIState.attacking;
@@ -237,7 +246,6 @@ public class EnemyAI_Standard : MonoBehaviour
     ///
     protected virtual void FindNewDestination(Vector3 newDestinationPosition)
     {
-        NavMeshPath path = new NavMeshPath();
         m_AI_Controller.SetDestination(newDestinationPosition); 
     }
     int currentPatrolPoint = 0;

@@ -127,7 +127,7 @@ public class PlayerControl_MovementController : MonoBehaviour
         
         if (playerInputDirection.sqrMagnitude > 0.2f) ////Si el valor de la dirección es mayor que 0.2...
         {
-            float previousDistance=1000; //Variable para comparar qué enemigo está más cerca
+            float previousDistance=10000; //Variable para comparar qué enemigo está más cerca
 
             foreach (EnemyControl_MovementController enemy in ZoneManager.Instance.m_activeRoom.currentEnemiesInRoom)
             {
@@ -135,19 +135,8 @@ public class PlayerControl_MovementController : MonoBehaviour
                 {
                     Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
                     float distanceToActualEnemy = vectorToActualEnemy.magnitude;
-
-                    /*
-                    Vector2 reducedVector= vectorToActualEnemy - vectorToActualEnemy.normalized;
-                    Vector2 proyectionPoint = reducedVector + (Vector2)armObject.transform.position;
-                    Vector2 intersectionPoint = new Vector2((armObject.transform.position.x + (enemy.transform.position.y - armObject.transform.position.y) * (playerInputDirection.x / playerInputDirection.y)), enemy.transform.position.y);
-
-                    Vector2 proyectionVector = intersectionPoint - proyectionPoint;
-                    float angleToActualEnemy = Mathf.Atan2(proyectionVector.y, proyectionVector.x) * Mathf.Rad2Deg;
-                    */
-                    Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(autoAimAngle / (distanceToActualEnemy) + angle, Vector3.forward) * Vector3.right * 10, Color.red);
-                    Debug.DrawRay(armObject.transform.position, Quaternion.AngleAxis(-autoAimAngle / (distanceToActualEnemy) + angle, Vector3.forward) * Vector3.right * 10, Color.red);
                     float angleToActualEnemy = Mathf.Atan2(vectorToActualEnemy.y, vectorToActualEnemy.x) * Mathf.Rad2Deg;
-
+                    
                     if (playerInputAngle < 0)
                     {
                         playerInputAngle = 360 + playerInputAngle;
