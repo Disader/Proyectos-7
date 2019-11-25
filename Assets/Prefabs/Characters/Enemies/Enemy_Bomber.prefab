@@ -311,15 +311,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlSpeedX: 0
   controlSpeedY: 0
-  maxSpeedX: 5
-  maxSpeedY: 5
+  maxSpeed: 5
   accelerationX: 100
   accelerationY: 100
   decelerationX: 100
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   playerInputDirection: {x: 0, y: 0}
-  autoAimAngle: 0
+  angleAimPriority: 0
+  maxAimAngle: 0
+  distanceAimPriority: 0
+  maxDistanceAim: 0
   m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
@@ -651,11 +653,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Smoke_Trail
-      objectReference: {fileID: 0}
     - target: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -710,6 +707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Smoke_Trail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26e097a557c4e74bba302d775fdb5cd, type: 3}

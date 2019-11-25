@@ -12,8 +12,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [Header("Variables de Movimiento")]
     [HideInInspector] public float controlSpeedX;
     [HideInInspector] public float controlSpeedY;
-    public float maxSpeedX;
-    public float maxSpeedY;
+    public float maxSpeed;
     public float accelerationX;
     public float accelerationY;
     public float decelerationX;
@@ -57,8 +56,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     {
         controlSpeedX += axisValueX * accelerationX * Time.deltaTime; ////Cálculo de la velocidad con aceleraciones
         controlSpeedY += axisValueY * accelerationY * Time.deltaTime;
-        controlRb.velocity = new Vector2(controlSpeedX, controlSpeedY); ////Aplicación de los cálculos al velocity del rigidbody
-
+     
         if (axisValueX == 0 || axisValueX == 1 && controlSpeedX < 0 || axisValueX == -1 && controlSpeedX > 0) ////Deceleraciones en X
         {
             if (controlSpeedX > 0)  
@@ -99,23 +97,28 @@ public class PlayerControl_MovementController : MonoBehaviour
             }
         }
 
-        if (controlSpeedX > maxSpeedX)  ////Límite de velocidad
+        if (controlSpeedX > maxSpeed)  ////Límite de velocidad
         {
-            controlSpeedX = maxSpeedX;
+            controlSpeedX = maxSpeed;
         }
-        if (controlSpeedX < -maxSpeedX)
+        if (controlSpeedX < -maxSpeed)
         {
-            controlSpeedX = -maxSpeedX;
+            controlSpeedX = -maxSpeed;
         }
-        if (controlSpeedY > maxSpeedY)
+        if (controlSpeedY > maxSpeed)
         {
-            controlSpeedY = maxSpeedY;
+            controlSpeedY = maxSpeed;
         }
-        if (controlSpeedY < -maxSpeedY)
+        if (controlSpeedY < -maxSpeed)
         {
-            controlSpeedY = -maxSpeedY;
+            controlSpeedY = -maxSpeed;
         }
+
+        finalVector = new Vector2(controlSpeedX, controlSpeedY);
+        controlRb.velocity = Vector2.ClampMagnitude(finalVector,maxSpeed); ////Aplicación de los cálculos al velocity del rigidbody
     }
+    Vector2 finalVector;
+
 
     [SerializeField]
     float angleAimPriority;

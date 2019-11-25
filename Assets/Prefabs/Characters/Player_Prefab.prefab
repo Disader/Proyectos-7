@@ -186,15 +186,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlSpeedX: 0
   controlSpeedY: 0
-  maxSpeedX: 5
-  maxSpeedY: 5
+  maxSpeed: 5
   accelerationX: 50
   accelerationY: 50
   decelerationX: 50
   decelerationY: 50
   armObject: {fileID: 8753018605015778761}
   playerInputDirection: {x: 0, y: 0}
-  autoAimAngle: 0
+  angleAimPriority: 0
+  maxAimAngle: 0
+  distanceAimPriority: 0
+  maxDistanceAim: 0
   m_characterAnimator: {fileID: 3924008894142731910}
 --- !u!114 &3778430351309450577
 MonoBehaviour:
@@ -447,6 +449,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8753018604584853977}
     m_Modifications:
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -501,11 +508,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
