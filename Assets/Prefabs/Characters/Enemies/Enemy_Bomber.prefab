@@ -257,6 +257,7 @@ MonoBehaviour:
   m_bullet: {fileID: 7155127585499386642, guid: 83d62861f4ef9a841864e2420742a30d,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
+  killAll: 1
   player_firingRate: 0.5
   shootPart: {fileID: 183587726170269635, guid: 10b841cb301f85c4f855016a6c444ea2,
     type: 3}
@@ -317,7 +318,8 @@ MonoBehaviour:
   decelerationX: 100
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
-  armDirection: {x: 0, y: 0}
+  playerInputDirection: {x: 0, y: 0}
+  autoAimAngle: 0
   m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
   ableToDash: 1

@@ -131,7 +131,7 @@ public class PlayerControl_MovementController : MonoBehaviour
 
             foreach (EnemyControl_MovementController enemy in ZoneManager.Instance.m_activeRoom.currentEnemiesInRoom)
             {
-                if (enemy != GameManager.Instance.ActualPlayerController)
+                if (enemy != GameManager.Instance.ActualPlayerController && enemy!=null)
                 {
                     Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
                     float distanceToActualEnemy = vectorToActualEnemy.magnitude;

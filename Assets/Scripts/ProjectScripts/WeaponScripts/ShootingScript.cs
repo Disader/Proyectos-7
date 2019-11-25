@@ -17,6 +17,7 @@ public class ShootingScript : MonoBehaviour
     [Header("Variables Generales de Disparo")]
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_shootingPos;
+    [SerializeField] bool killAll; //Para saber si mata tanto al jugador como a los enemigos.
 
     [Header("Variables del Disparo del Jugador")]//Para el control del jugador, afectado por más parámetros y/o mejoras.
     public float player_firingRate;
@@ -46,8 +47,11 @@ public class ShootingScript : MonoBehaviour
             {
                 m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
                 m_firingRateTimer = 0;
-                GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);         
-                obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy
+                GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
+                if (!killAll)
+                {
+                    obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy
+                }
 
                 ////////EFECTOS///////
                 Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
@@ -63,8 +67,11 @@ public class ShootingScript : MonoBehaviour
             {
                 if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
                 {
-                    GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);       
-                    obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
+                    GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
+                    if (!killAll)
+                    {
+                        obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
+                    }
 
                     ////////EFECTOS////////////
                     Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
