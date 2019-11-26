@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Prefabs/Characters/Enemies/Input/PlayerInputAsset.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/ProjectScripts/Input/PlayerInputAsset.inputactions'
 
 using System;
 using System.Collections;
@@ -109,7 +109,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -120,7 +120,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -142,7 +142,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -153,7 +153,40 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b9af8f36-7d5f-46f9-8516-206da14db592"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""f1aa55ae-f494-42fc-bd17-70ab6402244e"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""fcfb1ce5-9612-42f8-b02f-84b827a00a5a"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Horizontal Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -175,7 +208,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -186,7 +219,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -208,7 +241,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -219,7 +252,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -230,7 +263,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -241,7 +274,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Rotating"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -252,7 +285,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -263,7 +296,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -274,7 +307,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -285,7 +318,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -296,7 +329,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ActionButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -307,7 +340,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ActionButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -318,7 +351,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DashButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -329,7 +362,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DashButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -340,7 +373,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PauseButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -351,7 +384,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PauseButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -362,7 +395,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<DualShockGamepad>/touchpadButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MapButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -373,7 +406,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MapButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -381,7 +414,40 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<DualShockGamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Keyboard & Mouse"",
+            ""bindingGroup"": ""Keyboard & Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // PlayerInputActions
         m_PlayerInputActions = asset.FindActionMap("PlayerInputActions", throwIfNotFound: true);
@@ -536,6 +602,24 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         }
     }
     public PlayerInputActionsActions @PlayerInputActions => new PlayerInputActionsActions(this);
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
+    private int m_KeyboardMouseSchemeIndex = -1;
+    public InputControlScheme KeyboardMouseScheme
+    {
+        get
+        {
+            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard & Mouse");
+            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
+        }
+    }
     public interface IPlayerInputActionsActions
     {
         void OnHorizontalMovement(InputAction.CallbackContext context);

@@ -21,7 +21,6 @@ public class UIManager : TemporalSingleton<UIManager>
         if (actions.PlayerInputActions.MapButton.triggered)
         {
             ShowMap();
-  
         }
         if (actions.PlayerInputActions.PauseButton.triggered)
         {

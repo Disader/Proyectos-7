@@ -55,7 +55,7 @@ public class PossessAbility : MonoBehaviour
         if (playerControl_MovementController.playerInputDirection.sqrMagnitude > 0) ////Se lanza Raycast si hay input de rotación registrado en el PlayerControl
         {
             raycastHit = Physics2D.Raycast(armObject.transform.position, armObject.transform.right, raycastDistance); ////Actualmente el Raycast tiene siempre la misma distancia, sin intervenir el valor del joystick
-            Debug.DrawRay(armObject.transform.position, armObject.transform.right * raycastDistance, Color.green);
+
             playerLineRenderer.SetPosition(1, playerControl_MovementController.playerInputDirection * raycastDistance); ////Actualmente el punto final de LineRenderer se multiplica por el valor del joystick
         }
 
