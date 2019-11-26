@@ -172,7 +172,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""f1aa55ae-f494-42fc-bd17-70ab6402244e"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -183,7 +183,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""fcfb1ce5-9612-42f8-b02f-84b827a00a5a"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",

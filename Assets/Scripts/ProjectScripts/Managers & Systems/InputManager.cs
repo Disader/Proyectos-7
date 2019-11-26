@@ -7,21 +7,27 @@ public class InputManager : PersistentSingleton<InputManager>
 {
     [SerializeField] PlayerInput playerinput;
     PlayerInputAsset actions;
+    [SerializeField] InputActionAsset asset;
+    
     private void Start()
     {
         actions = new PlayerInputAsset();
         actions.Enable();
-  
     }
 
     private void Update()
     {
-
+        if (playerinput.currentControlScheme == "Keyboard & Mouse")
+        {
+            
+           
+                
+        }
         HorizontalMovement();
     }
     public void HorizontalMovement()
     {
-        if (Keyboard.current != null && Mouse.current != null)
+        if (Gamepad.current == null)
         {
             if (actions.PlayerInputActions.HorizontalMovement.ReadValue<float>() > 0)
             {
@@ -30,7 +36,7 @@ public class InputManager : PersistentSingleton<InputManager>
 
 
         }
-        else if (Gamepad.current != null)
+        else
         {
             if (actions.PlayerInputActions.HorizontalMovement.ReadValue<float>()>0)
             {
