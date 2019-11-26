@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerControl_MovementController : MonoBehaviour
 {
@@ -130,8 +131,19 @@ public class PlayerControl_MovementController : MonoBehaviour
     float maxDistanceAim;
 
     protected virtual void ControlArmRotation()
-    {      
-        playerInputDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
+    {
+        if (Gamepad.current != null)
+        {
+            playerInputDirection= actions.PlayerInputActions.Rotating.ReadValue<Vector2>();
+        }
+        else
+        {
+            Vector2 screenMouse = actions.PlayerInputActions.CursorPlace.ReadValue<Vector2>();
+            screenMouse = Camera.main.ScreenToWorldPoint(screenMouse);
+            playerInputDirection =(screenMouse - (Vector2)armObject.transform.position).normalized;
+            Debug.DrawRay((Vector2)armObject.transform.position, playerInputDirection);
+        }
+        
         float playerInputAngle = Mathf.Atan2(playerInputDirection.normalized.y, playerInputDirection.normalized.x) * Mathf.Rad2Deg;
         if (playerInputAngle < 0)
         {
