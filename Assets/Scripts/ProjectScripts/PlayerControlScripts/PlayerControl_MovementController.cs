@@ -119,7 +119,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     }
     Vector2 finalVector;
 
-
+    [Header("Variables de control del auto aim")]
     [SerializeField]
     float angleAimPriority;
     [SerializeField]
@@ -133,7 +133,10 @@ public class PlayerControl_MovementController : MonoBehaviour
     {      
         playerInputDirection = actions.PlayerInputActions.Rotating.ReadValue<Vector2>();  ////La dirección del joystick de rotación, el derecho
         float playerInputAngle = Mathf.Atan2(playerInputDirection.normalized.y, playerInputDirection.normalized.x) * Mathf.Rad2Deg;
-
+        if (playerInputAngle < 0)
+        {
+            playerInputAngle += 360;
+        }
         EnemyControl_MovementController enemyToAim = null; //Variable del enemigo al que se apuntará automáticamente si lo hay
         
         if (playerInputDirection.sqrMagnitude > 0.2f) ////Si el valor de la dirección es mayor que 0.2...
@@ -147,9 +150,14 @@ public class PlayerControl_MovementController : MonoBehaviour
                     Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
                     float distanceToActualEnemy = vectorToActualEnemy.magnitude;
                     float angleToActualEnemy = Mathf.Atan2(vectorToActualEnemy.y, vectorToActualEnemy.x) * Mathf.Rad2Deg;
-                    if(angleToActualEnemy < maxAimAngle && distanceToActualEnemy < maxDistanceAim)
+
+                    if (angleToActualEnemy < 0)
                     {
-                        float thisPriority = angleAimPriority * (1 - (angleToActualEnemy / maxAimAngle)) + distanceAimPriority * (1 - (distanceToActualEnemy / maxDistanceAim));
+                        angleToActualEnemy += 360;
+                    }
+                    if(Mathf.Abs(angleToActualEnemy-playerInputAngle) < maxAimAngle && distanceToActualEnemy < maxDistanceAim)
+                    {
+                        float thisPriority = angleAimPriority * (1 - (Mathf.Abs(angleToActualEnemy - playerInputAngle) / maxAimAngle)) + distanceAimPriority * (1 - (distanceToActualEnemy / maxDistanceAim));
                         if (thisPriority > previousPriority)
                         {
                             enemyToAim = enemy;

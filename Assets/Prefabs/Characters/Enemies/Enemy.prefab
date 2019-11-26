@@ -232,7 +232,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_armTransform: {fileID: 6218837739217761860}
-  m_distanceAimAheadPlayer: 0.4
+  m_distanceAimAheadPlayer: 0.2
   distanceToShootPlayer: 12
   m_clockDelay: 0.5
   characterAnimator: {fileID: 1957557055709031805}
@@ -318,10 +318,10 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   playerInputDirection: {x: 0, y: 0}
-  angleAimPriority: 0
-  maxAimAngle: 0
-  distanceAimPriority: 0
-  maxDistanceAim: 0
+  angleAimPriority: 0.75
+  maxAimAngle: 25
+  distanceAimPriority: 0.25
+  maxDistanceAim: 40
   m_characterAnimator: {fileID: 1957557055709031805}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
