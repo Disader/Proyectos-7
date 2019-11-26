@@ -60,3 +60,6 @@ TagManager:
   - name: ParticlesFront
     uniqueID: 3826979089
     locked: 0
+  - name: Minimap
+    uniqueID: 2437519933
+    locked: 0
