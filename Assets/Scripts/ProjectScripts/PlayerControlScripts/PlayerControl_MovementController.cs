@@ -203,11 +203,14 @@ public class PlayerControl_MovementController : MonoBehaviour
     [Header("Animators")]
 
     [SerializeField] protected Animator m_characterAnimator;
+    [SerializeField] protected Animator m_minimaparrowAnimator;
 
     protected virtual void SetAnimationsVariables() //Solo funciona en player
     {
         m_characterAnimator.SetBool("IsMoving", controlRb.velocity.magnitude > 0.1f|| controlRb.velocity.magnitude < -0.1f);
         m_characterAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
         m_characterAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+        m_minimaparrowAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+        m_minimaparrowAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
     }
 }

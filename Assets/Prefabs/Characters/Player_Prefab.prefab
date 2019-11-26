@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 209577657}
   - component: {fileID: 209577658}
+  - component: {fileID: 196774506}
   m_Layer: 14
   m_Name: MinimapIcon
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209577656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 0}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 8753018604584853977}
   m_RootOrder: 3
@@ -79,6 +80,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &196774506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209577656}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcbe614ce27e5e94e8271c3a3907a40a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8753018604584853975
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +218,7 @@ MonoBehaviour:
   distanceAimPriority: 0
   maxDistanceAim: 0
   m_characterAnimator: {fileID: 3924008894142731910}
+  m_minimaparrowAnimator: {fileID: 196774506}
 --- !u!114 &3778430351309450577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +551,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8753018604584853977}
     m_Modifications:
+    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Fire_Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 6486902587364937935, guid: 0860ab36e08edc34fa1ca3479af735ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -584,11 +610,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Fire_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0860ab36e08edc34fa1ca3479af735ab, type: 3}
