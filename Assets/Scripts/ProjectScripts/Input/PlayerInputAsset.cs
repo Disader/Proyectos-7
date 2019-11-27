@@ -39,7 +39,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""a05b8957-02cf-4fa8-831f-bd40bbb8fd78"",
                     ""expectedControlType"": """",
-                    ""processors"": ""StickDeadzone(min=0.5,max=1)"",
+                    ""processors"": """",
                     ""interactions"": """"
                 },
                 {
@@ -91,9 +91,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""CursorPlace"",
+                    ""name"": ""MousePos"",
                     ""type"": ""Value"",
-                    ""id"": ""49f2dacb-25a4-4f4d-86df-2e3ec7c2bced"",
+                    ""id"": ""109cc928-9d80-47c3-9aab-c2e65ceb6a7d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -167,8 +167,8 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""PC"",
-                    ""id"": ""b9af8f36-7d5f-46f9-8516-206da14db592"",
+                    ""name"": ""WASD"",
+                    ""id"": ""aaf55fd6-10e7-4d98-bafd-def872aa45ba"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -179,7 +179,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""f1aa55ae-f494-42fc-bd17-70ab6402244e"",
+                    ""id"": ""5b754425-1aa3-4a2e-bf2d-7dbf2b4b9775"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -190,8 +190,41 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""fcfb1ce5-9612-42f8-b02f-84b827a00a5a"",
+                    ""id"": ""21a64f44-baf6-4cd5-b6d9-8a7c31d68ba4"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""6d308839-8e61-4dc0-a575-b847474cad07"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""85e7d20b-b356-4b5f-96ce-b1f86bac39d9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Horizontal Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""10f91ace-dd18-402c-ba5c-bf4178686ab1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -266,8 +299,8 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""PC"",
-                    ""id"": ""3adefe1a-f2ff-445f-ae92-296317b7f088"",
+                    ""name"": ""WASD"",
+                    ""id"": ""d923659d-9c51-4136-9838-cc2b1ebe5d6d"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -278,22 +311,55 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""a9189419-e7db-4caf-917b-b418137b331e"",
+                    ""id"": ""fbf50fd9-4db5-4c4d-96f0-6ffaf0891970"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""1492b75e-28b8-4322-a6ff-da2c0b82d7a1"",
+                    ""id"": ""8b6af553-32d2-42b5-b14d-9f76f2881a50"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""67f59e37-ac3d-41d0-ac7e-2e76332d1e6d"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""cf1ef0fd-d91d-4737-8ed0-4095ae064f4e"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Vertical Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3d9812a1-4096-469e-bcf9-a70afb39a0c0"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Vertical Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -303,7 +369,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""id"": ""bde11b5c-0aa0-4853-99c5-3df7c3cd2851"",
                     ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.25,max=1)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Rotating"",
                     ""isComposite"": false,
@@ -314,7 +380,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""id"": ""31031dd7-ce89-44d3-b8f0-aef8201a31a8"",
                     ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.25,max=1)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Rotating"",
                     ""isComposite"": false,
@@ -344,11 +410,11 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2dc7b563-71ec-43a8-96c6-c0eb63f8f583"",
+                    ""id"": ""8106f085-47dd-4bf4-8483-a7f81e33d43f"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -377,11 +443,11 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bd932c29-dbf4-49af-ab8d-e5612097e346"",
+                    ""id"": ""b8c005cb-a678-48ef-91d8-68006eb36fa5"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -410,6 +476,17 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f1421603-2857-4128-94b6-bb2eb6620ec2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ActionButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""97c47e92-f163-4fdd-8a33-1a3b253c340a"",
                     ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
@@ -426,6 +503,17 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""DashButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b735e42d-570f-4533-83f4-9796e5ef92ef"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""DashButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -454,6 +542,28 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""acd784cd-ff18-45e2-a957-5023edf64414"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""PauseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e297b89-7257-490e-9aa2-80e67f1f0ced"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""PauseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""951a10cb-8824-4e57-b1f6-87b106082b74"",
                     ""path"": ""<DualShockGamepad>/touchpadButton"",
                     ""interactions"": """",
@@ -476,12 +586,23 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""97a7bf17-d6c7-4f24-9472-4e6fbfdab1ae"",
+                    ""id"": ""45b8e106-d8c4-4e2b-a790-7c2b1454ba57"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MapButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83a58352-59e0-41c2-a136-8e695af93736"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse;Gamepad"",
-                    ""action"": ""CursorPlace"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MousePos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -534,7 +655,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         m_PlayerInputActions_DashButton = m_PlayerInputActions.FindAction("DashButton", throwIfNotFound: true);
         m_PlayerInputActions_PauseButton = m_PlayerInputActions.FindAction("PauseButton", throwIfNotFound: true);
         m_PlayerInputActions_MapButton = m_PlayerInputActions.FindAction("MapButton", throwIfNotFound: true);
-        m_PlayerInputActions_CursorPlace = m_PlayerInputActions.FindAction("CursorPlace", throwIfNotFound: true);
+        m_PlayerInputActions_MousePos = m_PlayerInputActions.FindAction("MousePos", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -593,7 +714,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerInputActions_DashButton;
     private readonly InputAction m_PlayerInputActions_PauseButton;
     private readonly InputAction m_PlayerInputActions_MapButton;
-    private readonly InputAction m_PlayerInputActions_CursorPlace;
+    private readonly InputAction m_PlayerInputActions_MousePos;
     public struct PlayerInputActionsActions
     {
         private PlayerInputAsset m_Wrapper;
@@ -607,7 +728,7 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         public InputAction @DashButton => m_Wrapper.m_PlayerInputActions_DashButton;
         public InputAction @PauseButton => m_Wrapper.m_PlayerInputActions_PauseButton;
         public InputAction @MapButton => m_Wrapper.m_PlayerInputActions_MapButton;
-        public InputAction @CursorPlace => m_Wrapper.m_PlayerInputActions_CursorPlace;
+        public InputAction @MousePos => m_Wrapper.m_PlayerInputActions_MousePos;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -644,9 +765,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 MapButton.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
                 MapButton.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
                 MapButton.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMapButton;
-                CursorPlace.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnCursorPlace;
-                CursorPlace.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnCursorPlace;
-                CursorPlace.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnCursorPlace;
+                MousePos.started -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMousePos;
+                MousePos.performed -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMousePos;
+                MousePos.canceled -= m_Wrapper.m_PlayerInputActionsActionsCallbackInterface.OnMousePos;
             }
             m_Wrapper.m_PlayerInputActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -678,9 +799,9 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
                 MapButton.started += instance.OnMapButton;
                 MapButton.performed += instance.OnMapButton;
                 MapButton.canceled += instance.OnMapButton;
-                CursorPlace.started += instance.OnCursorPlace;
-                CursorPlace.performed += instance.OnCursorPlace;
-                CursorPlace.canceled += instance.OnCursorPlace;
+                MousePos.started += instance.OnMousePos;
+                MousePos.performed += instance.OnMousePos;
+                MousePos.canceled += instance.OnMousePos;
             }
         }
     }
@@ -714,6 +835,6 @@ public class PlayerInputAsset : IInputActionCollection, IDisposable
         void OnDashButton(InputAction.CallbackContext context);
         void OnPauseButton(InputAction.CallbackContext context);
         void OnMapButton(InputAction.CallbackContext context);
-        void OnCursorPlace(InputAction.CallbackContext context);
+        void OnMousePos(InputAction.CallbackContext context);
     }
 }

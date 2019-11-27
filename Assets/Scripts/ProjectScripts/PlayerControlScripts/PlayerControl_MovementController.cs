@@ -130,20 +130,12 @@ public class PlayerControl_MovementController : MonoBehaviour
     [SerializeField]
     float maxDistanceAim;
 
+    bool autoAimIsActivated;
     protected virtual void ControlArmRotation()
     {
-        if (Gamepad.current != null)
-        {
-            playerInputDirection= actions.PlayerInputActions.Rotating.ReadValue<Vector2>();
-        }
-        else
-        {
-            Vector2 screenMouse = actions.PlayerInputActions.CursorPlace.ReadValue<Vector2>();
-            screenMouse = Camera.main.ScreenToWorldPoint(screenMouse);
-            playerInputDirection =(screenMouse - (Vector2)armObject.transform.position).normalized;
-            Debug.DrawRay((Vector2)armObject.transform.position, playerInputDirection);
-        }
-        
+      
+        playerInputDirection= InputManager.Instance.RotationInput();
+       
         float playerInputAngle = Mathf.Atan2(playerInputDirection.normalized.y, playerInputDirection.normalized.x) * Mathf.Rad2Deg;
         if (playerInputAngle < 0)
         {
@@ -157,7 +149,7 @@ public class PlayerControl_MovementController : MonoBehaviour
 
             foreach (EnemyControl_MovementController enemy in ZoneManager.Instance.m_activeRoom.currentEnemiesInRoom)
             {
-                if (enemy != GameManager.Instance.ActualPlayerController && enemy!=null)
+                if (enemy != GameManager.Instance.ActualPlayerController && enemy!=null&&autoAimIsActivated)
                 {
                     Vector2 vectorToActualEnemy = enemy.transform.position - armObject.transform.position;
                     float distanceToActualEnemy = vectorToActualEnemy.magnitude;
@@ -209,7 +201,14 @@ public class PlayerControl_MovementController : MonoBehaviour
             armObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
-
+    public void ActivateAutoAim()
+    {
+        autoAimIsActivated = true;
+    }
+    public void DeactivateAutoAim()
+    {
+        autoAimIsActivated = false;
+    }
     ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
 
     [Header("Animators")]

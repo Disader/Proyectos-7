@@ -63,3 +63,6 @@ TagManager:
   - name: Minimap
     uniqueID: 2437519933
     locked: 0
+  - name: Aim
+    uniqueID: 544603079
+    locked: 0

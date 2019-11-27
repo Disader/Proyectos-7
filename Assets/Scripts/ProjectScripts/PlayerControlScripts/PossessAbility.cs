@@ -29,6 +29,15 @@ public class PossessAbility : MonoBehaviour
 
     PlayerInputAsset actions;
 
+    bool isControllingWithMouse;
+    public void StartControllingWithMouse()
+    {
+        isControllingWithMouse = true;
+    }
+    public void StopControllingWithMouse()
+    {
+        isControllingWithMouse = false;
+    }
     private void Awake()
     {
         playerControl_MovementController = GetComponent<PlayerControl_MovementController>();
@@ -47,7 +56,7 @@ public class PossessAbility : MonoBehaviour
     void Update()
     {
         LaunchRaycast();
-        //LeftTriggerInput();
+        LeftTriggerInput();
     }
 
     private void LaunchRaycast()
@@ -61,7 +70,7 @@ public class PossessAbility : MonoBehaviour
 
         else ////Si no hay input de rotación, se elimina la visibilidad de LineRenderer y se resetea el RaycastHit;
         {
-            if(enemy_InRaycast != null) ///Antes de resetear el hit, se mira si había un enemigo en el Raycast y se le posee
+            if(enemy_InRaycast != null&&!isControllingWithMouse) ///Antes de resetear el hit, se mira si había un enemigo en el Raycast y se le posee
             {
                 PossessAction();
             }
@@ -102,23 +111,25 @@ public class PossessAbility : MonoBehaviour
         }
     }
 
-    /*private void LeftTriggerInput()
+    private void LeftTriggerInput()
     {
-        
-        if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
+        if (isControllingWithMouse)
         {
-            if (leftTrigger_isAxisInUse == false)
+            if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
             {
-                PossessAction();
+                if (leftTrigger_isAxisInUse == false)
+                {
+                    PossessAction();
 
-                leftTrigger_isAxisInUse = true;
+                    leftTrigger_isAxisInUse = true;
+                }
             }
-        }
-        else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
-        {
-            leftTrigger_isAxisInUse = false;
-        }
-    }*/
+            else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
+            {
+                leftTrigger_isAxisInUse = false;
+            }
+        }      
+    }
 
     public IEnumerator PlayerStun(float timeStunned) // La funcinalidad del Stun al jugador, se la llama desde SetControl en caso de morir el enemigo poseído.
     {
