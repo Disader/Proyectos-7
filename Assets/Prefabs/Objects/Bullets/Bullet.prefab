@@ -111,13 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ed308d2ab223343a1754f4b8791f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_velocity: 15
   bulletDamageToPlayer: 1
   bulletDamageToEnemy: 1
+  m_velocity: 15
   hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
     type: 3}
   hitCharacterPart: {fileID: 8644971678284038027, guid: cacf3f624c100eb468f9ed2e27939bd9,
     type: 3}
+  timeToDestroy: 0
+  distanceToDestroy: 0
 --- !u!50 &8060007561982921686
 Rigidbody2D:
   serializedVersion: 4
@@ -153,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_RawSignal: {fileID: 11400000, guid: bd9a7cfbca041f644ba127c160f72eee, type: 2}
     m_AmplitudeGain: 2
     m_FrequencyGain: 1
     m_RepeatMode: 0

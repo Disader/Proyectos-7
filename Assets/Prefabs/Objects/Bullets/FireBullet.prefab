@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5242726013095326896}
   - component: {fileID: 4453455625644490737}
   m_Layer: 0
-  m_Name: FlamethrowerBullet
+  m_Name: FireBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_RawSignal: {fileID: 11400000, guid: bd9a7cfbca041f644ba127c160f72eee, type: 2}
     m_AmplitudeGain: 2
     m_FrequencyGain: 1
     m_RepeatMode: 0
