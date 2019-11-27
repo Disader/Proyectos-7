@@ -144,7 +144,7 @@ MonoBehaviour:
   timeToDestroy: 0
   distanceToDestroy: 4
   damagePerSecond: 1
-  timeInFire: 4
+  timeInFire: 3
 --- !u!114 &4453455625644490737
 MonoBehaviour:
   m_ObjectHideFlags: 0

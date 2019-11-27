@@ -26,7 +26,7 @@ public class PlayerFireBehaviour : MonoBehaviour
     {
         if (actualReciveDamageCoroutine != null)
         {
-            StopCoroutine(actualReciveDamageCoroutine);
+            StopAllCoroutines();
             fireParticles.Stop();
             isOnFire = false;
             timer = 0;
