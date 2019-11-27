@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3433803649060428321}
   - component: {fileID: 3433803649060428320}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: navMeshPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3433803649060428323}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 39.5, y: 54.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.7819605, y: 1, z: 11.682686}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +81,6 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: ab3f668a4b720a247b3ac11f53c0747b, type: 2}
