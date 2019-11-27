@@ -223,7 +223,7 @@ public class EnemyAI_Standard : MonoBehaviour
             FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
         }
     }
-    protected virtual void DamagePlayer()
+    public virtual void DamagePlayer()
     {
         m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
     }

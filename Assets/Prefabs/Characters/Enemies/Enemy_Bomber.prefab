@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1013505102987024136}
   - component: {fileID: 4387296696666090936}
   - component: {fileID: 4387296696666090943}
-  - component: {fileID: 4387296696666090942}
+  - component: {fileID: 5019575171518424791}
   - component: {fileID: 2678838310368782444}
   - component: {fileID: 7113016245465618229}
   - component: {fileID: 1962741437665347485}
@@ -333,6 +333,7 @@ MonoBehaviour:
     m_Bits: 1
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0
+  m_timeTillFistShoot: 0
   distanceToShootPlayer: 1
   m_clockDelay: 0.2
   characterAnimator: {fileID: 1957557055709031805}
@@ -428,7 +429,7 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
---- !u!114 &4387296696666090942
+--- !u!114 &5019575171518424791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,12 +438,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4387296696666090823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b70540b9586ea3418e4835b7e606e18, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b79509e0d93f75418df10399d430c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawnPos: {fileID: 2031147985980840961}
   timeToConsume: 2
-  healthHealedOnCosuming: 1
+  healthHealedOnCosuming: 0
   timeStunned: 1.5
   playerTimeStunned: 1
   deathPart: {fileID: 7360201795092676012, guid: fae0fda0cf493734aa1ab295348c070b,
@@ -754,6 +755,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
+    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Smoke_Trail
+      objectReference: {fileID: 0}
     - target: {fileID: 4796694735133621936, guid: b26e097a557c4e74bba302d775fdb5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -808,11 +814,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4796694735134106256, guid: b26e097a557c4e74bba302d775fdb5cd,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Smoke_Trail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26e097a557c4e74bba302d775fdb5cd, type: 3}
