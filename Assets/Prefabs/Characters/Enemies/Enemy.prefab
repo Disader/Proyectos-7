@@ -234,6 +234,7 @@ MonoBehaviour:
     m_Bits: 55
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0.2
+  m_timeTillFistShoot: 0.5
   distanceToShootPlayer: 12
   m_clockDelay: 0.5
   characterAnimator: {fileID: 1957557055709031805}

@@ -15,6 +15,8 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Variables de disparo al jugador")]
     [SerializeField] protected Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
+    [SerializeField] float m_timeTillFistShoot;
+    float firstShootTimer;
     [Header("La distancia mínima para disparar al jugador")]
     [SerializeField] protected float distanceToShootPlayer; ///Una distancia mínima para disparar
     [Header("Reloj de búsqueda al jugador")]
@@ -119,10 +121,19 @@ public class EnemyAI_Standard : MonoBehaviour
             }
             if (IsPlayerInSight() && DistanceToPlayer() <= distanceToShootPlayer)
             {
-                DamagePlayer();
+                firstShootTimer += Time.deltaTime;
+                if (firstShootTimer > m_timeTillFistShoot)
+                {
+                    DamagePlayer();
+                }
+            }
+            else
+            {
+                firstShootTimer = 0;
             }
             if (IsPlayerInSight() && IsPlayerTooNear()) //Comportamiento de huir si ve al jugador Y esta muy cerca, no solo si siente que esta cerca aunque no lo vea.
             {
+                firstShootTimer = 0;
                 currentAIState = AIState.runningAway;
             }
         }
