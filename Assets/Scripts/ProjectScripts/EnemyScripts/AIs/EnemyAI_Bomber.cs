@@ -8,7 +8,7 @@ public class EnemyAI_Bomber : EnemyAI_Standard
     {
         FindNewDestination(GameManager.Instance.ActualPlayerController.transform.position);
     }
-    protected override void DamagePlayer()
+    public override void DamagePlayer()
     {
         m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
         Destroy(gameObject);

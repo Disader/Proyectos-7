@@ -176,7 +176,7 @@ public class EnemySetControl : MonoBehaviour
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
     }
 
-    public void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
+    public virtual void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
     {  
         if (this_EnemyAI.enabled == false) ////El enemigo está poseído
         {
@@ -277,7 +277,7 @@ public class EnemySetControl : MonoBehaviour
         }        
     }
 
-    public IEnumerator StunEnemy()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
+    public virtual IEnumerator StunEnemy()  //Se reactiva la IA y el agente al acabar el tiempo de Stun
     {
         if(!stunPart.isPlaying) //PLACEHOLDER
         {
