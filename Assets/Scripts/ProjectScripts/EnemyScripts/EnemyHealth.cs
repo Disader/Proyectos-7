@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [Header("La Vida del Enemigo")]
     public int enemyHealth;
-    private int defaultEnemyHealth;
+    [HideInInspector]public int defaultEnemyHealth;
 
     [Header("El SetControl del Enemigo")]
     private EnemySetControl thisEnemySetControl;

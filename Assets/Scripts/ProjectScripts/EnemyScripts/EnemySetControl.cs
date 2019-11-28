@@ -32,7 +32,10 @@ public class EnemySetControl : MonoBehaviour
 
     [Header("Variables de Consumir")]
     public float timeToConsume;
+    private float calculatedTimeToConsume;
     private bool hasBeenConsumed;
+    [Header("El Script de Vida del Enemigo")]
+    private EnemyHealth this_EnemyHealthScript;
     [Header("Fragmentos de Vida Recuperados al ser Consumido")]
     public int healthHealedOnCosuming;
 
@@ -65,6 +68,7 @@ public class EnemySetControl : MonoBehaviour
         this_EnemyActiveAbility = GetComponent<ActiveAbility>();
         this_EnemyAI = GetComponent<EnemyAI_Standard>();
         this_EnemyNavAgent = GetComponent<NavMeshAgent>();
+        this_EnemyHealthScript = GetComponent<EnemyHealth>();
         player_MovementController = GameManager.Instance.realPlayerGO.GetComponent<PlayerControl_MovementController>();
         player_PossessAbility = GameManager.Instance.realPlayerGO.GetComponent<PossessAbility>();
         thisEnemyRB = GetComponent<Rigidbody2D>();
@@ -237,8 +241,19 @@ public class EnemySetControl : MonoBehaviour
         ///Sonido
         MusicManager.Instance.PlaySound(AppSounds.PLAYER_CONSUME); ///// PLACEHOLDER
 
+        if (this_EnemyHealthScript.enemyHealth >= (float)this_EnemyHealthScript.defaultEnemyHealth / 2)
+        {
+            //Si la vida del enemigo está por encima de la mitad, al tiempo de consumir se le añade un máximo del doble del tiempo base en función de la vida actual del enemigo
+            calculatedTimeToConsume = timeToConsume + (timeToConsume * ((float)this_EnemyHealthScript.enemyHealth / this_EnemyHealthScript.defaultEnemyHealth));
+        }
 
-        yield return new WaitForSeconds(timeToConsume);
+        else
+        {
+            //Si está por debajo de la mitad, se aplica el tiempo normal.
+            calculatedTimeToConsume = timeToConsume;
+        }
+
+        yield return new WaitForSeconds(calculatedTimeToConsume);   //Se aplica el tiempo calculado
 
         if (this_EnemyActiveAbility != null)
         {
