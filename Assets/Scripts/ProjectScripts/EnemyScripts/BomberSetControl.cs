@@ -18,12 +18,11 @@ public class BomberSetControl : EnemySetControl
 
         yield return new WaitForSeconds(timeStunned);
 
-        bomber_AI.DamagePlayer();
+        bomber_AI.InstantiateExplosion();
     }
     public override void CheckEnemyDeath()
     {
         base.CheckEnemyDeath();
-        bomber_AI.DamagePlayer();
-
+        bomber_AI.InstantiateExplosion();
     }
 }
