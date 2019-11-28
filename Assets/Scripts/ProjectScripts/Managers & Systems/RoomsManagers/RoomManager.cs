@@ -7,17 +7,16 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
 
-    [HideInInspector] public List<EnemyControl_MovementController> currentEnemiesInRoom;
+     public List<EnemyControl_MovementController> currentEnemiesInRoom;
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
     private bool isDiscovered;
+    List<Spawner> activeSpawnersInRoom = new List<Spawner>();
 
     BoxCollider2D myCollider;
     [SerializeField] LayerMask m_enemyLayer;
     void Awake()
     {
-        
-
         myCollider = GetComponent<BoxCollider2D>();
         Vector2 hitColliderPosition = new Vector2(gameObject.transform.position.x + myCollider.offset.x, gameObject.transform.position.y + myCollider.offset.y);
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(hitColliderPosition, myCollider.size, 0f, m_enemyLayer);
@@ -30,6 +29,10 @@ public class RoomManager : MonoBehaviour
             if (enemyController != null)
             {
                 AddEnemyAtRoom(enemyController);
+            }
+            else if (hitColliders[i].GetComponent<Spawner>() != null)
+            {
+                AddSpawnerAtRoom(hitColliders[i].GetComponent<Spawner>());
             }
             i++;
         }
@@ -63,6 +66,10 @@ public class RoomManager : MonoBehaviour
                 AddEnemyAtRoom(collision.GetComponent<EnemyControl_MovementController>()); //Añadir enemigo si está siendo controlado por el jugador y entra a una nueva sala
             }
         }
+    }
+    public void AddSpawnerAtRoom(Spawner spawner)
+    {
+        activeSpawnersInRoom.Add(spawner);
     }
     public void AddBulletInRoom(BulletBase bullet)
     {
@@ -102,6 +109,20 @@ public class RoomManager : MonoBehaviour
             {
                 enemy.gameObject.SetActive(false);
             }
+        }
+    }
+    public void DeactivateSpawnersInRoom()
+    {
+        foreach(Spawner spawner in activeSpawnersInRoom)
+        {
+            spawner.gameObject.SetActive(false);
+        }
+    }
+    public void ActivateSpawnersInRoom()
+    {
+        foreach (Spawner spawner in activeSpawnersInRoom)
+        {
+            spawner.gameObject.SetActive(true);
         }
     }
     public void DeleteControlledEnemyFromRoomList()

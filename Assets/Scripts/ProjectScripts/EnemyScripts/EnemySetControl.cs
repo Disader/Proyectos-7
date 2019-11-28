@@ -190,23 +190,12 @@ public class EnemySetControl : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        ///Sonido
-        int random = Random.Range(0, 3);
-        switch (random)
-        {
-            case 0:
-                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH1); ///// PLACEHOLDER
-                break;
-            case 1:
-                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH2); ///// PLACEHOLDER
-                break;
-            case 2:
-                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH3); ///// PLACEHOLDER
-                break;
-            default:
-                break;
-        }
+        PlayEnemyDeathSound();
        
+        if(this_EnemyControl_MovementController.spawnerInstantiatedFrom != null)
+        {
+            this_EnemyControl_MovementController.spawnerInstantiatedFrom.RemoveEnemyFromSpawner(this.gameObject);
+        }
         ZoneManager.Instance.DeleteEnemyFromCurrentRoom(this_EnemyControl_MovementController);
     }
 
@@ -294,6 +283,25 @@ public class EnemySetControl : MonoBehaviour
 
     }
 
+    void PlayEnemyDeathSound()
+    {
+        ///Sonido
+        int random = Random.Range(0, 3);
+        switch (random)
+        {
+            case 0:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH1); ///// PLACEHOLDER
+                break;
+            case 1:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH2); ///// PLACEHOLDER
+                break;
+            case 2:
+                MusicManager.Instance.PlaySound(AppSounds.ENEMY_DEATH3); ///// PLACEHOLDER
+                break;
+            default:
+                break;
+        }
+    }
     void StopParticles()
     {
         if (stunPart.isPlaying) //PLACEHOLDER

@@ -42,11 +42,13 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
             if (m_activeRoom != null)
             {
                 m_activeRoom.DeactivateEnemies();
+                m_activeRoom.DeactivateSpawnersInRoom();
                 m_activeRoom.DeleteControlledEnemyFromRoomList();
                 m_activeRoom.ResetRoom();
             }
             m_activeRoom = newRoom;
-            m_activeRoom.ActivateEnemies();           
+            m_activeRoom.ActivateEnemies();
+            m_activeRoom.ActivateSpawnersInRoom();
         }
 
     }

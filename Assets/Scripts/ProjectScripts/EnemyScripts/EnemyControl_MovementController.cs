@@ -27,6 +27,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private Vector2 dashDirection = new Vector2(1, 0);
     private bool isDashing = false;
 
+    [HideInInspector] public Spawner spawnerInstantiatedFrom;
     void OnEnable()
     {
         canUseLeftTrigger = false;  ////Este bool impide que al poseer al enemigo con el left trigger, se inicie inmediatamente el Input de LeftTrigger que desposee al enemigo en este script

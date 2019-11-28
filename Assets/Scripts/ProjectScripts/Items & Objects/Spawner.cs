@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject enemyToSpawn;
     [SerializeField] float maxEnemiesInstantiated;
     List<GameObject> actualEnemiesInstantiated = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +27,17 @@ public class Spawner : MonoBehaviour
         {
             timer = 0;
             timeBetweenSpawns = Random.Range(originalTimeBetweenSpawns - randomDeviationBetweenSpawns, originalTimeBetweenSpawns + randomDeviationBetweenSpawns);
-            actualEnemiesInstantiated.Add(Instantiate(enemyToSpawn, this.transform.position,this.transform.rotation));
-        }
-        for (int i = 0; i < actualEnemiesInstantiated.Count - 1; i++)
-        {
-            if (!actualEnemiesInstantiated[i].activeSelf)
+            GameObject actualEnemy = Instantiate(enemyToSpawn, this.transform.position, this.transform.rotation);
+            actualEnemiesInstantiated.Add(actualEnemy);
+            if (actualEnemy.GetComponent<EnemyControl_MovementController>() != null)
             {
-                actualEnemiesInstantiated.RemoveAt(i);
+                ZoneManager.Instance.m_activeRoom.AddEnemyAtRoom(actualEnemy.GetComponent<EnemyControl_MovementController>());
+                actualEnemy.GetComponent<EnemyControl_MovementController>().spawnerInstantiatedFrom = this;
             }
         }
+    }
+    public void RemoveEnemyFromSpawner(GameObject enemy)
+    {
+        actualEnemiesInstantiated.Remove(enemy);
     }
 }
