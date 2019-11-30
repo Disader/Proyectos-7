@@ -75,8 +75,10 @@ public class EnemySetControl : MonoBehaviour
     }
 
     Color originalColor; //PLACEHOLDER
+    bool isBeingPossessed;
     public void PossessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador y se indica a GameManager que este enmigo es ActualPlayer
     {
+        isBeingPossessed = true;
         StopAllCoroutines(); //Se evita que se reactive la IA tras acabar el Stun si se esta poseyendo.
         StopParticles();
 
@@ -126,8 +128,9 @@ public class EnemySetControl : MonoBehaviour
 
     private float lastSpeedX;
     private float lastSpeedY;
-    public void UnpossessEnemy() 
+    public void UnpossessEnemy()  
     {
+        isBeingPossessed = false;
         ////Se desactiva el control del enemigo, se activa el jugador y se indica que es el ActualPlayer; se le coloca en la posicion del enemigo y se eliminan las colisiones entre ambos
         UnpossessEnemySetComponents(); 
 
@@ -182,12 +185,12 @@ public class EnemySetControl : MonoBehaviour
 
     public virtual void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
     {  
-        if (this_EnemyAI.enabled == false) ////El enemigo está poseído
+        if (isBeingPossessed) ////El enemigo está poseído
         {
             EnemyDeadWhilePossessed();
         }
 
-        else if (this_EnemyAI.enabled == true)//// El enemigo no está poseído
+        else if (!isBeingPossessed)//// El enemigo no está poseído
         {
             Instantiate(deathPart, transform.position, transform.rotation); //PLACEHOLDER
             Instantiate(deathDummy, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummy

@@ -209,6 +209,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     {
         autoAimIsActivated = false;
     }
+    
     ///////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////
 
     [Header("Animators")]

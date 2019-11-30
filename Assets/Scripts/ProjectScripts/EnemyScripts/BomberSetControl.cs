@@ -18,7 +18,7 @@ public class BomberSetControl : EnemySetControl
 
         yield return new WaitForSeconds(timeStunned);
 
-        bomber_AI.InstantiateExplosion();
+        CheckEnemyDeath();
     }
     public override void CheckEnemyDeath()
     {

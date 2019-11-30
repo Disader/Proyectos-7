@@ -28,40 +28,71 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyHealth = defaultEnemyHealth; ////Al activarse el enemigo, recupera la vida perdida
     }
+    private void Update()
+    {
+        if (isOnFire)
+        {
+            recieveDamageTimer += Time.deltaTime;
+        }
+        if (m_isInvulnerable == true)
+        {
+            m_invulnerableTimer += Time.deltaTime;
+        }
+    }
 
     public void ReceiveDamage(int damageReceived) ////Recibir daño
     {
-        enemyHealth -= damageReceived;
-        myAnimator.SetTrigger("Damaged"); //Animación de daño //PLACEHOLDER
-        if (enemyHealth <= 0)
+        if (!m_isInvulnerable)
         {
-            thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte
+            enemyHealth -= damageReceived;
+            myAnimator.SetTrigger("Damaged"); //Animación de daño //PLACEHOLDER
+            if (enemyHealth <= 0)
+            {
+                thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte
+            }
         }
     }
+
     [HideInInspector] public Coroutine actualReciveDamageCoroutine;
-    float timer = 0;
+    float recieveDamageTimer = 0;
     bool isOnFire;
     [SerializeField] ParticleSystem fireParticle;
+
     public IEnumerator recieveDamageOverTime(int damagePerSecond, float time)
     {
         isOnFire = true;
-        timer = 0;
+        recieveDamageTimer = 0;
         fireParticle.Play();
-        while (time > timer)
+        while (time > recieveDamageTimer)
         {
             ReceiveDamage(damagePerSecond);
             yield return new WaitForSeconds(1);
         }
         fireParticle.Stop();
         isOnFire = false;
-        timer = 0;
+        recieveDamageTimer = 0;
     }
 
-    private void Update()
+    bool m_isInvulnerable = false;
+    float m_invulnerableTimer;
+    [SerializeField] float InvulnerabilityTime;
+    public IEnumerator StartInvulnerability()
     {
-        if (isOnFire)
-        {
-            timer += Time.deltaTime;
-        }
+        m_isInvulnerable = true;
+        yield return new WaitForSeconds(InvulnerabilityTime);
+        m_isInvulnerable = false;
     }
+    IEnumerator Flash()
+    {
+        m_invulnerableTimer = 0;
+
+        while (InvulnerabilityTime > m_invulnerableTimer)
+        {
+            
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        m_invulnerableTimer = 0;
+    }
+   
 }
