@@ -29,7 +29,12 @@ public class DamageObject : MonoBehaviour
 
         else if (collisionIsPlayer != null && collisionIsPlayer == GameManager.Instance.ActualPlayerController && collision.GetComponent<RoomManager>() == null) ////Colisión con Player
         {
-            CollisionWithPlayer();
+            PlayerHealthController playerHealth = collision.GetComponent<PlayerHealthController>();
+            if (playerHealth != null)
+            {
+                CollisionWithPlayer(playerHealth);
+            }
+           
         }
 
         else if (collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
@@ -51,9 +56,9 @@ public class DamageObject : MonoBehaviour
     {
 
     }
-    protected virtual void CollisionWithPlayer()
+    protected virtual void CollisionWithPlayer(PlayerHealthController playerHealth)
     {
-        HealthHeartsVisual.healthHeartsSystemStatic.Damage(bulletDamageToPlayer);
+        playerHealth.DamagePlayer(bulletDamageToPlayer);
         CollisionWithPlayerEffects();
     }
     protected virtual void CollisionWithPlayerEffects()

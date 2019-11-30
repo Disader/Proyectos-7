@@ -429,10 +429,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8753018604584853975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b381a4121191341aae33535facb8ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 9322fb8f43421bb4ea560cc7770a671e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireParticles: {fileID: 8078968107904378954}
+  invulnerabilityTime: 1.5
+  rendererToFlash: {fileID: 8753018604584853976}
+  flashTime: 0.1
 --- !u!1 &8753018605015778761
 GameObject:
   m_ObjectHideFlags: 0

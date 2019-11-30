@@ -17,12 +17,11 @@ public class FireBullet : BulletBase
         }
         collisionIsEnemy.actualReciveDamageCoroutine = collisionIsEnemy.StartCoroutine(collisionIsEnemy.recieveDamageOverTime(damagePerSecond, timeInFire));
     }
-    protected override void CollisionWithPlayer()
+    protected override void CollisionWithPlayer(PlayerHealthController playerHealth)
     {
-        base.CollisionWithPlayer();
-        PlayerFireBehaviour playerFire = collisionIsPlayer.GetComponent<PlayerFireBehaviour>();
+        base.CollisionWithPlayer(playerHealth);
 
-        playerFire.StopBurningPlayer();
-        playerFire.actualReciveDamageCoroutine = playerFire.StartCoroutine(playerFire.recieveDamageOverTime(damagePerSecond, timeInFire)); 
+        playerHealth.StopBurningPlayer();
+        playerHealth.actualReciveDamageCoroutine = playerHealth.StartCoroutine(playerHealth.RecieveDamageOverTime(damagePerSecond, timeInFire)); 
     }
 }

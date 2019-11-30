@@ -50,7 +50,7 @@ public class GameManager : TemporalSingleton<GameManager>
     }
     void StopBurningPlayer()
     {
-        PlayerFireBehaviour actualPlayer= GameManager.Instance.realPlayerGO.GetComponent<PlayerFireBehaviour>();
+        PlayerHealthController actualPlayer= GameManager.Instance.realPlayerGO.GetComponent<PlayerHealthController>();
         if (actualPlayer != null)
         {
             actualPlayer.StopBurningPlayer();
