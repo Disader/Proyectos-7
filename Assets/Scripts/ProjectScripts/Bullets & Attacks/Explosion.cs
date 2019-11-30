@@ -20,4 +20,16 @@ public class Explosion : DamageObject
             Destroy(gameObject);
         }
     }
+
+    protected override void CollisionWithOther(Collider2D otherObject)  //La explosión chequea en colision with other si es un bloqueo de explosión
+    {
+        base.CollisionWithOther(otherObject);
+
+        ExplosionBlockade isOtherAnExplosionBlockade = otherObject.GetComponent<ExplosionBlockade>();
+
+        if (isOtherAnExplosionBlockade != null)
+        {
+            isOtherAnExplosionBlockade.BreakBlockade();
+        }
+    }
 }

@@ -24,4 +24,16 @@ public class FireBullet : BulletBase
         playerHealth.StopBurningPlayer();
         playerHealth.actualReciveDamageCoroutine = playerHealth.StartCoroutine(playerHealth.RecieveDamageOverTime(damagePerSecond, timeInFire)); 
     }
+    protected override void CollisionWithOther(Collider2D otherObject)  //La explosión chequea en colision with other si es un bloqueo de explosión
+    {
+        Debug.Log("yay");
+        base.CollisionWithOther(otherObject);
+
+        FireBlockade isOtherAFireBlockade = otherObject.GetComponent<FireBlockade>();
+
+        if (isOtherAFireBlockade != null)
+        {
+            isOtherAFireBlockade.BreakBlockade();
+        }
+    }
 }

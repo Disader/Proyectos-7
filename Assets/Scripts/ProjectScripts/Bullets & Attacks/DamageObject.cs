@@ -36,7 +36,7 @@ public class DamageObject : MonoBehaviour
 
         else if (collision.GetComponent<RoomManager>() == null)  ////Colisión con cualquier cosa que no sea las anteriores
         {
-            CollisionWithOther();
+            CollisionWithOther(collision);  //El método de colision con "Otros" recibe la información de colisión para que los que heredan puedan chequear para, por ejemplo, ver si es un bloqueo.
         }
     }
     protected virtual void CollisionWithEnemy(Collider2D enemy)
@@ -61,7 +61,7 @@ public class DamageObject : MonoBehaviour
     protected virtual void CollisionWithPlayerEffects()
     {
     }
-    protected virtual void CollisionWithOther()
+    protected virtual void CollisionWithOther(Collider2D otherObject)
     {
         CollisionWithOtherEffects();
     }
