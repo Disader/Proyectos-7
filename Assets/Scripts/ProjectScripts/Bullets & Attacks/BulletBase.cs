@@ -17,6 +17,7 @@ public class BulletBase : DamageObject
     [SerializeField] float distanceToDestroy;
     float timerToDestroy;
     float distanceTravelled;
+
     private void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * m_velocity;

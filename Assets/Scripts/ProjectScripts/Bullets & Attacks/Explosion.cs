@@ -8,6 +8,7 @@ public class Explosion : DamageObject
     [SerializeField] ParticleSystem particles;
     float timer=0;
     // Update is called once per frame
+
     void Update()
     {  /////CAMERA SHAKE///////
         CinemachineImpulseSource impulse = GetComponent<CinemachineImpulseSource>();//PLACEHOLDER
