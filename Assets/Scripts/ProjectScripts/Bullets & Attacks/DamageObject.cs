@@ -13,9 +13,6 @@ public class DamageObject : MonoBehaviour
     protected EnemyHealth collisionIsEnemy;
     protected PlayerControl_MovementController collisionIsPlayer;
 
-     [Header("Chequear que solo se ejecuta una vez")]
-    private bool collideOnce = false;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collisionIsEnemy = collision.GetComponent<EnemyHealth>();

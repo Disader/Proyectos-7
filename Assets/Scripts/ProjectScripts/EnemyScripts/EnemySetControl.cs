@@ -27,6 +27,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("RigidBodies")]
     private Rigidbody2D thisEnemyRB;
 
+    [Header("El Objeto de pies del enemigo")]
+    public GameObject enemyFeet;
+
     [Header("El Transform donde hace TP el Jugador al Desposeer/Consumir")]
     public Transform playerSpawnPos;
 
@@ -180,7 +183,7 @@ public class EnemySetControl : MonoBehaviour
         GameManager.Instance.realPlayerGO.transform.position = playerSpawnPos.position;
         GameManager.Instance.realPlayerGO.SetActive(true);
         GameManager.Instance.ActualPlayerController = player_MovementController;
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
+        Physics2D.IgnoreCollision(enemyFeet.GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), true);
     }
 
     public virtual void CheckEnemyDeath() ////Comprueba si el enemigo ha muerto poseído o no y actúa en consecuencia
@@ -293,7 +296,7 @@ public class EnemySetControl : MonoBehaviour
 
         yield return new WaitForSeconds(timeStunned);
 
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), false);
+        Physics2D.IgnoreCollision(enemyFeet.GetComponent<Collider2D>(), GameManager.Instance.realPlayerGO.GetComponent<Collider2D>(), false);
         this_EnemyNavAgent.enabled = true;
         this_EnemyAI.enabled = true;
 

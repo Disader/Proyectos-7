@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b70540b9586ea3418e4835b7e606e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyFeet: {fileID: 8310090794344736802}
   playerSpawnPos: {fileID: 2031147985980840961}
   timeToConsume: 2
   healthHealedOnCosuming: 1
