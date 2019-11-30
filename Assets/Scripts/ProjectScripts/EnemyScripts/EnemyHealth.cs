@@ -42,13 +42,17 @@ public class EnemyHealth : MonoBehaviour
 
     public void ReceiveDamage(int damageReceived) ////Recibir daño
     {
-        if (!m_isInvulnerable)
+        if ((!m_isInvulnerable||isOnFire) && this.gameObject.GetComponent<EnemySetControl>().isBeingPossessed)
         {
             enemyHealth -= damageReceived;
             myAnimator.SetTrigger("Damaged"); //Animación de daño //PLACEHOLDER
             if (enemyHealth <= 0)
             {
                 thisEnemySetControl.CheckEnemyDeath(); ////Al tener vida 0 se manda al SetControl chequear la muerte
+            }
+            else
+            {
+                StartCoroutine(StartInvulnerability());
             }
         }
     }
@@ -73,26 +77,30 @@ public class EnemyHealth : MonoBehaviour
         recieveDamageTimer = 0;
     }
 
+    [Header("Variables de invencibilidad")]
     bool m_isInvulnerable = false;
     float m_invulnerableTimer;
-    [SerializeField] float InvulnerabilityTime;
+
+    [SerializeField] float invulnerabilityTime;
+    [SerializeField] SpriteRenderer rendererToFlash;
+    [SerializeField] float flashTime;
     public IEnumerator StartInvulnerability()
     {
         m_isInvulnerable = true;
-        yield return new WaitForSeconds(InvulnerabilityTime);
+        StartCoroutine(Flash());
+        yield return new WaitForSeconds(invulnerabilityTime);
         m_isInvulnerable = false;
     }
     IEnumerator Flash()
     {
         m_invulnerableTimer = 0;
 
-        while (InvulnerabilityTime > m_invulnerableTimer)
+        while (invulnerabilityTime > m_invulnerableTimer)
         {
-            
-            yield return new WaitForSeconds(0.1f);
+            rendererToFlash.enabled = !rendererToFlash.enabled;
+            yield return new WaitForSeconds(flashTime);
         }
-
-        m_invulnerableTimer = 0;
+        rendererToFlash.enabled = true;
     }
    
 }

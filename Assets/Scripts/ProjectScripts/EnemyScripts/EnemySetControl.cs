@@ -75,7 +75,7 @@ public class EnemySetControl : MonoBehaviour
     }
 
     Color originalColor; //PLACEHOLDER
-    bool isBeingPossessed;
+    [HideInInspector] public bool isBeingPossessed;
     public void PossessEnemy()  ////Se desactiva la IA y el agente, se activa el control de enemigo, se detiene el movimiento residual del control de jugador, se desactiva el objeto del jugador y se indica a GameManager que este enmigo es ActualPlayer
     {
         isBeingPossessed = true;
@@ -196,14 +196,14 @@ public class EnemySetControl : MonoBehaviour
             Instantiate(deathDummy, transform.position, transform.rotation);//PLACEHOLDER Instanciar dummy
             gameObject.SetActive(false);
         }
-
-        PlayEnemyDeathSound();
        
         if(this_EnemyControl_MovementController.spawnerInstantiatedFrom != null)
         {
             this_EnemyControl_MovementController.spawnerInstantiatedFrom.RemoveEnemyFromSpawner(this.gameObject);
         }
         ZoneManager.Instance.DeleteEnemyFromCurrentRoom(this_EnemyControl_MovementController);
+
+        PlayEnemyDeathSound();
     }
 
     public void EnemyDeadWhilePossessed() ////Funcionalidad al morir el enemigo mientras estaba poseído

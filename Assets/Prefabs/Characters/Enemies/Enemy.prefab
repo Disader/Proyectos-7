@@ -279,7 +279,9 @@ MonoBehaviour:
   defaultEnemyHealth: 0
   myAnimator: {fileID: 1957557055709031805}
   fireParticle: {fileID: 61685727518570091}
-  InvulnerabilityTime: 0
+  invulnerabilityTime: 1.5
+  rendererToFlash: {fileID: 4387296697098754760}
+  flashTime: 0.1
 --- !u!50 &4387296696666090936
 Rigidbody2D:
   serializedVersion: 4
@@ -358,6 +360,7 @@ MonoBehaviour:
   characterAnimator: {fileID: 1957557055709031805}
   deathDummy: {fileID: 4387296696666090823, guid: 849ff538e7a7c3743adf79fcdf03579e,
     type: 3}
+  isBeingPossessed: 0
 --- !u!114 &2678838310368782444
 MonoBehaviour:
   m_ObjectHideFlags: 0
