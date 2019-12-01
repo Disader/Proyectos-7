@@ -31,11 +31,14 @@ public class UIManager : TemporalSingleton<UIManager>
     {     
         map.GetComponent<Canvas>().enabled = !map.GetComponent<Canvas>().enabled;
         GameManager.Instance.PauseGame();
+        Cursor.visible = !Cursor.visible;
+
     }
     public void ShowPause()
     {
         pauseCanvas.enabled = !pauseCanvas.enabled;
         GameManager.Instance.PauseGame();
+        Cursor.visible = !Cursor.visible;
     }
 
     public void Fade()

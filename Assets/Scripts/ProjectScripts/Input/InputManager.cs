@@ -12,7 +12,8 @@ public class InputManager : PersistentSingleton<InputManager>
     private void Start()
     {
         m_myInputAsset = new PlayerInputAsset();
-        m_myInputAsset.Enable(); 
+        m_myInputAsset.Enable();
+        Cursor.visible = false;
     }
     public Vector2 RotationInput()
     {
