@@ -25,6 +25,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 playerInputDirection;
     protected float angle;
 
+    public Animator m_minimaparrowAnimator;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -32,6 +33,7 @@ public class PlayerControl_MovementController : MonoBehaviour
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
         controlRb = GetComponent<Rigidbody2D>();
+        m_minimaparrowAnimator = UIManager.Instance.minimapArrow;
     }
 
     // Update is called once per frame
@@ -215,7 +217,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [Header("Animators")]
 
     [SerializeField] protected Animator m_characterAnimator;
-    [SerializeField] protected Animator m_minimaparrowAnimator;
+
 
     protected virtual void SetAnimationsVariables() //Solo funciona en player
     {

@@ -39,6 +39,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
         thisEnemySetControl = GetComponent<EnemySetControl>();
         thisEnemyShootingScript = GetComponent<ShootingScript>();
+        m_minimaparrowAnimator = UIManager.Instance.minimapArrow;
     }
 
     protected override void Update()

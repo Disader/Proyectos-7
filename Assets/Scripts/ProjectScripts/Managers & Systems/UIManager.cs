@@ -10,6 +10,8 @@ public class UIManager : TemporalSingleton<UIManager>
     public Canvas pauseCanvas;
     [SerializeField] Animator m_fadeAnimation;
     protected PlayerInputAsset actions;
+    public Animator minimapArrow;
+
     // Update is called once per frame
     private void Start()
     {
