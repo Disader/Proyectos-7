@@ -46,6 +46,7 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         LoadGame();
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(100);
+        ZoneManager.Instance.SetPlayerInPositionOnLevelStart();
         ResetPlayerStates();
     }
     void ResetPlayerStates()
@@ -56,6 +57,7 @@ public class GameManager : TemporalSingleton<GameManager>
             actualPlayer.ResetPlayerStates();
         }
     }
+
     /*private void Update() //// TEST DE GUARDADO
     {
         if (Input.GetKeyDown(KeyCode.Q))

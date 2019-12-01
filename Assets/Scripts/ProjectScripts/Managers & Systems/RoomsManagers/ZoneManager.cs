@@ -10,10 +10,16 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     [HideInInspector] public CinemachineVirtualCamera m_activeCamera;
     [HideInInspector] public RoomManager m_activeRoom;
 
+    [Header("Posición inicial del jugador al comenzar el nivel")]
+    [SerializeField] Transform initialPlayerPosition;
+
     [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
     public SceneReference zoneScene;
 
-
+    private void Start()
+    {
+        SetPlayerInPositionOnLevelStart(initialPlayerPosition);
+    }
     public IEnumerator ChangeRoom(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
               
@@ -63,5 +69,15 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     public void RemoveBulletInActiveRoom(BulletBase bullet)
     {
         m_activeRoom.RemoveBulletInRoom(bullet);
+    }
+    
+    // Métodos creados para permitir setear la posición del jugador cuando se cambia de zona
+    public void SetPlayerInPositionOnLevelStart(Transform newTransform)
+    {
+        GameManager.Instance.realPlayerGO.transform.position = newTransform.position;
+    }
+    public void SetPlayerInPositionOnLevelStart() 
+    {
+        GameManager.Instance.realPlayerGO.transform.position = initialPlayerPosition.position;
     }
 }
