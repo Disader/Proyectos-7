@@ -26,7 +26,6 @@ public class FireBullet : BulletBase
     }
     protected override void CollisionWithOther(Collider2D otherObject)  //La explosión chequea en colision with other si es un bloqueo de explosión
     {
-        Debug.Log("yay");
         base.CollisionWithOther(otherObject);
 
         FireBlockade isOtherAFireBlockade = otherObject.GetComponent<FireBlockade>();

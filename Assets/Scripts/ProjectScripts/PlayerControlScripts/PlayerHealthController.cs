@@ -7,9 +7,11 @@ public class PlayerHealthController : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         if ((!m_isInvulnerable))
-        {
+        {          
+            //El orden en importante, para que no mate al jugador se inicie después la coroutina, haciendo que respawnee con invulnerabilidad
+            actualInvulnerabilityCoroutine = StartCoroutine(StartInvulnerability());
             HealthHeartsVisual.healthHeartsSystemStatic.Damage(damage);
-            StartCoroutine(StartInvulnerability());
+            ///////////////////
         }
     }
     private void Update()
@@ -23,11 +25,15 @@ public class PlayerHealthController : MonoBehaviour
             m_invulnerableTimer += Time.deltaTime;
         }
     }
+
+    //Fire State
     [Header("Variables de estado de fuego")]
     [HideInInspector] public Coroutine actualReciveDamageCoroutine;
+    [SerializeField] ParticleSystem fireParticles;
+
     float timer = 0;
     bool isOnFire;
-    [SerializeField] ParticleSystem fireParticles;
+
     public IEnumerator RecieveDamageOverTime(int damagePerSecond, float time)
     {
         isOnFire = true;
@@ -46,25 +52,30 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (actualReciveDamageCoroutine != null)
         {
-            StopAllCoroutines();
-            fireParticles.Stop();
-            isOnFire = false;
-            timer = 0;
+            StopCoroutine(actualReciveDamageCoroutine);
         }
+        timer = 0;
+        fireParticles.Stop();
+        isOnFire = false;
     }
 
+    //Invulnerability
     [Header("Variables de invencibilidad")]
-    bool m_isInvulnerable = false;
-    float m_invulnerableTimer;
-
     [SerializeField] float invulnerabilityTime;
     [SerializeField] SpriteRenderer rendererToFlash;
     [SerializeField] float flashTime;
+
+    bool m_isInvulnerable = false;
+    float m_invulnerableTimer;
+
+    Coroutine actualFlashCoroutine;
+    Coroutine actualInvulnerabilityCoroutine;
     public IEnumerator StartInvulnerability()
     {
         m_isInvulnerable = true;
-        StartCoroutine(Flash());
+        actualFlashCoroutine=StartCoroutine(Flash());
         yield return new WaitForSeconds(invulnerabilityTime);
+        rendererToFlash.enabled = true;
         m_isInvulnerable = false;
     }
     IEnumerator Flash()
@@ -76,6 +87,27 @@ public class PlayerHealthController : MonoBehaviour
             rendererToFlash.enabled = !rendererToFlash.enabled;
             yield return new WaitForSeconds(flashTime);
         }
+    }
+    public void StopInvulnerabilityState()
+    {
+        if (actualFlashCoroutine != null)
+        {
+            StopCoroutine(actualFlashCoroutine);
+        }
+        if (actualInvulnerabilityCoroutine != null)
+        {
+            StopCoroutine(actualInvulnerabilityCoroutine);
+        }
         rendererToFlash.enabled = true;
+        m_isInvulnerable = false;
+        m_invulnerableTimer = 0;
+    }
+
+    public void ResetPlayerStates()
+    {
+        //FireState
+        StopBurningPlayer();
+        //Invulnerability
+        StopInvulnerabilityState();
     }
 }

@@ -125,6 +125,7 @@ public class EnemySetControl : MonoBehaviour
 
     void PossessSetPlayersInGameManager()
     {
+        GameManager.Instance.realPlayerGO.GetComponent<PlayerHealthController>().ResetPlayerStates();
         GameManager.Instance.realPlayerGO.SetActive(false);
         GameManager.Instance.ActualPlayerController = this_EnemyControl_MovementController;
     }

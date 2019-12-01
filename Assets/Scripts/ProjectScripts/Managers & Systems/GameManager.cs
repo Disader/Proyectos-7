@@ -46,14 +46,14 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         LoadGame();
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(100);
-        StopBurningPlayer();
+        ResetPlayerStates();
     }
-    void StopBurningPlayer()
+    void ResetPlayerStates()
     {
         PlayerHealthController actualPlayer= GameManager.Instance.realPlayerGO.GetComponent<PlayerHealthController>();
         if (actualPlayer != null)
         {
-            actualPlayer.StopBurningPlayer();
+            actualPlayer.ResetPlayerStates();
         }
     }
     /*private void Update() //// TEST DE GUARDADO
