@@ -7,11 +7,16 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera m_roomCamera;
 
-     public List<EnemyControl_MovementController> currentEnemiesInRoom;
-    Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
-    List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
     private bool isDiscovered;
+    Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
+
+    [SerializeField] float maxDummiesInRoom = 10;
+
+    //List of active object in room
+    List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
+    [HideInInspector] public List<EnemyControl_MovementController> currentEnemiesInRoom = new List<EnemyControl_MovementController>();
     List<Spawner> activeSpawnersInRoom = new List<Spawner>();
+    Queue<GameObject> activeDummiesInRoom = new Queue<GameObject>();
 
     BoxCollider2D myCollider;
     [SerializeField] LayerMask m_enemyLayer;
@@ -67,6 +72,8 @@ public class RoomManager : MonoBehaviour
             }
         }
     }
+
+    //Functions to add to colection
     public void AddSpawnerAtRoom(Spawner spawner)
     {
         activeSpawnersInRoom.Add(spawner);
@@ -75,17 +82,27 @@ public class RoomManager : MonoBehaviour
     {
         activeBulletsInRoom.Add(bullet);
     }
-    public void RemoveBulletInRoom(BulletBase bullet)
-    {
-        activeBulletsInRoom.Remove(bullet);
-    }
     public void AddEnemyAtRoom(EnemyControl_MovementController newEnemy)
     {
         if (!currentEnemiesInRoom.Contains(newEnemy))
         {
             currentEnemiesInRoom.Add(newEnemy);
-        }   
+        }
     }
+    public void AddDummieAtRoom(GameObject dummy)
+    {
+        activeDummiesInRoom.Enqueue(dummy);
+        if (activeDummiesInRoom.Count > maxDummiesInRoom)
+        {
+            RemoveDummieAtRoom();
+        }
+    }
+
+    //Functions to remove from collection
+    public void RemoveBulletInRoom(BulletBase bullet)
+    {
+        activeBulletsInRoom.Remove(bullet);
+    } 
     public void RemoveEnemyAtRoom(EnemyControl_MovementController deleteEnemy)
     {
         if (currentEnemiesInRoom.Contains(deleteEnemy))
@@ -93,6 +110,11 @@ public class RoomManager : MonoBehaviour
             currentEnemiesInRoom.Remove(deleteEnemy);
         }
     }
+    public void RemoveDummieAtRoom()
+    {
+        Destroy(activeDummiesInRoom.Dequeue());
+    }
+
     public void ActivateEnemies()
     {
         foreach (EnemyControl_MovementController enemy in currentEnemiesInRoom)
