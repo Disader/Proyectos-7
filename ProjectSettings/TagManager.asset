@@ -22,7 +22,7 @@ TagManager:
   - Cover
   - Minimap
   - EnemyFeet
-  - 
+  - BulletShadow
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: ArmTest
     uniqueID: 1519116799
+    locked: 0
+  - name: Bullets
+    uniqueID: 977709079
     locked: 0
   - name: ParticlesFront
     uniqueID: 3826979089

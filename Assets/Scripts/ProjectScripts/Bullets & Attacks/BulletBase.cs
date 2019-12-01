@@ -42,6 +42,13 @@ public class BulletBase : DamageObject
             }
         } 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DestroyBullet();
+        CollisionWithOtherEffects();
+    }
+
     protected override void CollisionWithEnemyEffects()
     {
         DestroyBullet();
@@ -82,7 +89,7 @@ public class BulletBase : DamageObject
         DestroyBullet();
         Instantiate(hitWallPart, transform.position, transform.rotation);   //PLACEHOLDER
     }
-    void DestroyBullet()
+    private void DestroyBullet()
     {
         Destroy(gameObject);
         ZoneManager.Instance.RemoveBulletInActiveRoom(this);
