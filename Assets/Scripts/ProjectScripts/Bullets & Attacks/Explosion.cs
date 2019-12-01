@@ -7,7 +7,11 @@ public class Explosion : DamageObject
 {
     [SerializeField] ParticleSystem particles;
     float timer=0;
-    // Update is called once per frame
+    private void Start()
+    {
+        MusicManager.Instance.PlaySound(AppSounds.EXPLOSION_1,0.5f);
+        MusicManager.Instance.PlaySound(AppSounds.EXPLOSION_2, 0.5f);
+    }
 
     void Update()
     {  /////CAMERA SHAKE///////

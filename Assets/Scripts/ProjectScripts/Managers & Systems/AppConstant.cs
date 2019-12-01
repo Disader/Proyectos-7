@@ -41,6 +41,8 @@ public class AppSounds
     public static readonly string   ENEMY_FIRE2      = "Ene1_F_2_Aud";
     public static readonly string   ENEMY_HIT1       = "Ene1_H_1_Aud";
     public static readonly string   ENEMY_HIT2       = "Ene1_H_2_Aud";
+    public static readonly string   EXPLOSION_1      = "Ene2_Ex_1_Aud";
+    public static readonly string   EXPLOSION_2      = "Ene2_Ex_2_Aud";
 }
 public class AppSortingLayers
 {
