@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9ec736d2d72af4a94aad78a54f7e95, type: 3}
   m_Name: FireAbility
   m_EditorClassIdentifier: 
-  m_bulletType: {fileID: 8902041960538254988, guid: 30ad7ab928601974b9eb2c6c48fb4354,
+  m_bulletType: {fileID: 5581599170633199143, guid: 76e637199e4f1eb44bd1b6f36116cc6f,
     type: 3}
   m_slotCost: 1
