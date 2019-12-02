@@ -233,6 +233,7 @@ MonoBehaviour:
     m_Bits: 55
   m_armTransform: {fileID: 6218837739217761860}
   m_distanceAimAheadPlayer: 0.2
+  m_aimLerpVelocity: 5
   m_timeTillFistShoot: 0.5
   distanceToShootPlayer: 12
   m_clockDelay: 0.5
@@ -323,12 +324,13 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   playerInputDirection: {x: 0, y: 0}
+  angle: 0
+  m_minimaparrowAnimator: {fileID: 0}
   angleAimPriority: 0.75
   maxAimAngle: 25
   distanceAimPriority: 0.25
   maxDistanceAim: 40
   m_characterAnimator: {fileID: 1957557055709031805}
-  m_minimaparrowAnimator: {fileID: 0}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
   dashTime: 0.4
@@ -351,6 +353,7 @@ MonoBehaviour:
   timeToConsume: 2
   healthHealedOnCosuming: 1
   timeStunned: 1.5
+  m_despossessForceMangitude: 10
   playerTimeStunned: 1
   deathPart: {fileID: 7360201795092676012, guid: fae0fda0cf493734aa1ab295348c070b,
     type: 3}

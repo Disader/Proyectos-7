@@ -83,6 +83,7 @@ public class PlayerHealthController : MonoBehaviour
         yield return new WaitForSeconds(invulnerabilityTime);
         rendererToFlash.enabled = true;
         m_isInvulnerable = false;
+        actualInvulnerabilityCoroutine = null;
     }
     IEnumerator Flash()
     {
@@ -93,6 +94,7 @@ public class PlayerHealthController : MonoBehaviour
             rendererToFlash.enabled = !rendererToFlash.enabled;
             yield return new WaitForSeconds(flashTime);
         }
+        actualFlashCoroutine = null;
     }
     public void StopInvulnerabilityState()
     {
@@ -107,6 +109,8 @@ public class PlayerHealthController : MonoBehaviour
         rendererToFlash.enabled = true;
         m_isInvulnerable = false;
         m_invulnerableTimer = 0;
+        actualInvulnerabilityCoroutine = null;
+        actualFlashCoroutine = null;
     }
 
     public void ResetPlayerStates()
