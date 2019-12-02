@@ -23,5 +23,10 @@ public class AbilitiesSlotsManager : TemporalSingleton<AbilitiesSlotsManager>
                 Debug.Log("No hay suficientes slots para guardar Pasiva!");
             }
         }
+        else
+        {
+            currentStoredAbility = null;
+        }
     }
+   
 }

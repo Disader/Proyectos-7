@@ -264,10 +264,9 @@ public class EnemySetControl : MonoBehaviour
 
         yield return new WaitForSeconds(calculatedTimeToConsume);   //Se aplica el tiempo calculado
 
-        if (this_EnemyActiveAbility != null)
-        {
-            this_EnemyActiveAbility.SaveAbility();
-        }
+        
+        this_EnemyActiveAbility.SaveAbility();
+        
         consumePart.Stop(); //Partículas de consumir PLACEHOLDER
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(healthHealedOnCosuming);
         hasBeenConsumed = true;

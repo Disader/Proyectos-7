@@ -16,8 +16,11 @@ public class ActiveAbility : MonoBehaviour
 
     public void SetCurrentAbility(ShootingScript enemyShootingScript) //Aplicar pasiva a la variable de currentActiveAbility y al script de disparo/ataque
     {
-        currentActiveAbility = AbilitiesSlotsManager.Instance.currentStoredAbility;
-        enemyShootingScript.shSCR_PasiveAbility = currentActiveAbility;
+        if(enemyPasiveAbility != AbilitiesSlotsManager.Instance.currentStoredAbility) //Si la pasiva no es igual que la almacenada, para avitar aplicarla en el enemigo que la setea
+        {
+            currentActiveAbility = AbilitiesSlotsManager.Instance.currentStoredAbility;
+            enemyShootingScript.shSCR_PasiveAbility = currentActiveAbility;
+        }  
     }
 
     public void EraseCurrentAbility(ShootingScript enemyShootingScript) //Al desposeer se elimina la pasiva de la variable currentActiveAbility y del script de disparo/ataque

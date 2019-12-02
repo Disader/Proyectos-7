@@ -53,7 +53,6 @@ public class EnemyAI_Healer : EnemyAI_Standard
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            Debug.Log("Move");
             m_AI_Controller.path = path;           
         }
 
