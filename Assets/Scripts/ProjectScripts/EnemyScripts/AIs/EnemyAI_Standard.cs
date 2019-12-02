@@ -15,6 +15,7 @@ public class EnemyAI_Standard : MonoBehaviour
     [Header("Variables de disparo al jugador")]
     [SerializeField] protected Transform m_armTransform;
     [SerializeField] float m_distanceAimAheadPlayer;
+    [SerializeField] float m_aimLerpVelocity=1;
     [SerializeField] float m_timeTillFistShoot;
     float firstShootTimer;
     [Header("La distancia mínima para disparar al jugador")]
@@ -166,7 +167,7 @@ public class EnemyAI_Standard : MonoBehaviour
         {
             Vector2 vector = VectorToPlayerFixedAim() + GameManager.Instance.ActualPlayerController.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * m_distanceAimAheadPlayer * DistanceToPlayer();
             Debug.DrawRay(m_armTransform.position, vector);
-            angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector), 0.1f);
+            angle = Mathf.LerpAngle(m_armTransform.localEulerAngles.z, Vector2.SignedAngle(Vector2.right, vector), m_aimLerpVelocity * Time.deltaTime);
 
             m_armTransform.localEulerAngles = new Vector3(0, 0, angle);
         }

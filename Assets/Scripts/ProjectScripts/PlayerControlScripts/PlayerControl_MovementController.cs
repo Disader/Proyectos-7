@@ -23,7 +23,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [Header("El Objeto que Funciona como Brazo o el que Rota")]
     public GameObject armObject;
     [HideInInspector] public Vector2 playerInputDirection;
-    protected float angle;
+    [HideInInspector] public float angle;
 
     public Animator m_minimaparrowAnimator;
     // Start is called before the first frame update

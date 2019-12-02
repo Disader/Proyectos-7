@@ -42,8 +42,9 @@ public class EnemySetControl : MonoBehaviour
     [Header("Fragmentos de Vida Recuperados al ser Consumido")]
     public int healthHealedOnCosuming;
 
-    [Header("Variables Stun del Enemigo")]
+    [Header("Variables de desposesión del Enemigo")]
     public float timeStunned;
+    [SerializeField] float m_despossessForceMangitude=10;
 
     [Header("Tiempo de Stun de Player si este Enemigo Muere Estando Poseído")]
     public float playerTimeStunned;
@@ -154,13 +155,12 @@ public class EnemySetControl : MonoBehaviour
             this_EnemyActiveAbility.EraseCurrentAbility(this_EnemyShootingScript); //// VER el método en ActiveAbility      !!!!!
         }
 
-        lastSpeedX = this_EnemyControl_MovementController.controlSpeedX; ////Se guardan las velocidades de X e Y para realizar la fuerza en dirección contraria, y se igualan a 0 para evitar movimiento residual al volver a poseer.
-        lastSpeedY = this_EnemyControl_MovementController.controlSpeedY;
+        
         this_EnemyControl_MovementController.controlSpeedX = 0;
         this_EnemyControl_MovementController.controlSpeedY = 0;
-
         thisEnemyRB.velocity = Vector2.zero;  ////Se elimina toda velocidad del RB y se aplica una fuerza contraria a la velocidad en la que se estaba moviendo en el último momento
-        thisEnemyRB.AddForce(new Vector2(-lastSpeedX, -lastSpeedY) * 2, ForceMode2D.Impulse);
+
+        thisEnemyRB.AddForce(InputManager.Instance.RotationInput()* m_despossessForceMangitude, ForceMode2D.Impulse);
 
         StartCoroutine(StunEnemy()); ////Se inicia el Stun.
 
