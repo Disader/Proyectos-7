@@ -9,11 +9,6 @@ public class AbilitiesSlotsManager : TemporalSingleton<AbilitiesSlotsManager>
     [Header("El Número de Slots Disponibles")]
     public int slotCount = 1;
 
-    public override void Awake()
-    {
-        base.Awake();
-    }
-
     public void StoreAbility(PasiveAbility_SO abilityToStore)
     {
         if (abilityToStore != null)

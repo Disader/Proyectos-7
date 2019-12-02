@@ -86,8 +86,12 @@ public class EnemyHealth : MonoBehaviour
         fireParticle.Stop();
         isOnFire = false;
         recieveDamageTimer = 0;
+        actualReciveDamageCoroutine = null;
     }
-
+    public void RestartFireCoroutineTime()
+    {
+        recieveDamageTimer = 0;
+    }
     [Header("Variables de invencibilidad")]
     bool m_isInvulnerable = false;
     float m_invulnerableTimer;

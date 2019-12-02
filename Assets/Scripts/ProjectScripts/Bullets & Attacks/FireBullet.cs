@@ -13,9 +13,12 @@ public class FireBullet : BulletBase
         base.CollisionWithEnemy(enemy);
         if (collisionIsEnemy.actualReciveDamageCoroutine != null) //Eliminar la anterior coroutina para que no pueda estar quemado varias veces
         {
-            collisionIsEnemy.StopCoroutine(collisionIsEnemy.actualReciveDamageCoroutine);
+            collisionIsEnemy.RestartFireCoroutineTime();
         }
-        collisionIsEnemy.actualReciveDamageCoroutine = collisionIsEnemy.StartCoroutine(collisionIsEnemy.recieveDamageOverTime(damagePerSecond, timeInFire));
+        else
+        {
+            collisionIsEnemy.actualReciveDamageCoroutine = collisionIsEnemy.StartCoroutine(collisionIsEnemy.recieveDamageOverTime(damagePerSecond, timeInFire));
+        }
     }
     protected override void CollisionWithPlayer(PlayerHealthController playerHealth)
     {

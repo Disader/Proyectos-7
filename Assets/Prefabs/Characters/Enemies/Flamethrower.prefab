@@ -255,7 +255,7 @@ MonoBehaviour:
   shSCR_PasiveAbility: {fileID: 0}
   m_firingRate: 0.1
   m_randomFiringRateDeviation: 0.05
-  m_bullet: {fileID: 8902041960538254988, guid: 30ad7ab928601974b9eb2c6c48fb4354,
+  m_bullet: {fileID: 8902041960538254988, guid: 9dba47176109e1b48ba97521b45df3b8,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
   killAll: 0
@@ -323,12 +323,12 @@ MonoBehaviour:
   decelerationY: 100
   armObject: {fileID: 373629627010371272}
   playerInputDirection: {x: 0, y: 0}
+  m_minimaparrowAnimator: {fileID: 0}
   angleAimPriority: 0
   maxAimAngle: 0
   distanceAimPriority: 0
   maxDistanceAim: 0
   m_characterAnimator: {fileID: 1957557055709031805}
-  m_minimaparrowAnimator: {fileID: 0}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
   dashTime: 0.4
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bea3a8d545d874ca005bc4e2f77299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPasiveAbility: {fileID: 0}
+  enemyPasiveAbility: {fileID: 11400000, guid: 87e1d3c09b54f3f40924438faa8d7fac, type: 2}
   currentActiveAbility: {fileID: 0}
 --- !u!70 &1962741437665347485
 CapsuleCollider2D:
