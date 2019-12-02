@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: 7987575117181474788
     second: MapSpirtesheet_9
+  - first:
+      213: -4716774118156481737
+    second: MapSpirtesheet_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -319,6 +322,27 @@ TextureImporter:
       bones: []
       spriteID: fa2e7ac72aeb08a488964027ec1b483b
       internalID: 7987575117181474788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSpirtesheet_10
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 100
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0abbea10f6a4c64b8dbd6eb0d5f899e
+      internalID: -4716774118156481737
       vertices: []
       indices: 
       edges: []
