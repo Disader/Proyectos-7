@@ -47,6 +47,11 @@ public class PlayerHealthController : MonoBehaviour
         fireParticles.Stop();
         isOnFire = false;
         timer = 0;
+        actualReciveDamageCoroutine = null;
+    }
+    public void RestartFireCoroutineTime()
+    {
+        timer = 0;
     }
     public void StopBurningPlayer()
     {
@@ -57,6 +62,7 @@ public class PlayerHealthController : MonoBehaviour
         timer = 0;
         fireParticles.Stop();
         isOnFire = false;
+        actualReciveDamageCoroutine = null;
     }
 
     //Invulnerability
