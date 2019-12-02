@@ -1614,6 +1614,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1886193482304676653, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
+        type: 3}
+      propertyPath: roomInMap
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ab7c2c2018cf4e83e9ea52742bdac, type: 3}
 --- !u!4 &917426881 stripped
@@ -3678,44 +3683,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1730629620}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1755201764 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6691714992351777173, guid: 897ab7c2c2018cf4e83e9ea52742bdac,
-    type: 3}
-  m_PrefabInstance: {fileID: 917426880}
-  m_PrefabAsset: {fileID: 0}
---- !u!68 &1755201766
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755201764}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -2.9975052, y: -4.908887}
-  - {x: -2.93396, y: -2.9907246}
-  - {x: 1.9507484, y: -2.9853477}
-  - {x: 3.0224762, y: -2.1133232}
-  - {x: 2.910534, y: 5.066538}
-  - {x: 2.1745758, y: 6.1100426}
-  - {x: -2.9763966, y: 5.9307575}
-  - {x: -3.0310383, y: 11}
-  - {x: -6.040615, y: 11}
-  - {x: -6.073551, y: 5.925997}
-  - {x: -10.887281, y: 6.019432}
-  - {x: -12.048452, y: 5.140938}
-  - {x: -12.040247, y: -2.2082958}
-  - {x: -11.275858, y: -3.0309277}
-  - {x: -6.11281, y: -2.9936428}
-  - {x: -5.9159985, y: -4.951947}
 --- !u!1001 &1775470699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7080,36 +7047,36 @@ Transform:
   - {fileID: 1900425776}
   - {fileID: 1558493629}
   - {fileID: 288833992}
+  - {fileID: 620251082}
+  - {fileID: 1196820808}
+  - {fileID: 1590403299}
+  - {fileID: 1500048295}
   - {fileID: 1946811672}
   - {fileID: 342000309}
   - {fileID: 2056752366}
   - {fileID: 634179777}
+  - {fileID: 1028688874}
   - {fileID: 287642354}
   - {fileID: 270792203}
+  - {fileID: 1615626329}
   - {fileID: 1775470700}
   - {fileID: 672965074}
+  - {fileID: 1269026224}
   - {fileID: 1217565858}
-  - {fileID: 1500048295}
-  - {fileID: 620251082}
-  - {fileID: 1196820808}
-  - {fileID: 1067005125}
-  - {fileID: 348382428}
-  - {fileID: 17320418}
-  - {fileID: 1246154061}
-  - {fileID: 1686256255}
-  - {fileID: 609494111}
-  - {fileID: 809838355}
-  - {fileID: 1590403299}
+  - {fileID: 1630964416}
   - {fileID: 1440896368}
   - {fileID: 16945117}
-  - {fileID: 183687789}
   - {fileID: 1864027326}
-  - {fileID: 1615626329}
+  - {fileID: 183687789}
   - {fileID: 1848998188}
-  - {fileID: 1630964416}
+  - {fileID: 1067005125}
+  - {fileID: 348382428}
+  - {fileID: 1686256255}
+  - {fileID: 17320418}
+  - {fileID: 1246154061}
   - {fileID: 1657116284}
-  - {fileID: 1269026224}
-  - {fileID: 1028688874}
+  - {fileID: 609494111}
+  - {fileID: 809838355}
   - {fileID: 1849307204}
   - {fileID: 1317124091}
   - {fileID: 1062070567}

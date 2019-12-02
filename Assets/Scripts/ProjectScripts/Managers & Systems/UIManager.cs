@@ -10,11 +10,15 @@ public class UIManager : TemporalSingleton<UIManager>
     public Canvas pauseCanvas;
     [SerializeField] Animator m_fadeAnimation;
     protected PlayerInputAsset actions;
-    public Animator minimapArrow;
+    public static Animator minimapArrow;
+    [SerializeField]
+    private Animator m_minimapArrow;
+
 
     // Update is called once per frame
     private void Start()
     {
+        minimapArrow = m_minimapArrow;
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
     }

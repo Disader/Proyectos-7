@@ -11,6 +11,7 @@ public class RoomManager : MonoBehaviour
     Dictionary<Transform,Vector3> originalEnemiesAtRoomPosition = new Dictionary<Transform, Vector3>();
 
     [SerializeField] float maxDummiesInRoom = 10;
+    [SerializeField] int roomInMap;
 
     //List of active object in room
     List<BulletBase> activeBulletsInRoom = new List<BulletBase>();
@@ -53,15 +54,10 @@ public class RoomManager : MonoBehaviour
     {
         if (collision.GetComponent<PlayerControl_MovementController>() == GameManager.Instance.ActualPlayerController)
         {
+            UIManager.Instance.map.mapRooms[roomInMap].color = UIManager.Instance.map.highlightedColor;
             if (!isDiscovered)
             {               
-                for (int i = 0; i < DiscoverManager.Instance.roomList.Count; i++)
-                {
-                    if(DiscoverManager.Instance.roomList[i] == GetComponent<RoomManager>())
-                    {
-                        UIManager.Instance.map.DiscoverRoom(i);
-                    }                  
-                }              
+                UIManager.Instance.map.DiscoverRoom(roomInMap);                                                
             }
             isDiscovered = true;
             StartCoroutine(ZoneManager.Instance.ChangeRoom(m_roomCamera, this)); //Cambio de habitación
@@ -166,7 +162,8 @@ public class RoomManager : MonoBehaviour
     }
     public void ResetRoom()
     {
-        foreach(PlayerControl_MovementController enemy in currentEnemiesInRoom)
+        UIManager.Instance.map.mapRooms[roomInMap].color = Color.white;
+        foreach (PlayerControl_MovementController enemy in currentEnemiesInRoom)
         {
             if (originalEnemiesAtRoomPosition.ContainsKey(enemy.transform))
             {

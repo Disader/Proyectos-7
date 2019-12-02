@@ -36,10 +36,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     protected override void Start()
     {
         base.Start();
-
+        m_minimaparrowAnimator = UIManager.minimapArrow;
         thisEnemySetControl = GetComponent<EnemySetControl>();
         thisEnemyShootingScript = GetComponent<ShootingScript>();
-        m_minimaparrowAnimator = UIManager.Instance.minimapArrow;
     }
 
     protected override void Update()
@@ -181,5 +180,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
             angle = 360 + angle;
         }
         m_characterAnimator.SetFloat("Angle", angle);
+        m_minimaparrowAnimator.SetFloat("VelocityY", controlRb.velocity.normalized.y);
+        m_minimaparrowAnimator.SetFloat("VelocityX", controlRb.velocity.normalized.x);
     }
 }

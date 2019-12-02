@@ -28,12 +28,11 @@ public class PlayerControl_MovementController : MonoBehaviour
     public Animator m_minimaparrowAnimator;
     // Start is called before the first frame update
     protected virtual void Start()
-    {
-       
+    {      
         actions = new PlayerInputAsset();
         actions.PlayerInputActions.Enable();
         controlRb = GetComponent<Rigidbody2D>();
-        m_minimaparrowAnimator = UIManager.Instance.minimapArrow;
+        m_minimaparrowAnimator = UIManager.minimapArrow;
     }
 
     // Update is called once per frame
