@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class MinimapBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    Image m_minimap;
+
     [SerializeField]
     GameObject m_playerArrow;
     // Start is called before the first frame update

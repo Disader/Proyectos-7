@@ -41,12 +41,8 @@ public class PlayerControl_MovementController : MonoBehaviour
         moveHorizontal = actions.PlayerInputActions.HorizontalMovement.ReadValue<float>();
         moveVertical = actions.PlayerInputActions.VerticalMovement.ReadValue<float>();
 
-        if(CutsceneManager.Instance.director.state == UnityEngine.Playables.PlayState.Paused) 
-        {
-            PlayerControlledMovement(moveHorizontal, moveVertical);
-        }
-
-
+         PlayerControlledMovement(moveHorizontal, moveVertical);
+        
         ControlArmRotation();
 
         //Seteo de variables de animaciones:

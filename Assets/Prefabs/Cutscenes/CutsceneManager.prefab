@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5189858468319553127}
   - component: {fileID: 5189858468319553126}
-  - component: {fileID: 5189858468319553146}
+  - component: {fileID: 1384389263}
   m_Layer: 0
   m_Name: Director
   m_TagString: Untagged
@@ -156,14 +156,6 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -3962740970387574786, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -5472987747685991380, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 8023970904688633294, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 0}
-    value: {fileID: 8947202091280401993, guid: dc0272cc215f4cc47af84cfe7ed18a25, type: 3}
   - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 0}
@@ -176,27 +168,38 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 1161711871222727437, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -8604425041926301780, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 7808732265909030953, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -1760716258496659635, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 8125564239808970154, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -3127404178398246469, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 6752515318600633920, guid: 2f1954d6fc5e26748842323b5ff954b8, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: -420584220091026652, guid: 9689d02e3540dc640a8e92e6091a6ed7, type: 2}
-    value: {fileID: 5189858468319553146}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -8501301882664126547, guid: 9689d02e3540dc640a8e92e6091a6ed7, type: 2}
+    value: {fileID: 5189858468319553145}
   m_ExposedReferences:
     m_References:
+    - 217fc4d54a388654caa4b56f546b5662: {fileID: 0}
     - ccfc858ed6258af4ead779ea722d575a: {fileID: 0}
     - 8a3b0dd57632f9340bd0dff72156113e: {fileID: 0}
+    - 2adf1ba488644754daa9a33549691f7f: {fileID: 0}
     - e9bb111f87f1adc40a951121abae3875: {fileID: 0}
+    - c6f2c555d3f9f5c409b63350f74284a9: {fileID: 0}
     - 0d469600677450842baa12d6189f16aa: {fileID: 0}
     - 778a23670d667a048a871e51c19a4c4c: {fileID: 0}
     - 26d75938356b6d347ad24842a377bf53: {fileID: 0}
@@ -204,22 +207,34 @@ PlayableDirector:
     - fe2cf0c383131504e882594db3c2df87: {fileID: 0}
     - 624dd6c98c44ef242b9554bf9f582aed: {fileID: 0}
     - 8dcc12669bb7d974283d0e2955964c6e: {fileID: 0}
---- !u!95 &5189858468319553146
-Animator:
-  serializedVersion: 3
+--- !u!114 &1384389263
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5189858468319553145}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: f385678d2d9d94f40ad85b7cbf4f7776, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5189858468319553126}
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
