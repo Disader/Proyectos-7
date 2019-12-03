@@ -35,6 +35,15 @@ TextureImporter:
   - first:
       213: -4716774118156481737
     second: MapSpirtesheet_10
+  - first:
+      213: -4330415160068793659
+    second: MapSpirtesheet_11
+  - first:
+      213: 2585779075422370195
+    second: MapSpirtesheet_12
+  - first:
+      213: 4812362905969668431
+    second: MapSpirtesheet_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -141,7 +150,7 @@ TextureImporter:
       name: MapSpirtesheet_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 26
         y: 51
         width: 21
         height: 20
@@ -335,7 +344,7 @@ TextureImporter:
         width: 28
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,6 +352,69 @@ TextureImporter:
       bones: []
       spriteID: c0abbea10f6a4c64b8dbd6eb0d5f899e
       internalID: -4716774118156481737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSpirtesheet_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 51
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7b35f9852bc1249a374c1e899cdacd
+      internalID: -4330415160068793659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSpirtesheet_12
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 143
+        width: 51
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3a141f8ff53c246a6b1bdf247ce7c0
+      internalID: 2585779075422370195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapSpirtesheet_13
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 20
+        width: 53
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb09f4bdd0e12014ea83374c5e33eb50
+      internalID: 4812362905969668431
       vertices: []
       indices: 
       edges: []

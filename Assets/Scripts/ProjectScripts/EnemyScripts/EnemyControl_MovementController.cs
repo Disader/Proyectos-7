@@ -27,6 +27,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private Vector2 dashDirection = new Vector2(1, 0);
     private bool isDashing = false;
 
+
     [HideInInspector] public Spawner spawnerInstantiatedFrom;
     void OnEnable()
     {

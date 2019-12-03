@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4453455625644490737}
   - component: {fileID: -7594056506222722417}
   m_Layer: 0
-  m_Name: FireBullet
+  m_Name: FirethrowerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

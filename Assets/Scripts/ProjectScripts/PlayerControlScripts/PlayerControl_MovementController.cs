@@ -25,6 +25,7 @@ public class PlayerControl_MovementController : MonoBehaviour
     [HideInInspector] public Vector2 playerInputDirection;
     [HideInInspector] public float angle;
 
+    [HideInInspector]
     public Animator m_minimaparrowAnimator;
     // Start is called before the first frame update
     protected virtual void Start()
