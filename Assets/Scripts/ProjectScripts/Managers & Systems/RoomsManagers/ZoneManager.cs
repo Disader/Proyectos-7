@@ -16,10 +16,6 @@ public class ZoneManager : TemporalSingleton<ZoneManager>
     [Header("La Escena Contiene la Zona actual para cargar en Checkpoints")]
     public SceneReference zoneScene;
 
-    private void Start()
-    {
-        SetPlayerInPositionOnLevelStart(initialPlayerPosition);
-    }
     public IEnumerator ChangeRoom(CinemachineVirtualCamera newCamera, RoomManager newRoom)
     {
               

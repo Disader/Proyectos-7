@@ -104,4 +104,13 @@ public class InputManager : PersistentSingleton<InputManager>
         mirilla.SetActive(false); //Desactiva la mirilla
         GameManager.Instance.realPlayerGO.GetComponent<PossessAbility>().StopControllingWithMouse();
     }
+
+    public void OnDeviceLost()
+    {
+        Debug.Log("Device lost");
+    }
+    public void OnDeviceRegained()
+    {
+        Debug.Log("Device reconnected");
+    }
 }

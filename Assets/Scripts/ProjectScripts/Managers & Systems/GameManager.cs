@@ -7,7 +7,7 @@ public class GameManager : TemporalSingleton<GameManager>
     PlayerControl_MovementController m_actualPlayerController;
     [HideInInspector]public GameObject realPlayerGO;
     bool isGamePaused;
-
+    FollowPlayer followPlayerObject;
     //Se llama a esta variable en el onEnable de playercontrolMovementController
     public PlayerControl_MovementController ActualPlayerController
     {
@@ -23,10 +23,19 @@ public class GameManager : TemporalSingleton<GameManager>
 
         realPlayerGO = GameObject.FindGameObjectWithTag("Player");
         ActualPlayerController = realPlayerGO.GetComponent<PlayerControl_MovementController>();
-
-        SaveGame(realPlayerGO.transform.position); ////Se guarda la posición del jugador al comenzar el juego
+        followPlayerObject = FindObjectOfType<FollowPlayer>();
     }
-
+    private void Start()
+    {
+        StartGame();
+    }
+    void StartGame()
+    {
+        //¡¡¡EL ORDEN EN ESTA FUNCIÓN ES IMPORTANTE!!!!
+        ZoneManager.Instance.SetPlayerInPositionOnLevelStart();
+        SaveGame(realPlayerGO.transform.position); ////Se guarda la posición del jugador al comenzar el juego
+        followPlayerObject.ResetPosition();
+    }
     public void PauseGame()
     {
         if (!isGamePaused) 
@@ -48,6 +57,8 @@ public class GameManager : TemporalSingleton<GameManager>
     {
         LoadGame();
         HealthHeartsVisual.healthHeartsSystemStatic.Heal(100);
+
+        followPlayerObject.ResetPosition();//Reseta el follow de la cámara para que se coloque sobre el jugador, DEBE HACERSE DESPUÉS DE LOAD GAME
         ResetPlayerStates();
     }
     void ResetPlayerStates()
