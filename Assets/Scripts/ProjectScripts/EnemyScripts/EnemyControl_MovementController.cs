@@ -54,7 +54,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
             CheckDashDirection();
 
             
-            if (actions.PlayerInputActions.DashButton.triggered) ////Input de Dash en la "B" CAMBIAR SI NECESARIO
+            if (InputManager.Instance.DashButtonTriggered()) ////Input de Dash en la "B" CAMBIAR SI NECESARIO
             {
                 if (ableToDash)
                 {
@@ -70,7 +70,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void CheckDashDirection() ////Se guarda la última dirección de movimiento como la dirección de Dash si hay Input
     {
-        if (actions.PlayerInputActions.HorizontalMovement.ReadValue<float>() != 0 || actions.PlayerInputActions.VerticalMovement.ReadValue<float>() != 0)
+        if (InputManager.Instance.HorizontalMovement() != 0 || InputManager.Instance.VerticalMovement() != 0)
         {
             dashDirection = new Vector2(controlSpeedX, controlSpeedY);
         }
@@ -81,8 +81,8 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
         isDashing = true;
 
         controlRb.velocity = dashDirection.normalized * dashForce;
-        ////ANIMACIONES////
 
+        ////ANIMACIONES////
         m_characterAnimator.SetTrigger("Dodge");
         ///FINAL ANIMACIONES/////
 
@@ -124,7 +124,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void LeftTriggerInput()
     {
-        if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
+        if (InputManager.Instance.LeftTrigger() != 0)
         {
             if (canUseLeftTrigger)
             {
@@ -137,7 +137,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
                 }
             }
         }
-        else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
+        else if (InputManager.Instance.LeftTrigger() == 0)
         {
             if(leftTrigger_isAxisInUse)
             {
@@ -155,14 +155,14 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     private void RightTriggerInput()
     {
-        if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() != 0)
+        if (InputManager.Instance.RightTrigger() != 0)
         {
             if (thisEnemyShootingScript != null)
             {
                 AttackAction();
             }
         }
-        else if (actions.PlayerInputActions.RightTrigger.ReadValue<float>() == 0)
+        else if (InputManager.Instance.RightTrigger() == 0)
         {
             if (thisEnemyShootingScript != null)
             {

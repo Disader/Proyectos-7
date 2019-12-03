@@ -32,6 +32,26 @@ public class InputManager : PersistentSingleton<InputManager>
         }
         return new Vector2(0, 0);
     }
+    public float HorizontalMovement()
+    {
+        return m_myInputAsset.PlayerInputActions.HorizontalMovement.ReadValue<float>();
+    }
+    public float VerticalMovement()
+    {
+        return m_myInputAsset.PlayerInputActions.VerticalMovement.ReadValue<float>();
+    }
+    public bool DashButtonTriggered()
+    {
+        return m_myInputAsset.PlayerInputActions.DashButton.triggered;
+    }
+    public float LeftTrigger()
+    {
+        return m_myInputAsset.PlayerInputActions.LeftTrigger.ReadValue<float>();
+    }
+    public float RightTrigger()
+    {
+        return m_myInputAsset.PlayerInputActions.RightTrigger.ReadValue<float>();
+    }
     void StartControllingWithMouse()
     {
         GameManager.Instance.ActualPlayerController.DeactivateAutoAim();//Activa el auto aim
