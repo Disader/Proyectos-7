@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visionAngle: 90
-  m_playerHearingDetectionDistance: 5
+  m_playerHearingDetectionDistance: 6
   m_runAwayDistance: 3
   m_sightCollisionMask:
     serializedVersion: 2
@@ -254,12 +254,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shSCR_PasiveAbility: {fileID: 0}
-  m_firingRate: 1
-  m_randomFiringRateDeviation: 0.3
   m_bullet: {fileID: 5581599170633199143, guid: 2d31a31256354ce4faaea5d2a15abaa0,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
-  killAll: 0
+  m_killAll: 0
+  m_bulletsToInstantiateAtOnce: 1
+  m_dispersionAngle: 0
+  m_shootingAngle: 0
+  m_bulletsPerBurst: 1
+  m_burtFiringRate: 0
+  m_firingRate: 1
+  m_randomFiringRateDeviation: 0.3
   player_firingRate: 0.3
   shootPart: {fileID: 183587726170269635, guid: 10b841cb301f85c4f855016a6c444ea2,
     type: 3}
@@ -335,7 +340,6 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
-  newAnimator: {fileID: 1957557055709031805}
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &4387296696666090942
 MonoBehaviour:
@@ -954,11 +958,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,6 +1013,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
 --- !u!4 &3069978779201531711 stripped
@@ -1035,11 +1039,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Fire_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 6486902587364937935, guid: 0860ab36e08edc34fa1ca3479af735ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1094,6 +1093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Fire_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0860ab36e08edc34fa1ca3479af735ab, type: 3}

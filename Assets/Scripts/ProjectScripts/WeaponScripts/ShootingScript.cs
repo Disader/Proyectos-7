@@ -6,23 +6,31 @@ public class ShootingScript : MonoBehaviour
 {
     public enum whoIsShooting { enemy, player }; //Quien dispara
 
-    [Header("La Pasiva que le pasa ActiveAbility")]
     [HideInInspector] public PasiveAbility_SO shSCR_PasiveAbility; //El contenido lo maneja ActiveAbility, al cual le llama EnemySetControl. No tocar
 
-    [Header("Variables del Disparo Enemigo")] //Las que tu creaste para el enemigo Sergio
-    [SerializeField] float m_firingRate;
-    [SerializeField] float m_randomFiringRateDeviation;
-    float m_firingRateTimer=1000f; //Para que comience disparando
-    float m_onStartFiringRate;
     [Header("Variables Generales de Disparo")]
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_shootingPos;
-    [SerializeField] bool killAll; //Para saber si mata tanto al jugador como a los enemigos.
+    [SerializeField] bool m_killAll; //Para saber si mata tanto al jugador como a los enemigos.
+    [SerializeField] int m_bulletsToInstantiateAtOnce=1;
+    [SerializeField] float m_dispersionAngle;
+    [SerializeField] float m_shootingAngle;//Para cuando se disparan varias balas, el ángulo en el que se reparten equitativamente
+    [SerializeField] int m_bulletsPerBurst=1;
+    [SerializeField] float m_burtFiringRate;
+
+    [Header("Variables del Disparo Enemigo")]
+    [SerializeField] float m_firingRate;
+    [SerializeField] float m_randomFiringRateDeviation;
+
+    float m_firingRateTimer=0; //Para que comience disparando
+    float m_onStartFiringRate;
+
 
     [Header("Variables del Disparo del Jugador")]//Para el control del jugador, afectado por más parámetros y/o mejoras.
-    public float player_firingRate;
+    [SerializeField] float player_firingRate;
+
     float player_firingRateTimer;
-    bool playerCanShoot;
+
 
     [Header("Partículas (PlaceHolder)")]
     public GameObject shootPart;
@@ -41,61 +49,85 @@ public class ShootingScript : MonoBehaviour
     {
         if (shooter == whoIsShooting.enemy) ////Como dispara el enemigo
         {
-            m_firingRateTimer += Time.deltaTime;
-
-            if (m_firingRateTimer > m_firingRate)
-            {
-                m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
-                m_firingRateTimer = 0;
-                GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
-                if (!killAll)
-                {
-                    obj.layer = 10; ////Se le pone a la bala la Layer de BulletEnemy
-                }
-
-                ////////EFECTOS///////
-                Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
-                 ///Sonido
-                PlayRandomFiringSound();
-            }
+            EnemyShoot();
         }
 
         else if(shooter == whoIsShooting.player) //Como dispara el player al controlar este enemigo. Si hay pasiva, se afecta el tipo de bala.
         {
+            PlayerShoot();
+        }
+    }
+    void EnemyShoot()
+    {
+        m_firingRateTimer -= Time.deltaTime;
 
-            if (player_firingRateTimer <= 0)
+        if (m_firingRateTimer <= 0)
+        {
+            m_firingRate = Random.Range(m_onStartFiringRate - m_randomFiringRateDeviation, m_onStartFiringRate + m_randomFiringRateDeviation);
+            m_firingRateTimer = m_firingRate;
+
+            StartCoroutine(BurstShot(m_bullet, 10));
+        }
+    }
+   
+    void PlayerShoot()
+    {
+        if (player_firingRateTimer <= 0)
+        {
+            if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
             {
-                if (shSCR_PasiveAbility == null) ///Dispara bala normal si NO hay PASIVA ACTIVA
-                {
-                    GameObject obj = Instantiate(m_bullet, m_shootingPos.position, m_shootingPos.rotation);
-                    if (!killAll)
-                    {
-                        obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
-                    }
-
-                    ////////EFECTOS////////////
-                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
-                     ///Sonido
-                    PlayRandomFiringSound();
-                }
-
-                else ////Si SÍ hay PASIVA ACTIVA, se instancia la bala que está guardada en la pasiva
-                {
-                    GameObject obj = Instantiate(shSCR_PasiveAbility.bulletType, m_shootingPos.position, m_shootingPos.rotation);
-                    obj.layer = 12; ////Se le pone a la bala la Layer de BulletPlayer
-
-                    ////////EFECTOS////////////
-                    Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
-                     ///Sonido
-                    PlayRandomFiringSound();
-                }
-                player_firingRateTimer = player_firingRate;
+                StartCoroutine(BurstShot(m_bullet, 12));
             }
-
             else
             {
-                player_firingRateTimer -= 1 * Time.deltaTime;
+                StartCoroutine(BurstShot(shSCR_PasiveAbility.bulletType, 12));
             }
+            
+            player_firingRateTimer = player_firingRate;
+        }
+        else
+        {
+            player_firingRateTimer -= 1 * Time.deltaTime;
+        }
+    }
+    IEnumerator BurstShot(GameObject bullet, int layer)
+    {
+        for(int i=0; i< m_bulletsPerBurst; i++)
+        {
+            InstantiateBullet(bullet,layer);
+            yield return new WaitForSeconds(m_burtFiringRate);
+        }
+    }
+    void InstantiateBullet(GameObject bullet,int layer)
+    {
+        //Angle calculations
+        float angleDiference = m_shootingAngle / m_bulletsToInstantiateAtOnce;
+        int subdivisions = Mathf.FloorToInt(m_bulletsToInstantiateAtOnce / 2);
+        float initialShootingAngle = -angleDiference * subdivisions;
+
+        for (int i = 0; i < m_bulletsToInstantiateAtOnce; i++)
+        {
+            float randomAngleDispersion = Random.Range(-m_dispersionAngle, m_dispersionAngle);
+            GameObject obj = Instantiate(bullet, m_shootingPos.position, m_shootingPos.rotation * Quaternion.AngleAxis(randomAngleDispersion + initialShootingAngle + i * angleDiference, Vector3.forward));
+
+            if (!m_killAll)
+            {
+                obj.layer = layer; ////Se le pone a la bala la layer correspondiente
+            }
+        }
+        ShootingEffects();
+    }
+
+    public void ResetPlayerFiringRateTimer() //Método que se llama desde EnemyController si no hay input de RightTrigger
+    {
+        if (player_firingRateTimer <= 0)
+        {
+            player_firingRateTimer = 0;
+        }
+
+        else
+        {
+            player_firingRateTimer -= 1 * Time.deltaTime;
         }
     }
     void PlayRandomFiringSound()
@@ -114,16 +146,10 @@ public class ShootingScript : MonoBehaviour
                 break;
         }
     }
-    public void ResetPlayerFiringRateTimer() //Método que se llama desde EnemyController si no hay input de RightTrigger
+    void ShootingEffects()
     {
-        if (player_firingRateTimer <= 0)
-        {
-            player_firingRateTimer = 0;
-        }
-
-        else
-        {
-            player_firingRateTimer -= 1 * Time.deltaTime;
-        }
+        Instantiate(shootPart, m_shootingPos.position, m_shootingPos.rotation);     //PLACEHOLDER
+                                                                                    ///Sonido
+        PlayRandomFiringSound();
     }
 }

@@ -301,12 +301,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shSCR_PasiveAbility: {fileID: 0}
-  m_firingRate: 0
-  m_randomFiringRateDeviation: 0
   m_bullet: {fileID: 7155127585499386642, guid: 83d62861f4ef9a841864e2420742a30d,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
-  killAll: 1
+  m_killAll: 1
+  m_bulletsToInstantiate: 0
+  m_dispersion: 0
+  m_bulletsPerBurst: 0
+  m_firingRate: 0
+  m_randomFiringRateDeviation: 0
   player_firingRate: 0.5
   shootPart: {fileID: 183587726170269635, guid: 10b841cb301f85c4f855016a6c444ea2,
     type: 3}
@@ -382,7 +385,6 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
-  newAnimator: {fileID: 2502781732037818851}
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &5019575171518424791
 MonoBehaviour:
@@ -860,11 +862,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Fire_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 6486902587364937935, guid: 0860ab36e08edc34fa1ca3479af735ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -920,6 +917,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Fire_Particle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0860ab36e08edc34fa1ca3479af735ab, type: 3}
 --- !u!4 &6077303447633298833 stripped
@@ -941,11 +943,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 16817859112555360}
     m_Modifications:
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1000,6 +997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
