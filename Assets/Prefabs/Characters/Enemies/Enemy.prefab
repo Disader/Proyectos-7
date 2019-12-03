@@ -590,6 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294526163743401891}
   - component: {fileID: 3521342940922564292}
+  - component: {fileID: 8275269357261061905}
   m_Layer: 9
   m_Name: EnemyShadow
   m_TagString: Untagged
@@ -605,8 +606,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6656209578781692179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.011, y: -0.567, z: 0}
-  m_LocalScale: {x: 2.1417956, y: 1.4079833, z: 1.4079833}
+  m_LocalPosition: {x: 0.023, y: -0.581, z: 0}
+  m_LocalScale: {x: 1.8716961, y: 1.2867852, z: 1.2867852}
   m_Children: []
   m_Father: {fileID: 4387296697098754761}
   m_RootOrder: 0
@@ -659,6 +660,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8275269357261061905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656209578781692179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e404ea207926314896421f7f11c5291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRef: {fileID: 294526163743401891}
 --- !u!1 &6687727730460895434
 GameObject:
   m_ObjectHideFlags: 0

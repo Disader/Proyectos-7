@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7712761329240763752
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   m_Layer: 9
   m_Name: Enemy_Bomber
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_timeTillFistShoot: 0
   distanceToShootPlayer: 1
   m_clockDelay: 0.2
-  characterAnimator: {fileID: 1957557055709031805}
+  characterAnimator: {fileID: 2502781732037818851}
   hasPatrolBehaviour: 0
   patrolPointsList: []
   timeToWaitOnPatrolPoint: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387296696666090823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b118f4d0c8132c24f963ec8c9b80352d, type: 3}
   m_Name: 
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 3
   defaultEnemyHealth: 0
-  myAnimator: {fileID: 1957557055709031805}
+  myAnimator: {fileID: 0}
   fireParticle: {fileID: 8252529044863971578}
   invulnerabilityTime: 1.5
   rendererToFlash: {fileID: 4387296697098754760}
@@ -377,7 +377,7 @@ MonoBehaviour:
   maxAimAngle: 0
   distanceAimPriority: 0
   maxDistanceAim: 0
-  m_characterAnimator: {fileID: 1957557055709031805}
+  m_characterAnimator: {fileID: 0}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
   dashTime: 0.4
@@ -407,7 +407,7 @@ MonoBehaviour:
   smokeThrowPart: {fileID: 4796694736664923945}
   stunPart: {fileID: 3069978779219880575}
   consumePart: {fileID: 4769636859793821768}
-  characterAnimator: {fileID: 1957557055709031805}
+  characterAnimator: {fileID: 2502781732037818851}
   deathDummy: {fileID: 4387296696666090823, guid: 849ff538e7a7c3743adf79fcdf03579e,
     type: 3}
   isBeingPossessed: 0
@@ -494,7 +494,7 @@ GameObject:
   m_Layer: 9
   m_Name: ShootingPos
   m_TagString: Untagged
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -522,8 +522,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4387296697098754761}
   - component: {fileID: 4387296697098754760}
-  - component: {fileID: 1957557055709031805}
   - component: {fileID: 1836284451}
+  - component: {fileID: 2502781732037818851}
   m_Layer: 9
   m_Name: EnemyGraphics
   m_TagString: Untagged
@@ -582,9 +582,9 @@ SpriteRenderer:
   m_SortingLayerID: 2051676165
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2927072465793169034, guid: db7b75031217f5b4aa53c60e86334405,
+  m_Sprite: {fileID: 8218962540498532563, guid: 1ee2a013d5206b442b8d031f09650922,
     type: 3}
-  m_Color: {r: 1, g: 0.16509432, b: 0.16509432, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -594,25 +594,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1957557055709031805
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4387296697098754763}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600c1d7b1b4cb0b48908caa26c278e6c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1836284451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,6 +607,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformRef: {fileID: 4387296696666090821}
+--- !u!95 &2502781732037818851
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4387296697098754763}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3122c8874c4db2241ac72fefdac6209b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6687727730460895434
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ GameObject:
   m_Layer: 9
   m_Name: PlayerSpawnPos
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
