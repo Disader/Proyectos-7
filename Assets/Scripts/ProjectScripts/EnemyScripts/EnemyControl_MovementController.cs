@@ -27,7 +27,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private Vector2 dashDirection = new Vector2(1, 0);
     private bool isDashing = false;
 
-
+    [SerializeField] private Animator newAnimator;
     [HideInInspector] public Spawner spawnerInstantiatedFrom;
     void OnEnable()
     {
@@ -36,6 +36,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     protected override void Start()
     {
+        m_characterAnimator = newAnimator;
         base.Start();
         m_minimaparrowAnimator = UIManager.minimapArrow;
         thisEnemySetControl = GetComponent<EnemySetControl>();

@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 3
   defaultEnemyHealth: 0
-  myAnimator: {fileID: 0}
+  myAnimator: {fileID: 2502781732037818851}
   fireParticle: {fileID: 8252529044863971578}
   invulnerabilityTime: 1.5
   rendererToFlash: {fileID: 4387296697098754760}
@@ -382,6 +382,7 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
+  newAnimator: {fileID: 2502781732037818851}
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &5019575171518424791
 MonoBehaviour:

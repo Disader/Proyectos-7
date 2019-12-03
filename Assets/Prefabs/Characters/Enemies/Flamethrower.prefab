@@ -335,6 +335,7 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
+  newAnimator: {fileID: 1957557055709031805}
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &4387296696666090942
 MonoBehaviour:
