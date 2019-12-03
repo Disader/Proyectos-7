@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl_MovementController : MonoBehaviour
 {
-    protected PlayerInputAsset actions;
-
     float moveHorizontal;
     float moveVertical;
 
@@ -30,8 +28,6 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {      
-        actions = new PlayerInputAsset();
-        actions.PlayerInputActions.Enable();
         controlRb = GetComponent<Rigidbody2D>();
         m_minimaparrowAnimator = UIManager.minimapArrow;
     }
@@ -39,8 +35,8 @@ public class PlayerControl_MovementController : MonoBehaviour
     // Update is called once per frame
    protected virtual void Update()
     {
-        moveHorizontal = actions.PlayerInputActions.HorizontalMovement.ReadValue<float>();
-        moveVertical = actions.PlayerInputActions.VerticalMovement.ReadValue<float>();
+        moveHorizontal = InputManager.Instance.HorizontalMovement();
+        moveVertical = InputManager.Instance.VerticalMovement();
 
          PlayerControlledMovement(moveHorizontal, moveVertical);
         

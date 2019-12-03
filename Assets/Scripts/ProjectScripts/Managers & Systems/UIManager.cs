@@ -9,7 +9,6 @@ public class UIManager : TemporalSingleton<UIManager>
     public MapBehaviour map;
     public Canvas pauseCanvas;
     [SerializeField] Animator m_fadeAnimation;
-    protected PlayerInputAsset actions;
     public static Animator minimapArrow;
     [SerializeField]
     private Animator m_minimapArrow;
@@ -19,16 +18,14 @@ public class UIManager : TemporalSingleton<UIManager>
     private void Start()
     {
         minimapArrow = m_minimapArrow;
-        actions = new PlayerInputAsset();
-        actions.PlayerInputActions.Enable();
     }
     void Update()
     {
-        if (actions.PlayerInputActions.MapButton.triggered)
+        if (InputManager.Instance.MapButtonTriggered())
         {
             ShowMap();
         }
-        if (actions.PlayerInputActions.PauseButton.triggered)
+        if (InputManager.Instance.PauseButtonTriggered())
         {
             ShowPause();
         }   

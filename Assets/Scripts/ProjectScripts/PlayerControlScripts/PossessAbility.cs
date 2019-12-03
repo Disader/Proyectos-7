@@ -27,8 +27,6 @@ public class PossessAbility : MonoBehaviour
     public GameObject possessionPart;
     public ParticleSystem stunPart;
 
-    PlayerInputAsset actions;
-
     bool isControllingWithMouse;
     public void StartControllingWithMouse()
     {
@@ -46,8 +44,6 @@ public class PossessAbility : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actions = new PlayerInputAsset();
-        actions.PlayerInputActions.Enable();
         armObject = playerControl_MovementController.armObject;
         playerLineRenderer = GetComponent<LineRenderer>();
     }
@@ -115,7 +111,7 @@ public class PossessAbility : MonoBehaviour
     {
         if (isControllingWithMouse)
         {
-            if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() != 0)
+            if (InputManager.Instance.LeftTrigger() != 0)
             {
                 if (leftTrigger_isAxisInUse == false)
                 {
@@ -124,7 +120,7 @@ public class PossessAbility : MonoBehaviour
                     leftTrigger_isAxisInUse = true;
                 }
             }
-            else if (actions.PlayerInputActions.LeftTrigger.ReadValue<float>() == 0)
+            else if (InputManager.Instance.LeftTrigger() == 0)
             {
                 leftTrigger_isAxisInUse = false;
             }

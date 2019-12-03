@@ -32,10 +32,12 @@ public class GameManager : TemporalSingleton<GameManager>
         if (!isGamePaused) 
         {
             isGamePaused = true;
+            InputManager.Instance.PauseGameInputs();
             Time.timeScale = 0;
         }
         else
         {
+            InputManager.Instance.UnpauseGameInputs();
             isGamePaused = false;
             Time.timeScale = 1;
         }
