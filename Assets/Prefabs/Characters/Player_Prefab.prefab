@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 2051676165
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6055785657967754171, guid: b70eb4f39e912f54e97eed5e48461f28,
+  m_Sprite: {fileID: -2093701515603873459, guid: b70eb4f39e912f54e97eed5e48461f28,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -374,6 +374,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8753018604584853977}
     m_Modifications:
+    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Stun_Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 4655706451995511914, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -429,11 +434,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4655706451995021386, guid: e51b4cfb3e526c34e8901d0ac92ec38c,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Stun_Particle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51b4cfb3e526c34e8901d0ac92ec38c, type: 3}
 --- !u!4 &4655706451699996284 stripped
@@ -455,6 +455,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8753018604584853977}
     m_Modifications:
+    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
+        type: 3}
+      propertyPath: m_Name
+      value: My_Fire_Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 6486902587364937935, guid: 0860ab36e08edc34fa1ca3479af735ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -509,11 +514,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2417356836556237014, guid: 0860ab36e08edc34fa1ca3479af735ab,
-        type: 3}
-      propertyPath: m_Name
-      value: My_Fire_Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0860ab36e08edc34fa1ca3479af735ab, type: 3}

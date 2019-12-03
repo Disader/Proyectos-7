@@ -9,6 +9,10 @@ public class DestructibleObject : MonoBehaviour
     public ParticleSystem breakParticles;
     Animator m_anime;
     BoxCollider2D m_collider;
+    [SerializeField]
+    bool isExplosive;
+    [SerializeField]
+    GameObject m_explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,16 +27,11 @@ public class DestructibleObject : MonoBehaviour
     {
     }
  
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12)
+        if (collision.gameObject.GetComponent<BulletBase>() != null)
         {
-            m_anime.SetTrigger("Hit");
-            breakParticles.gameObject.SetActive(true);
-            m_rend.sprite = destroyed;
-            StartCoroutine (PausedParticles());
-            gameObject.layer = 13;
-           // m_collider.enabled = false;
+            Destroy();
         }
     }
     private IEnumerator PausedParticles()
@@ -41,5 +40,24 @@ public class DestructibleObject : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         breakParticles.Pause();
 
+    }
+    public void Destroy()
+    {
+        print(GetInstanceID());
+        
+        m_anime.SetTrigger("Hit");
+        breakParticles.gameObject.SetActive(true);
+        
+        StartCoroutine(PausedParticles());
+        gameObject.layer = 13;
+        // m_collider.enabled = false;
+        if(isExplosive)
+        {
+          GameObject exp =  Instantiate(m_explosion, transform.position, transform.rotation);
+            exp.GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
+            exp.GetComponent<Animator>().enabled = false; 
+            exp.GetComponent<SpriteRenderer>().enabled = false;
+            exp.gameObject.transform.localScale /= 2;
+        }
     }
 }
