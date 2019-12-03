@@ -377,7 +377,7 @@ MonoBehaviour:
   maxAimAngle: 0
   distanceAimPriority: 0
   maxDistanceAim: 0
-  m_characterAnimator: {fileID: 0}
+  m_characterAnimator: {fileID: 2502781732037818851}
   leftTriggerHoldTime: 0.5
   ableToDash: 1
   dashTime: 0.4
