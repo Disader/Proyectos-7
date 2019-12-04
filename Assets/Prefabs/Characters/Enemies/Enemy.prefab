@@ -344,6 +344,7 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
+  dashCooldown: 1
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &4387296696666090942
 MonoBehaviour:

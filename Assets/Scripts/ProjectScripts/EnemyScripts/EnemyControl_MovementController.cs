@@ -26,6 +26,8 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     public float dashForce;
     private Vector2 dashDirection = new Vector2(1, 0);
     private bool isDashing = false;
+    [SerializeField] float dashCooldown;
+    float dashCooldownTimer;
 
     [HideInInspector] public Spawner spawnerInstantiatedFrom;
     void OnEnable()
@@ -43,6 +45,7 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
 
     protected override void Update()
     {
+        dashCooldownTimer -= Time.deltaTime;
         if (!isDashing) ////Al hacer Dash se quita el control al jugador
         {
             base.Update();
@@ -55,8 +58,9 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
             
             if (InputManager.Instance.DashButtonTriggered()) ////Input de Dash en la "B" CAMBIAR SI NECESARIO
             {
-                if (ableToDash)
+                if (ableToDash && dashCooldownTimer < 0)
                 {
+                    dashCooldownTimer = dashCooldown;
                     StartCoroutine(DashLogicCoroutine());
                 }
             }           
@@ -78,7 +82,6 @@ public class EnemyControl_MovementController : PlayerControl_MovementController 
     private IEnumerator DashLogicCoroutine() ////Se aplica el Dash
     {
         isDashing = true;
-
         controlRb.velocity = dashDirection.normalized * dashForce;
 
         ////ANIMACIONES////
