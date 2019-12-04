@@ -39,7 +39,7 @@ public class EnemyAI_Healer : EnemyAI_Standard
 
         else if(currentAIState == AIState.surrender)
         {
-            Debug.Log("Surrender");
+
         }
         //Animaciones
         Aim();

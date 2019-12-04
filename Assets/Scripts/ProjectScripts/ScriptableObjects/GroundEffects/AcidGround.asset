@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9769453754fbb4348810dc948c1c5ee4, type: 3}
+  m_Name: AcidGround
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 8b54c3b3e1780b44dacee1e0a5792975, type: 3}
+  animation: {fileID: 7400000, guid: ecd202796c56e7a4c92ffeadc014a82b, type: 2}
+  isFire: 1
+  touchDamage: 0
+  damageByTime: 1
+  timeInFire: 0.25
