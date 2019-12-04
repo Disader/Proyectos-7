@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject enemyToSpawn;
     [SerializeField] float maxEnemiesInstantiated;
     List<GameObject> actualEnemiesInstantiated = new List<GameObject>();
+    [SerializeField] float playerDistanceToStartSpawning;
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +23,20 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timeBetweenSpawns < timer && maxEnemiesInstantiated > actualEnemiesInstantiated.Count)
+        if((GameManager.Instance.ActualPlayerController.transform.position-this.transform.position).magnitude < playerDistanceToStartSpawning)
         {
-            timer = 0;
-            timeBetweenSpawns = Random.Range(originalTimeBetweenSpawns - randomDeviationBetweenSpawns, originalTimeBetweenSpawns + randomDeviationBetweenSpawns);
-            GameObject actualEnemy = Instantiate(enemyToSpawn, this.transform.position, this.transform.rotation);
-            actualEnemiesInstantiated.Add(actualEnemy);
-            if (actualEnemy.GetComponent<EnemyControl_MovementController>() != null)
+            timer += Time.deltaTime;
+            if (timeBetweenSpawns < timer && maxEnemiesInstantiated > actualEnemiesInstantiated.Count)
             {
-                ZoneManager.Instance.m_activeRoom.AddEnemyAtRoom(actualEnemy.GetComponent<EnemyControl_MovementController>());
-                actualEnemy.GetComponent<EnemyControl_MovementController>().spawnerInstantiatedFrom = this;
+                timer = 0;
+                timeBetweenSpawns = Random.Range(originalTimeBetweenSpawns - randomDeviationBetweenSpawns, originalTimeBetweenSpawns + randomDeviationBetweenSpawns);
+                GameObject actualEnemy = Instantiate(enemyToSpawn, this.transform.position, this.transform.rotation);
+                actualEnemiesInstantiated.Add(actualEnemy);
+                if (actualEnemy.GetComponent<EnemyControl_MovementController>() != null)
+                {
+                    ZoneManager.Instance.m_activeRoom.AddEnemyAtRoom(actualEnemy.GetComponent<EnemyControl_MovementController>());
+                    actualEnemy.GetComponent<EnemyControl_MovementController>().spawnerInstantiatedFrom = this;
+                }
             }
         }
     }
