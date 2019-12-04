@@ -7,6 +7,9 @@ public class ShootingScript : MonoBehaviour
     public enum whoIsShooting { enemy, player }; //Quien dispara
 
     [HideInInspector] public PasiveAbility_SO shSCR_PasiveAbility; //El contenido lo maneja ActiveAbility, al cual le llama EnemySetControl. No tocar
+    [Header("Variables de detección de la IA")]
+    [SerializeField] float m_weaponHearingDistance;
+    [SerializeField] LayerMask m_enemyLayer=9;
 
     [Header("Variables Generales de Disparo")]
     [SerializeField] GameObject m_bullet;
@@ -115,9 +118,21 @@ public class ShootingScript : MonoBehaviour
                 obj.layer = layer; ////Se le pone a la bala la layer correspondiente
             }
         }
+        AlertEnemies();
         ShootingEffects();
     }
-
+    void AlertEnemies()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, m_weaponHearingDistance, m_enemyLayer);
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            EnemyAI_Standard enemyAI = hitColliders[i].GetComponent<EnemyAI_Standard>();
+            if (enemyAI != null)
+            {
+                enemyAI.ExternalDetectPlayer();
+            }
+        }
+    }
     public void ResetPlayerFiringRateTimer() //Método que se llama desde EnemyController si no hay input de RightTrigger
     {
         if (player_firingRateTimer <= 0)

@@ -247,6 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDamageToPlayer: 0
   bulletDamageToEnemy: 0
+  m_bulletHearingDistance: 5
+  m_enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   m_velocity: 10
   hitWallPart: {fileID: 606117018089373498, guid: 047dc6345a251d94f8316f2e14837032,
     type: 3}

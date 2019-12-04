@@ -254,12 +254,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shSCR_PasiveAbility: {fileID: 0}
-  m_firingRate: 0.1
-  m_randomFiringRateDeviation: 0.05
+  m_weaponHearingDistance: 12
+  m_enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   m_bullet: {fileID: 8902041960538254988, guid: 9dba47176109e1b48ba97521b45df3b8,
     type: 3}
   m_shootingPos: {fileID: 4387296696882242116}
-  killAll: 0
+  m_killAll: 0
+  m_bulletsToInstantiateAtOnce: 1
+  m_dispersionAngle: 0
+  m_shootingAngle: 0
+  m_bulletsPerBurst: 1
+  m_burtFiringRate: 0
+  m_firingRate: 0.1
+  m_randomFiringRateDeviation: 0.05
   player_firingRate: 0.1
   shootPart: {fileID: 183587726170269635, guid: 10b841cb301f85c4f855016a6c444ea2,
     type: 3}
@@ -335,7 +344,6 @@ MonoBehaviour:
   ableToDash: 1
   dashTime: 0.4
   dashForce: 15
-  newAnimator: {fileID: 1957557055709031805}
   spawnerInstantiatedFrom: {fileID: 0}
 --- !u!114 &4387296696666090942
 MonoBehaviour:

@@ -208,7 +208,6 @@ public class EnemyAI_Standard : MonoBehaviour
         m_shootingScript.FireInShootingPos(ShootingScript.whoIsShooting.enemy);
     }
 
-
     ////////////////////CONDICIONES////////////////////////
     ///
     protected bool IsPlayerTooNear()
@@ -226,12 +225,14 @@ public class EnemyAI_Standard : MonoBehaviour
     {
         if (DistanceToPlayer() < m_playerHearingDetectionDistance|| IsPlayerInSight())
         {
-            Debug.DrawRay(transform.position, VectorToPlayer().normalized * DistanceToPlayer(), Color.red, 1f);
             return true;
         }
         else { return false; }
     }
-
+    public void ExternalDetectPlayer()
+    {
+        currentAIState = AIState.attacking;
+    }
 
     ////////////////////FUNCIONALIDAD////////////////////////
     ///
