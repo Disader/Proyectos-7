@@ -24,11 +24,14 @@ public class GroundEffect : DamageObject
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(m_isFire)
+        {
+            CollisionWithPlayer(collision.gameObject.GetComponent<PlayerHealthController>());
+        }
+    }
     private void GetScriptable()
     {
         m_sprite = groundEffectSO.sprite;

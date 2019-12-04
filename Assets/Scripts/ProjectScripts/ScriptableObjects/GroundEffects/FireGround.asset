@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 68af99aa1dd5e964aac73e545bb3ffd1, type: 3}
   animation: {fileID: 7400000, guid: d8a8bc0137ee0c74384be964cc6b8807, type: 2}
   isFire: 1
-  touchDamage: 2
+  touchDamage: 0
   damageByTime: 1
   timeInFire: 3

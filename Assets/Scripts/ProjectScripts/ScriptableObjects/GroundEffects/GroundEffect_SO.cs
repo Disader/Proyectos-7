@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New GroundEffect", menuName = "GroundEffect")]
 public class GroundEffect_SO : ScriptableObject
 {
-
     [SerializeField]
     public Sprite sprite;
     [SerializeField]
@@ -18,5 +17,4 @@ public class GroundEffect_SO : ScriptableObject
     public int damageByTime;
     [SerializeField]
     public float timeInFire;
-
 }
